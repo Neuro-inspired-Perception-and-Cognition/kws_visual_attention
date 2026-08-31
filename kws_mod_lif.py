@@ -13,13 +13,13 @@ import cv2
 import sys
 import torch
 from datetime import datetime
-from visual_attention.helpers_visual_att import initialise_attention, run_attention
+from visual_attention.helpers_visual_att_new import initialise_attention, run_attention
 
 # ---------------- config ----------------
-NPY_PATH = "/home/rocharay/kws_attention/data/6_objs_grid_25_size.npy"
+NPY_PATH = "data/6_weird_jitter_objects_346x260.npy"
 COL_X, COL_Y, COL_P, COL_T = 0, 1, 2, 3
 TIME_SCALE = 1e-3
-WINDOW_MS  = 100
+WINDOW_MS  = 50
 DOWNSAMPLE = 2
 
 ATTENTION_PARAMS = {
@@ -87,7 +87,7 @@ locked = False
 sx = sy = None      # where the current scan started
 
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-out_name = f"fovea_pan_{WORD}_{timestamp}_{LEAK}.mp4"
+out_name = f"fovea_{MODE}_{WORD}_{timestamp}_{LEAK}.mp4"
 vw = cv2.VideoWriter(out_name, cv2.VideoWriter_fourcc(*'mp4v'), 10, (W_orig, H_orig))  # single panel
 if not vw.isOpened():
     print("ERROR: video writer"); sys.exit(1)
@@ -154,7 +154,7 @@ for k in range(n_frames):
 
     ds = DOWNSAMPLE
     p = cv2.resize(to_bgr(M), (W_orig, H_orig), interpolation=cv2.INTER_LINEAR)
-    cv2.drawMarker(p, (int(fx*ds), int(fy*ds)), (0,0,255), cv2.MARKER_CROSS, 22, 2)   # fovea
+    # cv2.drawMarker(p, (int(fx*ds), int(fy*ds)), (0,0,255), cv2.MARKER_CROSS, 22, 2)   # fovea
     cv2.circle(p, (int(ax*ds), int(ay*ds)), 11, (255,255,255), 3)                    # attended
     cv2.putText(p, f"'{WORD}' [{MODE}] {'LOCK' if locked else 'pan'}", (8,22),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0,255,0) if locked else (255,255,255), 2)
