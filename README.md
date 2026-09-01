@@ -107,7 +107,7 @@ python kws_mod_live_words.py
 python kws_mod.py
 
 # KWS modulation with camera - live camera + written commands
-python kws_mod_cam+words.py
+python kws_mod_cam_words.py
 
 # Full experiment - live camera + spoken commands
 python kws_mod_cam_fpga.py
@@ -155,24 +155,57 @@ sudo usermod -aG plugdev $USER
 
 ## 3. NAS and KWS on FPGA
 
-Deployment target: **Opal Kelly XEM7310-A200** (Xilinx Artix-7).
+Deployment target: Opal Kelly XEM7310-A200 (Xilinx Artix-7). 
 
+Below you can see an overview of the setup.
 
-### 3.1. Software — train the model
+<img width="1596" height="591" alt="benner nas-kws overview" src="https://github.com/user-attachments/assets/a9fd391e-1b50-40bd-86d1-09c89163c5ca" />
 
-> **Goal:** train the model and export the best-calibrated checkpoint.
+## 3. NAS and KWS on FPGA
 
-**a) Clone the model repo**
+**Deployment target:** Opal Kelly XEM7310-A200 (Xilinx Artix-7).
+
+---
+
+### 3.1. Software — train and export the model
+
+> **Goal:** produce a calibrated model checkpoint and export the quantized weights for hardware deployment.
+
+> [!TIP]
+> You can skip training entirely by requesting the pre-trained calibrated checkpoint and weight files from the authors. 
+
+**a) Clone the model repo and install dependencies**
 
 ```bash
 git clone https://github.com/vision-agh/NAS-GNN-KWS.git
-cd NAS-GNN-KWS
+cd NAS-GNN-KWS/SW
+pip install -r requirements.txt
+python setup.py build_ext --inplace  # compile the C++ graph generator
 ```
 
+**b) Train the model**
+
+```bash
+python train_kws.py
+```
+
+This runs float training followed by quantization-aware training (calibration). The best calibrated checkpoint is saved to `results/kws/<run_id>/best_model_calibration.pth`.
+
+**c) Export the quantized weights**
+
+```bash
+python generate_weights.py --checkpoint results/kws/<run_id>/best_model_calibration.pth
+```
+
+This writes the `.mem` weight files to `HW/mem/`, which Vivado will load during synthesis.
+
+---
 
 ### 3.2. Hardware — deploy on the FPGA
 
-> **Goal:** deploy the trained model on hardware.
+> **Goal:** synthesize the bitstream, program the XEM7310-A200, and run inference from the host PC.
+>
+> For board-specific setup (drivers, FrontPanel SDK, udev rules), see the dedicated guide: [XEM7310-A200 FPGA Setup](https://github.com/Neuro-inspired-Perception-and-Cognition/XEM7310-A200-FPGA-setup).
 
 **a) Install the host-side tooling**
 
@@ -180,32 +213,31 @@ cd NAS-GNN-KWS
 pip install pyokaertool
 ```
 
-
 **b) Open Vivado**
 
 ```bash
 /xilinx/Vivado/2022.2/bin/vivado
 ```
 
-**c) Create a new project and add sources**
+**c) Create a new Vivado project**
 
-Add the following:
+Set the target part to `xc7a200tfbg484-1` and add the following sources (uncheck *Copy sources into project* for all repo files):
 
-- **All `.sv` and `.v` files** from:
-  - `HW/src/`
-  - `HW/src/GCNN/`
-  - `HW/src/NAS/` (the `.vhd` files)
-  - `HW/src/board_wrapper_files/ok_top_wrapper.sv` (your new wrapper)
-  - the FrontPanel HDL `.v` files
-- **All `.xci` files** from `HW/ip/` **except** `clk_wiz_zcu.xci`
-- **Constraints** from `HW/const/`
+| Source type | Location |
+|---|---|
+| Design sources (`.sv`, `.v`) | `HW/src/`, `HW/src/GCNN/`, `HW/src/board_wrapper_files/` |
+| Design sources (`.vhd`) | `HW/src/NAS/` |
+| FrontPanel HDL (`.v`) | From your FrontPanel SDK installation |
+| IP files (`.xci`) | `HW/ip/` — **exclude** `clk_wiz_zcu.xci` |
+| Constraints (`.xdc`) | `HW/const/ok_constr.xdc` |
 
-**d) Set the top module and generate the clock IP**
+**d) Configure the design**
 
-- Set `ok_top_wrapper` as the **top** module.
-- Create the `clk_wiz_ok` IP in Vivado.
+1. Set `ok_top_wrapper` as the **top module**.
+2. In the IP Catalog, create the `clk_wiz_ok` IP (Clocking Wizard): 200 MHz differential input → `clk_out1` at 48 MHz, `clk_out2` at 200 MHz.
+3. Run **Upgrade All IPs** to retarget any locked IPs to the Artix-7.
 
-<!-- TODO: continue the deploy steps from here — synth/impl, bitstream generation, and running the FrontPanel host script. -->
+**e) Synthesize, implement, and generate the bitstream**
 
 ---
 
