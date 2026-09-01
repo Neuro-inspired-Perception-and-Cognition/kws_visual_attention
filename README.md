@@ -73,8 +73,8 @@ flowchart LR
 **a) Create the environment**
 
 ```bash
-conda create -n neuroenv python=3.10 -y
-conda activate neuroenv
+conda create -n kws_env python=3.10 -y
+conda activate kws_env
 ```
 
 **b) Install requirements**
@@ -83,12 +83,35 @@ conda activate neuroenv
 pip install numpy opencv-python torch scipy scikit-image sinabs torchvision dv-processing
 ```
 
-**c) Run**
+## c) Run
+
+The `data/` folder contains four `.npy` files with synthetic scenes. Choose the one you want to visualize,use your own (check Generating synthetic scene to know more), or use live events from the camera:
+
+| File | Scene |
+|------|-------|
+| `3_different_circles_346x260.npy` | *(insert image)* |
+| `4_different_objects_.npy` | *(insert image)* |
+| `6_different_objects_346x260.npy` | *(insert image)* |
+| `7_different_objects_346x260.npy` | *(insert image)* |
+
+Then pick the script that matches your setup:
 
 ```bash
-python kws_modulator.py
-```
+# Saliency map only (no modulation, uses .npy files)
+python get_only_saliency.py
 
+# KWS modulation with synthetic data - type commands in the terminal
+python kws_mod_live_words.py
+
+# KWS modulation only (no camera)
+python kws_mod.py
+
+# KWS modulation with camera - live camera + written commands
+python kws_mod_cam+words.py
+
+# Full experiment - live camera + spoken commands
+python kws_mod_cam_fpga.py
+```
 ---
 
 ## 2. DAVIS346 event camera
