@@ -205,7 +205,10 @@ This writes the `.mem` weight files to `HW/mem/`, which Vivado will load during 
 
 > **Goal:** synthesize the bitstream, program the XEM7310-A200, and run inference from the host PC.
 >
-> For board-specific setup (drivers, FrontPanel SDK, udev rules), see the dedicated guide: [XEM7310-A200 FPGA Setup](https://github.com/Neuro-inspired-Perception-and-Cognition/XEM7310-A200-FPGA-setup).
+> For board-specific setup (drivers, FrontPanel SDK, udev rules), see the dedicated guide: [XEM7310-A200 FPGA Setup](https://github.com/Neuro-inspired-Perception-and-Cognition/XEM7310-A200-FPGA-setup). Below is an overview of the main components to use the FPGA.
+
+<img width="1489" height="551" alt="banner frontpanel+vivado" src="https://github.com/user-attachments/assets/77b1b41f-7028-4d0b-8498-7337e8a90394" />
+
 
 **a) Install the host-side tooling**
 
