@@ -85,7 +85,7 @@ pip install numpy opencv-python torch scipy scikit-image sinabs torchvision dv-p
 
 ## c) Run
 
-The `data/` folder contains four `.npy` files with synthetic scenes. Choose the one you want to visualize,use your own (check Generating synthetic scene to know more), or use live events from the camera:
+The `data/` folder contains four `.npy` files with synthetic scenes. Choose the one you want to visualize,use your own (check Generating synthetic scene to know more), or use live events from the camera.
 
 | File | Scene |
 |------|-------|
@@ -258,6 +258,7 @@ Set the target part to `xc7a200tfbg484-1` and add the following sources (uncheck
 | Dr. Giulia D'Angelo | NPC Lab, FEL, CTU | Supervisor | giulia.dangelo@fel.cvut.cz |
 | Dr. Karla Štěpánová | ROP group, CIIRC, CTU | Co-supervisor | karla.stepanova@cvut.cz   |
 | Piotr Wzorek | EVS group, AGH University, Kraków | Collaborator | pwzorek@agh.edu.pl |
+| Paolo Ritirato | NPC Lab, FEL, CTU | Collaborator | paolo.ritirato@fel.cvut.cz |
 
 ## Acknowledgements
 
