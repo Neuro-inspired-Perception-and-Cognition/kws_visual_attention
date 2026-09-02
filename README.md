@@ -36,13 +36,13 @@ When a directional keyword (left / right / up / down) is detected, it applies a 
 
 ```mermaid
 flowchart LR
-    subgraph V["👁️ Visual pathway (CPU)"]
+    subgraph V["Visual pathway (CPU)"]
         direction TB
         CAM["DAVIS346 event camera"] --> EV["Event stream"]
         EV --> SAL["Spiking saliency pyramid<br/>Von Mises - LIF"]
         SAL --> SMAP["Bottom-up saliency map"]
     end
-    subgraph A["👂Auditory pathway (FPGA)"]
+    subgraph A["Auditory pathway (FPGA)"]
         direction TB
         MIC["Microphone"] --> COCH["Artificial cochlea<br/>audio → spikes"]
         COCH --> KWS["NAS-GNN-KWS"]
