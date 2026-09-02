@@ -42,7 +42,7 @@ flowchart LR
         EV --> SAL["Spiking saliency pyramid<br/>Von Mises · sinabs LIF"]
         SAL --> SMAP["Bottom-up saliency map"]
     end
-    subgraph A["🎧 Auditory pathway"]
+    subgraph A["👂Auditory pathway"]
         direction TB
         MIC["Microphone"] --> COCH["Artificial cochlea<br/>audio → spikes"]
         COCH --> KWS["NAS-GNN-KWS on FPGA<br/>XEM7310-A200 · Artix-7"]
