@@ -39,19 +39,19 @@ flowchart LR
     subgraph V["👁️ Visual pathway"]
         direction TB
         CAM["DAVIS346 event camera"] --> EV["Event stream"]
-        EV --> SAL["Spiking saliency pyramid<br/>Von Mises · sinabs LIF"]
+        EV --> SAL["Spiking saliency pyramid<br/>Von Mises - LIF"]
         SAL --> SMAP["Bottom-up saliency map"]
     end
     subgraph A["👂Auditory pathway"]
         direction TB
         MIC["Microphone"] --> COCH["Artificial cochlea<br/>audio → spikes"]
-        COCH --> KWS["NAS-GNN-KWS on FPGA<br/>XEM7310-A200 · Artix-7"]
-        KWS --> WORD["Directional keyword<br/>left · right · up · down"]
+        COCH --> KWS["NAS-GNN-KWS on FPGA<br/>XEM7310-A200 Artix-7"]
+        KWS --> WORD["Directional keyword<br/>left/right/up/down"]
     end
     SMAP --> MOD{"Directional Gaussian<br/>modulation"}
     WORD --> MOD
     MOD --> TGT["Modulated saliency<br/>→ fovea target"]
-    TGT --> SYSTEM["Fovea redirect"]
+    TGT --> SYSTEM["Attention redirect"]
 ```
 
 ## Demos (TBD)
