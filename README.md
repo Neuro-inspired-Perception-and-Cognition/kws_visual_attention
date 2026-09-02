@@ -85,9 +85,9 @@ conda activate kws_env
 pip install numpy opencv-python torch scipy scikit-image sinabs torchvision dv-processing
 ```
 
-## c) Run
+**c) Run**
 
-The `data/` folder contains four `.npy` files with synthetic scenes. Choose the one you want to visualize,use your own (check Generating synthetic scene to know more), or use live events from the camera.
+The `data/` folder contains [NUMBER] `.npy` files with synthetic scenes. Choose the one you want to visualize, use your own (check [Generating synthetic scenes](#12-generating-synthetic-scenes-tbd) to know more), or use live events from the camera.
 
 | File | Scene |
 |------|-------|
@@ -114,6 +114,8 @@ python kws_mod_cam_words.py
 # Full experiment - live camera + spoken commands
 python kws_mod_cam_fpga.py
 ```
+### 1.2. Generating synthetic scenes (TBD)
+
 ---
 
 ## 2. DAVIS346 event camera
