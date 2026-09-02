@@ -161,7 +161,8 @@ Deployment target: Opal Kelly XEM7310-A200 (Xilinx Artix-7).
 
 Below you can see an overview of the setup.
 
-<img width="1596" height="591" alt="benner nas-kws overview" src="https://github.com/user-attachments/assets/a9fd391e-1b50-40bd-86d1-09c89163c5ca" />
+<img width="1596" height="591" alt="benner nas-kws overview" src="https://github.com/user-attachments/assets/5b492944-bfe1-466d-9513-bf287e25cb7a" />
+
 
 ## 3. NAS and KWS on FPGA
 
