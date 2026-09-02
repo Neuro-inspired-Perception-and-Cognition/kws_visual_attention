@@ -59,7 +59,7 @@ flowchart LR
 | Visual attention (KWS modulation) | DAVIS346 live camera | KWS on FPGA |
 | :---: | :---: | :---: |
 | <img src="docs/demo_modulation.gif" width="260"/> | <img src="docs/demo_camera.gif" width="260"/> | <img src="docs/demo_fpga.gif" width="260"/> |
-| *A spoken word boosts saliency in its direction* | *Live event stream driving attention* | *Keyword spotting on Artix-7* |
+| A spoken word boosts saliency in its direction | Live event stream driving attention | Keyword spotting on XEM7310-A200 Artix-7 |
 
 TBD: Demo video on youtube
 
