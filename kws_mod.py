@@ -1,5 +1,5 @@
 """
-Fovea panning over a decaying per-pixel membrane
+Basic hard-coded KWS-modulated attention. Fovea panning over a decaying per-pixel membrane
 
 events -> run_attention -> saliency 
 per-pixel neurons decay + integrate saliency, with the fovea's target area BOOSTED:
@@ -13,10 +13,10 @@ import cv2
 import sys
 import torch
 from datetime import datetime
-from visual_attention.helpers_visual_att_new import initialise_attention, run_attention
+from visual_attention.helpers_visual_att import initialise_attention, run_attention
 
 # ---------------- config ----------------
-NPY_PATH = "data/6_weird_jitter_objects_346x260.npy"
+NPY_PATH = ""
 COL_X, COL_Y, COL_P, COL_T = 0, 1, 2, 3
 TIME_SCALE = 1e-3
 WINDOW_MS  = 50

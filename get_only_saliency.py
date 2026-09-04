@@ -1,3 +1,7 @@
+'''
+Get only saliency maps from event data
+'''
+
 import matplotlib
 matplotlib.use('TkAgg')  # or 'Qt5Agg'
 import matplotlib.pyplot as plt
@@ -33,7 +37,7 @@ def load_events(path):
     return x, y, p, t
 
 # Load event data from a .npy file
-x, y, p, t = load_events("data/6_weird_jitter_objects_346x260.npy")
+x, y, p, t = load_events("/home/rocharay/kws_attention/data/shapes_jitter_5_events.npy")
 
 # diagnostic print
 print(f"duration: {t.max()-t.min():.1f} ms")

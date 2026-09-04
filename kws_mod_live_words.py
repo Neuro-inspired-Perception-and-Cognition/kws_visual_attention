@@ -1,22 +1,19 @@
 """
-fovea_pan_interactive.py — live version of fovea_pan.py.
+Synthetic video + live typed commands.
 
-Type direction commands in the terminal WHILE the video is playing; the
+Type direction commands in the terminal while the video is playing; the
 active command updates and the fovea reacts, live, in an OpenCV window.
-Same M/LEAK/BOOST membrane dynamics as the batch script — only the
+Same M/LEAK/BOOST membrane dynamics as the batch script, only the
 input/display layer is new.
 
 Commands (typed in the terminal, Enter to submit):
-    right / left / up / down     set the active direction (conf defaults to 1.0)
-    right 0.8                    same, with an explicit confidence
+    right / left / up / down     
     stop  (or: none, clear)      release the active command, freeze in place
     reset                        zero the membrane and re-fixate on next salmax
     mode pan   / mode saccade    switch panning mode live
-    quit / exit / q              end the session (also: 'q' in the video window)
+    quit / exit / q              end the session (also: 'q' in the video window, to restart, kill the terminal and run again)
 
-Requires a local display for cv2.imshow — this won't work over a headless
-SSH session without X forwarding. If that's your setup, say so and I'll
-switch this to a Jupyter/matplotlib-based live loop instead.
+Requires a local display for cv2.imshow 
 """
 
 import queue

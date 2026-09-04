@@ -1,29 +1,17 @@
 """
-fovea_pan_live_camera.py — live camera + live commands.
+Live camera + live typed commands.
 
-Merge of two scripts:
-  * fovea_pan_interactive.py  -> the interactive layer (stdin thread, command
-    queue, and the M/LEAK/BOOST membrane + foveal-Gaussian boost + capture/lock
-    controller). Previously ran on a recorded .npy.
-  * the KWS live-camera debug script -> the DVS camera source (dv_processing
-    EventStreamSlicer), previously with a hardcoded command.
 
-Result: the fovea-pan controller is now driven by real events off the camera,
-and you steer it by typing in the terminal WHILE the camera streams. The
-gradient kws_modulate() path is intentionally NOT used here — this is the
-membrane controller. Ask if you want the gradient/3-panel version live instead.
+Type direction commands in the terminal while camera streams events. 
 
 Commands (typed in the terminal, Enter to submit):
     right / left / up / down     set the active direction (conf defaults to 1.0)
-    right 0.8                    same, with an explicit confidence
     stop  (or: none, clear)      release the active command, freeze in place
     reset                        zero the membrane and re-fixate on next salmax
     mode pan   / mode saccade    switch panning mode live
-    quit / exit / q              end the session (also: 'q' in the video window)
+    quit / exit / q              end the session (also: 'q' in the video window,to restart, kill the terminal and run again)
 
-Requires a local display for cv2.imshow and a connected DVS camera. Over a
-headless SSH session you'll need X forwarding; if that's your setup, say so and
-I'll swap the display for a Jupyter/matplotlib live loop.
+Requires a local display for cv2.imshow and a connected DVS camera. 
 
 NOTE on tuning: the spatial constants (READOUT_R, STEP, SACCADE_JUMP,
 MIN_TRAVEL) were tuned for a 173x130 processing grid (346x260 downsampled 2x).
