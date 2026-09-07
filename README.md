@@ -250,8 +250,8 @@ Set the target part to `xc7a200tfbg484-1` and add the following sources (uncheck
 
 ## Papers and references
 
-- **NAS-GNN-KWS** — graph-based keyword spotting used on the FPGA. <https://github.com/vision-agh/NAS-GNN-KWS>
-- **DAVIS346 / dv-processing** — event-camera SDK. <https://inivation.com>
+- **NAS-GNN-KWS**: graph-based keyword spotting used on the FPGA <https://github.com/vision-agh/NAS-GNN-KWS>
+- **DAVIS346 / dv-processing**: event-camera SDK <https://inivation.com>
 
 
 ## Team
