@@ -137,7 +137,7 @@ Bus 004 Device 002: ID 152a:841a Thesycon ... INI DAViS FX3
 ```
 
 <details>
-<summary>🐞 <b>Troubleshooting</b> (nothing shows up, or a permission error on open_</summary>
+<summary>🐞 <b>Troubleshooting</b> (nothing shows up, or a permission error on open)</summary>
 
 <br>
 
