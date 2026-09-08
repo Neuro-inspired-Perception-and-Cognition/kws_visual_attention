@@ -7,10 +7,11 @@ Same M/LEAK/BOOST membrane dynamics as the batch script, only the
 input/display layer is new.
 
 Commands (typed in the terminal, Enter to submit):
-    right / left / up / down     
+    right / left / up / down     set the active direction (conf defaults to 1.0)
     stop  (or: none, clear)      release the active command, freeze in place
     reset                        zero the membrane and re-fixate on next salmax
     mode pan   / mode saccade    switch panning mode live
+    log   (or: mark)             record the current fovea as one trial row -> run_log.csv
     quit / exit / q              end the session (also: 'q' in the video window, to restart, kill the terminal and run again)
 
 Requires a local display for cv2.imshow 
@@ -28,8 +29,10 @@ import torch
 from visual_attention.helpers_visual_att import initialise_attention, run_attention
 from command_parser import parse_command
 
-# ---------------- config ----------------
-NPY_PATH = "/home/rocharay/kws_attention/data/6_weird_jitter_objects_346x260.npy"
+import csv
+
+# config 
+NPY_PATH = "/home/rocharay/kws_attention/data/6_different_objects_346x260.npy"                 
 COL_X, COL_Y, COL_P, COL_T = 0, 1, 2, 3
 TIME_SCALE = 1e-3
 WINDOW_MS = 100
@@ -61,14 +64,15 @@ PLAYBACK_MS = WINDOW_MS      # cv2.waitKey delay: paces playback AND pumps the G
 DEBUG = True
 DIRS = {"right": 0.0, "down": np.pi / 2, "left": np.pi, "up": 3 * np.pi / 2}
 
-# ---------------- stdin reader thread ----------------
+# stdin reader thread
 cmd_queue = queue.Queue()
+run_log = []
 
 
 def stdin_reader(q):
     """Runs in a background thread. input() blocks THIS thread, never the video loop."""
-    print("Type a command and press Enter (right / left / up / down / stop / reset / "
-          "mode pan|saccade / quit).")
+    print("Type a command and press Enter (right/left/up/down/stop/reset/ "
+          "mode pan|saccade / log / quit).")
     while True:
         try:
             line = input()
@@ -80,7 +84,7 @@ def stdin_reader(q):
 
 threading.Thread(target=stdin_reader, args=(cmd_queue,), daemon=True).start()
 
-# ---------------- load npy ----------------
+#  load npy 
 device = torch.device("cpu")
 print(f"Using device: {device}")
 
@@ -126,6 +130,7 @@ active = None
 locked = False
 sx = sy = None
 word, conf = None, CONF        # no active command until the user types one
+just_typed = False             # set True whenever a command is typed (re-arms the pan)
 
 win_name = "fovea (live)"
 cv2.namedWindow(win_name, cv2.WINDOW_NORMAL)
@@ -152,12 +157,21 @@ def to_bgr(m, cmap=cv2.COLORMAP_JET):
 
 def drain_commands():
     """Apply every command that's arrived since the last frame. Returns False on quit."""
-    global word, conf, locked, sx, sy, MODE, M, fx, fy
+    global word, conf, locked, sx, sy, MODE, M, fx, fy, just_typed
     while True:
         try:
             item = cmd_queue.get_nowait()
         except queue.Empty:
             return True
+        if isinstance(item, str) and item.strip().lower() in ("log", "mark"):
+            if fx is not None:
+                run_log.append({"direction": word, "k": 1,
+                                "ref_x": round(sx, 1), "ref_y": round(sy, 1),
+                                "fovea_x": round(fx, 1), "fovea_y": round(fy, 1)})
+                print(f"  -> logged: '{word}' fovea=({int(fx)},{int(fy)})  [{len(run_log)} rows]")
+            else:
+                print("  -> nothing to log yet")
+            continue
         cmd = item if isinstance(item, dict) else parse_command(item, DIRS)
         if cmd is None:
             continue
@@ -165,6 +179,7 @@ def drain_commands():
             return False
         elif cmd["type"] == "word":
             word, conf = cmd["word"], cmd["conf"]
+            just_typed = True
             print(f"  -> command set: '{word}' (conf={conf})")
         elif cmd["type"] == "stop":
             word = None
@@ -182,8 +197,8 @@ def drain_commands():
     return True
 
 
-# ---------------- main loop ----------------
-print("\n--- live. type commands below. ---\n")
+# main loop
+print("\n--- Type commands below ---\n")
 count = 0
 k = 0
 running = True
@@ -224,7 +239,7 @@ try:
         foc = np.exp(-((X - fx) ** 2 + (Y - fy) ** 2) / (2 * READOUT_R ** 2))
         M = LEAK * M + (1.0 - LEAK) * saliency * (1.0 + BOOST * foc)
 
-        if word != active:
+        if just_typed:                 # a command was typed (even the same word) -> re-arm
             locked = False
             sx, sy = fx, fy
         if (not locked) and word in DIRS and conf >= THRESHOLD:
@@ -232,9 +247,10 @@ try:
             if MODE == "pan":
                 fx = float(np.clip(fx + STEP * np.cos(psi), 0, max_x - 1))
                 fy = float(np.clip(fy + STEP * np.sin(psi), 0, max_y - 1))
-            elif word != active:
+            elif just_typed:           # saccade: one jump per typed command
                 fx = float(np.clip(fx + SACCADE_JUMP * np.cos(psi), 0, max_x - 1))
                 fy = float(np.clip(fy + SACCADE_JUMP * np.sin(psi), 0, max_y - 1))
+        just_typed = False
         active = word
 
         zone = (X - fx) ** 2 + (Y - fy) ** 2 <= READOUT_R ** 2
@@ -276,5 +292,10 @@ finally:
     if vw is not None:
         vw.release()
     cv2.destroyAllWindows()
+    if run_log:                                       
+        with open("run_log.csv", "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=["direction", "k", "ref_x", "ref_y", "fovea_x", "fovea_y"])
+            w.writeheader(); w.writerows(run_log)
+        print(f"wrote run_log.csv  ({len(run_log)} commands)")
     print(f"\n\nSession ended. Frames shown: {count}" +
           (f"  |  saved to '{out_name}'" if vw is not None else ""))
