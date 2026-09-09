@@ -7,11 +7,10 @@ Same M/LEAK/BOOST membrane dynamics as the batch script, only the
 input/display layer is new.
 
 Commands (typed in the terminal, Enter to submit):
-    right / left / up / down     set the active direction (conf defaults to 1.0)
+    right / left / up / down     
     stop  (or: none, clear)      release the active command, freeze in place
     reset                        zero the membrane and re-fixate on next salmax
     mode pan   / mode saccade    switch panning mode live
-    log   (or: mark)             record the current fovea as one trial row -> run_log.csv
     quit / exit / q              end the session (also: 'q' in the video window, to restart, kill the terminal and run again)
 
 Requires a local display for cv2.imshow 
@@ -25,14 +24,15 @@ from datetime import datetime
 import cv2
 import numpy as np
 import torch
+from scipy.ndimage import maximum_filter
 
 from visual_attention.helpers_visual_att import initialise_attention, run_attention
 from command_parser import parse_command
 
 import csv
 
-# config 
-NPY_PATH = "/home/rocharay/kws_attention/data/6_different_objects_346x260.npy"                 
+# ---------------- config ----------------
+NPY_PATH = "/home/rocharay/kws_attention/data/6_circles_346x260.npy" # <- set to your events .npy
 COL_X, COL_Y, COL_P, COL_T = 0, 1, 2, 3
 TIME_SCALE = 1e-3
 WINDOW_MS = 100
@@ -55,6 +55,8 @@ READOUT_R = 25.0
 BOOST = 2.0
 CAP_RATIO = 2.5
 MIN_TRAVEL = 50.0
+PEAK_SEP   = 15      # px: min separation between distinct object peaks
+PEAK_FLOOR = 0.3     # a peak must be >= this fraction of the brightest point
 MODE = "pan"                # "pan" or "saccade" — changeable live via "mode <x>"
 
 LOOP_PLAYBACK = True        # replay the clip forever so the session doesn't just end
@@ -72,7 +74,7 @@ run_log = []
 def stdin_reader(q):
     """Runs in a background thread. input() blocks THIS thread, never the video loop."""
     print("Type a command and press Enter (right/left/up/down/stop/reset/ "
-          "mode pan|saccade / log / quit).")
+          "mode pan|saccade / quit).")
     while True:
         try:
             line = input()
@@ -130,7 +132,6 @@ active = None
 locked = False
 sx = sy = None
 word, conf = None, CONF        # no active command until the user types one
-just_typed = False             # set True whenever a command is typed (re-arms the pan)
 
 win_name = "fovea (live)"
 cv2.namedWindow(win_name, cv2.WINDOW_NORMAL)
@@ -157,21 +158,12 @@ def to_bgr(m, cmap=cv2.COLORMAP_JET):
 
 def drain_commands():
     """Apply every command that's arrived since the last frame. Returns False on quit."""
-    global word, conf, locked, sx, sy, MODE, M, fx, fy, just_typed
+    global word, conf, locked, sx, sy, MODE, M, fx, fy
     while True:
         try:
             item = cmd_queue.get_nowait()
         except queue.Empty:
             return True
-        if isinstance(item, str) and item.strip().lower() in ("log", "mark"):
-            if fx is not None:
-                run_log.append({"direction": word, "k": 1,
-                                "ref_x": round(sx, 1), "ref_y": round(sy, 1),
-                                "fovea_x": round(fx, 1), "fovea_y": round(fy, 1)})
-                print(f"  -> logged: '{word}' fovea=({int(fx)},{int(fy)})  [{len(run_log)} rows]")
-            else:
-                print("  -> nothing to log yet")
-            continue
         cmd = item if isinstance(item, dict) else parse_command(item, DIRS)
         if cmd is None:
             continue
@@ -179,7 +171,6 @@ def drain_commands():
             return False
         elif cmd["type"] == "word":
             word, conf = cmd["word"], cmd["conf"]
-            just_typed = True
             print(f"  -> command set: '{word}' (conf={conf})")
         elif cmd["type"] == "stop":
             word = None
@@ -229,6 +220,7 @@ try:
             saliency, salmax = run_attention(window, net, device, resolution,
                                              ATTENTION_PARAMS['num_pyr'])
         saliency = np.asarray(saliency)
+        np.save("sal_snapshot.npy", saliency)
         if np.isnan(saliency).any() or saliency.max() == saliency.min():
             continue
 
@@ -239,18 +231,27 @@ try:
         foc = np.exp(-((X - fx) ** 2 + (Y - fy) ** 2) / (2 * READOUT_R ** 2))
         M = LEAK * M + (1.0 - LEAK) * saliency * (1.0 + BOOST * foc)
 
-        if just_typed:                 # a command was typed (even the same word) -> re-arm
+        if word != active:                       # a new command -> one jump
             locked = False
-            sx, sy = fx, fy
-        if (not locked) and word in DIRS and conf >= THRESHOLD:
-            psi = DIRS[word]
-            if MODE == "pan":
-                fx = float(np.clip(fx + STEP * np.cos(psi), 0, max_x - 1))
-                fy = float(np.clip(fy + STEP * np.sin(psi), 0, max_y - 1))
-            elif just_typed:           # saccade: one jump per typed command
-                fx = float(np.clip(fx + SACCADE_JUMP * np.cos(psi), 0, max_x - 1))
-                fy = float(np.clip(fy + SACCADE_JUMP * np.sin(psi), 0, max_y - 1))
-        just_typed = False
+            sx, sy = fx, fy                       # where we were looking = the reference
+            if word in DIRS and conf >= THRESHOLD:
+                psi = DIRS[word]
+                ux, uy = np.cos(psi), np.sin(psi)
+                mx = maximum_filter(saliency, size=PEAK_SEP)
+                pys, pxs = np.where((saliency == mx) & (saliency >= PEAK_FLOOR * saliency.max()))
+                best, best_d = None, None
+                for px, py in zip(pxs, pys):
+                    if (px - sx) * ux + (py - sy) * uy <= PEAK_SEP:   # ahead + a different object
+                        continue
+                    d = (px - sx) ** 2 + (py - sy) ** 2
+                    if best_d is None or d < best_d:
+                        best, best_d = (float(px), float(py)), d
+                if best is not None:
+                    fx, fy = best                 # jump onto the chosen object
+                    run_log.append({"direction": word, "k": 1,
+                                    "ref_x": round(sx, 1), "ref_y": round(sy, 1),
+                                    "fovea_x": round(fx, 1), "fovea_y": round(fy, 1)})
+                    print(f"  -> {word}: jumped to ({int(fx)},{int(fy)})  [{len(run_log)} logged]")
         active = word
 
         zone = (X - fx) ** 2 + (Y - fy) ** 2 <= READOUT_R ** 2
@@ -292,10 +293,11 @@ finally:
     if vw is not None:
         vw.release()
     cv2.destroyAllWindows()
-    if run_log:                                       
+    if run_log:                                        # write the run log to CSV 
         with open("run_log.csv", "w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=["direction", "k", "ref_x", "ref_y", "fovea_x", "fovea_y"])
             w.writeheader(); w.writerows(run_log)
         print(f"wrote run_log.csv  ({len(run_log)} commands)")
     print(f"\n\nSession ended. Frames shown: {count}" +
           (f"  |  saved to '{out_name}'" if vw is not None else ""))
+
