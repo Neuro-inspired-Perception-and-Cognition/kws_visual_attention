@@ -14,6 +14,11 @@ Commands (typed in the terminal, Enter to submit):
     quit / exit / q              end the session (also: 'q' in the video window, to restart, kill the terminal and run again)
 
 Requires a local display for cv2.imshow 
+
+LOGGING: every typed direction command produces exactly one row in run_log.csv.
+A command's row is written when the NEXT command arrives (and the last one at
+quit), so a command that failed to move the fovea still gets a row -- it shows
+up in scoring as "did not move" instead of silently vanishing.
 """
 
 import queue
@@ -24,22 +29,21 @@ from datetime import datetime
 import cv2
 import numpy as np
 import torch
-from scipy.ndimage import maximum_filter
 
 from visual_attention.helpers_visual_att import initialise_attention, run_attention
 from command_parser import parse_command
 
 import csv
 
-# ---------------- config ----------------
-NPY_PATH = "/home/rocharay/kws_attention/data/6_circles_346x260.npy" # <- set to your events .npy
+#  config 
+NPY_PATH = "data/6_circles_tex_346x260.npy"   # <- set to your events .npy
 COL_X, COL_Y, COL_P, COL_T = 0, 1, 2, 3
 TIME_SCALE = 1e-3
 WINDOW_MS = 100
 DOWNSAMPLE = 2
 
 ATTENTION_PARAMS = {
-    'size_krn': 16, 'r0': 7, 'rho': 0.015, 'theta': np.pi * 3 / 2,
+    'size_krn': 16, 'r0': 8, 'rho': 0.015, 'theta': np.pi * 3 / 2,
     'thetas': np.arange(0, 2 * np.pi, np.pi / 4), 'thick': 12,
     'fltr_resize_perc': [2, 2], 'offsetpxs': 0, 'offset': (0, 0),
     'num_pyr': 6, 'tau_mem': 0.3, 'stride': 1, 'out_ch': 1,
@@ -49,19 +53,18 @@ CONF = 1.0
 THRESHOLD = 0.6
 
 LEAK = 0.5
-STEP = 8.0
-SACCADE_JUMP = 60.0
-READOUT_R = 25.0
+STEP = 8.0 
+SACCADE_JUMP = 60.0 
+READOUT_R = 25.0 
 BOOST = 2.0
-CAP_RATIO = 2.5
-MIN_TRAVEL = 50.0
-PEAK_SEP   = 15      # px: min separation between distinct object peaks
-PEAK_FLOOR = 0.3     # a peak must be >= this fraction of the brightest point
+CAP_RATIO = 1.5
+MIN_TRAVEL = 50.0 
 MODE = "pan"                # "pan" or "saccade" — changeable live via "mode <x>"
 
 LOOP_PLAYBACK = True        # replay the clip forever so the session doesn't just end
 RECORD = True                # also save an .mp4 of the session alongside the live view
 PLAYBACK_MS = WINDOW_MS      # cv2.waitKey delay: paces playback AND pumps the GUI
+SAVE_DEBUG_FRAME = False     # True -> dump one event window + membrane, then stop
 
 DEBUG = True
 DIRS = {"right": 0.0, "down": np.pi / 2, "left": np.pi, "up": 3 * np.pi / 2}
@@ -132,11 +135,15 @@ active = None
 locked = False
 sx = sy = None
 word, conf = None, CONF        # no active command until the user types one
+cmd_start = None               # fovea position when the current command was issued
+rearm = False                  # a direction was typed -> re-arm the pan once, even
+                               # if it repeats the word already active
 
 win_name = "fovea (live)"
 cv2.namedWindow(win_name, cv2.WINDOW_NORMAL)
 
 vw = None
+out_name = None
 if RECORD:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     out_name = f"fovea_interactive_{timestamp}.mp4"
@@ -156,9 +163,25 @@ def to_bgr(m, cmap=cv2.COLORMAP_JET):
     return cv2.applyColorMap(np.clip(m, 0, 255).astype(np.uint8), cmap)
 
 
+def close_command():
+    """Record the outcome of the command that is currently active, if any.
+
+    Called when a new command arrives and once at quit, so EVERY typed command
+    gets exactly one row -- including ones where the fovea never moved.
+    """
+    if word in DIRS and fx is not None and cmd_start is not None:
+        run_log.append({
+            "direction": word, "k": 1,
+            "ref_x": round(cmd_start[0], 1), "ref_y": round(cmd_start[1], 1),
+            "fovea_x": round(fx, 1), "fovea_y": round(fy, 1),
+        })
+        return True
+    return False
+
+
 def drain_commands():
     """Apply every command that's arrived since the last frame. Returns False on quit."""
-    global word, conf, locked, sx, sy, MODE, M, fx, fy
+    global word, conf, locked, sx, sy, MODE, M, fx, fy, cmd_start, rearm
     while True:
         try:
             item = cmd_queue.get_nowait()
@@ -170,15 +193,23 @@ def drain_commands():
         if cmd["type"] == "quit":
             return False
         elif cmd["type"] == "word":
+            close_command()                # log the previous command's result
             word, conf = cmd["word"], cmd["conf"]
-            print(f"  -> command set: '{word}' (conf={conf})")
+            cmd_start = (fx, fy) if fx is not None else None
+            rearm = True
+            print(f"  -> command set: '{word}' (conf={conf})  [{len(run_log)} logged]")
         elif cmd["type"] == "stop":
+            close_command()                # a held command ends here too
             word = None
+            cmd_start = None
             print("  -> command cleared, holding position")
         elif cmd["type"] == "reset":
+            close_command()
             M[:] = 0.0
             fx = fy = None
             locked = False
+            word = None
+            cmd_start = None
             print("  -> membrane reset; re-fixating on next frame's salmax")
         elif cmd["type"] == "mode":
             MODE = cmd["mode"]
@@ -220,38 +251,37 @@ try:
             saliency, salmax = run_attention(window, net, device, resolution,
                                              ATTENTION_PARAMS['num_pyr'])
         saliency = np.asarray(saliency)
-        np.save("sal_snapshot.npy", saliency)
+        if SAVE_DEBUG_FRAME and count == 5:          # one-shot dump, not every window
+            np.save("dbg_events.npy", window[0].numpy())   # the event image you're watching
+            np.save("dbg_M.npy", M)                        # the membrane, same frame
+            print("\nsaved dbg_events.npy + dbg_M.npy")
         if np.isnan(saliency).any() or saliency.max() == saliency.min():
             continue
 
         if fx is None:
             fy, fx = float(salmax[0]), float(salmax[1])
             sx, sy = fx, fy
+            if word in DIRS and cmd_start is None:   # command typed before first fixation
+                cmd_start = (fx, fy)
 
         foc = np.exp(-((X - fx) ** 2 + (Y - fy) ** 2) / (2 * READOUT_R ** 2))
         M = LEAK * M + (1.0 - LEAK) * saliency * (1.0 + BOOST * foc)
 
-        if word != active:                       # a new command -> one jump
+        # `rearm` is what lets a REPEATED word move again: without it this gate is
+        # only entered when the word CHANGES, so typing 'left' twice leaves `locked`
+        # set and the fovea frozen on the object it already found.
+        if word != active or rearm:
             locked = False
-            sx, sy = fx, fy                       # where we were looking = the reference
-            if word in DIRS and conf >= THRESHOLD:
-                psi = DIRS[word]
-                ux, uy = np.cos(psi), np.sin(psi)
-                mx = maximum_filter(saliency, size=PEAK_SEP)
-                pys, pxs = np.where((saliency == mx) & (saliency >= PEAK_FLOOR * saliency.max()))
-                best, best_d = None, None
-                for px, py in zip(pxs, pys):
-                    if (px - sx) * ux + (py - sy) * uy <= PEAK_SEP:   # ahead + a different object
-                        continue
-                    d = (px - sx) ** 2 + (py - sy) ** 2
-                    if best_d is None or d < best_d:
-                        best, best_d = (float(px), float(py)), d
-                if best is not None:
-                    fx, fy = best                 # jump onto the chosen object
-                    run_log.append({"direction": word, "k": 1,
-                                    "ref_x": round(sx, 1), "ref_y": round(sy, 1),
-                                    "fovea_x": round(fx, 1), "fovea_y": round(fy, 1)})
-                    print(f"  -> {word}: jumped to ({int(fx)},{int(fy)})  [{len(run_log)} logged]")
+            sx, sy = fx, fy
+        if (not locked) and word in DIRS and conf >= THRESHOLD:
+            psi = DIRS[word]
+            if MODE == "pan":
+                fx = float(np.clip(fx + STEP * np.cos(psi), 0, max_x - 1))
+                fy = float(np.clip(fy + STEP * np.sin(psi), 0, max_y - 1))
+            elif word != active or rearm:     # saccade: one jump per typed command
+                fx = float(np.clip(fx + SACCADE_JUMP * np.cos(psi), 0, max_x - 1))
+                fy = float(np.clip(fy + SACCADE_JUMP * np.sin(psi), 0, max_y - 1))
+        rearm = False
         active = word
 
         zone = (X - fx) ** 2 + (Y - fy) ** 2 <= READOUT_R ** 2
@@ -290,14 +320,16 @@ try:
             running = False
 
 finally:
+    close_command()                 # flush the command that was still active
     if vw is not None:
         vw.release()
     cv2.destroyAllWindows()
-    if run_log:                                        # write the run log to CSV 
+    if run_log:
         with open("run_log.csv", "w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=["direction", "k", "ref_x", "ref_y", "fovea_x", "fovea_y"])
             w.writeheader(); w.writerows(run_log)
         print(f"wrote run_log.csv  ({len(run_log)} commands)")
+    else:
+        print("no commands logged")
     print(f"\n\nSession ended. Frames shown: {count}" +
           (f"  |  saved to '{out_name}'" if vw is not None else ""))
-

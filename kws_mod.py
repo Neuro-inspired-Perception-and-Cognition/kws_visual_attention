@@ -16,7 +16,7 @@ from datetime import datetime
 from visual_attention.helpers_visual_att import initialise_attention, run_attention
 
 # ---------------- config ----------------
-NPY_PATH = ""
+NPY_PATH = "data/6_circles_346x260.npy"
 COL_X, COL_Y, COL_P, COL_T = 0, 1, 2, 3
 TIME_SCALE = 1e-3
 WINDOW_MS  = 50

@@ -37,7 +37,7 @@ def load_events(path):
     return x, y, p, t
 
 # Load event data from a .npy file
-x, y, p, t = load_events("/home/rocharay/kws_attention/data/shapes_jitter_5_events.npy")
+x, y, p, t = load_events("/home/rocharay/kws_attention/data/6_circles_346x260.npy")
 
 # diagnostic print
 print(f"duration: {t.max()-t.min():.1f} ms")
@@ -56,12 +56,12 @@ preview[y[m], x[m]] = np.where(p[m] > 0, 1, -1) # Vectorized insertion of polari
 plt.imshow(preview, cmap='bwr', vmin=-1, vmax=1); plt.title("Event Data Preview (First 100 ms)"); plt.colorbar(); plt.show()
 
 
-##### Attention Mechanism #####
+##### Attention mechanism 
 # Configuration class to store attention parameters
 class Config:
     # Attention Parameters
     ATTENTION_PARAMS = {
-        'size_krn': 32, 'r0': 7, 'rho': 0.015, 'theta': np.pi*3/2,
+        'size_krn': 16, 'r0': 3, 'rho': 0.015, 'theta': np.pi*3/2,
         'thetas': np.arange(0, 2*np.pi, np.pi/4), 'thick': 12,
         'fltr_resize_perc': [2, 2], 'offsetpxs': 0, 'offset': (0, 0),
         'num_pyr': 6, 'tau_mem': 0.3, 'stride': 1, 'out_ch': 1,
@@ -74,7 +74,7 @@ config = Config()
 saliency_map = np.zeros((max_y, max_x), dtype=np.float32)  # Saliency map initialized to zero
 salmax_coords = np.zeros((2,), dtype=np.int32)  # Array to hold coordinates of maximum saliency
 
-##### Attention Mechanism #####
+##### Attention mechanism 
 # Initialize the attention modules with the specified device and parameters
 net_attention = initialise_attention(device, config.ATTENTION_PARAMS)
 

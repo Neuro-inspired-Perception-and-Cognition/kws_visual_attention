@@ -1,0 +1,11 @@
+step,command,k,start_id,start,expected_id,expected,landed_id,landed,verdict,correct
+1,left,1,6,object 6 (bottom-right),5,object 5 (bottom-mid),5,object 5 (bottom-mid),OK,1
+2,left,1,5,object 5 (bottom-mid),4,object 4 (bottom-left),4,object 4 (bottom-left),OK,1
+3,up,1,4,object 4 (bottom-left),1,object 1 (top-left),1,object 1 (top-left),OK,1
+4,right,1,1,object 1 (top-left),2,object 2 (top-mid),2,object 2 (top-mid),OK,1
+5,right,1,2,object 2 (top-mid),3,object 3 (top-right),3,object 3 (top-right),OK,1
+6,down,1,3,object 3 (top-right),6,object 6 (bottom-right),6,object 6 (bottom-right),OK,1
+7,left,1,6,object 6 (bottom-right),5,object 5 (bottom-mid),5,object 5 (bottom-mid),OK,1
+8,up,1,5,object 5 (bottom-mid),2,object 2 (top-mid),2,object 2 (top-mid),OK,1
+9,left,1,2,object 2 (top-mid),1,object 1 (top-left),1,object 1 (top-left),OK,1
+10,down,1,1,object 1 (top-left),4,object 4 (bottom-left),4,object 4 (bottom-left),OK,1
