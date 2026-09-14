@@ -7,7 +7,7 @@ neighbouring pixels in a circular pattern.
 
 Returns .mp4 video plus <stem>.mask.npy and <stem>.truth.csv for ground truth.
 """
-
+import os
 import numpy as np
 from PIL import Image, ImageDraw
 import imageio.v2 as imageio
@@ -23,13 +23,17 @@ WIDTH           = 346       # output width
 HEIGHT          = 260       # output height
 SPRITE          = 100       # each object is drawn on a SPRITE x SPRITE canvas
 N_OBJECTS       = 6         # number of objects
-CIRCLE_R        = 0.30      # circle radius as a fraction of SPRITE
+CIRCLE_R        = 0.20      # circle radius as a fraction of SPRITE
 FPS             = 20
 FRAMES_PER_STEP = 1         # frames held at each of the 8 positions (>=1)
 N_STEPS         = 200       # number of jitter steps -> N_STEPS*FRAMES_PER_STEP frames
-OUT_PATH        = f"{N_OBJECTS}_circles_tex_{WIDTH}x{HEIGHT}.mp4"
+OUT_DIR         = "stimuli/frame_videos"         # the .mp4 saves here
+TRUTH_DIR       = "stimuli/ground_truth_masks"   # the .mask.npy + .truth.csv save here
+OUT_NAME        = f"{N_OBJECTS}_circles_tex_{WIDTH}x{HEIGHT}.mp4" # tex means no background - but all objects have a speckled texture in all videos
+OUT_PATH        = os.path.join(OUT_DIR, OUT_NAME)
+STEM            = os.path.splitext(OUT_NAME)[0]  # shared basename: video <-> its truth
 
-# texture: coarse enough to survive downsampling, bright enough to stay visible
+# texture
 TEX_LO, TEX_HI  = 110, 256  # grey range of the speckle
 TEX_CELL        = 3         # speckle cell size in px (1 = per-pixel noise)
 PROC_DOWNSAMPLE = 2         # must equal DOWNSAMPLE in the controller
@@ -50,9 +54,7 @@ CIRCLE = [
 def make_sprite(seed):
     """One textured white disk on a transparent SPRITE x SPRITE tile.
 
-    The texture is generated ONCE per sprite (fixed seed) so it travels with the
-    object as it jitters. Random-per-frame noise would not do this -- it would
-    look like static and swamp the objects.
+    The texture is generated once per sprite (fixed seed)
     """
     rng = np.random.default_rng(seed)
 
@@ -80,17 +82,23 @@ def home_positions(cols=3, rows=2):
     return [(x, y) for y in ys for x in xs]
 
 
-def save_scene_truth(sprites, homes, stem):
-    """stem = the clip's base name, e.g. 'scene01' (same as scene01.mp4)."""
+def save_scene_truth(sprites, homes, stem=STEM, truth_dir=TRUTH_DIR):
+    """stem = the clip's base name (no extension, no folder), e.g.
+    '6_circles_tex_346x260'. The video and its ground truth live in different
+    folders but share this basename, so a clip is always paired with its own mask.
+    """
+    os.makedirs(truth_dir, exist_ok=True)
+    base = os.path.join(truth_dir, stem)
     mask = build_mask(sprites, homes, WIDTH, HEIGHT, SPRITE)[::PROC_DOWNSAMPLE, ::PROC_DOWNSAMPLE]
-    np.save(f"{stem}.mask.npy", mask)                        # per-pixel footprint (scoring)
-    save_truth(centroids(mask), NAMES, f"{stem}.truth.csv")  # readable centroids
-    print(f"saved {stem}.mask.npy + {stem}.truth.csv  (grid {mask.shape[1]}x{mask.shape[0]})")
+    np.save(f"{base}.mask.npy", mask)                        # per-pixel footprint (scoring)
+    save_truth(centroids(mask), NAMES, f"{base}.truth.csv")  # readable centroids
+    print(f"saved {base}.mask.npy + {base}.truth.csv  (grid {mask.shape[1]}x{mask.shape[0]})")
     return mask
 
 
 # render
 def render(out_path=OUT_PATH):
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
     sprites = [make_sprite(seed=i) for i in range(N_OBJECTS)]   # different texture each
     homes   = home_positions()[:N_OBJECTS]
 
@@ -123,4 +131,4 @@ def render(out_path=OUT_PATH):
 
 if __name__ == "__main__":
     sprites, homes = render()
-    save_scene_truth(sprites, homes, OUT_PATH.rsplit(".", 1)[0])
+    save_scene_truth(sprites, homes)

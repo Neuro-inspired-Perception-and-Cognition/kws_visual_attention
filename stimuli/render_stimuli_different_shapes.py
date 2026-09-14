@@ -1,42 +1,66 @@
 """
 Smooth jittering shapes video generator
 
-Render a 346x260 video of 6 objects on a black background. Each object
+Render a 346x260 video of 6 different objects on a black background. Each object
 "jitters" one pixel around its home position, cycling through the eight
 neighbouring pixels in a circular pattern (the 4 orthogonal directions +
 the 4 diagonals). Objects start at different phases and spin in different
 directions, so the whole field shimmers with 1-pixel motion
 
-Returns .mp4 video and scene_truth.csv (object ID, name, x, y) for ground truth.
+Returns .mp4 video plus <stem>.mask.npy and <stem>.truth.csv for ground truth.
 """
 
 import math
+import os
+
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 import imageio.v2 as imageio
 
-# Ground truth 
-from ground_truth_helpers import build_mask, centroids, save_truth, oracle
+# Ground truth
+from ground_truth_helpers import build_mask, centroids, save_truth
 
 NAMES = ["apple", "bottle", "star", "heart", "diamond", "mushroom"]
 
-def save_scene_truth(sprites, homes, stem):
-    """stem = the clip's base name, e.g. 'scene01' (same as scene01.mp4)."""
-    mask = build_mask(sprites, homes, WIDTH, HEIGHT, SPRITE)[::2, ::2]   # 173x130 grid
-    np.save(f"{stem}.mask.npy", mask)  # per-pixel footprint (for scoring)
-    save_truth(centroids(mask), NAMES, f"{stem}.truth.csv")  # readable centroids
-    print(f"saved {stem}.mask.npy + {stem}.truth.csv")
-    return mask
-
-# Parameters 
+# Parameters
 WIDTH           = 346       # output width
 HEIGHT          = 260       # output height
 SPRITE          = 100       # each object is drawn on a SPRITE x SPRITE canvas
 N_OBJECTS       = 6         # number of objects
 FPS             = 20
 FRAMES_PER_STEP = 1         # frames held at each of the 8 positions (>=1)
-N_STEPS         = 200       # number of jitter steps -> N_STEPS*FRAMES_PER_STEP frames
-OUT_PATH        = f"{N_OBJECTS}_objects_{WIDTH}x{HEIGHT}.mp4"
+N_STEPS         = 200       # number of jitter steps -> N_STEPS*FRAMES_PER_STEP frames-
+COLOR           = True      
+BACKGROUND      = True     
+OUT_DIR         = "stimuli/frame_videos"         # the .mp4 saves here
+TRUTH_DIR       = "stimuli/ground_truth_masks"   # the .mask.npy + .truth.csv save here
+OUT_NAME        = (f"{N_OBJECTS}_objects_"
+                   f"{'color' if COLOR else 'mono'}_"
+                   f"{'bg' if BACKGROUND else 'nobg'}_"
+                   f"{WIDTH}x{HEIGHT}.mp4")
+OUT_PATH        = os.path.join(OUT_DIR, OUT_NAME)
+STEM            = os.path.splitext(OUT_NAME)[0]  # shared basename: video <-> its truth
+
+SCALE           = 0.6 # adjust size
+SCALES          = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]   # per object, multiplied by SCALE
+
+
+# texture (interior events)
+TEXTURED        = True      # False -> flat fills, hollow event rings
+TEX_CELL        = 3         # speckle cell size in px
+TEX_MIN         = 0.55      # darkest the speckle drives a pixel (1.0 = unchanged)
+PROC_DOWNSAMPLE = 2         # must equal DOWNSAMPLE in the controller
+
+# pencil-scratch background (only used when BACKGROUND = True). It is STATIC, so it
+# costs nothing in events -- it is visible in the .mp4 and picked up by a real
+# camera (screen flicker/sensor noise), but silent in an IEBCS conversion.
+BG_STROKES      = 1100      # how many scratch strokes
+BG_LO, BG_HI    = 100, 200  # grey range of a stroke
+BG_LEN          = (12, 55)  # stroke length in px
+BG_WIDTH        = 1         # stroke width in px
+BG_ANGLES       = (-35, 20) # degrees: hatching leans these two ways
+BG_BLUR         = 0.4       # low = crisp crossed lines; high = soft haze
+BG_SEED         = 7
 
 # 8 unit displacements around a circle of radius 1 px
 CIRCLE = [
@@ -86,7 +110,7 @@ def _heart(d, s):
 
 
 def _diamond(d, s):
-    cx, cy, r = s/2, s/2, s*0.34# the join
+    cx, cy, r = s/2, s/2, s*0.34
     d.polygon([(cx, cy-r), (cx+r, cy), (cx, cy+r), (cx-r, cy)],
               fill=(80,205,215))
 
@@ -100,10 +124,50 @@ def _mushroom(d, s):
 DRAWERS = [_apple, _bottle, _star, _heart, _diamond, _mushroom]
 
 
-def make_sprite(drawer):
+def make_background():
+    """Static pencil hatching, drawn once."""
+    rng = np.random.default_rng(BG_SEED)
+    img = Image.new("L", (WIDTH, HEIGHT), 0)
+    d = ImageDraw.Draw(img)
+    for _ in range(BG_STROKES):
+        x0, y0 = rng.uniform(0, WIDTH), rng.uniform(0, HEIGHT)
+        ang = np.radians(rng.choice(BG_ANGLES) + rng.uniform(-8, 8))
+        ln = rng.uniform(*BG_LEN)
+        d.line([x0, y0, x0 + ln * np.cos(ang), y0 + ln * np.sin(ang)],
+               fill=int(rng.integers(BG_LO, BG_HI)), width=BG_WIDTH)
+    return img.filter(ImageFilter.GaussianBlur(BG_BLUR)) if BG_BLUR else img
+
+
+def make_sprite(drawer, seed=0, scale=1.0):
+    """Draw the object at `scale`, then modulate its interior with a fixed speckle."""
+    inner = max(8, int(round(SPRITE * scale)))
+    tile = Image.new("RGBA", (inner, inner), (0, 0, 0, 0))
+    drawer(ImageDraw.Draw(tile), inner)
+
     img = Image.new("RGBA", (SPRITE, SPRITE), (0, 0, 0, 0))
-    drawer(ImageDraw.Draw(img), SPRITE)
-    return img
+    off = (SPRITE - inner) // 2            # centre it; negative if scale > 1 (crops)
+    img.paste(tile, (off, off))
+    if inner > SPRITE:
+        print(f"  warning: scale {scale} exceeds the {SPRITE}px tile - shape clipped; "
+              f"raise SPRITE instead")
+
+    if not COLOR:                              # monochrome: white silhouette
+        arr = np.asarray(img).copy()
+        arr[..., :3] = 255                     # alpha untouched -> shape unchanged
+        img = Image.fromarray(arr, "RGBA")
+
+    if not TEXTURED:
+        return img
+
+    rng = np.random.default_rng(seed)
+    small = max(1, SPRITE // TEX_CELL)
+    cells = rng.uniform(TEX_MIN, 1.0, size=(small, small))
+    tex = np.array(Image.fromarray((cells * 255).astype(np.uint8))
+                   .resize((SPRITE, SPRITE), Image.NEAREST)) / 255.0
+
+    arr = np.asarray(img).astype(float)
+    arr[..., :3] *= tex[..., None]            # alpha untouched -> mask unchanged
+    return Image.fromarray(arr.clip(0, 255).astype(np.uint8), "RGBA")
 
 
 #  home layout
@@ -114,42 +178,64 @@ def home_positions(cols=3, rows=2):
     return [(x, y) for y in ys for x in xs]
 
 
+def save_scene_truth(sprites, homes, stem=STEM, truth_dir=TRUTH_DIR):
+    """stem = the clip's base name (no extension, no folder), e.g.
+    '6_objects_346x260'. The video and its ground truth live in different folders
+    but share this basename, so a clip is always paired with its own mask.
+    """
+    os.makedirs(truth_dir, exist_ok=True)
+    base = os.path.join(truth_dir, stem)
+    mask = build_mask(sprites, homes, WIDTH, HEIGHT, SPRITE)[::PROC_DOWNSAMPLE, ::PROC_DOWNSAMPLE]
+    np.save(f"{base}.mask.npy", mask)                        # per-pixel footprint (scoring)
+    save_truth(centroids(mask), NAMES, f"{base}.truth.csv")  # readable centroids
+    print(f"saved {base}.mask.npy + {base}.truth.csv  (grid {mask.shape[1]}x{mask.shape[0]})")
+    return mask
+
+
 # render
 def render(out_path=OUT_PATH):
-    sprites = [make_sprite(fn) for fn in DRAWERS][:N_OBJECTS]
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    sprites = [make_sprite(fn, seed=i, scale=SCALE * SCALES[i])
+               for i, fn in enumerate(DRAWERS)][:N_OBJECTS]
     homes   = home_positions()[:N_OBJECTS]
 
     # Stagger each object's starting direction and spin sense so they all
     # move differently and together cover orthogonal + diagonal directions.
-    phases = [(i * 3) % 8 for i in range(N_OBJECTS)]        
+    phases = [(i * 3) % 8 for i in range(N_OBJECTS)]
     signs  = [1 if i % 2 == 0 else -1 for i in range(N_OBJECTS)]
+
+    bg = make_background() if BACKGROUND else None
 
     frames = []
     for step in range(N_STEPS):
-        canvas = Image.new("RGB", (WIDTH, HEIGHT), (0, 0, 0))
+        if bg is not None:
+            canvas = bg.convert("RGB")         # static: same hatching every frame
+        else:
+            canvas = Image.new("RGB", (WIDTH, HEIGHT), (0, 0, 0))
         for (hx, hy), sprite, ph, sg in zip(homes, sprites, phases, signs):
             dx, dy = CIRCLE[(ph + sg * step) % 8]
             px = int(round(hx - SPRITE / 2 + dx))
             py = int(round(hy - SPRITE / 2 + dy))
             canvas.paste(sprite, (px, py), sprite)   # alpha channel = mask
-        arr = np.asarray(canvas)
-        frames.extend([arr] * FRAMES_PER_STEP)
-
+        frames.extend([np.asarray(canvas)] * FRAMES_PER_STEP)
 
     writer = imageio.get_writer(
         out_path, format="FFMPEG", mode="I", fps=FPS,
         codec="libx264rgb",
-        output_params=["-crf", "0", "-pix_fmt", "rgb24"],
+        output_params=["-crf", "0"],
         macro_block_size=None,
     )
     for f in frames:
-        writer.append_data(f) 
+        writer.append_data(f)
     writer.close()
 
-    print(f"wrote {out_path}: {len(frames)} frames, {WIDTH}x{HEIGHT}, {FPS} fps")
+    print(f"wrote {out_path}: {len(frames)} frames, {WIDTH}x{HEIGHT}, {FPS} fps"
+          f"  ({'colour' if COLOR else 'mono'}, "
+          f"background {'on' if BACKGROUND else 'off'}, "
+          f"texture {'on' if TEXTURED else 'off'})")
     return sprites, homes
 
 
 if __name__ == "__main__":
     sprites, homes = render()
-    save_scene_truth(sprites, homes, OUT_PATH.rsplit(".", 1)[0])
+    save_scene_truth(sprites, homes)
