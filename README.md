@@ -105,9 +105,6 @@ python get_only_saliency.py
 # KWS modulation with synthetic data - type commands in the terminal
 python kws_mod_live_words.py
 
-# KWS modulation only (no camera)
-python kws_mod.py
-
 # KWS modulation with camera - live camera + written commands
 python kws_mod_cam_words.py
 
@@ -258,12 +255,12 @@ Set the target part to `xc7a200tfbg484-1` and add the following sources (uncheck
 
 | Name | Affiliation | Role | Email |
 | --- | --- | --- | --- |
-| Rayane Rocha Rodrigues dos Santos | NPC Lab, CIIRC & FEL, CTU · UFPB | Bachelor student | rrrds@academico.ufpb.br |
-| Dr. Giulia D'Angelo | NPC Lab, FEL, CTU | Supervisor | giulia.dangelo@fel.cvut.cz |
-| Dr. Karla Štěpánová | ROP group, CIIRC, CTU | Co-supervisor | karla.stepanova@cvut.cz   |
+| Rayane Rocha Rodrigues dos Santos | NPC Lab, UFPB | Bachelor student | rrrds@academico.ufpb.br |
 | Piotr Wzorek | EVS group, AGH University, Kraków | Collaborator | pwzorek@agh.edu.pl |
 | Paolo Ritirato | NPC Lab, FEL, CTU | Collaborator | paolo.ritirato@fel.cvut.cz |
+| Dr. Karla Štěpánová | ROP group, CIIRC, CTU | Co-supervisor | karla.stepanova@cvut.cz   |
+| Dr. Giulia D'Angelo | NPC Lab, FEL, CTU | Supervisor | giulia.dangelo@fel.cvut.cz |
 
 ## Acknowledgements
 
-This work was carried out at the Neuro-inspired Perception and Cognition (NPC) Lab at FEL and the Robotic perception group at CIIRC in the Czech Technical University in Prague, supported by a [ROBOPROX Women's Forum Fellowship](https://roboprox.eu/news/new-awardees-of-the-roboprox-women-forum-grants/). 
+This work was carried out at the Neuro-inspired Perception and Cognition (NPC) Lab at FEL and the Robotic perception group at CIIRC in the Czech Technical University in Prague, supported by the [ROBOPROX Women's Forum](https://roboprox.eu/news/new-awardees-of-the-roboprox-women-forum-grants/) project. 
