@@ -37,7 +37,7 @@ def load_events(path):
     return x, y, p, t
 
 # Load event data from a .npy file
-x, y, p, t = load_events("/home/rocharay/kws_attention/data/6_circles_346x260.npy")
+x, y, p, t = load_events("data/6_objects_color_bg_346x260.npy")
 
 # diagnostic print
 print(f"duration: {t.max()-t.min():.1f} ms")

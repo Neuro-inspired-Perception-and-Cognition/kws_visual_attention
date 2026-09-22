@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,left,1,83.0,39.0,19.0,40.0,2,object 2 (2),1,object 1 (1),1,object 1 (1),OK,1,1,12.4,64.0,19.7,0131,0,1,3,1,camera_setup_4.mask.npy,100.0
+2,down,1,19.0,40.0,19.0,113.0,1,object 1 (1),4,object 4 (4),4,object 4 (4),OK,1,4,13.5,73.0,19.7,0131,0,1,3,1,camera_setup_4.mask.npy,100.0
+3,right,1,19.0,113.0,79.0,117.0,4,object 4 (4),5,object 5 (5),5,object 5 (5),OK,1,5,8.9,60.1,19.7,0131,0,1,3,1,camera_setup_4.mask.npy,100.0
+4,up,1,79.0,117.0,82.0,43.0,5,object 5 (5),2,object 2 (2),2,object 2 (2),OK,1,2,4.0,74.1,19.7,0131,0,1,3,1,camera_setup_4.mask.npy,100.0
+5,left,1,82.0,43.0,20.0,39.0,2,object 2 (2),1,object 1 (1),1,object 1 (1),OK,1,1,12.1,62.1,19.7,0131,0,1,3,1,camera_setup_4.mask.npy,100.0
+6,down,1,20.0,39.0,20.0,112.0,1,object 1 (1),4,object 4 (4),4,object 4 (4),OK,1,4,12.2,73.0,19.7,0131,0,1,3,1,camera_setup_4.mask.npy,100.0
+7,right,1,20.0,112.0,80.0,117.0,4,object 4 (4),5,object 5 (5),5,object 5 (5),OK,1,5,8.5,60.2,19.7,0131,0,1,3,1,camera_setup_4.mask.npy,100.0
+8,right,1,80.0,117.0,145.0,117.0,5,object 5 (5),6,object 6 (6),6,object 6 (6),OK,1,6,11.8,65.0,19.7,0131,0,1,3,1,camera_setup_4.mask.npy,100.0
+9,up,1,145.0,117.0,149.0,45.0,6,object 6 (6),3,object 3 (3),3,object 3 (3),OK,1,3,10.0,72.1,19.7,0131,0,1,3,1,camera_setup_4.mask.npy,100.0
+10,right,1,149.0,45.0,172.0,45.0,3,object 3 (3),0,background,0,background,no object that way,1,3,32.7,23.0,19.7,0131,0,1,3,1,camera_setup_4.mask.npy,100.0

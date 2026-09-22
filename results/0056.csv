@@ -1,0 +1,11 @@
+step,command,k,start_id,start,expected_id,expected,landed_id,verdict,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,1,4,object 4 (heart),1,object 1 (apple),1,OK,0056,0,0,5,6,100.0
+2,down,1,1,object 1 (apple),4,object 4 (heart),4,OK,0056,0,0,5,6,100.0
+3,right,1,4,object 4 (heart),5,object 5 (diamond),5,OK,0056,0,0,5,6,100.0
+4,up,1,5,object 5 (diamond),2,object 2 (bottle),2,OK,0056,0,0,5,6,100.0
+5,down,1,2,object 2 (bottle),5,object 5 (diamond),5,OK,0056,0,0,5,6,100.0
+6,left,1,5,object 5 (diamond),4,object 4 (heart),4,OK,0056,0,0,5,6,100.0
+7,right,1,4,object 4 (heart),5,object 5 (diamond),5,OK,0056,0,0,5,6,100.0
+8,right,1,5,object 5 (diamond),6,object 6 (mushroom),6,OK,0056,0,0,5,6,100.0
+9,up,1,6,object 6 (mushroom),3,object 3 (star),3,OK,0056,0,0,5,6,100.0
+10,left,1,3,object 3 (star),2,object 2 (bottle),2,OK,0056,0,0,5,6,100.0

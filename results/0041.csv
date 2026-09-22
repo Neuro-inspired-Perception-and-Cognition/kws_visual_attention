@@ -1,0 +1,11 @@
+step,command,k,start_id,start,expected_id,expected,landed_id,verdict,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,1,6,object 6 (bottom-right),0,background,0,no object that way,0041,0,0,4,1,80.0
+2,right,1,0,background,0,background,0,FAILED - did not move,0041,0,0,4,1,80.0
+3,up,1,0,background,6,object 6 (bottom-right),6,OK,0041,0,0,4,1,80.0
+4,up,1,6,object 6 (bottom-right),3,object 3 (top-right),3,OK,0041,0,0,4,1,80.0
+5,right,1,3,object 3 (top-right),0,background,0,no object that way,0041,0,0,4,1,80.0
+6,left,1,0,background,3,object 3 (top-right),2,WRONG - expected object 3 (top-right),0041,0,0,4,1,80.0
+7,down,1,2,object 2 (top-mid),5,object 5 (bottom-mid),5,OK,0041,0,0,4,1,80.0
+8,down,1,5,object 5 (bottom-mid),0,background,0,no object that way,0041,0,0,4,1,80.0
+9,left,1,0,background,4,object 4 (bottom-left),4,OK,0041,0,0,4,1,80.0
+10,left,1,4,object 4 (bottom-left),0,background,0,no object that way,0041,0,0,4,1,80.0

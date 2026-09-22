@@ -1,0 +1,11 @@
+step,command,k,start_id,start,expected_id,expected,landed_id,verdict,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,1,6,object 6 (bottom-right),5,object 5 (bottom-mid),5,OK,0052,0,0,5,2,100.0
+2,up,1,5,object 5 (bottom-mid),2,object 2 (top-mid),2,OK,0052,0,0,5,2,100.0
+3,right,1,2,object 2 (top-mid),3,object 3 (top-right),3,OK,0052,0,0,5,2,100.0
+4,down,1,3,object 3 (top-right),6,object 6 (bottom-right),6,OK,0052,0,0,5,2,100.0
+5,left,1,6,object 6 (bottom-right),5,object 5 (bottom-mid),5,OK,0052,0,0,5,2,100.0
+6,up,1,5,object 5 (bottom-mid),2,object 2 (top-mid),2,OK,0052,0,0,5,2,100.0
+7,right,1,2,object 2 (top-mid),3,object 3 (top-right),3,OK,0052,0,0,5,2,100.0
+8,left,1,3,object 3 (top-right),2,object 2 (top-mid),2,OK,0052,0,0,5,2,100.0
+9,left,1,2,object 2 (top-mid),1,object 1 (top-left),1,OK,0052,0,0,5,2,100.0
+10,down,1,1,object 1 (top-left),4,object 4 (bottom-left),4,OK,0052,0,0,5,2,100.0

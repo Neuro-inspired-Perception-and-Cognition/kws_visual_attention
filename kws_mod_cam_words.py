@@ -46,10 +46,10 @@ CONF = 1.0
 THRESHOLD = 0.6
 
 # membrane / fovea-pan controller (unchanged from the interactive script)
-LEAK = 0.5 # membrane decay (higher = slower decay), means the membrane is a leaky integrator of saliency over time. If LEAK=0, the membrane is a pure integrator and will never decay. If LEAK=1, the membrane is a pure memoryless saliency map and will not integrate over time.
+leak = 0.5 # membrane decay (higher = slower decay), means the membrane is a leaky integrator of saliency over time. If LEAK=0, the membrane is a pure integrator and will never decay. If LEAK=1, the membrane is a pure memoryless saliency map and will not integrate over time.
 STEP = 8.0 # px the fovea pans per window, means the fovea will move 8 pixels in the direction of the command per window. If STEP=0, the fovea will not move at all. If STEP is too high, the fovea will move too fast and will not be able to lock onto a target.
 SACCADE_JUMP = 60.0 # px the fovea jumps on a saccade command, means the fovea will jump 60 pixels in the direction of the command when a saccade command is issued. If SACCADE_JUMP=0, the fovea will not jump at all. If SACCADE_JUMP is too high, the fovea will jump too far and will not be able to lock onto a target.
-READOUT_R = 25.0 # radius: focus neighborhood AND boost width, means the fovea will read out the membrane in a circular region of radius 25 pixels around the fovea. If READOUT_R is too small, the fovea will not be able to lock onto a target. If READOUT_R is too large, the fovea will be too sensitive to noise and will not be able to lock onto a target.
+READOUT_R = 25.0 # radius: focus neighborhood ands boost width, means the fovea will read out the membrane in a circular region of radius 25 pixels around the fovea. If READOUT_R is too small, the fovea will not be able to lock onto a target. If READOUT_R is too large, the fovea will be too sensitive to noise and will not be able to lock onto a target.
 BOOST = 2.0 # how much the fovea's target area is amplified, means the fovea will amplify the membrane in a circular region of radius READOUT_R around the fovea by a factor of 2. If BOOST=0, the fovea will not amplify the membrane at all. If BOOST is too high, the fovea will be too sensitive to noise and will not be able to lock onto a target.
 CAP_RATIO = 2.5 # how much the fovea's target area must exceed the local zone mean to lock, given that we've travelled at least MIN_TRAVEL px
 MIN_TRAVEL = 50.0 # px the fovea must travel before it is allowed to lock, means the fovea must move at least 50 pixels before it is allowed to lock onto a target. If MIN_TRAVEL=0, the fovea will be able to lock onto a target immediately. If MIN_TRAVEL is too high, the fovea will not be able to lock onto a target.
@@ -224,7 +224,7 @@ def slicing_callback(events: dv.EventStore):
 
     # decaying per-pixel membrane with foveal Gaussian boost
     foc = np.exp(-((X - st.fx) ** 2 + (Y - st.fy) ** 2) / (2 * READOUT_R ** 2))
-    st.M = LEAK * st.M + (1.0 - LEAK) * saliency * (1.0 + BOOST * foc)
+    st.M = leak * st.M + (1.0 - leak) * saliency * (1.0 + BOOST * foc)
 
     # command -> fovea motion
     if st.word != st.active:

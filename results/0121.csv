@@ -1,0 +1,3 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,right,1,14.0,93.0,148.0,93.0,1,object 1 (mouse),2,object 2 (mug),3,object 3 (earplug),WRONG - expected object 2 (mug),0,3,7.2,134.0,23.5,0121,0,1,2,1,camera_setup_3.mask.npy,0.0
+2,left,1,148.0,93.0,19.0,93.0,3,object 3 (earplug),2,object 2 (mug),1,object 1 (mouse),WRONG - expected object 2 (mug),0,1,6.5,129.0,23.5,0121,0,1,2,1,camera_setup_3.mask.npy,0.0
