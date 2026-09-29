@@ -10,7 +10,6 @@
 - [Overview](#overview)
 - [Architecture](#architecture)
 - [Demos (TBD)](#demos)
-- [Repository structure (TBD)](#repository-structure)
 - [1. Visual attention (KWS modulation)](#1-visual-attention-kws-modulation)
 - [2. DAVIS346 event camera](#2-davis346-event-camera)
 - [3. NAS and KWS on FPGA](#3-nas-and-kws-on-fpga)
@@ -61,8 +60,6 @@ flowchart LR
 | A spoken word boosts saliency in its direction | Live event stream driving attention | Keyword spotting on XEM7310-A200 Artix-7 |
 
 TBD: Demo video on youtube
-
-## Repository structure (TBD)
 
 
 ---
