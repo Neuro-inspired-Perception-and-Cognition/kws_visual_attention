@@ -248,7 +248,7 @@ Set the target part to `xc7a200tfbg484-1` and add the following sources (uncheck
 
 | Name | Affiliation | Role | Email |
 | --- | --- | --- | --- |
-| Rayane Rocha Rodrigues dos Santos | NPC Lab, UFPB | Bachelor student | rrrds@academico.ufpb.br |
+| Rayane Rocha | NPC Lab, UFPB | Bachelor student | rrrds@academico.ufpb.br |
 | Piotr Wzorek | EVS group, AGH University, Kraków | Collaborator | pwzorek@agh.edu.pl |
 | Paolo Ritirato | NPC Lab, FEL, CTU | Collaborator | paolo.ritirato@fel.cvut.cz |
 | Dr. Karla Štěpánová | ROP group, CIIRC, CTU | Co-supervisor | karla.stepanova@cvut.cz   |
