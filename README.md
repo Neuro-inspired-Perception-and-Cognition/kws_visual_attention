@@ -30,7 +30,7 @@ The pipeline couples two neuromorphic pathways:
 - **Visual pathway.** A DAVIS346 event camera feeds a spiking saliency pyramid (Von Mises orientation filters over LIF neurons), producing a bottom-up saliency map.
 - **Auditory pathway.** An artificial cochlea turns speech into spikes that drive a GNN-based keyword-spotting network (NAS-GNN-KWS) deployed on an Opal Kelly XEM7310-A200 (Artix-7) FPGA.
 
-When a directional keyword (left / right / up / down) is detected, it applies a directional Gaussian boost to the saliency map, biasing attention toward the spoken target.
+When a directional keyword (left / right / up / down) is detected, it applies a Gaussian centered on a fovea and its displacementto onto the saliency map, biasing attention toward the spoken target.
 
 ## Architecture
 
