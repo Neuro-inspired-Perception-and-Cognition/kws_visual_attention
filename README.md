@@ -14,7 +14,6 @@
 - [1. Visual attention (KWS modulation)](#1-visual-attention-kws-modulation)
 - [2. DAVIS346 event camera](#2-davis346-event-camera)
 - [3. NAS and KWS on FPGA](#3-nas-and-kws-on-fpga)
-- [Papers and references](#papers-and-references)
 - [Team](#team)
 - [Acknowledgements](#acknowledgements)
 
@@ -244,12 +243,6 @@ Set the target part to `xc7a200tfbg484-1` and add the following sources (uncheck
 **e) Synthesize, implement, and generate the bitstream**
 
 ---
-
-## Papers and references
-
-- **NAS-GNN-KWS**: graph-based keyword spotting used on the FPGA <https://github.com/vision-agh/NAS-GNN-KWS>
-- **DAVIS346 / dv-processing**: event-camera SDK <https://inivation.com>
-
 
 ## Team
 
