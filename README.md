@@ -82,7 +82,7 @@ conda activate kws_env
 **b) Install requirements**
 
 ```bash
-pip install numpy opencv-python torch scipy scikit-image sinabs torchvision dv-processing
+pip install numpy opencv-python torch scipy scikit-image sinabs torchvision dv-processing pandas
 ```
 
 **c) Run**
