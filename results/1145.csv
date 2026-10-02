@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,170.0,17.0,170.0,98.0,3,object 3 (star),6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.831,6,17.7,81.0,19.4,1145,1,1,4,5,camera_6_objects_color_nobg_346x260.mask.npy,80.0
+2,up,1,170.0,98.0,171.0,22.0,6,object 6 (mushroom),3,object 3 (star),3,object 3 (star),OK,1,kws,0.824,3,16.0,76.0,19.4,1145,1,1,4,5,camera_6_objects_color_nobg_346x260.mask.npy,80.0
+3,right,1,171.0,22.0,172.0,22.0,3,object 3 (star),0,background,3,object 3 (star),FAILED - did not move,0,kws,0.871,3,16.9,1.0,19.4,1145,1,1,4,5,camera_6_objects_color_nobg_346x260.mask.npy,80.0
+4,left,1,172.0,22.0,94.0,18.0,3,object 3 (star),2,object 2 (bottle),2,object 2 (bottle),OK,1,kws,0.827,2,12.1,78.1,19.4,1145,1,1,4,5,camera_6_objects_color_nobg_346x260.mask.npy,80.0
+5,left,1,94.0,18.0,13.0,18.0,2,object 2 (bottle),1,object 1 (apple),1,object 1 (apple),OK,1,kws,0.867,1,16.1,81.0,19.4,1145,1,1,4,5,camera_6_objects_color_nobg_346x260.mask.npy,80.0
+6,right,1,13.0,18.0,88.0,14.0,1,object 1 (apple),2,object 2 (bottle),2,object 2 (bottle),OK,1,kws,0.855,2,15.1,75.1,19.4,1145,1,1,4,5,camera_6_objects_color_nobg_346x260.mask.npy,80.0
+7,up,1,88.0,14.0,88.0,0.0,2,object 2 (bottle),0,background,0,background,no object that way,1,kws,0.831,2,29.1,14.0,19.4,1145,1,1,4,5,camera_6_objects_color_nobg_346x260.mask.npy,80.0
+8,left,1,88.0,0.0,11.0,13.0,0,background,1,object 1 (apple),0,background,WRONG - expected object 1 (apple),0,kws,0.886,1,21.5,78.1,19.4,1145,1,1,4,5,camera_6_objects_color_nobg_346x260.mask.npy,80.0
+9,down,1,11.0,13.0,11.0,44.0,0,background,1,object 1 (apple),1,object 1 (apple),OK,1,kws,0.804,1,16.1,31.0,19.4,1145,1,1,4,5,camera_6_objects_color_nobg_346x260.mask.npy,80.0
+10,up,1,11.0,44.0,11.0,0.0,1,object 1 (apple),0,background,0,background,no object that way,1,kws,0.816,1,33.4,44.0,19.4,1145,1,1,4,5,camera_6_objects_color_nobg_346x260.mask.npy,80.0

@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,1,157.0,0.0,158.0,0.0,0,background,0,background,0,FAILED - did not move,3,35.3,11.8,00110,0,0,1,10,30.0
+2,right,1,158.0,0.0,163.0,0.0,0,background,0,background,0,FAILED - did not move,3,39.4,11.8,00110,0,0,1,10,30.0
+3,left,1,163.0,0.0,151.0,0.0,0,background,3,object 3 (star),0,FAILED - did not move,3,29.9,11.8,00110,0,0,1,10,30.0
+4,left,1,151.0,0.0,58.0,21.0,0,background,3,object 3 (star),1,WRONG - expected object 3 (star),1,15.2,11.8,00110,0,0,1,10,30.0
+5,down,1,58.0,21.0,49.0,34.0,1,object 1 (apple),4,object 4 (heart),1,FAILED - did not move,1,13.7,11.8,00110,0,0,1,10,30.0
+6,down,1,49.0,34.0,41.0,121.0,1,object 1 (apple),4,object 4 (heart),7,WRONG - expected object 4 (heart),7,11.8,11.8,00110,0,0,1,10,30.0
+7,up,1,41.0,121.0,56.0,87.0,7,object 7 (moon),4,object 4 (heart),0,WRONG - expected object 4 (heart),4,26.3,11.8,00110,0,0,1,10,30.0
+8,down,1,56.0,87.0,43.0,121.0,0,background,7,object 7 (moon),7,OK,7,12.5,11.8,00110,0,0,1,10,30.0
+9,left,1,43.0,121.0,5.0,119.0,7,object 7 (moon),0,background,0,no object that way,7,34.1,11.8,00110,0,0,1,10,30.0
+10,right,1,5.0,119.0,38.0,120.0,0,background,7,object 7 (moon),7,OK,7,10.4,11.8,00110,0,0,1,10,30.0

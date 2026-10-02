@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,172.0,16.0,172.0,97.0,0,background,6,object 6 (mushroom),0,background,WRONG - expected object 6 (mushroom),0,kws,0.843,6,19.9,81.0,19.4,1125,1,1,2,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+2,up,1,172.0,97.0,171.0,22.0,0,background,3,object 3 (star),3,object 3 (star),OK,1,kws,0.871,3,16.0,75.0,19.4,1125,1,1,2,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+3,right,1,171.0,22.0,172.0,22.0,3,object 3 (star),0,background,3,object 3 (star),FAILED - did not move,0,kws,0.835,3,16.9,1.0,19.4,1125,1,1,2,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+4,left,1,172.0,22.0,94.0,16.0,3,object 3 (star),2,object 2 (bottle),2,object 2 (bottle),OK,1,kws,0.937,2,13.9,78.2,19.4,1125,1,1,2,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+5,left,1,94.0,16.0,13.0,16.0,2,object 2 (bottle),1,object 1 (apple),1,object 1 (apple),OK,1,kws,0.875,1,17.9,81.0,19.4,1125,1,1,2,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+6,right,1,13.0,16.0,88.0,10.0,1,object 1 (apple),2,object 2 (bottle),2,object 2 (bottle),OK,1,kws,0.8,2,19.1,75.2,19.4,1125,1,1,2,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+7,up,1,88.0,10.0,88.0,0.0,2,object 2 (bottle),0,background,0,background,no object that way,1,kws,0.871,2,29.1,10.0,19.4,1125,1,1,2,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+8,right,1,88.0,0.0,165.0,13.0,0,background,3,object 3 (star),3,object 3 (star),OK,1,kws,0.914,3,18.3,78.1,19.4,1125,1,1,2,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+9,right,1,165.0,13.0,172.0,13.0,3,object 3 (star),0,background,0,background,no object that way,1,kws,0.808,3,22.3,7.0,19.4,1125,1,1,2,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+10,right,1,172.0,13.0,172.0,13.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.886,3,22.3,0.0,19.4,1125,1,1,2,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0

@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,left,1,107.0,80.0,48.0,62.0,2,object 2 (mouse),1,object 1 (earplugs),1,object 1 (earplugs),OK,1,typed,1.0,1,3.0,61.7,27.1,1111,1,1,1,1,camera_setup_5.mask.npy,100.0
+2,right,1,48.0,62.0,105.0,75.0,1,object 1 (earplugs),2,object 2 (mouse),2,object 2 (mouse),OK,1,typed,1.0,2,8.2,58.5,27.1,1111,1,1,1,1,camera_setup_5.mask.npy,100.0
+3,left,1,105.0,75.0,43.0,65.0,2,object 2 (mouse),1,object 1 (earplugs),1,object 1 (earplugs),OK,1,typed,1.0,1,6.7,62.8,27.1,1111,1,1,1,1,camera_setup_5.mask.npy,100.0
+4,right,1,43.0,65.0,106.0,80.0,1,object 1 (earplugs),2,object 2 (mouse),2,object 2 (mouse),OK,1,typed,1.0,2,13.1,64.8,27.1,1111,1,1,1,1,camera_setup_5.mask.npy,100.0
+5,left,1,106.0,80.0,48.0,67.0,2,object 2 (mouse),1,object 1 (earplugs),1,object 1 (earplugs),OK,1,typed,1.0,1,7.8,59.4,27.1,1111,1,1,1,1,camera_setup_5.mask.npy,100.0
+6,right,1,48.0,67.0,103.0,86.0,1,object 1 (earplugs),2,object 2 (mouse),2,object 2 (mouse),OK,1,typed,1.0,2,19.4,58.2,27.1,1111,1,1,1,1,camera_setup_5.mask.npy,100.0
+7,left,1,103.0,86.0,45.0,71.0,2,object 2 (mouse),1,object 1 (earplugs),1,object 1 (earplugs),OK,1,typed,1.0,1,11.7,59.9,27.1,1111,1,1,1,1,camera_setup_5.mask.npy,100.0
+8,right,1,45.0,71.0,101.0,87.0,1,object 1 (earplugs),2,object 2 (mouse),2,object 2 (mouse),OK,1,typed,1.0,2,20.8,58.2,27.1,1111,1,1,1,1,camera_setup_5.mask.npy,100.0
+9,left,1,101.0,87.0,43.0,71.0,2,object 2 (mouse),1,object 1 (earplugs),1,object 1 (earplugs),OK,1,typed,1.0,1,12.2,60.2,27.1,1111,1,1,1,1,camera_setup_5.mask.npy,100.0
+10,right,1,43.0,71.0,102.0,82.0,1,object 1 (earplugs),2,object 2 (mouse),2,object 2 (mouse),OK,1,typed,1.0,2,15.7,60.0,27.1,1111,1,1,1,1,camera_setup_5.mask.npy,100.0

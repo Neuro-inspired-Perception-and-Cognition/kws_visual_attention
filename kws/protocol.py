@@ -1,24 +1,28 @@
-'''
+"""
 protocol.py
-'''
+"""
 
 import struct
 
-# --- endpoints ---
+# endpoints 
 WIRE_IN_RESET = 0x00
 WIRE_IN_ARM = 0x01
 WIRE_OUT_FIFO_COUNT = 0x20
 PIPE_OUT_PRED = 0xA0
 
-# --- frame layout ---
+# frame layout 
 FRAME_BYTES = 16
 WORDS_PER_FRAME = 4          # the fill count at 0x20 is in 32-bit words
 N_CLASSES = 11
 CONF_MAX = 255.0
 
 # head output ordering -- must match the RTL, do not re-sort
-WORDS = ["yes", "no", "up", "down", "left",
-         "right", "on", "off", "stop", "go", "unknown"]
+# WORDS = ["yes", "no", "up", "down", "left",
+#          "right", "on", "off", "stop", "go", "unknown"]
+# for new implementation
+WORDS = [
+    "up", "down", "left", "right", "one", "two", "unknown", "None", "None", "None", "None"
+]
 UNKNOWN_INDEX = WORDS.index("unknown")
 
 # how head classes map onto attention commands; everything else is a no-op
@@ -43,6 +47,19 @@ def decode_frame(chunk):
         w3 & 0xFF, (w3 >> 8) & 0xFF, (w3 >> 16) & 0xFF, (w3 >> 24) & 0xFF,
         w2 & 0xFF, (w2 >> 8) & 0xFF, (w2 >> 16) & 0xFF, (w2 >> 24) & 0xFF,
     ]
+    # for new implementation
+    scores[0] = scores[0] - 125
+    scores[1] = scores[1] - 125
+    scores[2] = scores[2] - 125
+    scores[3] = scores[3] - 125
+    scores[4] = -128
+    scores[5] = -128
+    scores[6] = scores[6] - 185
+    scores[7] = -128
+    scores[8] = -128
+    scores[9] = -128
+    scores[10] = -128
+    # print(str(class_scores) + " | " + str(confidence))
     return conf, scores, w1 & 0xFF
 
 

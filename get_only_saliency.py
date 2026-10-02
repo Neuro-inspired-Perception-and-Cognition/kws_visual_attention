@@ -37,7 +37,7 @@ def load_events(path):
     return x, y, p, t
 
 # Load event data from a .npy file
-x, y, p, t = load_events("data/6_objects_color_bg_346x260.npy")
+x, y, p, t = load_events("data/9_objects_color_nobg_346x260.npy")
 
 # diagnostic print
 print(f"duration: {t.max()-t.min():.1f} ms")

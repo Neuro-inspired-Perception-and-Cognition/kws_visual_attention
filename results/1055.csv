@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,83.0,106.0,83.0,129.0,5,object 5 (diamond),0,background,0,background,no object that way,1,kws,0.855,5,31.7,23.0,17.7,1055,1,0,5,5,6_objects_mono_nobg_346x260.mask.npy,100.0
+2,up,1,83.0,129.0,83.0,98.0,0,background,5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.906,5,3.5,31.0,17.7,1055,1,0,5,5,6_objects_mono_nobg_346x260.mask.npy,100.0
+3,right,1,83.0,98.0,150.0,105.0,5,object 5 (diamond),6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.902,6,10.0,67.4,17.7,1055,1,0,5,5,6_objects_mono_nobg_346x260.mask.npy,100.0
+4,right,1,150.0,105.0,172.0,105.0,6,object 6 (mushroom),0,background,0,background,no object that way,1,kws,0.812,6,29.2,22.0,17.7,1055,1,0,5,5,6_objects_mono_nobg_346x260.mask.npy,100.0
+5,left,1,172.0,105.0,141.0,105.0,0,background,6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.922,6,8.5,31.0,17.7,1055,1,0,5,5,6_objects_mono_nobg_346x260.mask.npy,100.0
+6,up,1,141.0,105.0,152.0,27.0,6,object 6 (mushroom),3,object 3 (star),3,object 3 (star),OK,1,kws,0.796,3,9.7,78.8,17.7,1055,1,0,5,5,6_objects_mono_nobg_346x260.mask.npy,100.0
+7,up,1,152.0,27.0,152.0,0.0,3,object 3 (star),0,background,0,background,no object that way,1,kws,0.945,3,33.2,27.0,17.7,1055,1,0,5,5,6_objects_mono_nobg_346x260.mask.npy,100.0
+8,right,1,152.0,0.0,172.0,0.0,0,background,0,background,0,background,no object that way,1,kws,0.851,3,42.8,20.0,17.7,1055,1,0,5,5,6_objects_mono_nobg_346x260.mask.npy,100.0
+9,down,1,172.0,0.0,161.0,34.0,0,background,3,object 3 (star),3,object 3 (star),OK,1,kws,0.91,3,17.4,35.7,17.7,1055,1,0,5,5,6_objects_mono_nobg_346x260.mask.npy,100.0
+10,right,1,161.0,34.0,172.0,34.0,3,object 3 (star),0,background,0,background,no object that way,1,kws,0.827,3,28.3,11.0,17.7,1055,1,0,5,5,6_objects_mono_nobg_346x260.mask.npy,100.0

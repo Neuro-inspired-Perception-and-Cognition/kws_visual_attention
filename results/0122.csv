@@ -1,0 +1,11 @@
+step,command,k,start_id,start,expected_id,expected,landed_id,verdict,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,left,1,2,object 2 (circle2),1,object 1 (circle1),1,OK,0122,0,1,2,2,camera_6_circles_mono_jitter_bg_346x260.mask.npy,100.0
+2,down,1,1,object 1 (circle1),4,object 4 (circle4),4,OK,0122,0,1,2,2,camera_6_circles_mono_jitter_bg_346x260.mask.npy,100.0
+3,right,1,4,object 4 (circle4),5,object 5 (circle5),5,OK,0122,0,1,2,2,camera_6_circles_mono_jitter_bg_346x260.mask.npy,100.0
+4,up,1,5,object 5 (circle5),2,object 2 (circle2),2,OK,0122,0,1,2,2,camera_6_circles_mono_jitter_bg_346x260.mask.npy,100.0
+5,down,1,2,object 2 (circle2),5,object 5 (circle5),5,OK,0122,0,1,2,2,camera_6_circles_mono_jitter_bg_346x260.mask.npy,100.0
+6,left,1,5,object 5 (circle5),4,object 4 (circle4),4,OK,0122,0,1,2,2,camera_6_circles_mono_jitter_bg_346x260.mask.npy,100.0
+7,right,1,4,object 4 (circle4),5,object 5 (circle5),5,OK,0122,0,1,2,2,camera_6_circles_mono_jitter_bg_346x260.mask.npy,100.0
+8,right,1,5,object 5 (circle5),6,object 6 (circle6),6,OK,0122,0,1,2,2,camera_6_circles_mono_jitter_bg_346x260.mask.npy,100.0
+9,up,1,6,object 6 (circle6),3,object 3 (circle3),3,OK,0122,0,1,2,2,camera_6_circles_mono_jitter_bg_346x260.mask.npy,100.0
+10,left,1,3,object 3 (circle3),2,object 2 (circle2),2,OK,0122,0,1,2,2,camera_6_circles_mono_jitter_bg_346x260.mask.npy,100.0

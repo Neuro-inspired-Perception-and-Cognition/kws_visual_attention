@@ -1,0 +1,6 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,right,1,16.0,107.0,81.0,106.0,4,object 4 (heart),5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.906,5,10.1,65.0,17.7,1057,1,0,5,7,6_objects_color_nobg_346x260.mask.npy,100.0
+2,left,1,81.0,106.0,18.0,107.0,5,object 5 (diamond),4,object 4 (heart),4,object 4 (heart),OK,1,kws,0.824,4,14.4,63.0,17.7,1057,1,0,5,7,6_objects_color_nobg_346x260.mask.npy,100.0
+3,left,1,18.0,107.0,0.0,107.0,4,object 4 (heart),0,background,0,background,no object that way,1,kws,0.898,4,30.3,18.0,17.7,1057,1,0,5,7,6_objects_color_nobg_346x260.mask.npy,100.0
+4,right,1,0.0,107.0,31.0,107.0,0,background,4,object 4 (heart),4,object 4 (heart),OK,1,kws,0.89,4,9.8,31.0,17.7,1057,1,0,5,7,6_objects_color_nobg_346x260.mask.npy,100.0
+5,up,1,31.0,107.0,18.0,30.0,4,object 4 (heart),1,object 1 (apple),1,object 1 (apple),OK,1,kws,0.851,1,11.4,78.1,17.7,1057,1,0,5,7,6_objects_color_nobg_346x260.mask.npy,100.0

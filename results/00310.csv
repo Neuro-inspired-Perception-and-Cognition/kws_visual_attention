@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,1,158.0,0.0,145.0,0.0,0,background,3,object 3 (star),0,FAILED - did not move,3,26.0,11.8,00310,0,0,3,10,10.0
+2,down,1,145.0,0.0,107.0,59.0,0,background,3,object 3 (star),0,FAILED - did not move,5,21.7,11.8,00310,0,0,3,10,10.0
+3,right,1,107.0,59.0,139.0,40.0,0,background,6,object 6 (mushroom),0,FAILED - did not move,3,21.4,11.8,00310,0,0,3,10,10.0
+4,up,1,139.0,40.0,152.0,0.0,0,background,3,object 3 (star),0,FAILED - did not move,3,30.7,11.8,00310,0,0,3,10,10.0
+5,up,1,152.0,0.0,152.0,0.0,0,background,0,background,0,FAILED - did not move,3,30.7,11.8,00310,0,0,3,10,10.0
+6,right,1,152.0,0.0,163.0,0.0,0,background,0,background,0,FAILED - did not move,3,39.4,11.8,00310,0,0,3,10,10.0
+7,left,1,163.0,0.0,151.0,0.0,0,background,3,object 3 (star),0,FAILED - did not move,3,29.9,11.8,00310,0,0,3,10,10.0
+8,down,1,151.0,0.0,136.0,33.0,0,background,6,object 6 (mushroom),3,WRONG - expected object 6 (mushroom),3,13.8,11.8,00310,0,0,3,10,10.0
+9,down,1,136.0,33.0,146.0,81.0,3,object 3 (star),6,object 6 (mushroom),0,WRONG - expected object 6 (mushroom),6,23.5,11.8,00310,0,0,3,10,10.0
+10,left,1,146.0,81.0,105.0,61.0,0,background,5,object 5 (diamond),5,OK,5,19.3,11.8,00310,0,0,3,10,10.0

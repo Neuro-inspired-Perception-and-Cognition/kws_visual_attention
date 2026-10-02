@@ -30,10 +30,10 @@ from command_parser import parse_command
 # ============================ EXPERIMENT ============================
 linguistic = 0      # 0 = written (typed), 1 = spoken        [0 for this script]
 visual     = 1      # 0 = simulated events, 1 = camera       [1 for this script]
-trial      = 3      # 1-5, one per person
-batch      = 1      # 1-6, the stimulus categories
+trial      = 5      # 1-5
+batch      = 7      # 1-7, the stimulus categories | 1="circles/mono/nobg", 2="circles/mono/bg", 3="shapes/mono/nobg", 4="shapes/mono/bg", 5="shapes/color/nobg", 6="shapes/color/bg", 7="objects/color/diff quantities"
  
-mask_path = "stimuli/ground_truth_masks/camera_setup_4.mask.npy"
+mask_path = "stimuli/ground_truth_masks/camera_9_objects_color_nobg_346x260.mask.npy"
  
 command_limit = 10  # commands per trial (the starting fixation is not a command)
 results_dir = "results"
@@ -52,10 +52,10 @@ attention_params = {
     'size_krn': 16, 'r0': 7, 'rho': 0.015, 'theta': np.pi * 3 / 2,
     'thetas': np.arange(0, 2 * np.pi, np.pi / 4), 'thick': 12,
     'fltr_resize_perc': [2, 2], 'offsetpxs': 0, 'offset': (0, 0),
-    'num_pyr': 6, 'tau_mem': 0.3, 'stride': 1, 'out_ch': 1,
+    'num_pyr': 6, 'tau_mem': 0.3, 'stride': 1, 'out_ch': 1, # try pyr 3
 }
  
-default_conf = 1.0
+default_conf = 1.0 # not tested with different confs
 threshold = 0.6
  
 # membrane / fovea-pan controller
@@ -64,7 +64,7 @@ step = 8.0           # px the fovea pans per window
 saccade_jump = 60.0  # px the fovea jumps on a saccade command
 readout_r = 25.0     # radius: focus neighbourhood and boost width
 boost = 2.0          # how much the fovea's area is amplified
-cap_ratio = 2.5      # how much the peak must exceed the zone mean to lock
+cap_ratio = 1.5      # how much the peak must exceed the zone mean to lock
 min_travel = 50.0    # px the fovea must travel before it may lock
 default_mode = "pan" # "pan" or "saccade"; changeable live via "mode <x>"
  
@@ -72,7 +72,7 @@ default_mode = "pan" # "pan" or "saccade"; changeable live via "mode <x>"
 min_events_fix = 300     # events a window needs before the first fixation
 fix_peak_ratio = 2.0     # the saliency peak must be this many times the map mean
 follow_before_command = True   # until the first command, the fovea follows the saliency peak every window instead of freezing
-noise_filter_us = 2000
+noise_filter_us =  500  # microseconds: filter out background activity; None = off
  
 # How far outside an object's footprint a fovea landing still counts as on it,
 # as a multiple of the object radius. 
@@ -569,8 +569,8 @@ def write_results():
                      "fovea_x": fov[0], "fovea_y": fov[1],
                      "start_id": start_id or 0, "start": label(start_id),
                      "expected_id": target or 0, "expected": label(target),
-                     "landed_id": landed or 0, "landed": label(landed),
-                     "verdict": verdict, "correct": int(ok),
+                     "landed_id": landed or 0, # "landed": label(landed),
+                     "verdict": verdict, #"correct": int(ok),
                      "nearest_id": nid, "nearest_px": round(npx, 1),
                      "travel_px": round(travel, 1),
                      "snap_px": round(snap_px, 1),

@@ -31,7 +31,7 @@ FRAMES_PER_STEP = 1         # frames held at each of the 8 positions (>=1)
 N_STEPS         = 200       # number of jitter steps -> N_STEPS*FRAMES_PER_STEP frames
 OUT_DIR         = "stimuli/frame_videos"  # the .mp4 saves here
 TRUTH_DIR       = "stimuli/ground_truth_masks"   # the .mask.npy + .truth.csv saves here
-OUT_NAME        = f"{N_OBJECTS}_circles_bg_{WIDTH}x{HEIGHT}.mp4"
+OUT_NAME        = f"{N_OBJECTS}_circles_bg_jitter_{WIDTH}x{HEIGHT}.mp4"
 OUT_PATH        = os.path.join(OUT_DIR, OUT_NAME)
 STEM            = os.path.splitext(OUT_NAME)[0]  # shared basename: video <-> its truth
 
@@ -42,14 +42,17 @@ PROC_DOWNSAMPLE = 2         # must equal DOWNSAMPLE in the controller
 
 # pencil-scratch background
 BG_ENABLED   = True
-BG_JITTER    = False        # static hatching
-BG_STROKES   = 1100         # how many scratch strokes
-BG_LO, BG_HI = 100, 200     # grey range of a stroke
-BG_LEN       = (12, 55)     # stroke length in px
-BG_WIDTH     = 1            # stroke width in px
+BG_JITTER    = True        # static hatching = False, jittering hatching = True
+BG_STROKES   = 300         # how many scratch strokes
+BG_LO, BG_HI = 200, 250     # grey range of a stroke, darkest = 0, lightest = 255, lo->hi = light->dark
+BG_LEN       = (10, 50)     # stroke length in px
+BG_WIDTH     = 1            # stroke width in px # 1=thin pencil, 2=thick pencil
 BG_ANGLES    = (-35, 20)    # degrees: hatching leans these two ways
-BG_BLUR      = 0.4          # low = crisp crossed lines; high = soft haze
-BG_SEED      = 7
+BG_BLUR      = 1.2         # low = crisp crossed lines; high = soft haze
+BG_SEED      = 7 
+
+# which circle the background copies (index into NAMES); None = own phase
+bg_follow = 5
 
 # 8 unit displacements around a circle of radius 1 px
 CIRCLE = [
@@ -137,9 +140,16 @@ def render(out_path=OUT_PATH):
     bg      = make_background() if BG_ENABLED else None
     pad     = 2
 
-    phases = [(i * 3) % 8 for i in range(N_OBJECTS)]
-    signs  = [1 if i % 2 == 0 else -1 for i in range(N_OBJECTS)]
-    bg_phase, bg_sign = 5, 1        # its own phase so it doesn't track any object
+    # phases = [(i * 3) % 8 for i in range(N_OBJECTS)]
+    # signs  = [1 if i % 2 == 0 else -1 for i in range(N_OBJECTS)]
+    phases = [0] * N_OBJECTS # set everything moving globally in the same direction
+    signs = [1] * N_OBJECTS # set everything moving globally in the same direction
+
+    # background copies the phase + direction of the followed circle
+    if bg_follow is not None:
+        bg_phase, bg_sign = phases[bg_follow], signs[bg_follow]
+    else:
+        bg_phase, bg_sign = 5, 1    # its own phase so it doesn't track any object
 
     frames = []
     for step in range(N_STEPS):
@@ -168,8 +178,12 @@ def render(out_path=OUT_PATH):
         writer.append_data(f)
     writer.close()
 
+    bg_desc = ("off" if not BG_ENABLED else
+               "on, static" if not BG_JITTER else
+               f"on, following {NAMES[bg_follow]}" if bg_follow is not None else
+               "on, own phase")
     print(f"wrote {out_path}: {len(frames)} frames, {WIDTH}x{HEIGHT}, {FPS} fps"
-          f"  (background {'on, jittering' if BG_ENABLED and BG_JITTER else 'on, static' if BG_ENABLED else 'off'})")
+          f"  (background {bg_desc})")
     return sprites, homes
 
 

@@ -2,7 +2,7 @@
 Live camera + live typed commands.
 
 
-Type direction commands in the terminal while camera streams events. 
+Type direction command in the terminal while camera streams events. 
 
 Commands (typed in the terminal, Enter to submit):
     right / left / up / down     set the active direction (conf defaults to 1.0)

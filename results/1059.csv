@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,32.0,63.0,25.0,117.0,4,object 4 (heart),7,object 7 (moon),7,object 7 (moon),OK,1,kws,0.875,7,14.7,54.5,16.0,1059,1,0,5,9,9_objects_color_nobg_346x260.mask.npy,80.0
+2,right,1,25.0,117.0,83.0,122.0,7,object 7 (moon),8,object 8 (tree),8,object 8 (tree),OK,1,kws,0.816,8,13.4,58.2,16.0,1059,1,0,5,9,9_objects_color_nobg_346x260.mask.npy,80.0
+3,up,1,83.0,122.0,85.0,66.0,8,object 8 (tree),5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.882,5,1.8,56.0,16.0,1059,1,0,5,9,9_objects_color_nobg_346x260.mask.npy,80.0
+4,right,1,85.0,66.0,136.0,61.0,5,object 5 (diamond),6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.816,6,7.0,51.2,16.0,1059,1,0,5,9,9_objects_color_nobg_346x260.mask.npy,80.0
+5,right,1,136.0,61.0,172.0,61.0,6,object 6 (mushroom),0,background,0,background,no object that way,1,kws,0.882,6,42.4,36.0,16.0,1059,1,0,5,9,9_objects_color_nobg_346x260.mask.npy,80.0
+6,down,1,172.0,61.0,148.0,119.0,0,background,9,object 9 (mug),0,background,WRONG - expected object 9 (mug),0,kws,0.878,9,21.3,62.8,16.0,1059,1,0,5,9,9_objects_color_nobg_346x260.mask.npy,80.0
+7,right,1,148.0,119.0,172.0,119.0,0,background,0,background,0,background,no object that way,1,kws,0.812,9,43.8,24.0,16.0,1059,1,0,5,9,9_objects_color_nobg_346x260.mask.npy,80.0
+8,up,1,172.0,119.0,147.0,63.0,0,background,6,object 6 (mushroom),0,background,WRONG - expected object 6 (mushroom),0,kws,0.882,6,17.3,61.3,16.0,1059,1,0,5,9,9_objects_color_nobg_346x260.mask.npy,80.0
+9,right,1,147.0,63.0,172.0,63.0,0,background,0,background,0,background,no object that way,1,kws,0.796,6,42.3,25.0,16.0,1059,1,0,5,9,9_objects_color_nobg_346x260.mask.npy,80.0
+10,left,1,172.0,63.0,137.0,61.0,0,background,6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.8,6,7.9,35.1,16.0,1059,1,0,5,9,9_objects_color_nobg_346x260.mask.npy,80.0

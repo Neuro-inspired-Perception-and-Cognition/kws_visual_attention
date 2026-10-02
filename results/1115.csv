@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,170.0,17.0,170.0,98.0,3,object 3 (star),6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.835,6,17.7,81.0,19.4,1115,1,1,1,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+2,down,1,170.0,98.0,170.0,129.0,6,object 6 (mushroom),0,background,0,background,no object that way,1,kws,0.847,6,30.1,31.0,19.4,1115,1,1,1,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+3,right,1,170.0,129.0,172.0,129.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.867,6,31.3,2.0,19.4,1115,1,1,1,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+4,right,1,172.0,129.0,172.0,129.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.812,6,31.3,0.0,19.4,1115,1,1,1,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+5,left,1,172.0,129.0,95.0,119.0,0,background,5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.882,5,13.5,77.6,19.4,1115,1,1,1,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+6,left,1,95.0,119.0,17.0,116.0,5,object 5 (diamond),4,object 4 (heart),4,object 4 (heart),OK,1,kws,0.886,4,14.8,78.1,19.4,1115,1,1,1,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+7,down,1,17.0,116.0,17.0,129.0,4,object 4 (heart),0,background,0,background,no object that way,1,kws,0.863,4,26.5,13.0,19.4,1115,1,1,1,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+8,up,1,17.0,129.0,10.0,97.0,0,background,4,object 4 (heart),4,object 4 (heart),OK,1,kws,0.855,4,17.1,32.8,19.4,1115,1,1,1,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+9,right,1,10.0,97.0,83.0,115.0,4,object 4 (heart),5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.882,5,10.5,75.2,19.4,1115,1,1,1,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0
+10,left,1,83.0,115.0,0.0,129.0,5,object 5 (diamond),4,object 4 (heart),0,background,WRONG - expected object 4 (heart),0,kws,0.808,4,35.8,84.2,19.4,1115,1,1,1,5,camera_6_objects_color_nobg_346x260.mask.npy,70.0

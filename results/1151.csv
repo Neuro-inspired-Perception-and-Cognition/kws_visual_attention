@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,right,1,130.0,117.0,172.0,117.0,4,object 4 (circle4),0,background,0,background,no object that way,1,kws,0.812,4,46.2,42.0,25.8,1151,1,1,5,1,camera_4_circles_mono_nobg_346x260.mask.npy,90.0
+2,left,1,172.0,117.0,131.0,117.0,0,background,4,object 4 (circle4),4,object 4 (circle4),OK,1,kws,0.816,4,11.7,41.0,25.8,1151,1,1,5,1,camera_4_circles_mono_nobg_346x260.mask.npy,90.0
+3,up,1,131.0,117.0,138.0,37.0,4,object 4 (circle4),2,object 2 (circle2),2,object 2 (circle2),OK,1,kws,0.902,2,12.3,80.3,25.8,1151,1,1,5,1,camera_4_circles_mono_nobg_346x260.mask.npy,90.0
+4,right,1,138.0,37.0,172.0,37.0,2,object 2 (circle2),0,background,0,background,no object that way,1,kws,0.808,2,43.6,34.0,25.8,1151,1,1,5,1,camera_4_circles_mono_nobg_346x260.mask.npy,90.0
+5,right,1,172.0,37.0,172.0,37.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.788,2,43.6,0.0,25.8,1151,1,1,5,1,camera_4_circles_mono_nobg_346x260.mask.npy,90.0
+6,down,1,172.0,37.0,150.0,104.0,0,background,4,object 4 (circle4),4,object 4 (circle4),OK,1,kws,0.863,4,22.9,70.5,25.8,1151,1,1,5,1,camera_4_circles_mono_nobg_346x260.mask.npy,90.0
+7,up,1,150.0,104.0,139.0,28.0,4,object 4 (circle4),2,object 2 (circle2),2,object 2 (circle2),OK,1,kws,0.922,2,9.7,76.8,25.8,1151,1,1,5,1,camera_4_circles_mono_nobg_346x260.mask.npy,90.0
+8,up,1,139.0,28.0,139.0,0.0,2,object 2 (circle2),0,background,0,background,no object that way,1,kws,0.831,2,30.0,28.0,25.8,1151,1,1,5,1,camera_4_circles_mono_nobg_346x260.mask.npy,90.0
+9,left,1,139.0,0.0,59.0,7.0,0,background,1,object 1 (circle1),1,object 1 (circle1),OK,1,kws,0.843,1,24.5,80.3,25.8,1151,1,1,5,1,camera_4_circles_mono_nobg_346x260.mask.npy,90.0
+10,right,1,59.0,7.0,148.0,14.0,1,object 1 (circle1),2,object 2 (circle2),2,object 2 (circle2),OK,1,kws,0.867,2,23.6,89.3,25.8,1151,1,1,5,1,camera_4_circles_mono_nobg_346x260.mask.npy,90.0

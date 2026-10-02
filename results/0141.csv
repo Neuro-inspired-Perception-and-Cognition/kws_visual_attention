@@ -1,0 +1,11 @@
+step,command,k,start_id,start,expected_id,expected,landed_id,verdict,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,up,1,5,object 5 (circle5),2,object 2 (circle2),2,OK,0141,0,1,4,1,camera_6_circles_tex_346x260.mask.npy,90.0
+2,down,1,2,object 2 (circle2),5,object 5 (circle5),5,OK,0141,0,1,4,1,camera_6_circles_tex_346x260.mask.npy,90.0
+3,left,1,5,object 5 (circle5),4,object 4 (circle4),4,OK,0141,0,1,4,1,camera_6_circles_tex_346x260.mask.npy,90.0
+4,up,1,4,object 4 (circle4),1,object 1 (circle1),1,OK,0141,0,1,4,1,camera_6_circles_tex_346x260.mask.npy,90.0
+5,right,1,1,object 1 (circle1),2,object 2 (circle2),2,OK,0141,0,1,4,1,camera_6_circles_tex_346x260.mask.npy,90.0
+6,right,1,2,object 2 (circle2),3,object 3 (circle3),3,OK,0141,0,1,4,1,camera_6_circles_tex_346x260.mask.npy,90.0
+7,down,1,3,object 3 (circle3),6,object 6 (circle6),6,OK,0141,0,1,4,1,camera_6_circles_tex_346x260.mask.npy,90.0
+8,right,1,6,object 6 (circle6),0,background,0,no object that way,0141,0,1,4,1,camera_6_circles_tex_346x260.mask.npy,90.0
+9,left,1,0,background,6,object 6 (circle6),5,WRONG - expected object 6 (circle6),0141,0,1,4,1,camera_6_circles_tex_346x260.mask.npy,90.0
+10,up,1,5,object 5 (circle5),2,object 2 (circle2),2,OK,0141,0,1,4,1,camera_6_circles_tex_346x260.mask.npy,90.0

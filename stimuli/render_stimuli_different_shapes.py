@@ -1,11 +1,12 @@
 """
 Smooth jittering shapes video generator
 
-Render a 346x260 video of 6 different objects on a black background. Each object
-"jitters" one pixel around its home position, cycling through the eight
-neighbouring pixels in a circular pattern (the 4 orthogonal directions +
+Render a 346x260 video of 6 different objects over a pencil-scratch background.
+Each object "jitters" one pixel around its home position, cycling through the
+eight neighbouring pixels in a circular pattern (the 4 orthogonal directions +
 the 4 diagonals). Objects start at different phases and spin in different
-directions, so the whole field shimmers with 1-pixel motion
+directions, so the whole field shimmers with 1-pixel motion. The background
+can jitter too, locked to the motion of one object (bg_follow).
 
 Returns .mp4 video plus <stem>.mask.npy and <stem>.truth.csv for ground truth.
 """
@@ -22,6 +23,10 @@ from ground_truth_helpers import build_mask, centroids, save_truth
 
 NAMES = ["apple", "bottle", "star", "heart", "diamond", "mushroom"]
 
+# pencil-scratch background motion (only used when BACKGROUND = True)
+bg_jitter = True    # False = static hatching, True = hatching jitters
+bg_follow = 0       # which object the background copies (index into NAMES); None = own phase
+
 # Parameters
 WIDTH           = 346       # output width
 HEIGHT          = 260       # output height
@@ -29,14 +34,14 @@ SPRITE          = 100       # each object is drawn on a SPRITE x SPRITE canvas
 N_OBJECTS       = 6         # number of objects
 FPS             = 20
 FRAMES_PER_STEP = 1         # frames held at each of the 8 positions (>=1)
-N_STEPS         = 200       # number of jitter steps -> N_STEPS*FRAMES_PER_STEP frames-
-COLOR           = True      
-BACKGROUND      = True     
+N_STEPS         = 200       # number of jitter steps -> N_STEPS*FRAMES_PER_STEP frames
+COLOR           = False
+BACKGROUND      = True
 OUT_DIR         = "stimuli/frame_videos"         # the .mp4 saves here
 TRUTH_DIR       = "stimuli/ground_truth_masks"   # the .mask.npy + .truth.csv save here
 OUT_NAME        = (f"{N_OBJECTS}_objects_"
                    f"{'color' if COLOR else 'mono'}_"
-                   f"{'bg' if BACKGROUND else 'nobg'}_"
+                   f"{('bg_jitter' if bg_jitter else 'bg') if BACKGROUND else 'nobg'}_"
                    f"{WIDTH}x{HEIGHT}.mp4")
 OUT_PATH        = os.path.join(OUT_DIR, OUT_NAME)
 STEM            = os.path.splitext(OUT_NAME)[0]  # shared basename: video <-> its truth
@@ -51,15 +56,15 @@ TEX_CELL        = 3         # speckle cell size in px
 TEX_MIN         = 0.55      # darkest the speckle drives a pixel (1.0 = unchanged)
 PROC_DOWNSAMPLE = 2         # must equal DOWNSAMPLE in the controller
 
-# pencil-scratch background (only used when BACKGROUND = True). It is STATIC, so it
-# costs nothing in events -- it is visible in the .mp4 and picked up by a real
-# camera (screen flicker/sensor noise), but silent in an IEBCS conversion.
-BG_STROKES      = 1100      # how many scratch strokes
-BG_LO, BG_HI    = 100, 200  # grey range of a stroke
+# pencil-scratch background (only used when BACKGROUND = True). When static it
+# costs nothing in events in an IEBCS conversion; when jittering (bg_jitter) it
+# produces events everywhere the hatching has edges.
+BG_STROKES      = 300      # how many scratch strokes
+BG_LO, BG_HI    = 200, 250  # grey range of a stroke
 BG_LEN          = (12, 55)  # stroke length in px
 BG_WIDTH        = 1         # stroke width in px
 BG_ANGLES       = (-35, 20) # degrees: hatching leans these two ways
-BG_BLUR         = 0.4       # low = crisp crossed lines; high = soft haze
+BG_BLUR         = 1.2       # low = crisp crossed lines; high = soft haze
 BG_SEED         = 7
 
 # 8 unit displacements around a circle of radius 1 px
@@ -124,13 +129,14 @@ def _mushroom(d, s):
 DRAWERS = [_apple, _bottle, _star, _heart, _diamond, _mushroom]
 
 
-def make_background():
-    """Static pencil hatching, drawn once."""
+def make_background(pad=2):
+    """Pencil hatching, drawn once. Built `pad` px larger on each side so it can
+    be jittered without exposing an uncovered edge."""
     rng = np.random.default_rng(BG_SEED)
-    img = Image.new("L", (WIDTH, HEIGHT), 0)
+    img = Image.new("L", (WIDTH + 2 * pad, HEIGHT + 2 * pad), 0)
     d = ImageDraw.Draw(img)
     for _ in range(BG_STROKES):
-        x0, y0 = rng.uniform(0, WIDTH), rng.uniform(0, HEIGHT)
+        x0, y0 = rng.uniform(0, WIDTH + 2 * pad), rng.uniform(0, HEIGHT + 2 * pad)
         ang = np.radians(rng.choice(BG_ANGLES) + rng.uniform(-8, 8))
         ln = rng.uniform(*BG_LEN)
         d.line([x0, y0, x0 + ln * np.cos(ang), y0 + ln * np.sin(ang)],
@@ -182,6 +188,7 @@ def save_scene_truth(sprites, homes, stem=STEM, truth_dir=TRUTH_DIR):
     """stem = the clip's base name (no extension, no folder), e.g.
     '6_objects_346x260'. The video and its ground truth live in different folders
     but share this basename, so a clip is always paired with its own mask.
+    Unaffected by the background: the mask comes from each sprite's alpha.
     """
     os.makedirs(truth_dir, exist_ok=True)
     base = os.path.join(truth_dir, stem)
@@ -201,15 +208,30 @@ def render(out_path=OUT_PATH):
 
     # Stagger each object's starting direction and spin sense so they all
     # move differently and together cover orthogonal + diagonal directions.
-    phases = [(i * 3) % 8 for i in range(N_OBJECTS)]
-    signs  = [1 if i % 2 == 0 else -1 for i in range(N_OBJECTS)]
+    #phases = [(i * 3) % 8 for i in range(N_OBJECTS)]
+    #signs  = [1 if i % 2 == 0 else -1 for i in range(N_OBJECTS)]
+    phases = [0] * N_OBJECTS # set everything moving globally in the same direction
+    signs = [1] * N_OBJECTS # set everything moving globally in the same direction
 
-    bg = make_background() if BACKGROUND else None
+    # background copies the phase + direction of the followed object
+    if bg_follow is not None:
+        bg_phase, bg_sign = phases[bg_follow], signs[bg_follow]
+    else:
+        bg_phase, bg_sign = 5, 1    # its own phase so it doesn't track any object
+
+    pad = 2
+    bg  = make_background(pad) if BACKGROUND else None
 
     frames = []
     for step in range(N_STEPS):
         if bg is not None:
-            canvas = bg.convert("RGB")         # static: same hatching every frame
+            if bg_jitter:
+                bx, by = CIRCLE[(bg_phase + bg_sign * step) % 8]
+            else:
+                bx = by = 0
+            layer = Image.new("L", (WIDTH, HEIGHT), 0)
+            layer.paste(bg, (-pad + bx, -pad + by))
+            canvas = layer.convert("RGB")
         else:
             canvas = Image.new("RGB", (WIDTH, HEIGHT), (0, 0, 0))
         for (hx, hy), sprite, ph, sg in zip(homes, sprites, phases, signs):
@@ -229,9 +251,13 @@ def render(out_path=OUT_PATH):
         writer.append_data(f)
     writer.close()
 
+    bg_desc = ("off" if not BACKGROUND else
+               "on, static" if not bg_jitter else
+               f"on, following {NAMES[bg_follow]}" if bg_follow is not None else
+               "on, own phase")
     print(f"wrote {out_path}: {len(frames)} frames, {WIDTH}x{HEIGHT}, {FPS} fps"
           f"  ({'colour' if COLOR else 'mono'}, "
-          f"background {'on' if BACKGROUND else 'off'}, "
+          f"background {bg_desc}, "
           f"texture {'on' if TEXTURED else 'off'})")
     return sprites, homes
 

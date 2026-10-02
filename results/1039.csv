@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,32.0,63.0,26.0,117.0,4,object 4 (heart),7,object 7 (moon),7,object 7 (moon),OK,1,kws,0.82,7,13.9,54.3,16.0,1039,1,0,3,9,9_objects_color_nobg_346x260.mask.npy,80.0
+2,right,1,26.0,117.0,83.0,122.0,7,object 7 (moon),8,object 8 (tree),8,object 8 (tree),OK,1,kws,0.847,8,13.4,57.2,16.0,1039,1,0,3,9,9_objects_color_nobg_346x260.mask.npy,80.0
+3,up,1,83.0,122.0,84.0,65.0,8,object 8 (tree),5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.886,5,2.1,57.0,16.0,1039,1,0,3,9,9_objects_color_nobg_346x260.mask.npy,80.0
+4,left,1,84.0,65.0,34.0,64.0,5,object 5 (diamond),4,object 4 (heart),4,object 4 (heart),OK,1,kws,0.918,4,8.5,50.0,16.0,1039,1,0,3,9,9_objects_color_nobg_346x260.mask.npy,80.0
+5,down,1,34.0,64.0,26.0,117.0,4,object 4 (heart),7,object 7 (moon),7,object 7 (moon),OK,1,kws,0.831,7,13.9,53.6,16.0,1039,1,0,3,9,9_objects_color_nobg_346x260.mask.npy,80.0
+6,right,1,26.0,117.0,83.0,123.0,7,object 7 (moon),8,object 8 (tree),8,object 8 (tree),OK,1,kws,0.871,8,14.4,57.3,16.0,1039,1,0,3,9,9_objects_color_nobg_346x260.mask.npy,80.0
+7,right,1,83.0,123.0,140.0,122.0,8,object 8 (tree),9,object 9 (mug),0,background,WRONG - expected object 9 (mug),0,kws,0.91,9,17.1,57.0,16.0,1039,1,0,3,9,9_objects_color_nobg_346x260.mask.npy,80.0
+8,up,1,140.0,122.0,138.0,64.0,0,background,9,object 9 (mug),6,object 6 (mushroom),WRONG - expected object 9 (mug),0,kws,0.812,6,8.3,58.0,16.0,1039,1,0,3,9,9_objects_color_nobg_346x260.mask.npy,80.0
+9,left,1,138.0,64.0,87.0,63.0,6,object 6 (mushroom),5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.878,5,1.8,51.0,16.0,1039,1,0,3,9,9_objects_color_nobg_346x260.mask.npy,80.0
+10,right,1,87.0,63.0,137.0,61.0,5,object 5 (diamond),6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.855,6,7.9,50.0,16.0,1039,1,0,3,9,9_objects_color_nobg_346x260.mask.npy,80.0

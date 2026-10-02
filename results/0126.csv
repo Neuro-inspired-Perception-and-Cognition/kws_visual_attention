@@ -1,0 +1,11 @@
+step,command,k,start_id,start,expected_id,expected,landed_id,verdict,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,up,1,3,object 3 (star),0,background,0,no object that way,0126,0,1,2,6,camera_6_objects_color_bg_346x260.mask.npy,70.0
+2,right,1,0,background,0,background,0,FAILED - did not move,0126,0,1,2,6,camera_6_objects_color_bg_346x260.mask.npy,70.0
+3,left,1,0,background,2,object 2 (bottle),0,WRONG - expected object 2 (bottle),0126,0,1,2,6,camera_6_objects_color_bg_346x260.mask.npy,70.0
+4,left,1,0,background,2,object 2 (bottle),0,WRONG - expected object 2 (bottle),0126,0,1,2,6,camera_6_objects_color_bg_346x260.mask.npy,70.0
+5,left,1,0,background,1,object 1 (apple),1,OK,0126,0,1,2,6,camera_6_objects_color_bg_346x260.mask.npy,70.0
+6,down,1,1,object 1 (apple),4,object 4 (heart),4,OK,0126,0,1,2,6,camera_6_objects_color_bg_346x260.mask.npy,70.0
+7,up,1,4,object 4 (heart),1,object 1 (apple),1,OK,0126,0,1,2,6,camera_6_objects_color_bg_346x260.mask.npy,70.0
+8,down,1,1,object 1 (apple),4,object 4 (heart),4,OK,0126,0,1,2,6,camera_6_objects_color_bg_346x260.mask.npy,70.0
+9,right,1,4,object 4 (heart),5,object 5 (diamond),5,OK,0126,0,1,2,6,camera_6_objects_color_bg_346x260.mask.npy,70.0
+10,right,1,5,object 5 (diamond),6,object 6 (mushroom),6,OK,0126,0,1,2,6,camera_6_objects_color_bg_346x260.mask.npy,70.0

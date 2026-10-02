@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,up,1,147.0,0.0,147.0,0.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.871,3,36.0,0.0,17.6,1038,1,0,3,8,6_objects_color_bg_jitter_346x260.mask.npy,30.0
+2,right,1,147.0,0.0,172.0,0.0,0,background,0,background,0,background,no object that way,1,kws,0.875,3,45.7,25.0,17.6,1038,1,0,3,8,6_objects_color_bg_jitter_346x260.mask.npy,30.0
+3,left,1,172.0,0.0,139.0,3.0,0,background,2,object 2 (bottle),0,background,WRONG - expected object 2 (bottle),0,kws,0.906,3,33.2,33.1,17.6,1038,1,0,3,8,6_objects_color_bg_jitter_346x260.mask.npy,30.0
+4,up,1,139.0,3.0,139.0,0.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.843,3,36.1,3.0,17.6,1038,1,0,3,8,6_objects_color_bg_jitter_346x260.mask.npy,30.0
+5,right,1,139.0,0.0,172.0,0.0,0,background,0,background,0,background,no object that way,1,kws,0.882,3,45.7,33.0,17.6,1038,1,0,3,8,6_objects_color_bg_jitter_346x260.mask.npy,30.0
+6,up,1,172.0,0.0,172.0,0.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.831,3,45.7,0.0,17.6,1038,1,0,3,8,6_objects_color_bg_jitter_346x260.mask.npy,30.0
+7,down,1,172.0,0.0,172.0,33.0,0,background,3,object 3 (star),0,background,WRONG - expected object 3 (star),0,kws,0.835,3,28.5,33.0,17.6,1038,1,0,3,8,6_objects_color_bg_jitter_346x260.mask.npy,30.0
+8,right,1,172.0,33.0,172.0,33.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.902,3,28.5,0.0,17.6,1038,1,0,3,8,6_objects_color_bg_jitter_346x260.mask.npy,30.0
+9,up,1,172.0,33.0,172.0,0.0,0,background,0,background,0,background,no object that way,1,kws,0.886,3,45.7,33.0,17.6,1038,1,0,3,8,6_objects_color_bg_jitter_346x260.mask.npy,30.0
+10,left,1,172.0,0.0,138.0,4.0,0,background,2,object 2 (bottle),0,background,WRONG - expected object 2 (bottle),0,kws,0.886,3,32.3,34.2,17.6,1038,1,0,3,8,6_objects_color_bg_jitter_346x260.mask.npy,30.0

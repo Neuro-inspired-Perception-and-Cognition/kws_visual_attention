@@ -1,6 +1,6 @@
 """
 Live DVS camera + spoken commands from the FPGA keyword spotter (and typed
-commands, always), scored against a SAM ground-truth mask.
+commands, scored against a SAM ground-truth mask.
 """
 
 import csv
@@ -23,10 +23,10 @@ from kws import KWSSource, make_backend
 # ============================ EXPERIMENT ============================
 linguistic = 1      # 0 = written (typed), 1 = spoken (FPGA keyword spotter)
 visual     = 1      # 0 = simulated events, 1 = camera       [1 for this script]
-trial      = 1      # 1-5, one per person
-batch      = 1      # 1-6, the stimulus categories
+trial      = 4      # 1-5, one per person
+batch      = 9      # 1-10, the stimulus categories
  
-mask_path = "stimuli/ground_truth_masks/camera_setup_4.mask.npy"
+mask_path = "stimuli/ground_truth_masks/camera_6_objects_color_nobg_346x260.mask.npy" # ground truth
  
 command_limit = 10  # commands per trial (the starting fixation is not a command)
 results_dir = "results"
@@ -38,7 +38,7 @@ trial_id = f"{linguistic}{visual}{trial}{batch}"
 # keyword spotter 
 # Follows `linguistic` unless you override it here.
 kws_backend = "frontpanel" if linguistic == 1 else "off"
-kws_bitfile = "bitstreams/ok_top_wrapper.bit"   # 32-channel parallel build
+kws_bitfile = "bitstreams/ok_top_wrapper_newest.bit"   # 32-channel parallel build
 kws_serial = ""                  # "" = first board found
 kws_replay_path = "results/replay_kws.csv"
 kws_accept_conf = 200            # raw 0-255; Piotr's live value. Lower if words are missed
@@ -58,9 +58,9 @@ attention_params = {
 }
  
 default_conf = 1.0
-threshold = 0.6
+threshold = 0.80
  
-# membrane / fovea-pan controller
+# membrane/fovea-pan controller
 leak = 0.5           # membrane decay: leaky integrator of saliency over time
 step = 8.0           # px the fovea pans per window
 saccade_jump = 60.0  # px the fovea jumps on a saccade command
@@ -74,7 +74,7 @@ default_mode = "pan" # "pan" or "saccade"; changeable live via "mode <x>"
 min_events_fix = 300     # events a window needs before the first fixation
 fix_peak_ratio = 2.0     # the saliency peak must be this many times the map mean
 follow_before_command = True   # until the first command, the fovea follows the saliency peak every window instead of freezing
-noise_filter_us = 2000
+noise_filter_us = 500 # it was 2000
 
 snap_factor = 2.0
 snap = None

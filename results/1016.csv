@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,left,1,146.0,0.0,114.0,7.0,0,background,2,object 2 (bottle),0,background,WRONG - expected object 2 (bottle),0,kws,0.847,2,41.0,32.8,17.6,1016,1,0,1,6,6_objects_mono_bg_jitter_346x260.mask.npy,0.0
+2,right,1,114.0,7.0,172.0,7.0,0,background,3,object 3 (star),0,background,WRONG - expected object 3 (star),0,kws,0.788,3,40.4,58.0,17.6,1016,1,0,1,6,6_objects_mono_bg_jitter_346x260.mask.npy,0.0
+3,up,1,172.0,7.0,172.0,0.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.82,3,45.7,7.0,17.6,1016,1,0,1,6,6_objects_mono_bg_jitter_346x260.mask.npy,0.0
+4,right,1,172.0,0.0,172.0,0.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.812,3,45.7,0.0,17.6,1016,1,0,1,6,6_objects_mono_bg_jitter_346x260.mask.npy,0.0
+5,left,1,172.0,0.0,139.0,4.0,0,background,2,object 2 (bottle),0,background,WRONG - expected object 2 (bottle),0,kws,0.808,3,32.2,33.2,17.6,1016,1,0,1,6,6_objects_mono_bg_jitter_346x260.mask.npy,0.0
+6,left,1,139.0,4.0,32.0,1.0,0,background,2,object 2 (bottle),0,background,WRONG - expected object 2 (bottle),0,kws,0.804,1,35.4,107.0,17.6,1016,1,0,1,6,6_objects_mono_bg_jitter_346x260.mask.npy,0.0
+7,right,1,32.0,1.0,67.0,12.0,0,background,2,object 2 (bottle),0,background,WRONG - expected object 2 (bottle),0,kws,0.82,2,32.0,36.7,17.6,1016,1,0,1,6,6_objects_mono_bg_jitter_346x260.mask.npy,0.0
+8,right,1,67.0,12.0,171.0,12.0,0,background,3,object 3 (star),0,background,WRONG - expected object 3 (star),0,kws,0.8,3,36.3,104.0,17.6,1016,1,0,1,6,6_objects_mono_bg_jitter_346x260.mask.npy,0.0
+9,right,1,171.0,12.0,172.0,12.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.871,3,37.0,1.0,17.6,1016,1,0,1,6,6_objects_mono_bg_jitter_346x260.mask.npy,0.0
+10,right,1,172.0,12.0,172.0,12.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.89,3,37.0,0.0,17.6,1016,1,0,1,6,6_objects_mono_bg_jitter_346x260.mask.npy,0.0

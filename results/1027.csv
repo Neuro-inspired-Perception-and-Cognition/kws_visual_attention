@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,right,1,16.0,107.0,80.0,105.0,4,object 4 (heart),5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.91,5,9.9,64.0,17.7,1027,1,0,2,7,6_objects_color_nobg_346x260.mask.npy,80.0
+2,right,1,80.0,105.0,150.0,104.0,5,object 5 (diamond),6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.894,6,9.3,70.0,17.7,1027,1,0,2,7,6_objects_color_nobg_346x260.mask.npy,80.0
+3,right,1,150.0,104.0,172.0,104.0,6,object 6 (mushroom),0,background,0,background,no object that way,1,kws,0.859,6,29.0,22.0,17.7,1027,1,0,2,7,6_objects_color_nobg_346x260.mask.npy,80.0
+4,down,1,172.0,104.0,172.0,129.0,0,background,0,background,0,background,no object that way,1,kws,0.89,6,42.6,25.0,17.7,1027,1,0,2,7,6_objects_color_nobg_346x260.mask.npy,80.0
+5,left,1,172.0,129.0,96.0,114.0,0,background,5,object 5 (diamond),0,background,WRONG - expected object 5 (diamond),0,kws,0.816,5,19.0,77.5,17.7,1027,1,0,2,7,6_objects_color_nobg_346x260.mask.npy,80.0
+6,up,1,96.0,114.0,87.0,35.0,0,background,5,object 5 (diamond),2,object 2 (bottle),WRONG - expected object 5 (diamond),0,kws,0.886,2,1.0,79.5,17.7,1027,1,0,2,7,6_objects_color_nobg_346x260.mask.npy,80.0
+7,left,1,87.0,35.0,20.0,23.0,2,object 2 (bottle),1,object 1 (apple),1,object 1 (apple),OK,1,kws,0.788,1,13.4,68.1,17.7,1027,1,0,2,7,6_objects_color_nobg_346x260.mask.npy,80.0
+8,right,1,20.0,23.0,81.0,24.0,1,object 1 (apple),2,object 2 (bottle),2,object 2 (bottle),OK,1,kws,0.812,2,11.6,61.0,17.7,1027,1,0,2,7,6_objects_color_nobg_346x260.mask.npy,80.0
+9,up,1,81.0,24.0,81.0,0.0,2,object 2 (bottle),0,background,0,background,no object that way,1,kws,0.796,2,34.6,24.0,17.7,1027,1,0,2,7,6_objects_color_nobg_346x260.mask.npy,80.0
+10,down,1,81.0,0.0,84.0,32.0,0,background,2,object 2 (bottle),2,object 2 (bottle),OK,1,kws,0.835,2,3.3,32.1,17.7,1027,1,0,2,7,6_objects_color_nobg_346x260.mask.npy,80.0

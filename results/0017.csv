@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,right,1,15.0,107.0,84.0,105.0,4,object 4 (heart),5,object 5 (diamond),5,OK,5,7.9,17.7,0017,0,0,1,7,100.0
+2,up,1,84.0,105.0,84.0,24.0,5,object 5 (diamond),2,object 2 (bottle),2,OK,2,10.5,17.7,0017,0,0,1,7,100.0
+3,down,1,84.0,24.0,85.0,103.0,2,object 2 (bottle),5,object 5 (diamond),5,OK,5,5.7,17.7,0017,0,0,1,7,100.0
+4,left,1,85.0,103.0,16.0,107.0,5,object 5 (diamond),4,object 4 (heart),4,OK,4,15.9,17.7,0017,0,0,1,7,100.0
+5,right,1,16.0,107.0,84.0,105.0,4,object 4 (heart),5,object 5 (diamond),5,OK,5,7.9,17.7,0017,0,0,1,7,100.0
+6,right,1,84.0,105.0,153.0,104.0,5,object 5 (diamond),6,object 6 (mushroom),6,OK,6,11.5,17.7,0017,0,0,1,7,100.0
+7,up,1,153.0,104.0,154.0,21.0,6,object 6 (mushroom),3,object 3 (star),3,OK,3,15.1,17.7,0017,0,0,1,7,100.0
+8,down,1,154.0,21.0,154.0,103.0,3,object 3 (star),6,object 6 (mushroom),6,OK,6,11.7,17.7,0017,0,0,1,7,100.0
+9,left,1,154.0,103.0,85.0,104.0,6,object 6 (mushroom),5,object 5 (diamond),5,OK,5,6.7,17.7,0017,0,0,1,7,100.0
+10,up,1,85.0,104.0,84.0,25.0,5,object 5 (diamond),2,object 2 (bottle),2,OK,2,9.5,17.7,0017,0,0,1,7,100.0

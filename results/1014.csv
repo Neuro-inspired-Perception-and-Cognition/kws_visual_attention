@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,right,1,77.0,0.0,115.0,0.0,0,background,3,object 3 (top-right),0,background,WRONG - expected object 3 (top-right),0,kws,0.902,2,45.8,38.0,22.0,1014,1,0,1,4,6_circles_mono_bg_jitter_346x260.mask.npy,30.0
+2,right,1,115.0,0.0,167.0,0.0,0,background,0,background,0,background,no object that way,1,kws,0.812,3,42.6,52.0,22.0,1014,1,0,1,4,6_circles_mono_bg_jitter_346x260.mask.npy,30.0
+3,left,1,167.0,0.0,115.0,2.0,0,background,2,object 2 (top-mid),0,background,WRONG - expected object 2 (top-mid),0,kws,0.914,2,44.3,52.0,22.0,1014,1,0,1,4,6_circles_mono_bg_jitter_346x260.mask.npy,30.0
+4,up,1,115.0,2.0,115.0,0.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.859,2,45.8,2.0,22.0,1014,1,0,1,4,6_circles_mono_bg_jitter_346x260.mask.npy,30.0
+5,right,1,115.0,0.0,171.0,0.0,0,background,0,background,0,background,no object that way,1,kws,0.882,3,44.9,56.0,22.0,1014,1,0,1,4,6_circles_mono_bg_jitter_346x260.mask.npy,30.0
+6,up,1,171.0,0.0,171.0,0.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.886,3,44.9,0.0,22.0,1014,1,0,1,4,6_circles_mono_bg_jitter_346x260.mask.npy,30.0
+7,right,1,171.0,0.0,172.0,0.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.878,3,45.6,1.0,22.0,1014,1,0,1,4,6_circles_mono_bg_jitter_346x260.mask.npy,30.0
+8,right,1,172.0,0.0,172.0,0.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.937,3,45.6,0.0,22.0,1014,1,0,1,4,6_circles_mono_bg_jitter_346x260.mask.npy,30.0
+9,down,1,172.0,0.0,172.0,72.0,0,background,3,object 3 (top-right),0,background,WRONG - expected object 3 (top-right),0,kws,0.843,6,35.7,72.0,22.0,1014,1,0,1,4,6_circles_mono_bg_jitter_346x260.mask.npy,30.0
+10,down,1,172.0,72.0,172.0,125.0,0,background,0,background,0,background,no object that way,1,kws,0.831,6,42.2,53.0,22.0,1014,1,0,1,4,6_circles_mono_bg_jitter_346x260.mask.npy,30.0

@@ -346,7 +346,7 @@ def main():
     p.add_argument("--names", nargs="+", default=None, help="object names, in click order")
     p.add_argument("--objects", type=int, default=None,
                    help="auto mode: how many objects you expect; stop if SAM disagrees")
-    p.add_argument("--stem", default="camera_setup_4", help="basename for all outputs")
+    p.add_argument("--stem", default="camera_6_objects_color_nobg_346x260", help="basename for all outputs")
     p.add_argument("--downsample", type=int, default=2,
                    help="processing grid factor -- must match DOWNSAMPLE in the controller")
     p.add_argument("--weights", default="sam2.1_t.pt",

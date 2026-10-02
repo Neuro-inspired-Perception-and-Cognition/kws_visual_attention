@@ -1,11 +1,11 @@
-step,command,k,start_id,start,expected_id,expected,landed_id,verdict,trial_id,linguistic,visual,trial,batch,accuracy
-1,up,1,4,object 4 (heart),1,object 1 (apple),1,OK,0046,0,0,4,6,100.0
-2,right,1,1,object 1 (apple),2,object 2 (bottle),2,OK,0046,0,0,4,6,100.0
-3,down,1,2,object 2 (bottle),5,object 5 (diamond),5,OK,0046,0,0,4,6,100.0
-4,left,1,5,object 5 (diamond),4,object 4 (heart),4,OK,0046,0,0,4,6,100.0
-5,up,1,4,object 4 (heart),1,object 1 (apple),1,OK,0046,0,0,4,6,100.0
-6,right,1,1,object 1 (apple),2,object 2 (bottle),2,OK,0046,0,0,4,6,100.0
-7,right,1,2,object 2 (bottle),3,object 3 (star),3,OK,0046,0,0,4,6,100.0
-8,down,1,3,object 3 (star),6,object 6 (mushroom),6,OK,0046,0,0,4,6,100.0
-9,up,1,6,object 6 (mushroom),3,object 3 (star),3,OK,0046,0,0,4,6,100.0
-10,left,1,3,object 3 (star),2,object 2 (bottle),2,OK,0046,0,0,4,6,100.0
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,1,147.0,0.0,136.0,32.0,0,background,3,object 3 (star),3,OK,3,8.6,17.4,0046,0,0,4,6,20.0
+2,down,1,136.0,32.0,139.0,75.0,3,object 3 (star),6,object 6 (mushroom),6,OK,6,19.0,17.4,0046,0,0,4,6,20.0
+3,left,1,139.0,75.0,101.0,61.0,6,object 6 (mushroom),5,object 5 (diamond),2,WRONG - expected object 5 (diamond),2,27.7,17.4,0046,0,0,4,6,20.0
+4,down,1,101.0,61.0,92.0,128.0,2,object 2 (bottle),5,object 5 (diamond),0,WRONG - expected object 5 (diamond),5,34.9,17.4,0046,0,0,4,6,20.0
+5,left,1,92.0,128.0,34.0,123.0,0,background,4,object 4 (heart),0,FAILED - did not move,4,29.5,17.4,0046,0,0,4,6,20.0
+6,right,1,34.0,123.0,91.0,129.0,0,background,5,object 5 (diamond),0,FAILED - did not move,5,35.7,17.4,0046,0,0,4,6,20.0
+7,right,1,91.0,129.0,172.0,129.0,0,background,6,object 6 (mushroom),0,FAILED - did not move,6,45.3,17.4,0046,0,0,4,6,20.0
+8,up,1,172.0,129.0,172.0,92.0,0,background,6,object 6 (mushroom),0,FAILED - did not move,6,28.1,17.4,0046,0,0,4,6,20.0
+9,down,1,172.0,92.0,172.0,129.0,0,background,0,background,0,FAILED - did not move,6,45.3,17.4,0046,0,0,4,6,20.0
+10,left,1,172.0,129.0,94.0,129.0,0,background,5,object 5 (diamond),0,FAILED - did not move,5,36.2,17.4,0046,0,0,4,6,20.0

@@ -39,7 +39,8 @@ import torch
 
 from visual_attention.helpers_visual_att import initialise_attention, run_attention
 from command_parser import parse_command
-from kws import KWSSource, make_backend
+# from kws import KWSSource, make_backend
+from kws.source import KWSSource, make_backend # testing 
 
 import csv
 
@@ -63,7 +64,7 @@ THRESHOLD = 0.5             # loop-level gate; KWS_ACCEPT_CONF gates at the sour
 
 #  keyword spotter
 KWS_BACKEND = "frontpanel"          # "frontpanel" | "replay" | "off"
-KWS_BITFILE = "bitstreams/ok_top_wrapper.bit"   # 32-channel parallel build
+KWS_BITFILE = "bitstreams/ok_top_wrapper_newest.bit"   # 32-channel parallel build
 KWS_SERIAL = ""              # "" = first device found
 KWS_REPLAY_PATH = "kws_log.csv"
 KWS_REPLAY_SPEED = 1.0
@@ -73,6 +74,7 @@ KWS_MAX_BURST_FRAMES = 40    # force a commit if conf never drops (400 ms)
 KWS_UNKNOWN_PENALTY = 50     # flat penalty on the 'unknown' score, or it wins live
 KWS_REFRACTORY_MS = 400      # suppress repeats of the same class inside this window
 KWS_RESYNC_EVERY_S = 10.0    # clear GRU state periodically, only between words
+KWS_RESYNC_EVERY_BATCHES = 10
 KWS_POLL_MS = 5
 KWS_TTL_S = 3.0              # spoken command releases itself after this long
 KWS_LOG_PATH = "kws_log.csv"
@@ -120,11 +122,12 @@ if KWS_BACKEND != "off":
     backend = make_backend(KWS_BACKEND, bitfile=KWS_BITFILE, serial=KWS_SERIAL,
                            path=KWS_REPLAY_PATH, speed=KWS_REPLAY_SPEED)
     kws = KWSSource(backend, cmd_queue,
-                    accept_conf_raw=KWS_ACCEPT_CONF_RAW,
-                    min_burst_frames=KWS_MIN_BURST_FRAMES,
-                    max_burst_frames=KWS_MAX_BURST_FRAMES,
+                    accept_conf=KWS_ACCEPT_CONF_RAW,
+                    # min_burst_frames=KWS_MIN_BURST_FRAMES,
+                    # max_burst_frames=KWS_MAX_BURST_FRAMES,
                     unknown_penalty=KWS_UNKNOWN_PENALTY,
-                    resync_every_s=KWS_RESYNC_EVERY_S,
+                    # resync_every_s=KWS_RESYNC_EVERY_S,
+                    resync_every_batches=KWS_RESYNC_EVERY_BATCHES,
                     refractory_ms=KWS_REFRACTORY_MS,
                     poll_ms=KWS_POLL_MS,
                     log_path=KWS_LOG_PATH if KWS_BACKEND == "frontpanel" else None)

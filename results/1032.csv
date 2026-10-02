@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,151.0,0.0,142.0,44.0,0,background,2,object 2 (top-right),0,background,WRONG - expected object 2 (top-right),0,kws,0.843,2,26.1,44.9,22.0,1032,1,0,3,2,4_circles_mono_bg_jitter_346x260.mask.npy,30.0
+2,left,1,142.0,44.0,102.0,55.0,0,background,2,object 2 (top-right),0,background,WRONG - expected object 2 (top-right),0,kws,0.89,2,28.2,41.5,22.0,1032,1,0,3,2,4_circles_mono_bg_jitter_346x260.mask.npy,30.0
+3,down,1,102.0,55.0,94.0,116.0,0,background,4,object 4 (bottom-right),0,background,WRONG - expected object 4 (bottom-right),0,kws,0.843,4,31.0,61.5,22.0,1032,1,0,3,2,4_circles_mono_bg_jitter_346x260.mask.npy,30.0
+4,right,1,94.0,116.0,142.0,123.0,0,background,4,object 4 (bottom-right),0,background,WRONG - expected object 4 (bottom-right),0,kws,0.843,4,34.7,48.5,22.0,1032,1,0,3,2,4_circles_mono_bg_jitter_346x260.mask.npy,30.0
+5,left,1,142.0,123.0,94.0,123.0,0,background,3,object 3 (bottom-left),0,background,WRONG - expected object 3 (bottom-left),0,kws,0.871,4,35.6,48.0,22.0,1032,1,0,3,2,4_circles_mono_bg_jitter_346x260.mask.npy,30.0
+6,right,1,94.0,123.0,143.0,124.0,0,background,0,background,0,background,no object that way,1,kws,0.796,4,36.1,49.0,22.0,1032,1,0,3,2,4_circles_mono_bg_jitter_346x260.mask.npy,30.0
+7,up,1,143.0,124.0,134.0,65.0,0,background,4,object 4 (bottom-right),0,background,WRONG - expected object 4 (bottom-right),0,kws,0.831,4,35.7,59.7,22.0,1032,1,0,3,2,4_circles_mono_bg_jitter_346x260.mask.npy,30.0
+8,right,1,134.0,65.0,172.0,65.0,0,background,0,background,0,background,no object that way,1,kws,0.867,4,62.3,38.0,22.0,1032,1,0,3,2,4_circles_mono_bg_jitter_346x260.mask.npy,30.0
+9,up,1,172.0,65.0,172.0,0.0,0,background,0,background,0,background,no object that way,1,kws,0.808,2,62.3,65.0,22.0,1032,1,0,3,2,4_circles_mono_bg_jitter_346x260.mask.npy,30.0
+10,left,1,172.0,0.0,141.0,0.0,0,background,2,object 2 (top-right),0,background,WRONG - expected object 2 (top-right),0,kws,0.839,2,39.3,31.0,22.0,1032,1,0,3,2,4_circles_mono_bg_jitter_346x260.mask.npy,30.0

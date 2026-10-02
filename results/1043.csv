@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,up,1,155.0,107.0,154.0,29.0,6,object 6 (bottom-right),3,object 3 (top-right),3,object 3 (top-right),OK,1,kws,0.871,3,10.6,78.0,20.3,1043,1,0,4,3,6_circles_tex_346x260.mask.npy,70.0
+2,right,1,154.0,29.0,172.0,29.0,3,object 3 (top-right),0,background,0,background,no object that way,1,kws,0.847,3,28.2,18.0,20.3,1043,1,0,4,3,6_circles_tex_346x260.mask.npy,70.0
+3,down,1,172.0,29.0,157.0,102.0,0,background,6,object 6 (bottom-right),6,object 6 (bottom-right),OK,1,kws,0.843,6,13.8,74.5,20.3,1043,1,0,4,3,6_circles_tex_346x260.mask.npy,70.0
+4,right,1,157.0,102.0,172.0,102.0,6,object 6 (bottom-right),0,background,0,background,no object that way,1,kws,0.906,6,28.4,15.0,20.3,1043,1,0,4,3,6_circles_tex_346x260.mask.npy,70.0
+5,right,1,172.0,102.0,172.0,102.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.851,6,28.4,0.0,20.3,1043,1,0,4,3,6_circles_tex_346x260.mask.npy,70.0
+6,right,1,172.0,102.0,172.0,102.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.859,6,28.4,0.0,20.3,1043,1,0,4,3,6_circles_tex_346x260.mask.npy,70.0
+7,left,1,172.0,102.0,141.0,102.0,0,background,6,object 6 (bottom-right),6,object 6 (bottom-right),OK,1,kws,0.8,6,5.4,31.0,20.3,1043,1,0,4,3,6_circles_tex_346x260.mask.npy,70.0
+8,down,1,141.0,102.0,141.0,129.0,6,object 6 (bottom-right),0,background,0,background,no object that way,1,kws,0.855,6,31.6,27.0,20.3,1043,1,0,4,3,6_circles_tex_346x260.mask.npy,70.0
+9,right,1,141.0,129.0,172.0,129.0,0,background,0,background,0,background,no object that way,1,kws,0.843,6,42.1,31.0,20.3,1043,1,0,4,3,6_circles_tex_346x260.mask.npy,70.0
+10,right,1,172.0,129.0,172.0,129.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.812,6,42.1,0.0,20.3,1043,1,0,4,3,6_circles_tex_346x260.mask.npy,70.0

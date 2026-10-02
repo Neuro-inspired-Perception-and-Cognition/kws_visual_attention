@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,1,147.0,0.0,137.0,33.0,0,background,3,object 3 (star),3,OK,3,7.3,17.4,0018,0,0,1,8,50.0
+2,left,1,137.0,33.0,103.0,56.0,3,object 3 (star),2,object 2 (bottle),2,OK,2,24.9,17.4,0018,0,0,1,8,50.0
+3,right,1,103.0,56.0,139.0,38.0,2,object 2 (bottle),3,object 3 (star),3,OK,3,5.2,17.4,0018,0,0,1,8,50.0
+4,up,1,139.0,38.0,146.0,0.0,3,object 3 (star),0,background,0,no object that way,3,35.9,17.4,0018,0,0,1,8,50.0
+5,left,1,146.0,0.0,123.0,12.0,0,background,2,object 2 (bottle),0,FAILED - did not move,3,31.6,17.4,0018,0,0,1,8,50.0
+6,left,1,123.0,12.0,28.0,1.0,0,background,2,object 2 (bottle),0,FAILED - did not move,1,35.3,17.4,0018,0,0,1,8,50.0
+7,down,1,28.0,1.0,44.0,35.0,0,background,1,object 1 (apple),1,OK,1,14.9,17.4,0018,0,0,1,8,50.0
+8,down,1,44.0,35.0,35.0,126.0,1,object 1 (apple),4,object 4 (heart),0,WRONG - expected object 4 (heart),4,32.6,17.4,0018,0,0,1,8,50.0
+9,right,1,35.0,126.0,91.0,129.0,0,background,5,object 5 (diamond),0,FAILED - did not move,5,35.7,17.4,0018,0,0,1,8,50.0
+10,up,1,91.0,129.0,97.0,61.0,0,background,5,object 5 (diamond),2,WRONG - expected object 5 (diamond),2,25.9,17.4,0018,0,0,1,8,50.0

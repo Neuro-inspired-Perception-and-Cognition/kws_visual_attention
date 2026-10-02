@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,up,1,17.0,110.0,2.0,20.0,4,object 4 (heart),1,object 1 (apple),0,background,WRONG - expected object 1 (apple),0,kws,0.812,1,33.1,91.2,18.8,1113,1,1,1,3,camera_6_objects_mono_nobg_346x260.mask.npy,90.0
+2,down,1,2.0,20.0,11.0,99.0,0,background,4,object 4 (heart),4,object 4 (heart),OK,1,kws,0.867,4,18.4,79.5,18.8,1113,1,1,1,3,camera_6_objects_mono_nobg_346x260.mask.npy,90.0
+3,right,1,11.0,99.0,88.0,108.0,4,object 4 (heart),5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.89,5,7.7,77.5,18.8,1113,1,1,1,3,camera_6_objects_mono_nobg_346x260.mask.npy,90.0
+4,up,1,88.0,108.0,91.0,29.0,5,object 5 (diamond),2,object 2 (bottle),2,object 2 (bottle),OK,1,kws,0.827,2,3.2,79.1,18.8,1113,1,1,1,3,camera_6_objects_mono_nobg_346x260.mask.npy,90.0
+5,left,1,91.0,29.0,23.0,25.0,2,object 2 (bottle),1,object 1 (apple),1,object 1 (apple),OK,1,kws,0.875,1,12.6,68.1,18.8,1113,1,1,1,3,camera_6_objects_mono_nobg_346x260.mask.npy,90.0
+6,down,1,23.0,25.0,18.0,105.0,1,object 1 (apple),4,object 4 (heart),4,object 4 (heart),OK,1,kws,0.875,4,12.2,80.2,18.8,1113,1,1,1,3,camera_6_objects_mono_nobg_346x260.mask.npy,90.0
+7,right,1,18.0,105.0,88.0,109.0,4,object 4 (heart),5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.859,5,8.6,70.1,18.8,1113,1,1,1,3,camera_6_objects_mono_nobg_346x260.mask.npy,90.0
+8,right,1,88.0,109.0,159.0,105.0,5,object 5 (diamond),6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.875,6,9.8,71.1,18.8,1113,1,1,1,3,camera_6_objects_mono_nobg_346x260.mask.npy,90.0
+9,up,1,159.0,105.0,156.0,26.0,6,object 6 (mushroom),3,object 3 (star),3,object 3 (star),OK,1,kws,0.863,3,11.7,79.1,18.8,1113,1,1,1,3,camera_6_objects_mono_nobg_346x260.mask.npy,90.0
+10,left,1,156.0,26.0,89.0,25.0,3,object 3 (star),2,object 2 (bottle),2,object 2 (bottle),OK,1,kws,0.839,2,7.2,67.0,18.8,1113,1,1,1,3,camera_6_objects_mono_nobg_346x260.mask.npy,90.0

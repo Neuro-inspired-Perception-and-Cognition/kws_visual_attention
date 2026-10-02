@@ -1,11 +1,11 @@
-step,command,k,start_id,start,expected_id,expected,landed_id,verdict,trial_id,linguistic,visual,trial,batch,accuracy
-1,up,1,5,object 5 (diamond),2,object 2 (bottle),2,OK,0024,0,0,2,4,100.0
-2,down,1,2,object 2 (bottle),5,object 5 (diamond),5,OK,0024,0,0,2,4,100.0
-3,left,1,5,object 5 (diamond),4,object 4 (heart),4,OK,0024,0,0,2,4,100.0
-4,left,1,4,object 4 (heart),0,background,0,no object that way,0024,0,0,2,4,100.0
-5,up,1,0,background,1,object 1 (apple),1,OK,0024,0,0,2,4,100.0
-6,right,1,1,object 1 (apple),2,object 2 (bottle),2,OK,0024,0,0,2,4,100.0
-7,right,1,2,object 2 (bottle),3,object 3 (star),3,OK,0024,0,0,2,4,100.0
-8,down,1,3,object 3 (star),6,object 6 (mushroom),6,OK,0024,0,0,2,4,100.0
-9,left,1,6,object 6 (mushroom),5,object 5 (diamond),5,OK,0024,0,0,2,4,100.0
-10,up,1,5,object 5 (diamond),2,object 2 (bottle),2,OK,0024,0,0,2,4,100.0
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,1,77.0,0.0,25.0,0.0,0,background,1,object 1 (top-left),0,FAILED - did not move,1,35.9,15.9,0024,0,0,2,4,10.0
+2,right,1,25.0,0.0,76.0,0.0,0,background,2,object 2 (top-mid),0,FAILED - did not move,2,37.2,15.9,0024,0,0,2,4,10.0
+3,left,1,76.0,0.0,28.0,0.0,0,background,1,object 1 (top-left),0,FAILED - did not move,1,35.7,15.9,0024,0,0,2,4,10.0
+4,right,1,28.0,0.0,77.0,0.0,0,background,2,object 2 (top-mid),0,FAILED - did not move,2,36.9,15.9,0024,0,0,2,4,10.0
+5,down,1,77.0,0.0,92.0,73.0,0,background,2,object 2 (top-mid),5,WRONG - expected object 2 (top-mid),5,21.5,15.9,0024,0,0,2,4,10.0
+6,right,1,92.0,73.0,172.0,71.0,5,object 5 (bottom-mid),6,object 6 (bottom-right),0,WRONG - expected object 6 (bottom-right),6,36.3,15.9,0024,0,0,2,4,10.0
+7,left,1,172.0,71.0,95.0,72.0,0,background,6,object 6 (bottom-right),5,WRONG - expected object 6 (bottom-right),5,23.4,15.9,0024,0,0,2,4,10.0
+8,left,1,95.0,72.0,2.0,71.0,5,object 5 (bottom-mid),4,object 4 (bottom-left),0,WRONG - expected object 4 (bottom-left),4,35.0,15.9,0024,0,0,2,4,10.0
+9,up,1,2.0,71.0,7.0,45.0,0,background,1,object 1 (top-left),1,OK,1,23.6,15.9,0024,0,0,2,4,10.0
+10,down,1,7.0,45.0,0.0,79.0,1,object 1 (top-left),4,object 4 (bottom-left),0,WRONG - expected object 4 (bottom-left),4,32.2,15.9,0024,0,0,2,4,10.0

@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,148.0,0.0,147.0,65.0,3,object 3 (star),6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.851,6,8.3,65.0,19.3,1119,1,1,1,9,camera_6_objects_color_nobg_346x260.mask.npy,40.0
+2,right,1,147.0,65.0,172.0,65.0,6,object 6 (mushroom),0,background,0,background,no object that way,1,kws,0.839,6,33.2,25.0,19.3,1119,1,1,1,9,camera_6_objects_color_nobg_346x260.mask.npy,40.0
+3,up,1,172.0,65.0,152.0,0.0,0,background,3,object 3 (star),0,background,WRONG - expected object 3 (star),0,kws,0.827,3,19.7,68.0,19.3,1119,1,1,1,9,camera_6_objects_color_nobg_346x260.mask.npy,40.0
+4,up,1,152.0,0.0,152.0,0.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.847,3,19.7,0.0,19.3,1119,1,1,1,9,camera_6_objects_color_nobg_346x260.mask.npy,40.0
+5,left,1,152.0,0.0,152.0,0.0,0,background,3,object 3 (star),0,background,FAILED - did not move,0,kws,0.792,3,19.7,0.0,19.3,1119,1,1,1,9,camera_6_objects_color_nobg_346x260.mask.npy,40.0
+6,left,1,152.0,0.0,84.0,0.0,0,background,3,object 3 (star),2,object 2 (bottle),WRONG - expected object 3 (star),0,kws,0.82,2,14.8,68.0,19.3,1119,1,1,1,9,camera_6_objects_color_nobg_346x260.mask.npy,40.0
+7,right,1,84.0,0.0,144.0,0.0,2,object 2 (bottle),3,object 3 (star),3,object 3 (star),OK,1,kws,0.894,3,15.0,60.0,19.3,1119,1,1,1,9,camera_6_objects_color_nobg_346x260.mask.npy,40.0
+8,up,1,144.0,0.0,144.0,0.0,3,object 3 (star),0,background,3,object 3 (star),FAILED - did not move,0,kws,0.898,3,15.0,0.0,19.3,1119,1,1,1,9,camera_6_objects_color_nobg_346x260.mask.npy,40.0
+9,left,1,144.0,0.0,83.0,0.0,3,object 3 (star),2,object 2 (bottle),2,object 2 (bottle),OK,1,kws,0.886,2,15.0,61.0,19.3,1119,1,1,1,9,camera_6_objects_color_nobg_346x260.mask.npy,40.0
+10,left,1,83.0,0.0,0.0,25.0,2,object 2 (bottle),1,object 1 (apple),0,background,WRONG - expected object 1 (apple),0,kws,0.82,1,34.4,86.7,19.3,1119,1,1,1,9,camera_6_objects_color_nobg_346x260.mask.npy,40.0

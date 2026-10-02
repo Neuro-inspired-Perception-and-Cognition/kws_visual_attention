@@ -33,14 +33,17 @@ from command_parser import parse_command
 LINGUISTIC = 0      # 0 = written (typed), 1 = spoken        [0 for this script]
 VISUAL     = 0      # 0 = simulated events, 1 = camera       [0 for this script]
 TRIAL      = 5      # 1-5
-BATCH      = 6      # 1-6, the stimulus categories
+BATCH      = 10      # 1-10, the stimulus categories 
 
-NPY_PATH  = "data/6_objects_color_bg_346x260.npy"  # the event stream to run
-MASK_PATH = "stimuli/ground_truth_masks/6_objects_color_bg_346x260.mask.npy"
+NPY_PATH  = "data/9_objects_color_bg_jitter_346x260.npy"  # the event stream to run
+MASK_PATH = "stimuli/ground_truth_masks/9_objects_color_bg_jitter_346x260.mask.npy"  # the mask to score against
 
 # Names of the synthetic objects
-# NAMES = ["top-left", "top-mid", "top-right", "bottom-left", "bottom-mid", "bottom-right"]
-NAMES = ["apple", "bottle", "star", "heart", "diamond", "mushroom"]
+
+# NAMES = ["top-left", "top-right", "bottom-left", "bottom-right"] # 4 circles
+# NAMES = ["top-left", "top-mid", "top-right", "bottom-left", "bottom-mid", "bottom-right"] # 6 circles
+# NAMES = ["apple", "bottle", "star", "heart", "diamond", "mushroom"] # 6 objects
+NAMES = ["apple", "bottle", "star", "heart", "diamond", "mushroom", "moon", "tree", "mug"] # 9 objects
 
 COMMAND_LIMIT = 10  # commands per trial (the starting fixation is not a command)
 RESULTS_DIR = "results"
@@ -179,20 +182,22 @@ def mask_object_radius(mask):
 
 
 def object_near(mask, cents, point, snap):
-    """Object under `point`, else the nearest centroid within `snap` px.
+    """Object under `point`, else the object whose FOOTPRINT is within `snap` px.
 
-    The exact pixel is not enough. The fovea locks onto the membrane peak, which
-    routinely sits a pixel or two OUTSIDE the object's footprint -- e.g. 16.3 px
-    from a centre whose radius is 15.2. Read exactly, that is "background", and
-    it costs two rows: the landing is wrong, and the next command's oracle then
-    stops excluding the object the fovea is really sitting on.
+    Distance is measured to the object's own pixels, not to its centroid. The
+    attention lands on a blob's edge -- on a crescent or a mug the edge is 15+ px
+    from the centre of mass -- so a centroid test calls a perfectly good landing
+    background. Distance to the footprint does not care what shape the object is.
     """
     x, y = int(round(point[0])), int(round(point[1]))
     if 0 <= y < mask.shape[0] and 0 <= x < mask.shape[1] and mask[y, x]:
         return int(mask[y, x])
     best, best_d = None, None
-    for oid, (cx, cy) in cents.items():
-        d = (cx - point[0]) ** 2 + (cy - point[1]) ** 2
+    for oid in range(1, int(mask.max()) + 1):
+        ys, xs = np.where(mask == oid)
+        if not len(xs):
+            continue
+        d = float(np.min((xs - point[0]) ** 2 + (ys - point[1]) ** 2))
         if best_d is None or d < best_d:
             best, best_d = oid, d
     return best if (best is not None and best_d <= snap ** 2) else None
@@ -236,11 +241,14 @@ else:
     gaps = [((CENTS[a][0] - CENTS[b][0]) ** 2 + (CENTS[a][1] - CENTS[b][1]) ** 2) ** 0.5
             for a in CENTS for b in CENTS if a < b]
     min_gap = min(gaps) if gaps else float("inf")
+    # snap is now a margin around the footprint, so it is clamped against the
+    # EDGE-to-edge gap between objects, not the centre-to-centre spacing.
+    edge_gap = max(min_gap - 2 * RADIUS, 1.0)
     SNAP_PX = SNAP if SNAP is not None else SNAP_FACTOR * RADIUS
-    if SNAP_PX > 0.45 * min_gap:          # never close enough to claim a neighbour
-        SNAP_PX = 0.45 * min_gap
-        print(f"note: snap clamped to {SNAP_PX:.1f} px (objects are only "
-              f"{min_gap:.1f} px apart)")
+    if SNAP_PX > 0.45 * edge_gap:         # never close enough to claim a neighbour
+        SNAP_PX = round(0.45 * edge_gap, 1)
+        print(f"note: snap clamped to {SNAP_PX:.1f} px around each shape "
+              f"(shapes are {edge_gap:.1f} px apart edge to edge)")
     print(f"Ground truth         : {MASK.shape[1]}x{MASK.shape[0]}, {len(CENTS)} objects, "
           f"radius {RADIUS:.1f} px, snap {SNAP_PX:.1f} px, spacing {min_gap:.1f} px")
     if MASK.shape != (max_y, max_x):
@@ -269,7 +277,8 @@ active = None
 locked = False
 sx = sy = None
 word, conf = None, CONF        # no active command until the user types one
-cmd_start = None               # fovea position when the current command was issued
+cmd_start = None               # attended point when the current command was issued
+att_x = att_y = None           # the attended point (the white circle): what is scored
 rearm = False                  # a direction was typed -> re-arm the pan once, even
                                # if it repeats the word already active
 
@@ -304,11 +313,11 @@ def close_command():
     gets exactly one row -- including ones where the fovea never moved.
     """
     global word, cmd_start
-    if word in DIRS and fx is not None and cmd_start is not None:
+    if word in DIRS and att_x is not None and cmd_start is not None:
         run_log.append({
             "direction": word, "k": 1,
             "ref_x": round(cmd_start[0], 1), "ref_y": round(cmd_start[1], 1),
-            "fovea_x": round(fx, 1), "fovea_y": round(fy, 1),
+            "fovea_x": round(att_x, 1), "fovea_y": round(att_y, 1),
         })
         cmd_start = None
         return True
@@ -337,7 +346,7 @@ def drain_commands():
                 continue
             close_command()                # log the previous command's result
             word, conf = cmd["word"], cmd["conf"]
-            cmd_start = (fx, fy) if fx is not None else None
+            cmd_start = (att_x, att_y) if att_x is not None else None
             rearm = True
             print(f"  -> command set: '{word}' (conf={conf})  "
                   f"[{len(run_log)} logged, {COMMAND_LIMIT - len(run_log) - 1} left]")
@@ -415,14 +424,14 @@ def write_results():
         print(f"command: {r['direction']}")
         print(f"now most salient point in {label(landed)}.   [{verdict}]")
         rows.append({"step": i, "command": r["direction"], "k": r["k"],
-                     # "ref_x": ref[0], "ref_y": ref[1],
-                     # "fovea_x": fov[0], "fovea_y": fov[1],
+                     "ref_x": ref[0], "ref_y": ref[1],
+                     "fovea_x": fov[0], "fovea_y": fov[1],
                      "start_id": start_id or 0, "start": label(start_id),
                      "expected_id": target or 0, "expected": label(target),
                      "landed_id": landed or 0, # "landed": label(landed),
                      "verdict": verdict, # "correct": int(ok),
-                     # "nearest_id": nid, "nearest_px": round(npx, 1),
-                     # "snap_px": round(snap, 1),
+                     "nearest_id": nid, "nearest_px": round(npx, 1),
+                     "snap_px": round(snap, 1),
                      "trial_id": TRIAL_ID, "linguistic": LINGUISTIC,
                      "visual": VISUAL, "trial": TRIAL, "batch": BATCH})
 
@@ -517,6 +526,8 @@ try:
             if zone_mean > 0 and M[ay, ax] >= CAP_RATIO * zone_mean:
                 fx, fy = float(ax), float(ay)
                 locked = True
+
+        att_x, att_y = float(ax), float(ay)
 
         if DEBUG:
             line = (f"win {count:5d} | {'LOCK' if locked else 'pan ':4} | "

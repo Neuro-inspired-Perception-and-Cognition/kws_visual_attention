@@ -1,0 +1,4 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,17.0,116.0,17.0,129.0,4,object 4 (heart),0,background,0,background,no object that way,1,kws,0.812,4,25.1,13.0,19.4,1123,1,1,2,3,camera_6_objects_mono_nobg_2_346x260.mask.npy,66.7
+2,left,1,17.0,129.0,0.0,129.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.835,4,35.7,17.0,19.4,1123,1,1,2,3,camera_6_objects_mono_nobg_2_346x260.mask.npy,66.7
+3,right,1,0.0,129.0,32.0,122.0,0,background,4,object 4 (heart),4,object 4 (heart),OK,1,kws,0.871,4,16.5,32.8,19.4,1123,1,1,2,3,camera_6_objects_mono_nobg_2_346x260.mask.npy,66.7

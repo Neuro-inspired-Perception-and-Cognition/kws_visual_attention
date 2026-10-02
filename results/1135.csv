@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,172.0,18.0,167.0,98.0,3,object 3 (star),6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.878,6,14.9,80.2,19.4,1135,1,1,3,5,camera_6_objects_color_nobg_346x260.mask.npy,60.0
+2,right,1,167.0,98.0,172.0,98.0,6,object 6 (mushroom),0,background,0,background,no object that way,1,kws,0.867,6,19.6,5.0,19.4,1135,1,1,3,5,camera_6_objects_color_nobg_346x260.mask.npy,60.0
+3,left,1,172.0,98.0,96.0,113.0,0,background,6,object 6 (mushroom),5,object 5 (diamond),WRONG - expected object 6 (mushroom),0,kws,0.808,5,9.1,77.5,19.4,1135,1,1,3,5,camera_6_objects_color_nobg_346x260.mask.npy,60.0
+4,right,1,96.0,113.0,172.0,113.0,5,object 5 (diamond),6,object 6 (mushroom),0,background,WRONG - expected object 6 (mushroom),0,kws,0.886,6,20.8,76.0,19.4,1135,1,1,3,5,camera_6_objects_color_nobg_346x260.mask.npy,60.0
+5,right,1,172.0,113.0,172.0,113.0,0,background,0,background,0,background,FAILED - did not move,0,kws,0.871,6,20.8,0.0,19.4,1135,1,1,3,5,camera_6_objects_color_nobg_346x260.mask.npy,60.0
+6,left,1,172.0,113.0,95.0,117.0,0,background,6,object 6 (mushroom),5,object 5 (diamond),WRONG - expected object 6 (mushroom),0,kws,0.878,5,11.7,77.1,19.4,1135,1,1,3,5,camera_6_objects_color_nobg_346x260.mask.npy,60.0
+7,down,1,95.0,117.0,95.0,129.0,5,object 5 (diamond),0,background,0,background,no object that way,1,kws,0.82,5,23.0,12.0,19.4,1135,1,1,3,5,camera_6_objects_color_nobg_346x260.mask.npy,60.0
+8,up,1,95.0,129.0,95.0,98.0,0,background,5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.878,5,10.3,31.0,19.4,1135,1,1,3,5,camera_6_objects_color_nobg_346x260.mask.npy,60.0
+9,right,1,95.0,98.0,163.0,112.0,5,object 5 (diamond),6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.8,6,12.6,69.4,19.4,1135,1,1,3,5,camera_6_objects_color_nobg_346x260.mask.npy,60.0
+10,right,1,163.0,112.0,172.0,112.0,6,object 6 (mushroom),0,background,0,background,no object that way,1,kws,0.804,6,20.4,9.0,19.4,1135,1,1,3,5,camera_6_objects_color_nobg_346x260.mask.npy,60.0

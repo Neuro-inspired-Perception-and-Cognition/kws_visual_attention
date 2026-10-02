@@ -1,23 +1,24 @@
 """
+source.py
 Turns the FPGA's 100 Hz prediction stream into discrete attention commands.
 
-The board emits a prediction every 10 ms. A spoken word appears as a BURST of
-high-confidence frames, since `conf` marks end-of-word. So rather than firing on
-the first frame, we accumulate scores across the burst and commit the averaged
-argmax when conf drops back down. Costs ~50-150 ms, far more stable than
-per-frame argmax.
+The classification matches the reference inference script for this head:
 
-Three details taken from Piotr's live-microphone script rather than the batch one:
-  - the FIFO fill count on WireOut 0x20 means we read exactly what's available
-  - `unknown` gets a flat score penalty, or it dominates live audio
-  - the pipeline is periodically disarmed/reset/rearmed so GRU state can't drift
+    1. collect a batch of frames (25 = 250 ms, what the reference reads)
+    2. keep only frames with conf > accept_conf
+    3. average each class score over those
+    4. take the top class -- but if even the best averaged score is still
+       negative, nothing cleared the -125 offset and the batch holds no word
+       (the reference's "Bleh" case), so nothing is emitted
+    5. if the winner is a direction, emit a command
+    6. reload the bitstream, as the reference does after every prediction
 
-Commands are pushed as dicts identical to the ones the keyboard reader produces:
+Commands are pushed as dicts identical to the ones the keyboard reader
+produces, so the attention loop never learns where a command came from:
 
     {"type": "word", "word": "left", "conf": 0.86, "src": "kws"}
-    {"type": "stop", "src": "kws"}
 
-so the attention loop never learns where a command came from.
+This head has no "stop" word, so the spotter never emits a clear.
 
 BACKENDS
     frontpanel : live board over USB3
@@ -47,17 +48,28 @@ class FrontPanelBackend:
         if self.dev is None:
             raise RuntimeError("no Opal Kelly device opened "
                                "(is the FrontPanel app still holding it?)")
-        if bitfile:
-            rc = self.dev.ConfigureFPGA(bitfile)
-            if rc != 0:
-                raise RuntimeError(f"ConfigureFPGA failed: {rc}")
-        self.dp = self.dev.GetFPGADataPortClassic()
-        if self.dp is None:
-            raise RuntimeError("GetFPGADataPortClassic returned None")
+        self.bitfile = bitfile
+        self.configure()
         self.min_backlog = min_backlog_frames
         self.max_frames = max_frames_per_poll
         self.reset()
         self.arm(True)
+
+    def configure(self):
+        """Load the bitstream and re-acquire the data port handle.
+
+        The handle has to be fetched again after every configuration, and the
+        device needs a moment to settle before its endpoints are touched --
+        a WireIn too soon after reprogramming can break FrontPanel.
+        """
+        if self.bitfile:
+            rc = self.dev.ConfigureFPGA(self.bitfile)
+            if rc != 0:
+                raise RuntimeError(f"ConfigureFPGA failed: {rc}")
+            time.sleep(0.3)
+        self.dp = self.dev.GetFPGADataPortClassic()
+        if self.dp is None:
+            raise RuntimeError("GetFPGADataPortClassic returned None")
 
     def _wire(self, addr, val):
         self.dp.SetWireInValue(addr, val, 1)
@@ -76,6 +88,17 @@ class FrontPanelBackend:
     def resync(self):
         """Disarm, reset, rearm. Drops in-flight audio -- only call between words."""
         self.arm(False)
+        self.reset()
+        self.arm(True)
+
+    def reload(self):
+        """Full restart: reload the bitstream, then reset and re-arm.
+
+        What the reference does after every accepted prediction. Takes about a
+        second, during which no audio is being classified.
+        """
+        self.arm(False)
+        self.configure()
         self.reset()
         self.arm(True)
 
@@ -152,9 +175,10 @@ class KWSSource(threading.Thread):
     line -- the attention loop keeps running and typed commands still work.
     """
 
-    def __init__(self, backend, out_queue, accept_conf=200, unknown_penalty=50,
+    def __init__(self, backend, out_queue, accept_conf=179, unknown_penalty=0,
                  batch_frames=25, min_valid_frames=1, refractory_ms=800,
-                 resync_every_batches=10, poll_ms=5, log_path=None, verbose=True):
+                 resync_every_batches=0, reload_after_command=True,
+                 poll_ms=5, log_path=None, verbose=True):
         super().__init__(daemon=True)
         self.backend = backend
         self.q = out_queue
@@ -164,6 +188,7 @@ class KWSSource(threading.Thread):
         self.min_valid_frames = min_valid_frames
         self.refractory_s = refractory_ms / 1000.0
         self.resync_every_batches = resync_every_batches
+        self.reload_after_command = reload_after_command
         self.poll_s = poll_ms / 1000.0
         self.log_path = log_path
         self.verbose = verbose
@@ -184,7 +209,7 @@ class KWSSource(threading.Thread):
         self._stop.set()
 
     def _classify(self, batch):
-        """Piotr's classify_batch. Returns (label, mean_conf, n_valid) or None."""
+        """Returns (label, mean_conf, n_valid), or None if the batch holds no word."""
         hi = [f for f in batch if f[0] > self.accept_conf]
         if len(hi) < self.min_valid_frames:
             return None
@@ -195,6 +220,10 @@ class KWSSource(threading.Thread):
         avg = [v / len(hi) for v in avg]
         avg[UNKNOWN_INDEX] -= self.unknown_penalty
         best = max(range(N_CLASSES), key=lambda i: avg[i])
+        # the reference's "Bleh" test: every averaged score negative means no
+        # class cleared the offset, so this batch is not a word at all
+        if avg[best] < 0:
+            return None
         mean_conf = sum(f[0] for f in hi) / len(hi)
         return WORDS[best], int(mean_conf), len(hi)
 
@@ -204,9 +233,9 @@ class KWSSource(threading.Thread):
         if r is None:
             return
         label, conf, n_valid = r
-        if self.verbose and label not in DIRECTIONS and label not in CLEARING:
-            print(f"\n  [kws] heard '{label}' ({n_valid} frames) -- not a command")
         if label not in DIRECTIONS and label not in CLEARING:
+            if self.verbose:
+                print(f"\n  [kws] heard '{label}' ({n_valid} frames) -- not a command")
             return
         now = time.monotonic()
         # one word often spans two batches: don't fire it twice
@@ -214,6 +243,11 @@ class KWSSource(threading.Thread):
             return
         self._last_label, self._last_t = label, now
         self._emit(label, conf, n_valid)
+        # the reference reloads the bitstream after every accepted prediction
+        if self.reload_after_command and hasattr(self.backend, "reload"):
+            self.backend.reload()
+            self._pending.clear()
+            self._last_seq = None
 
     def _emit(self, label, conf, n_valid=0):
         if self.t0 is None:
@@ -231,7 +265,8 @@ class KWSSource(threading.Thread):
             print(f"\n  [kws] {label:6} conf={conf}{detail}")
 
     def _maybe_resync(self):
-        """Piotr resets every 10 reads. Same here, but never right after a word."""
+        """Periodic disarm/reset/rearm. Off by default: the reload after each
+        command does the same job. Never fires right after a word."""
         if not self.resync_every_batches or not self._n_batches:
             return
         if self._n_batches % self.resync_every_batches:

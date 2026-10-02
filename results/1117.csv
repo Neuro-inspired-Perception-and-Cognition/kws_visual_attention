@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,landed,verdict,correct,src,conf,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,right,1,18.0,9.0,93.0,0.0,0,background,1,object 1 (apple),2,object 2 (bottle),WRONG - expected object 1 (apple),0,kws,0.82,2,16.8,75.5,19.6,1117,1,1,1,7,camera_9_objects_color_nobg_346x260.mask.npy,40.0
+2,down,1,93.0,0.0,91.0,65.0,2,object 2 (bottle),5,object 5 (diamond),5,object 5 (diamond),OK,1,kws,0.847,5,1.0,65.0,19.6,1117,1,1,1,7,camera_9_objects_color_nobg_346x260.mask.npy,40.0
+3,right,1,91.0,65.0,172.0,65.0,5,object 5 (diamond),6,object 6 (mushroom),0,background,WRONG - expected object 6 (mushroom),0,kws,0.855,6,31.3,81.0,19.6,1117,1,1,1,7,camera_9_objects_color_nobg_346x260.mask.npy,40.0
+4,up,1,172.0,65.0,172.0,0.0,0,background,3,object 3 (star),0,background,WRONG - expected object 3 (star),0,kws,0.886,3,35.8,65.0,19.6,1117,1,1,1,7,camera_9_objects_color_nobg_346x260.mask.npy,40.0
+5,left,1,172.0,0.0,141.0,0.0,0,background,3,object 3 (star),3,object 3 (star),OK,1,kws,0.859,3,17.2,31.0,19.6,1117,1,1,1,7,camera_9_objects_color_nobg_346x260.mask.npy,40.0
+6,left,1,141.0,0.0,90.0,0.0,3,object 3 (star),2,object 2 (bottle),2,object 2 (bottle),OK,1,kws,0.867,2,16.9,51.0,19.6,1117,1,1,1,7,camera_9_objects_color_nobg_346x260.mask.npy,40.0
+7,left,1,90.0,0.0,24.0,2.0,2,object 2 (bottle),1,object 1 (apple),0,background,WRONG - expected object 1 (apple),0,kws,0.882,1,22.0,66.0,19.6,1117,1,1,1,7,camera_9_objects_color_nobg_346x260.mask.npy,40.0
+8,right,1,24.0,2.0,93.0,0.0,0,background,1,object 1 (apple),2,object 2 (bottle),WRONG - expected object 1 (apple),0,kws,0.867,2,16.8,69.0,19.6,1117,1,1,1,7,camera_9_objects_color_nobg_346x260.mask.npy,40.0
+9,right,1,93.0,0.0,172.0,0.0,2,object 2 (bottle),3,object 3 (star),0,background,WRONG - expected object 3 (star),0,kws,0.859,3,35.8,79.0,19.6,1117,1,1,1,7,camera_9_objects_color_nobg_346x260.mask.npy,40.0
+10,down,1,172.0,0.0,156.0,69.0,0,background,6,object 6 (mushroom),6,object 6 (mushroom),OK,1,kws,0.855,6,15.5,70.8,19.6,1117,1,1,1,7,camera_9_objects_color_nobg_346x260.mask.npy,40.0

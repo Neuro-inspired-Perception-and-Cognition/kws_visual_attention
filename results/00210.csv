@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,1,157.0,0.0,123.0,7.0,0,background,3,object 3 (star),3,OK,3,15.3,11.8,00210,0,0,2,10,20.0
+2,left,1,123.0,7.0,54.0,31.0,3,object 3 (star),2,object 2 (bottle),1,WRONG - expected object 2 (bottle),1,14.5,11.8,00210,0,0,2,10,20.0
+3,left,1,54.0,31.0,35.0,32.0,1,object 1 (apple),0,background,1,FAILED - did not move,1,12.8,11.8,00210,0,0,2,10,20.0
+4,down,1,35.0,32.0,32.0,123.0,1,object 1 (apple),4,object 4 (heart),7,WRONG - expected object 4 (heart),7,14.6,11.8,00210,0,0,2,10,20.0
+5,right,1,32.0,123.0,93.0,129.0,7,object 7 (moon),8,object 8 (tree),0,WRONG - expected object 8 (tree),8,21.1,11.8,00210,0,0,2,10,20.0
+6,right,1,93.0,129.0,170.0,129.0,0,background,9,object 9 (mug),0,FAILED - did not move,9,45.4,11.8,00210,0,0,2,10,20.0
+7,up,1,170.0,129.0,152.0,82.0,0,background,6,object 6 (mushroom),0,FAILED - did not move,6,28.7,11.8,00210,0,0,2,10,20.0
+8,up,1,152.0,82.0,157.0,2.0,0,background,3,object 3 (star),0,FAILED - did not move,3,33.3,11.8,00210,0,0,2,10,20.0
+9,left,1,157.0,2.0,123.0,7.0,0,background,3,object 3 (star),3,OK,3,15.3,11.8,00210,0,0,2,10,20.0
+10,left,1,123.0,7.0,54.0,31.0,3,object 3 (star),2,object 2 (bottle),1,WRONG - expected object 2 (bottle),1,14.5,11.8,00210,0,0,2,10,20.0
