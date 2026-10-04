@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,nearest_id,nearest_px,travel_px,snap_px,trial_id,linguistic,visual,trial,batch,mask,accuracy
+1,down,1,150.0,0.0,150.0,59.0,0,background,3,object 3 (star),6,WRONG - expected object 3 (star),6,10.9,59.0,18.1,0159,0,1,5,9,camera_9_objects_color_nobg_346x260.mask.npy,90.0
+2,left,1,150.0,59.0,96.0,60.0,6,object 6 (mushroom),5,object 5 (diamond),5,OK,5,4.3,54.0,18.1,0159,0,1,5,9,camera_9_objects_color_nobg_346x260.mask.npy,90.0
+3,down,1,96.0,60.0,93.0,118.0,5,object 5 (diamond),8,object 8 (tree),8,OK,8,7.1,58.1,18.1,0159,0,1,5,9,camera_9_objects_color_nobg_346x260.mask.npy,90.0
+4,right,1,93.0,118.0,150.0,121.0,8,object 8 (tree),9,object 9 (mug),9,OK,9,15.7,57.1,18.1,0159,0,1,5,9,camera_9_objects_color_nobg_346x260.mask.npy,90.0
+5,up,1,150.0,121.0,151.0,65.0,9,object 9 (mug),6,object 6 (mushroom),6,OK,6,11.3,56.0,18.1,0159,0,1,5,9,camera_9_objects_color_nobg_346x260.mask.npy,90.0
+6,left,1,151.0,65.0,94.0,62.0,6,object 6 (mushroom),5,object 5 (diamond),5,OK,5,1.5,57.1,18.1,0159,0,1,5,9,camera_9_objects_color_nobg_346x260.mask.npy,90.0
+7,left,1,94.0,62.0,38.0,60.0,5,object 5 (diamond),4,object 4 (heart),4,OK,4,7.9,56.0,18.1,0159,0,1,5,9,camera_9_objects_color_nobg_346x260.mask.npy,90.0
+8,down,1,38.0,60.0,30.0,119.0,4,object 4 (heart),7,object 7 (moon),7,OK,7,14.1,59.5,18.1,0159,0,1,5,9,camera_9_objects_color_nobg_346x260.mask.npy,90.0
+9,up,1,30.0,119.0,34.0,63.0,7,object 7 (moon),4,object 4 (heart),4,OK,4,11.3,56.1,18.1,0159,0,1,5,9,camera_9_objects_color_nobg_346x260.mask.npy,90.0
+10,up,1,34.0,63.0,36.0,7.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,13.9,56.0,18.1,0159,0,1,5,9,camera_9_objects_color_nobg_346x260.mask.npy,90.0

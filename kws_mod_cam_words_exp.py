@@ -31,9 +31,9 @@ from command_parser import parse_command
 linguistic = 0      # 0 = written (typed), 1 = spoken        [0 for this script]
 visual     = 1      # 0 = simulated events, 1 = camera       [1 for this script]
 trial      = 5      # 1-5
-batch      = 7      # 1-7, the stimulus categories | 1="circles/mono/nobg", 2="circles/mono/bg", 3="shapes/mono/nobg", 4="shapes/mono/bg", 5="shapes/color/nobg", 6="shapes/color/bg", 7="objects/color/diff quantities"
+batch      = 10      # 1-7, the stimulus categories | 1="circles/mono/nobg", 2="circles/mono/bg", 3="shapes/mono/nobg", 4="shapes/mono/bg", 5="shapes/color/nobg", 6="shapes/color/bg", 7="objects/color/diff quantities"
  
-mask_path = "stimuli/ground_truth_masks/camera_9_objects_color_nobg_346x260.mask.npy"
+mask_path = "stimuli/ground_truth_masks/camera_9_objects_color_bg_346x260.mask.npy"
  
 command_limit = 10  # commands per trial (the starting fixation is not a command)
 results_dir = "results"
