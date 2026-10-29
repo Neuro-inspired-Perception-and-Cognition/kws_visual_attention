@@ -1,7 +1,7 @@
 
-# Neuromorphic language-guided visual attention
+# Influencing spiking-based visual attention with written and spoken commands on FPGA
 
-> A neuromorphic system in which language steers vision. A spoken word reshapes where an event-driven attention model looks, redirecting the fovea toward the named direction.
+> A bio-inspired system in which language steers vision. A spoken word reshapes where an event-driven attention model looks, redirecting the fovea toward the named direction.
 
 ---
 
