@@ -52,15 +52,6 @@ flowchart LR
     TGT --> SYSTEM["Attention redirect"]
 ```
 
-## Demos (TBD)
-
-| Visual attention (KWS modulation) | DAVIS346 live camera | KWS on FPGA |
-| :---: | :---: | :---: |
-| <img src="docs/demo_modulation.gif" width="260"/> | <img src="docs/demo_camera.gif" width="260"/> | <img src="docs/demo_fpga.gif" width="260"/> |
-| A spoken word boosts saliency in its direction | Live event stream driving attention | Keyword spotting on XEM7310-A200 Artix-7 |
-
-TBD: Demo video on youtube
-
 
 ---
 
@@ -85,12 +76,6 @@ pip install numpy opencv-python torch scipy scikit-image sinabs torchvision dv-p
 
 The `data/` folder contains [NUMBER] `.npy` files with synthetic scenes. Choose the one you want to visualize, use your own (check [Generating synthetic scenes](#12-generating-synthetic-scenes-tbd) to know more), or use live events from the camera.
 
-| File | Scene |
-|------|-------|
-| `3_different_circles_346x260.npy` | *(insert image)* |
-| `4_different_objects_.npy` | *(insert image)* |
-| `6_different_objects_346x260.npy` | *(insert image)* |
-| `7_different_objects_346x260.npy` | *(insert image)* |
 
 Then pick the script that matches your setup:
 
