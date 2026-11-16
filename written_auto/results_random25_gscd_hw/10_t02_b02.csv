@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.902,587f3271_nohash_0.wav,1,151.0,0.0,140.0,43.0,0,background,2,object 2 (top-right),2,OK,1,0,1,0,0,random25,2,23.8,19.4,10_t02_b02,1,0,2,2,30.0
+2,down,down,0.906,5ff3f9a1_nohash_0.wav,1,140.0,43.0,147.0,81.0,2,object 2 (top-right),4,object 4 (bottom-right),0,WRONG - expected object 4 (bottom-right),0,0,1,0,0,random25,4,32.7,19.4,10_t02_b02,1,0,2,2,30.0
+3,right,unknown,0.914,bb05582b_nohash_1.wav,1,147.0,81.0,147.0,81.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,4,32.7,19.4,10_t02_b02,1,0,2,2,30.0
+4,left,left,0.898,2796ac50_nohash_0.wav,1,147.0,81.0,101.0,61.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,0,0,0,random25,2,33.7,19.4,10_t02_b02,1,0,2,2,30.0
+5,up,unknown,0.816,9a7c1f83_nohash_0.wav,1,101.0,61.0,101.0,61.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,random25,2,33.7,19.4,10_t02_b02,1,0,2,2,30.0
+6,left,left,0.89,c7dc7278_nohash_4.wav,1,101.0,61.0,67.0,80.0,0,background,1,object 1 (top-left),3,WRONG - expected object 1 (top-left),0,0,0,0,0,random25,3,21.8,19.4,10_t02_b02,1,0,2,2,30.0
+7,right,right,0.871,91b03183_nohash_2.wav,1,67.0,80.0,101.0,62.0,3,object 3 (bottom-left),4,object 4 (bottom-right),0,WRONG - expected object 4 (bottom-right),0,0,1,0,0,random25,2,34.6,19.4,10_t02_b02,1,0,2,2,30.0
+8,left,left,0.906,43fc47a7_nohash_0.wav,1,101.0,62.0,67.0,80.0,0,background,1,object 1 (top-left),3,WRONG - expected object 1 (top-left),0,0,1,0,0,random25,3,21.8,19.4,10_t02_b02,1,0,2,2,30.0
+9,up,up,0.859,d0faf7e4_nohash_2.wav,1,67.0,80.0,64.0,31.0,3,object 3 (bottom-left),1,object 1 (top-left),1,OK,1,0,1,0,0,random25,1,10.4,19.4,10_t02_b02,1,0,2,2,30.0
+10,right,right,0.882,e41a903b_nohash_4.wav,1,64.0,31.0,103.0,58.0,1,object 1 (top-left),2,object 2 (top-right),0,WRONG - expected object 2 (top-right),0,1,1,0,0,random25,2,30.1,19.4,10_t02_b02,1,0,2,2,30.0

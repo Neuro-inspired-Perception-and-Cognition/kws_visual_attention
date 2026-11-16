@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,left,0.894,80c45ed6_nohash_1.wav,1,158.0,0.0,131.0,14.0,0,background,3,object 3 (star),3,OK,1,0,1,0,0,random25,3,7.0,11.8,10_t01_b10,1,0,1,10,30.0
+2,up,up,0.922,2aa787cf_nohash_2.wav,1,131.0,14.0,146.0,0.0,3,object 3 (star),0,background,0,no object that way,1,0,1,1,1,random25,3,26.6,11.8,10_t01_b10,1,0,1,10,30.0
+3,left,left,0.867,d1a4fb3f_nohash_1.wav,1,146.0,0.0,13.0,0.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,0,0,random25,1,36.9,11.8,10_t01_b10,1,0,1,10,30.0
+4,right,unknown,0.902,e1469561_nohash_4.wav,1,13.0,0.0,13.0,0.0,0,background,1,object 1 (apple),0,FAILED - did not move,0,0,1,0,0,random25,1,36.9,11.8,10_t01_b10,1,0,1,10,30.0
+5,down,down,0.867,beb458a4_nohash_1.wav,1,13.0,0.0,38.0,35.0,0,background,4,object 4 (heart),1,WRONG - expected object 4 (heart),0,0,0,0,0,random25,1,14.1,11.8,10_t01_b10,1,0,1,10,30.0
+6,down,down,0.867,ca4d5368_nohash_1.wav,1,38.0,35.0,34.0,122.0,1,object 1 (apple),4,object 4 (heart),7,WRONG - expected object 4 (heart),0,0,1,0,0,random25,7,12.9,11.8,10_t01_b10,1,0,1,10,30.0
+7,up,up,0.902,b97c9f77_nohash_2.wav,1,34.0,122.0,42.0,35.0,7,object 7 (moon),7,object 7 (moon),1,WRONG - expected object 7 (moon),0,0,0,0,0,random25,1,13.2,11.8,10_t01_b10,1,0,1,10,30.0
+8,left,left,0.824,587f3271_nohash_1.wav,1,42.0,35.0,10.0,57.0,1,object 1 (apple),0,background,0,no object that way,1,0,1,1,1,random25,4,33.3,11.8,10_t01_b10,1,0,1,10,30.0
+9,right,right,0.882,db24628d_nohash_1.wav,1,10.0,57.0,47.0,34.0,0,background,4,object 4 (heart),1,WRONG - expected object 4 (heart),0,0,0,0,0,random25,1,12.9,11.8,10_t01_b10,1,0,1,10,30.0
+10,right,unknown,0.922,37fc5d97_nohash_3.wav,1,47.0,34.0,47.0,34.0,1,object 1 (apple),2,object 2 (bottle),1,FAILED - did not move,0,0,1,0,0,random25,1,12.9,11.8,10_t01_b10,1,0,1,10,30.0

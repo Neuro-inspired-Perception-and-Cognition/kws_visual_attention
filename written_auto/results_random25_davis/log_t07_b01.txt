@@ -1,0 +1,55 @@
+trial 01_t07_b01  (linguistic=0 visual=1 trial=7 batch=1)
+events : /media/pwz/KINGSTON/NAS-KWS/Experiments/Event and Grayscale data - DAVIS-20261116T144619Z-1-001/Event and Grayscale data - DAVIS/raw/events/4_circles_mono_nobg_346x260.npy
+mask   : stimuli/ground_truth_masks/davis_4_circles_mono_nobg_346x260.mask.npy
+result : /home/pwz/Repo/kws_visual_attention/written_auto/results_random25_davis/01_t07_b01.csv   (limit 10 commands)
+Using device: cpu
+noise filter 500 us: kept 860100 of 1588885 events
+Loaded events        : 860100  span 29993 ms
+Processing resolution: 173 x 130
+Windows              : 300 @ 100 ms  (loop=True)
+note: snap clamped to 20.3 px around each shape (shapes are 45.2 px apart edge to edge)
+Ground truth         : 173x130, 4 objects, radius 11.4 px, snap 20.3 px, spacing 68.0 px
+*** only 7% of event pixels fall on the mask's objects - the mask may not match this clip
+
+--- Type commands below ---
+
+  -> command set: 'up' (conf=1.0)  [0 logged, 9 left]
+  -> command set: 'up' (conf=1.0)  [1 logged, 8 left]
+  -> command set: 'up' (conf=1.0)  [2 logged, 7 left]
+  -> command set: 'down' (conf=1.0)  [3 logged, 6 left]
+  -> command set: 'left' (conf=1.0)  [4 logged, 5 left]
+  -> command set: 'right' (conf=1.0)  [5 logged, 4 left]
+  -> command set: 'down' (conf=1.0)  [6 logged, 3 left]
+  -> command set: 'up' (conf=1.0)  [7 logged, 2 left]
+  -> command set: 'right' (conf=1.0)  [8 logged, 1 left]
+  -> command set: 'left' (conf=1.0)  [9 logged, 0 left]
+
+mask 173x130, 4 objects, object radius 11.4 px, snap 20.3 px
+begin visual attention.
+most salient point in object 4 (bottom-right).
+command: up
+now most salient point in object 2 (top-right).   [OK]
+command: up
+now most salient point in object 2 (top-right).   [no object that way]
+command: up
+now most salient point in object 2 (top-right).   [no object that way]
+command: down
+now most salient point in object 2 (top-right).   [OK]
+command: left
+now most salient point in object 1 (top-left).   [OK]
+command: right
+now most salient point in object 2 (top-right).   [OK]
+command: down
+now most salient point in object 4 (bottom-right).   [OK]
+command: up
+now most salient point in object 2 (top-right).   [OK]
+command: right
+now most salient point in object 2 (top-right).   [no object that way]
+command: left
+now most salient point in object 2 (top-right).   [OK]
+
+10/10 commands correct  (100.0%)
+fovea moved on 10/10 commands
+wrote /home/pwz/Repo/kws_visual_attention/written_auto/results_random25_davis/01_t07_b01.csv
+
+Session ended. Frames shown: 204

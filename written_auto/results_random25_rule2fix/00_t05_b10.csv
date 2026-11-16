@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,left,1,157.0,0.0,132.0,15.0,0,background,3,object 3 (star),3,OK,1,0,1,0,0,random25,3,6.3,11.8,00_t05_b10,0,0,5,10,50.0,3,object 3 (star),OK,1,0
+2,left,1,132.0,15.0,54.0,31.0,3,object 3 (star),2,object 2 (bottle),1,WRONG - expected object 2 (bottle),0,0,1,0,0,random25,1,14.5,11.8,00_t05_b10,0,0,5,10,50.0,2,object 2 (bottle),WRONG - expected object 2 (bottle),0,0
+3,right,1,54.0,31.0,163.0,12.0,1,object 1 (apple),2,object 2 (bottle),0,WRONG - expected object 2 (bottle),0,0,1,0,0,random25,3,34.6,11.8,00_t05_b10,0,0,5,10,50.0,2,object 2 (bottle),WRONG - expected object 2 (bottle),0,0
+4,left,1,163.0,12.0,137.0,24.0,0,background,3,object 3 (star),3,OK,1,0,0,0,0,random25,3,8.1,11.8,00_t05_b10,0,0,5,10,50.0,3,object 3 (star),OK,1,0
+5,down,1,137.0,24.0,113.0,62.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,0,1,0,0,random25,6,16.8,11.8,00_t05_b10,0,0,5,10,50.0,6,object 6 (mushroom),OK,1,0
+6,right,1,113.0,62.0,150.0,81.0,6,object 6 (mushroom),0,background,0,no object that way,1,0,1,1,1,random25,6,26.5,11.8,00_t05_b10,0,0,5,10,50.0,0,background,no object that way,1,1
+7,up,1,150.0,81.0,156.0,0.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,random25,3,33.7,11.8,00_t05_b10,0,0,5,10,50.0,3,object 3 (star),FAILED - did not move,0,0
+8,left,1,156.0,0.0,122.0,8.0,0,background,3,object 3 (star),3,OK,1,0,0,0,0,random25,3,14.8,11.8,00_t05_b10,0,0,5,10,50.0,3,object 3 (star),OK,1,0
+9,left,1,122.0,8.0,54.0,31.0,3,object 3 (star),2,object 2 (bottle),1,WRONG - expected object 2 (bottle),0,0,1,0,0,random25,1,14.5,11.8,00_t05_b10,0,0,5,10,50.0,2,object 2 (bottle),WRONG - expected object 2 (bottle),0,0
+10,right,1,54.0,31.0,163.0,12.0,1,object 1 (apple),2,object 2 (bottle),0,WRONG - expected object 2 (bottle),0,0,1,0,0,random25,3,34.6,11.8,00_t05_b10,0,0,5,10,50.0,2,object 2 (bottle),WRONG - expected object 2 (bottle),0,0

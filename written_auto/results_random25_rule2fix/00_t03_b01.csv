@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,up,1,126.0,103.0,122.0,22.0,4,object 4 (bottom-right),2,object 2 (top-right),2,OK,1,1,1,0,0,random25,2,10.8,19.4,00_t03_b01,0,0,3,1,90.0,2,object 2 (top-right),OK,1,0
+2,left,1,122.0,22.0,47.0,26.0,2,object 2 (top-right),1,object 1 (top-left),1,OK,1,1,1,0,0,random25,1,9.2,19.4,00_t03_b01,0,0,3,1,90.0,1,object 1 (top-left),OK,1,0
+3,right,1,47.0,26.0,118.0,20.0,1,object 1 (top-left),2,object 2 (top-right),2,OK,1,1,1,0,0,random25,2,12.3,19.4,00_t03_b01,0,0,3,1,90.0,2,object 2 (top-right),OK,1,0
+4,right,1,118.0,20.0,133.0,20.0,2,object 2 (top-right),0,background,2,no object that way,1,0,1,1,1,random25,2,18.9,19.4,00_t03_b01,0,0,3,1,90.0,0,background,no object that way,1,1
+5,up,1,133.0,20.0,131.0,15.0,2,object 2 (top-right),0,background,2,no object that way,1,0,1,1,1,random25,2,21.2,19.4,00_t03_b01,0,0,3,1,90.0,0,background,no object that way,1,1
+6,left,1,131.0,15.0,118.0,16.0,2,object 2 (top-right),1,object 1 (top-left),2,FAILED - did not move,0,0,0,0,0,random25,2,16.3,19.4,00_t03_b01,0,0,3,1,90.0,1,object 1 (top-left),FAILED - did not move,0,0
+7,left,1,118.0,16.0,46.0,25.0,2,object 2 (top-right),1,object 1 (top-left),1,OK,1,0,1,0,0,random25,1,10.6,19.4,00_t03_b01,0,0,3,1,90.0,1,object 1 (top-left),OK,1,0
+8,down,1,46.0,25.0,42.0,103.0,1,object 1 (top-left),3,object 3 (bottom-left),3,OK,1,1,1,0,0,random25,3,13.0,19.4,00_t03_b01,0,0,3,1,90.0,3,object 3 (bottom-left),OK,1,0
+9,up,1,42.0,103.0,45.0,28.0,3,object 3 (bottom-left),1,object 1 (top-left),1,OK,1,0,1,0,0,random25,1,9.7,19.4,00_t03_b01,0,0,3,1,90.0,1,object 1 (top-left),OK,1,0
+10,down,1,45.0,28.0,43.0,101.0,1,object 1 (top-left),3,object 3 (bottom-left),3,OK,1,1,1,0,0,random25,3,11.3,19.4,00_t03_b01,0,0,3,1,90.0,3,object 3 (bottom-left),OK,1,0

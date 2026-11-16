@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,unknown,0.902,68dd409e_nohash_0.wav,1,148.0,0.0,148.0,0.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,random25,3,36.1,17.4,10_t05_b08,1,0,5,8,30.0
+2,down,down,0.918,d5b963aa_nohash_2.wav,1,148.0,0.0,137.0,33.0,0,background,3,object 3 (star),3,OK,1,0,0,0,0,random25,3,7.3,17.4,10_t05_b08,1,0,5,8,30.0
+3,down,down,0.902,d0faf7e4_nohash_2.wav,1,137.0,33.0,143.0,80.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,1,1,0,0,random25,6,13.4,17.4,10_t05_b08,1,0,5,8,30.0
+4,left,unknown,0.941,f2e59fea_nohash_3.wav,1,143.0,80.0,143.0,80.0,6,object 6 (mushroom),5,object 5 (diamond),6,FAILED - did not move,0,0,1,0,0,random25,6,13.4,17.4,10_t05_b08,1,0,5,8,30.0
+5,left,none,0.78,022cd682_nohash_1.wav,1,143.0,80.0,143.0,80.0,6,object 6 (mushroom),5,object 5 (diamond),6,FAILED - did not move,0,0,0,0,0,random25,6,13.4,17.4,10_t05_b08,1,0,5,8,30.0
+6,down,down,0.902,412c675c_nohash_0.wav,1,142.0,80.0,164.0,129.0,6,object 6 (mushroom),6,object 6 (mushroom),0,WRONG - expected object 6 (mushroom),0,0,0,0,0,random25,6,40.9,17.4,10_t05_b08,1,0,5,8,30.0
+7,left,unknown,0.922,9a69672b_nohash_0.wav,1,164.0,129.0,164.0,129.0,0,background,5,object 5 (diamond),0,FAILED - did not move,0,0,0,0,0,random25,6,40.9,17.4,10_t05_b08,1,0,5,8,30.0
+8,left,left,0.89,2d82a556_nohash_0.wav,1,164.0,129.0,92.0,129.0,0,background,5,object 5 (diamond),0,FAILED - did not move,0,0,0,0,0,random25,5,35.9,17.4,10_t05_b08,1,0,5,8,30.0
+9,down,down,0.886,2d82a556_nohash_0.wav,1,92.0,129.0,92.0,129.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,5,35.9,17.4,10_t05_b08,1,0,5,8,30.0
+10,up,up,0.863,3d86b69a_nohash_0.wav,1,92.0,129.0,101.0,59.0,0,background,5,object 5 (diamond),2,WRONG - expected object 5 (diamond),0,0,0,0,0,random25,2,26.0,17.4,10_t05_b08,1,0,5,8,30.0

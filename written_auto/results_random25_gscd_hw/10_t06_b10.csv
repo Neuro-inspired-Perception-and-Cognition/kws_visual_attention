@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,unknown,0.82,cd85758f_nohash_1.wav,1,158.0,0.0,158.0,0.0,0,background,6,object 6 (mushroom),0,FAILED - did not move,0,0,1,0,0,random25,3,35.3,11.8,10_t06_b10,1,0,6,10,10.0
+2,down,down,0.882,26b28ea7_nohash_0.wav,1,157.0,0.0,138.0,33.0,0,background,6,object 6 (mushroom),3,WRONG - expected object 6 (mushroom),0,0,0,0,0,random25,3,14.9,11.8,10_t06_b10,1,0,6,10,10.0
+3,left,left,0.89,caf9fceb_nohash_0.wav,1,138.0,33.0,54.0,32.0,3,object 3 (star),2,object 2 (bottle),1,WRONG - expected object 2 (bottle),0,0,1,0,0,random25,1,15.2,11.8,10_t06_b10,1,0,6,10,10.0
+4,left,left,0.89,893705bb_nohash_4.wav,1,54.0,32.0,36.0,33.0,1,object 1 (apple),0,background,1,no object that way,1,0,1,1,1,random25,1,13.1,11.8,10_t06_b10,1,0,6,10,10.0
+5,down,down,0.894,fb7eb481_nohash_0.wav,1,36.0,33.0,33.0,123.0,1,object 1 (apple),4,object 4 (heart),7,WRONG - expected object 4 (heart),0,0,1,0,0,random25,7,14.2,11.8,10_t06_b10,1,0,6,10,10.0
+6,right,unknown,0.945,798f702a_nohash_0.wav,1,33.0,123.0,33.0,123.0,7,object 7 (moon),8,object 8 (tree),7,FAILED - did not move,0,0,0,0,0,random25,7,14.2,11.8,10_t06_b10,1,0,6,10,10.0
+7,right,none,0.765,e49428d9_nohash_3.wav,1,33.0,122.0,33.0,122.0,7,object 7 (moon),8,object 8 (tree),7,FAILED - did not move,0,0,0,0,0,random25,7,13.3,11.8,10_t06_b10,1,0,6,10,10.0
+8,right,right,0.89,692a88e6_nohash_0.wav,1,33.0,122.0,96.0,129.0,7,object 7 (moon),8,object 8 (tree),0,WRONG - expected object 8 (tree),0,0,0,0,0,random25,8,22.3,11.8,10_t06_b10,1,0,6,10,10.0
+9,right,unknown,0.953,563aa4e6_nohash_1.wav,1,96.0,129.0,96.0,129.0,0,background,9,object 9 (mug),0,FAILED - did not move,0,0,1,0,0,random25,8,22.3,11.8,10_t06_b10,1,0,6,10,10.0
+10,left,unknown,0.875,d5ca80c6_nohash_0.wav,1,97.0,128.0,97.0,128.0,0,background,7,object 7 (moon),0,FAILED - did not move,0,0,0,0,0,random25,8,21.9,11.8,10_t06_b10,1,0,6,10,10.0

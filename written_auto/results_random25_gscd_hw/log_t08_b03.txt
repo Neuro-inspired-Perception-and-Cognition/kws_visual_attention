@@ -1,0 +1,55 @@
+trial 10_t08_b03  (linguistic=1 visual=0 trial=8 batch=3)
+events : data/6_circles_tex_346x260.npy
+mask   : stimuli/ground_truth_masks/6_circles_tex_346x260.mask.npy
+result : /home/pwz/Repo/kws_visual_attention/written_auto/results_random25_gscd_hw/10_t08_b03.csv   (limit 10 commands)
+Using device: cpu
+Loaded events        : 189858  span 7500 ms
+Processing resolution: 173 x 130
+Windows              : 75 @ 100 ms  (loop=True)
+note: snap clamped to 16.7 px around each shape (shapes are 37.2 px apart edge to edge)
+Ground truth         : 173x130, 6 objects, radius 10.2 px, snap 16.7 px, spacing 57.5 px
+*** only 28% of event pixels fall on the mask's objects - the mask may not match this clip
+
+--- Type commands below ---
+
+  -> command set: 'up' (conf=0.824)  [1 logged, 8 left]
+  -> command set: 'right' (conf=0.925)  [2 logged, 7 left]
+  -> command set: 'down' (conf=0.855)  [3 logged, 6 left]
+  -> command set: 'up' (conf=0.878)  [4 logged, 5 left]
+  -> command set: 'down' (conf=0.922)  [5 logged, 4 left]
+  -> command set: 'left' (conf=0.918)  [6 logged, 3 left]
+  -> command set: 'up' (conf=0.886)  [7 logged, 2 left]
+  -> command set: 'up' (conf=0.875)  [8 logged, 1 left]
+  -> command set: 'right' (conf=0.871)  [9 logged, 0 left]
+
+mask 173x130, 6 objects, object radius 10.2 px, snap 16.7 px
+begin visual attention.
+most salient point in object 6 (bottom-right).
+command: up
+now most salient point in object 6 (bottom-right).   [FAILED - did not move]
+command: up
+now most salient point in object 3 (top-right).   [OK]
+command: right
+now most salient point in object 3 (top-right).   [no object that way]
+command: down
+now most salient point in object 6 (bottom-right).   [OK]
+command: up
+now most salient point in object 3 (top-right).   [OK]
+command: down
+now most salient point in object 6 (bottom-right).   [OK]
+command: left
+now most salient point in object 5 (bottom-mid).   [OK]
+command: up
+now most salient point in object 2 (top-mid).   [OK]
+command: up
+now most salient point in object 2 (top-mid).   [no object that way]
+command: right
+now most salient point in object 3 (top-right).   [OK]
+
+9/10 commands correct  (90.0%)
+fovea moved on 9/10 commands
+wrote /home/pwz/Repo/kws_visual_attention/written_auto/results_random25_gscd_hw/10_t08_b03.csv
+KWS: 9/10 spoken commands recognised correctly
+
+Session ended. Frames shown: 329
+[kws] configured /home/pwz/Repo/VoiceNAS/NAS-GNN-KWS/HW/vivado/kws/kws_system.runs/impl_1/ok_top_wrapper.bit

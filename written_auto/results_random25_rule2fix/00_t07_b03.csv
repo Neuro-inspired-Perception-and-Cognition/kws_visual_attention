@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,left,1,155.0,107.0,86.0,107.0,6,object 6 (bottom-right),5,object 5 (bottom-mid),5,OK,1,0,1,0,0,random25,5,9.5,16.7,00_t07_b03,0,0,7,3,90.0,5,object 5 (bottom-mid),OK,1,0
+2,left,1,86.0,107.0,17.0,107.0,5,object 5 (bottom-mid),4,object 4 (bottom-left),4,OK,1,1,1,0,0,random25,4,15.3,16.7,00_t07_b03,0,0,7,3,90.0,4,object 4 (bottom-left),OK,1,0
+3,up,1,17.0,107.0,14.0,22.0,4,object 4 (bottom-left),1,object 1 (top-left),1,OK,1,0,1,0,0,random25,1,18.3,16.7,00_t07_b03,0,0,7,3,90.0,1,object 1 (top-left),OK,1,0
+4,up,1,14.0,22.0,14.0,16.0,1,object 1 (top-left),0,background,1,no object that way,1,0,1,1,1,random25,1,22.3,16.7,00_t07_b03,0,0,7,3,90.0,0,background,no object that way,1,1
+5,left,1,14.0,16.0,12.0,16.0,1,object 1 (top-left),0,background,1,no object that way,1,0,0,1,1,random25,1,23.7,16.7,00_t07_b03,0,0,7,3,90.0,0,background,no object that way,1,1
+6,down,1,12.0,16.0,12.0,24.0,1,object 1 (top-left),4,object 4 (bottom-left),1,FAILED - did not move,0,0,0,0,0,random25,1,19.0,16.7,00_t07_b03,0,0,7,3,90.0,4,object 4 (bottom-left),FAILED - did not move,0,0
+7,right,1,12.0,24.0,84.0,21.0,1,object 1 (top-left),2,object 2 (top-mid),2,OK,1,0,1,0,0,random25,2,11.8,16.7,00_t07_b03,0,0,7,3,90.0,2,object 2 (top-mid),OK,1,0
+8,up,1,84.0,21.0,84.0,16.0,2,object 2 (top-mid),0,background,2,no object that way,1,0,1,1,1,random25,2,16.7,16.7,00_t07_b03,0,0,7,3,90.0,0,background,no object that way,1,1
+9,up,1,84.0,16.0,84.0,16.0,2,object 2 (top-mid),0,background,2,no object that way,1,0,0,1,1,random25,2,16.7,16.7,00_t07_b03,0,0,7,3,90.0,0,background,no object that way,1,1
+10,left,1,84.0,16.0,14.0,19.0,2,object 2 (top-mid),1,object 1 (top-left),1,OK,1,0,0,0,0,random25,1,20.2,16.7,00_t07_b03,0,0,7,3,90.0,1,object 1 (top-left),OK,1,0

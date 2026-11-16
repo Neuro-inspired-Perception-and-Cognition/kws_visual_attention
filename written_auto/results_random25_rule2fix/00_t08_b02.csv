@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,left,1,152.0,0.0,140.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,random25,2,38.7,19.4,00_t08_b02,0,0,8,2,30.0,2,object 2 (top-right),FAILED - did not move,0,0
+2,left,1,140.0,0.0,69.0,23.0,0,background,1,object 1 (top-left),1,OK,1,0,1,0,0,random25,1,17.9,19.4,00_t08_b02,0,0,8,2,30.0,1,object 1 (top-left),OK,1,0
+3,up,1,69.0,23.0,70.0,17.0,1,object 1 (top-left),0,background,1,no object that way,1,0,1,1,1,random25,1,22.4,19.4,00_t08_b02,0,0,8,2,30.0,0,background,no object that way,1,1
+4,left,1,70.0,17.0,20.0,0.0,1,object 1 (top-left),1,object 1 (top-left),0,WRONG - expected object 1 (top-left),0,0,0,0,0,random25,1,46.7,19.4,00_t08_b02,0,0,8,2,30.0,1,object 1 (top-left),WRONG - expected object 1 (top-left),0,0
+5,down,1,20.0,0.0,23.0,125.0,0,background,3,object 3 (bottom-left),0,FAILED - did not move,0,0,1,0,0,random25,3,41.3,19.4,00_t08_b02,0,0,8,2,30.0,3,object 3 (bottom-left),FAILED - did not move,0,0
+6,up,1,23.0,125.0,17.0,63.0,0,background,1,object 1 (top-left),0,FAILED - did not move,0,0,0,0,0,random25,1,47.8,19.4,00_t08_b02,0,0,8,2,30.0,1,object 1 (top-left),FAILED - did not move,0,0
+7,up,1,17.0,63.0,24.0,11.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,1,36.5,19.4,00_t08_b02,0,0,8,2,30.0,0,background,no object that way,1,1
+8,down,1,24.0,11.0,23.0,125.0,0,background,3,object 3 (bottom-left),0,FAILED - did not move,0,0,1,0,0,random25,3,41.3,19.4,00_t08_b02,0,0,8,2,30.0,3,object 3 (bottom-left),FAILED - did not move,0,0
+9,up,1,23.0,125.0,17.0,62.0,0,background,1,object 1 (top-left),0,FAILED - did not move,0,0,0,0,0,random25,1,47.2,19.4,00_t08_b02,0,0,8,2,30.0,1,object 1 (top-left),FAILED - did not move,0,0
+10,right,1,17.0,62.0,100.0,61.0,0,background,1,object 1 (top-left),0,FAILED - did not move,0,0,1,0,0,random25,2,34.3,19.4,00_t08_b02,0,0,8,2,30.0,1,object 1 (top-left),FAILED - did not move,0,0

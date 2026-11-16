@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,1,93.0,124.0,5.0,119.0,5,object 5 (diamond),4,object 4 (heart),0,WRONG - expected object 4 (heart),0,0,1,0,0,list,4,31.5,17.9,01_t05_b08,0,1,5,8,70.0
+2,right,1,5.0,119.0,39.0,120.0,0,background,5,object 5 (diamond),4,WRONG - expected object 5 (diamond),0,0,0,0,0,list,4,26.6,17.9,01_t05_b08,0,1,5,8,70.0
+3,down,1,39.0,120.0,39.0,122.0,4,object 4 (heart),0,background,0,no object that way,1,0,1,1,1,list,4,28.4,17.9,01_t05_b08,0,1,5,8,70.0
+4,left,1,39.0,122.0,7.0,118.0,0,background,0,background,0,no object that way,1,0,0,1,1,list,4,29.4,17.9,01_t05_b08,0,1,5,8,70.0
+5,up,1,7.0,118.0,4.0,107.0,0,background,4,object 4 (heart),4,OK,1,0,0,0,0,list,4,25.3,17.9,01_t05_b08,0,1,5,8,70.0
+6,down,1,4.0,107.0,11.0,119.0,4,object 4 (heart),0,background,0,no object that way,1,0,1,1,1,list,4,27.7,17.9,01_t05_b08,0,1,5,8,70.0
+7,left,1,11.0,119.0,8.0,117.0,0,background,0,background,0,no object that way,1,0,0,1,1,list,4,28.0,17.9,01_t05_b08,0,1,5,8,70.0
+8,up,1,8.0,117.0,5.0,110.0,0,background,4,object 4 (heart),0,FAILED - did not move,0,0,0,0,0,list,4,25.8,17.9,01_t05_b08,0,1,5,8,70.0
+9,down,1,5.0,110.0,10.0,119.0,0,background,0,background,0,no object that way,1,0,1,1,1,list,4,28.3,17.9,01_t05_b08,0,1,5,8,70.0
+10,right,1,10.0,119.0,92.0,120.0,0,background,5,object 5 (diamond),5,OK,1,0,0,0,0,list,5,23.7,17.9,01_t05_b08,0,1,5,8,70.0

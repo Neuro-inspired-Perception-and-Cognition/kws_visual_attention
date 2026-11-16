@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,unknown,0.933,412c675c_nohash_0.wav,1,152.0,0.0,152.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,random25,2,46.4,19.4,10_t03_b02,1,0,3,2,50.0
+2,down,down,0.922,189cbabe_nohash_4.wav,1,151.0,0.0,140.0,45.0,0,background,2,object 2 (top-right),2,OK,1,0,0,0,0,random25,2,24.8,19.4,10_t03_b02,1,0,3,2,50.0
+3,down,unknown,0.914,5170b77f_nohash_1.wav,1,140.0,45.0,140.0,45.0,2,object 2 (top-right),4,object 4 (bottom-right),2,FAILED - did not move,0,0,1,0,0,random25,2,24.8,19.4,10_t03_b02,1,0,3,2,50.0
+4,up,up,0.847,8ec6dab6_nohash_0.wav,1,140.0,44.0,148.0,0.0,2,object 2 (top-right),0,background,0,no object that way,1,0,0,1,1,random25,2,43.6,19.4,10_t03_b02,1,0,3,2,50.0
+5,up,unknown,0.859,bb05582b_nohash_3.wav,1,148.0,0.0,148.0,0.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,2,43.6,19.4,10_t03_b02,1,0,3,2,50.0
+6,down,down,0.953,beb458a4_nohash_0.wav,1,148.0,0.0,127.0,66.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,0,0,0,random25,4,32.4,19.4,10_t03_b02,1,0,3,2,50.0
+7,down,down,0.894,964e8cfd_nohash_4.wav,1,127.0,66.0,161.0,129.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,1,0,0,random25,4,52.9,19.4,10_t03_b02,1,0,3,2,50.0
+8,up,up,0.882,8769c34c_nohash_1.wav,1,161.0,129.0,150.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,0,0,0,random25,2,45.0,19.4,10_t03_b02,1,0,3,2,50.0
+9,up,up,0.882,63f7a489_nohash_4.wav,1,150.0,0.0,150.0,0.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,2,45.0,19.4,10_t03_b02,1,0,3,2,50.0
+10,down,down,0.906,b49caed3_nohash_3.wav,1,150.0,0.0,139.0,44.0,0,background,2,object 2 (top-right),2,OK,1,0,0,0,0,random25,2,23.4,19.4,10_t03_b02,1,0,3,2,50.0

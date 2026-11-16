@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.91,837a0f64_nohash_4.wav,1,151.0,0.0,140.0,44.0,0,background,2,object 2 (top-right),2,OK,1,0,1,0,0,random25,2,24.3,19.4,10_t07_b02,1,0,7,2,40.0
+2,down,none,0.765,5f01c798_nohash_0.wav,1,140.0,44.0,140.0,44.0,2,object 2 (top-right),4,object 4 (bottom-right),2,FAILED - did not move,0,0,1,0,0,random25,2,24.3,19.4,10_t07_b02,1,0,7,2,40.0
+3,up,up,0.843,5170b77f_nohash_3.wav,1,140.0,44.0,148.0,0.0,2,object 2 (top-right),0,background,0,no object that way,1,0,0,1,1,random25,2,43.6,19.4,10_t07_b02,1,0,7,2,40.0
+4,left,unknown,0.89,b97c9f77_nohash_2.wav,1,148.0,0.0,148.0,0.0,0,background,1,object 1 (top-left),0,FAILED - did not move,0,0,0,0,0,random25,2,43.6,19.4,10_t07_b02,1,0,7,2,40.0
+5,left,unknown,0.859,893705bb_nohash_8.wav,1,148.0,0.0,148.0,0.0,0,background,1,object 1 (top-left),0,FAILED - did not move,0,0,0,0,0,random25,2,43.6,19.4,10_t07_b02,1,0,7,2,40.0
+6,down,down,0.906,bb05582b_nohash_2.wav,1,148.0,0.0,127.0,66.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,0,0,0,random25,4,32.4,19.4,10_t07_b02,1,0,7,2,40.0
+7,left,unknown,0.827,4fd1443e_nohash_0.wav,1,127.0,66.0,127.0,66.0,0,background,3,object 3 (bottom-left),0,FAILED - did not move,0,0,1,0,0,random25,4,32.4,19.4,10_t07_b02,1,0,7,2,40.0
+8,right,left,0.867,aa80f517_nohash_1.wav,1,128.0,66.0,100.0,62.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,2,35.1,19.4,10_t07_b02,1,0,7,2,40.0
+9,right,right,0.929,b97c9f77_nohash_1.wav,1,100.0,62.0,126.0,66.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,4,32.1,19.4,10_t07_b02,1,0,7,2,40.0
+10,down,unknown,0.847,f9643d42_nohash_3.wav,1,126.0,66.0,126.0,66.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,1,0,0,random25,4,32.1,19.4,10_t07_b02,1,0,7,2,40.0

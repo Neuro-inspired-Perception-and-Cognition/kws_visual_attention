@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,unknown,0.871,a7216980_nohash_3.wav,1,148.0,0.0,148.0,0.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,random25,3,36.1,17.4,10_t01_b08,1,0,1,8,20.0
+2,left,left,0.867,bb05582b_nohash_4.wav,1,147.0,0.0,126.0,13.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,0,0,random25,3,28.9,17.4,10_t01_b08,1,0,1,8,20.0
+3,down,down,0.945,e1469561_nohash_3.wav,1,126.0,13.0,107.0,57.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,random25,2,28.4,17.4,10_t01_b08,1,0,1,8,20.0
+4,up,right,0.973,c22d3f18_nohash_4.wav,1,107.0,57.0,143.0,42.0,0,background,0,background,3,no object that way - jumped to another object,0,0,1,1,1,random25,3,6.2,17.4,10_t01_b08,1,0,1,8,20.0
+5,down,down,0.89,ffa76c4a_nohash_0.wav,1,143.0,42.0,144.0,81.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,0,1,0,0,random25,6,12.4,17.4,10_t01_b08,1,0,1,8,20.0
+6,left,unknown,0.918,ca48dc76_nohash_2.wav,1,144.0,81.0,144.0,81.0,6,object 6 (mushroom),5,object 5 (diamond),6,FAILED - did not move,0,0,1,0,0,random25,6,12.4,17.4,10_t01_b08,1,0,1,8,20.0
+7,left,left,0.925,e9901cf0_nohash_0.wav,1,144.0,81.0,102.0,60.0,6,object 6 (mushroom),5,object 5 (diamond),2,WRONG - expected object 5 (diamond),0,0,0,0,0,random25,2,27.4,17.4,10_t01_b08,1,0,1,8,20.0
+8,up,up,0.843,5170b77f_nohash_3.wav,1,102.0,60.0,116.0,8.0,2,object 2 (bottle),0,background,0,no object that way,1,0,1,1,1,random25,3,39.3,17.4,10_t01_b08,1,0,1,8,20.0
+9,left,unknown,0.859,d1a4fb3f_nohash_0.wav,1,116.0,8.0,116.0,8.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,0,0,random25,3,39.3,17.4,10_t01_b08,1,0,1,8,20.0
+10,right,right,0.89,6736bc64_nohash_2.wav,1,116.0,9.0,162.0,0.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,0,0,0,random25,3,40.2,17.4,10_t01_b08,1,0,1,8,20.0

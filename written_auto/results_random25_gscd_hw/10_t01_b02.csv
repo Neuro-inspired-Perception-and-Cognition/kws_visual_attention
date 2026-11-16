@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.89,d962e5ac_nohash_3.wav,1,152.0,0.0,140.0,43.0,0,background,4,object 4 (bottom-right),2,WRONG - expected object 4 (bottom-right),0,0,1,0,0,random25,2,23.8,19.4,10_t01_b02,1,0,1,2,0.0
+2,down,down,0.898,4845bb10_nohash_1.wav,1,140.0,43.0,147.0,81.0,2,object 2 (top-right),4,object 4 (bottom-right),0,WRONG - expected object 4 (bottom-right),0,0,1,0,0,random25,4,32.7,19.4,10_t01_b02,1,0,1,2,0.0
+3,up,up,0.886,fb7eb481_nohash_2.wav,1,147.0,81.0,149.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,random25,2,44.3,19.4,10_t01_b02,1,0,1,2,0.0
+4,left,right,0.914,1b4c9b89_nohash_3.wav,1,149.0,0.0,162.0,0.0,0,background,1,object 1 (top-left),0,FAILED - did not move,0,0,0,0,0,random25,2,54.0,19.4,10_t01_b02,1,0,1,2,0.0
+5,down,unknown,0.871,aa80f517_nohash_0.wav,1,162.0,0.0,162.0,0.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,0,0,0,random25,2,54.0,19.4,10_t01_b02,1,0,1,2,0.0
+6,down,down,0.91,5c8af87a_nohash_1.wav,1,162.0,0.0,162.0,14.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,0,0,0,random25,2,47.0,19.4,10_t01_b02,1,0,1,2,0.0
+7,down,down,0.902,bb05582b_nohash_2.wav,1,162.0,14.0,150.0,81.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,1,0,0,random25,4,35.3,19.4,10_t01_b02,1,0,1,2,0.0
+8,left,left,0.89,9a7c1f83_nohash_0.wav,1,150.0,81.0,102.0,62.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,1,0,0,random25,2,34.1,19.4,10_t01_b02,1,0,1,2,0.0
+9,down,down,0.882,c7124b73_nohash_0.wav,1,102.0,62.0,92.0,122.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,1,0,0,random25,4,36.4,19.4,10_t01_b02,1,0,1,2,0.0
+10,up,unknown,0.808,8056e897_nohash_0.wav,1,92.0,122.0,92.0,122.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,random25,4,36.4,19.4,10_t01_b02,1,0,1,2,0.0

@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,right,1,26.0,120.0,92.0,121.0,7,object 7 (moon),8,object 8 (tree),8,OK,1,0,1,0,0,random25,8,11.2,12.5,01_t04_b10,0,1,4,10,70.0
+2,right,1,92.0,121.0,150.0,128.0,8,object 8 (tree),9,object 9 (mug),0,WRONG - expected object 9 (mug),0,0,1,0,0,random25,9,25.1,12.5,01_t04_b10,0,1,4,10,70.0
+3,up,1,150.0,128.0,137.0,71.0,0,background,6,object 6 (mushroom),6,OK,1,0,1,0,0,random25,6,6.3,12.5,01_t04_b10,0,1,4,10,70.0
+4,left,1,137.0,71.0,77.0,72.0,6,object 6 (mushroom),5,object 5 (diamond),5,OK,1,1,1,0,0,random25,5,11.4,12.5,01_t04_b10,0,1,4,10,70.0
+5,left,1,77.0,72.0,51.0,80.0,5,object 5 (diamond),4,object 4 (heart),4,OK,1,0,1,0,0,random25,4,17.9,12.5,01_t04_b10,0,1,4,10,70.0
+6,left,1,51.0,80.0,1.0,95.0,4,object 4 (heart),0,background,0,no object that way,1,0,1,1,1,random25,7,38.6,12.5,01_t04_b10,0,1,4,10,70.0
+7,right,1,1.0,95.0,62.0,79.0,0,background,7,object 7 (moon),0,FAILED - did not move,0,0,0,0,0,random25,4,24.9,12.5,01_t04_b10,0,1,4,10,70.0
+8,up,1,62.0,79.0,49.0,30.0,0,background,1,object 1 (apple),1,OK,1,0,1,0,0,random25,1,10.1,12.5,01_t04_b10,0,1,4,10,70.0
+9,down,1,49.0,30.0,36.0,125.0,1,object 1 (apple),4,object 4 (heart),7,WRONG - expected object 4 (heart),0,0,1,0,0,random25,7,14.1,12.5,01_t04_b10,0,1,4,10,70.0
+10,right,1,36.0,125.0,94.0,124.0,7,object 7 (moon),8,object 8 (tree),8,OK,1,0,0,0,0,random25,8,14.8,12.5,01_t04_b10,0,1,4,10,70.0

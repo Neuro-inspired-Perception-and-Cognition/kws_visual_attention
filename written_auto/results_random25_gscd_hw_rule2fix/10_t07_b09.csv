@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,down,unknown,0.847,a7216980_nohash_2.wav,1,32.0,64.0,32.0,64.0,4,object 4 (heart),7,object 7 (moon),4,FAILED - did not move,0,0,1,0,0,random25,4,10.5,11.8,10_t07_b09,1,0,7,9,80.0,7,object 7 (moon),FAILED - did not move,0,0
+2,down,none,0.686,fdb5155e_nohash_1.wav,1,33.0,63.0,33.0,63.0,4,object 4 (heart),7,object 7 (moon),4,FAILED - did not move,0,1,0,0,0,random25,4,9.6,11.8,10_t07_b09,1,0,7,9,80.0,7,object 7 (moon),FAILED - did not move,0,0
+3,down,down,0.89,ca4d5368_nohash_2.wav,1,33.0,63.0,25.0,119.0,4,object 4 (heart),7,object 7 (moon),7,OK,1,1,0,0,0,random25,7,15.8,11.8,10_t07_b09,1,0,7,9,80.0,7,object 7 (moon),OK,1,0
+4,left,left,0.839,85834399_nohash_0.wav,1,25.0,119.0,23.0,119.0,7,object 7 (moon),0,background,0,no object that way,1,0,1,1,1,random25,7,17.5,11.8,10_t07_b09,1,0,7,9,80.0,0,background,no object that way,1,1
+5,down,down,0.933,b49caed3_nohash_0.wav,1,23.0,119.0,24.0,123.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,7,19.2,11.8,10_t07_b09,1,0,7,9,80.0,0,background,no object that way,1,1
+6,up,up,0.875,a1533da4_nohash_0.wav,1,24.0,123.0,31.0,64.0,0,background,4,object 4 (heart),4,OK,1,0,0,0,0,random25,4,11.5,11.8,10_t07_b09,1,0,7,9,80.0,4,object 4 (heart),OK,1,0
+7,left,unknown,0.871,37dca74f_nohash_2.wav,1,31.0,64.0,31.0,64.0,4,object 4 (heart),0,background,4,no object that way,1,0,1,1,1,random25,4,11.5,11.8,10_t07_b09,1,0,7,9,80.0,0,background,no object that way,1,1
+8,left,left,0.863,422d3197_nohash_0.wav,1,31.0,64.0,25.0,66.0,4,object 4 (heart),0,background,4,no object that way,1,0,0,1,1,random25,4,17.6,11.8,10_t07_b09,1,0,7,9,80.0,0,background,no object that way,1,1
+9,right,right,0.914,c9b5ff26_nohash_2.wav,1,25.0,66.0,33.0,63.0,4,object 4 (heart),4,object 4 (heart),4,OK,1,0,0,0,0,random25,4,9.6,11.8,10_t07_b09,1,0,7,9,80.0,4,object 4 (heart),OK,1,0
+10,up,up,0.875,b49caed3_nohash_1.wav,1,33.0,63.0,32.0,7.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,1,1,0,0,random25,1,18.3,11.8,10_t07_b09,1,0,7,9,80.0,1,object 1 (apple),OK,1,0

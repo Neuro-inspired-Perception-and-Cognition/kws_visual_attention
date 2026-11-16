@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,unknown,0.835,f297e878_nohash_1.wav,1,15.0,108.0,15.0,108.0,4,object 4 (heart),1,object 1 (apple),4,FAILED - did not move,0,0,1,0,0,random25,4,17.3,17.7,10_t03_b07,1,0,3,7,60.0
+2,right,right,0.882,b83c1acf_nohash_3.wav,1,15.0,107.0,84.0,106.0,4,object 4 (heart),4,object 4 (heart),5,WRONG - expected object 4 (heart),0,0,0,0,0,random25,5,8.9,17.7,10_t03_b07,1,0,3,7,60.0
+3,left,left,0.843,63f7a489_nohash_1.wav,1,84.0,106.0,16.0,107.0,5,object 5 (diamond),4,object 4 (heart),4,OK,1,0,1,0,0,random25,4,15.9,17.7,10_t03_b07,1,0,3,7,60.0
+4,down,down,0.906,7257420c_nohash_0.wav,1,16.0,107.0,16.0,110.0,4,object 4 (heart),0,background,4,no object that way,1,0,1,1,1,random25,4,17.9,17.7,10_t03_b07,1,0,3,7,60.0
+5,up,up,0.875,0fa1e7a9_nohash_0.wav,1,16.0,110.0,16.0,106.0,4,object 4 (heart),1,object 1 (apple),4,FAILED - did not move,0,0,0,0,0,random25,4,15.3,17.7,10_t03_b07,1,0,3,7,60.0
+6,right,unknown,0.875,a4383927_nohash_0.wav,1,16.0,106.0,16.0,106.0,4,object 4 (heart),5,object 5 (diamond),4,FAILED - did not move,0,0,1,0,0,random25,4,15.3,17.7,10_t03_b07,1,0,3,7,60.0
+7,up,up,0.824,94de6a6a_nohash_3.wav,1,16.0,106.0,15.0,24.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,0,0,0,random25,1,16.6,17.7,10_t03_b07,1,0,3,7,60.0
+8,left,left,0.886,0d53e045_nohash_1.wav,1,15.0,24.0,12.0,24.0,1,object 1 (apple),0,background,1,no object that way,1,0,1,1,1,random25,1,19.2,17.7,10_t03_b07,1,0,3,7,60.0
+9,right,right,0.898,e1469561_nohash_2.wav,1,12.0,24.0,18.0,21.0,1,object 1 (apple),1,object 1 (apple),1,OK,1,0,0,0,0,random25,1,16.2,17.7,10_t03_b07,1,0,3,7,60.0
+10,down,down,0.867,e1469561_nohash_0.wav,1,18.0,21.0,16.0,106.0,1,object 1 (apple),4,object 4 (heart),4,OK,1,0,1,0,0,random25,4,15.3,17.7,10_t03_b07,1,0,3,7,60.0

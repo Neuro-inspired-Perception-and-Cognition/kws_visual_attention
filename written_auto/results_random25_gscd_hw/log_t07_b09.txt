@@ -1,0 +1,53 @@
+trial 10_t07_b09  (linguistic=1 visual=0 trial=7 batch=9)
+events : data/9_objects_color_nobg_346x260.npy
+mask   : stimuli/ground_truth_masks/9_objects_color_nobg_346x260.mask.npy
+result : /home/pwz/Repo/kws_visual_attention/written_auto/results_random25_gscd_hw/10_t07_b09.csv   (limit 10 commands)
+Using device: cpu
+Loaded events        : 176465  span 7499 ms
+Processing resolution: 173 x 130
+Windows              : 75 @ 100 ms  (loop=True)
+note: snap clamped to 11.8 px around each shape (shapes are 26.3 px apart edge to edge)
+Ground truth         : 173x130, 9 objects, radius 8.0 px, snap 11.8 px, spacing 42.3 px
+*** only 23% of event pixels fall on the mask's objects - the mask may not match this clip
+
+--- Type commands below ---
+
+  -> command set: 'down' (conf=0.89)  [2 logged, 7 left]
+  -> command set: 'left' (conf=0.839)  [3 logged, 6 left]
+  -> command set: 'down' (conf=0.933)  [4 logged, 5 left]
+  -> command set: 'up' (conf=0.875)  [5 logged, 4 left]
+  -> command set: 'left' (conf=0.863)  [7 logged, 2 left]
+  -> command set: 'right' (conf=0.914)  [8 logged, 1 left]
+  -> command set: 'up' (conf=0.875)  [9 logged, 0 left]
+
+mask 173x130, 9 objects, object radius 8.0 px, snap 11.8 px
+begin visual attention.
+most salient point in object 4 (heart).
+command: down
+now most salient point in object 4 (heart).   [FAILED - did not move]
+command: down
+now most salient point in object 4 (heart).   [FAILED - did not move]
+command: down
+now most salient point in object 7 (moon).   [OK]
+command: left
+now most salient point in background.   [no object that way]
+command: down
+now most salient point in background.   [no object that way]
+command: up
+now most salient point in object 4 (heart).   [OK]
+command: left
+now most salient point in object 4 (heart).   [no object that way]
+command: left
+now most salient point in object 4 (heart).   [no object that way]
+command: right
+now most salient point in object 4 (heart).   [OK]
+command: up
+now most salient point in object 1 (apple).   [OK]
+
+8/10 commands correct  (80.0%)
+fovea moved on 8/10 commands
+wrote /home/pwz/Repo/kws_visual_attention/written_auto/results_random25_gscd_hw/10_t07_b09.csv
+KWS: 7/10 spoken commands recognised correctly
+
+Session ended. Frames shown: 376
+[kws] configured /home/pwz/Repo/VoiceNAS/NAS-GNN-KWS/HW/vivado/kws/kws_system.runs/impl_1/ok_top_wrapper.bit

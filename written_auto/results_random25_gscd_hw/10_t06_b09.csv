@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,right,unknown,0.902,37fc5d97_nohash_2.wav,1,32.0,63.0,32.0,63.0,4,object 4 (heart),5,object 5 (diamond),4,FAILED - did not move,0,0,1,0,0,random25,4,10.6,11.8,10_t06_b09,1,0,6,9,40.0
+2,down,down,0.855,0f250098_nohash_1.wav,1,32.0,63.0,25.0,120.0,4,object 4 (heart),7,object 7 (moon),7,OK,1,0,0,0,0,random25,7,16.4,11.8,10_t06_b09,1,0,6,9,40.0
+3,up,unknown,0.8,3b4f8f24_nohash_3.wav,1,25.0,120.0,25.0,120.0,7,object 7 (moon),4,object 4 (heart),7,FAILED - did not move,0,0,1,0,0,random25,7,16.4,11.8,10_t06_b09,1,0,6,9,40.0
+4,right,left,0.871,62ff07ef_nohash_0.wav,1,25.0,120.0,23.0,119.0,7,object 7 (moon),7,object 7 (moon),0,WRONG - expected object 7 (moon),0,0,0,0,0,random25,7,17.5,11.8,10_t06_b09,1,0,6,9,40.0
+5,up,unknown,0.886,8ec6dab6_nohash_2.wav,1,23.0,119.0,23.0,119.0,0,background,4,object 4 (heart),0,FAILED - did not move,0,0,0,0,0,random25,7,17.5,11.8,10_t06_b09,1,0,6,9,40.0
+6,up,unknown,0.867,f297e878_nohash_1.wav,1,23.0,119.0,23.0,119.0,0,background,4,object 4 (heart),0,FAILED - did not move,0,0,0,0,0,random25,7,17.5,11.8,10_t06_b09,1,0,6,9,40.0
+7,left,up,0.851,0cb74144_nohash_1.wav,1,23.0,119.0,31.0,63.0,0,background,0,background,4,no object that way - jumped to another object,0,0,0,1,1,random25,4,11.6,11.8,10_t06_b09,1,0,6,9,40.0
+8,down,down,0.922,0fa1e7a9_nohash_0.wav,1,31.0,63.0,25.0,120.0,4,object 4 (heart),7,object 7 (moon),7,OK,1,0,1,0,0,random25,7,16.4,11.8,10_t06_b09,1,0,6,9,40.0
+9,right,right,0.878,b83c1acf_nohash_1.wav,1,25.0,120.0,85.0,123.0,7,object 7 (moon),8,object 8 (tree),8,OK,1,0,1,0,0,random25,8,14.1,11.8,10_t06_b09,1,0,6,9,40.0
+10,up,up,0.918,f9643d42_nohash_0.wav,1,85.0,123.0,85.0,63.0,8,object 8 (tree),5,object 5 (diamond),5,OK,1,0,1,0,0,random25,5,1.8,11.8,10_t06_b09,1,0,6,9,40.0

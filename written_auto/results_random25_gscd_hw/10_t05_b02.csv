@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,right,unknown,0.914,189cbabe_nohash_3.wav,1,152.0,0.0,152.0,0.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,2,46.4,19.4,10_t05_b02,1,0,5,2,50.0
+2,down,down,0.871,e41a903b_nohash_0.wav,1,152.0,0.0,140.0,44.0,0,background,4,object 4 (bottom-right),2,WRONG - expected object 4 (bottom-right),0,0,0,0,0,random25,2,24.3,19.4,10_t05_b02,1,0,5,2,50.0
+3,left,left,0.824,87070229_nohash_4.wav,1,140.0,44.0,102.0,59.0,2,object 2 (top-right),1,object 1 (top-left),0,WRONG - expected object 1 (top-left),0,0,1,0,0,random25,2,31.5,19.4,10_t05_b02,1,0,5,2,50.0
+4,down,down,0.898,18f8afd5_nohash_3.wav,1,102.0,59.0,92.0,121.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,1,0,0,random25,4,35.7,19.4,10_t05_b02,1,0,5,2,50.0
+5,down,down,0.933,cfbedff9_nohash_0.wav,1,92.0,121.0,92.0,125.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,4,38.5,19.4,10_t05_b02,1,0,5,2,50.0
+6,left,left,0.914,4fd1443e_nohash_3.wav,1,92.0,125.0,12.0,121.0,0,background,3,object 3 (bottom-left),0,FAILED - did not move,0,0,0,0,0,random25,3,48.0,19.4,10_t05_b02,1,0,5,2,50.0
+7,down,unknown,0.882,964c7c9e_nohash_0.wav,1,12.0,121.0,12.0,121.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,3,48.0,19.4,10_t05_b02,1,0,5,2,50.0
+8,down,unknown,0.855,aa233654_nohash_1.wav,1,11.0,121.0,11.0,121.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,3,48.8,19.4,10_t05_b02,1,0,5,2,50.0
+9,up,unknown,0.898,5ff3f9a1_nohash_0.wav,1,11.0,121.0,11.0,121.0,0,background,1,object 1 (top-left),0,FAILED - did not move,0,0,0,0,0,random25,3,48.8,19.4,10_t05_b02,1,0,5,2,50.0
+10,left,left,0.827,283d7a53_nohash_1.wav,1,11.0,121.0,11.0,121.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,3,48.8,19.4,10_t05_b02,1,0,5,2,50.0

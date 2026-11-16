@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,left,1,148.0,0.0,126.0,13.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,1,0,0,random25,3,28.9,17.4,00_t01_b06,0,0,1,6,30.0,2,object 2 (bottle),FAILED - did not move,0,0
+2,up,1,126.0,13.0,126.0,10.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,3,31.3,17.4,00_t01_b06,0,0,1,6,30.0,0,background,no object that way,1,1
+3,down,1,126.0,10.0,107.0,58.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,0,0,0,random25,2,29.1,17.4,00_t01_b06,0,0,1,6,30.0,3,object 3 (star),FAILED - did not move,0,0
+4,right,1,107.0,58.0,142.0,42.0,0,background,3,object 3 (star),3,OK,1,0,1,0,0,random25,3,6.4,17.4,00_t01_b06,0,0,1,6,30.0,3,object 3 (star),OK,1,0
+5,down,1,142.0,42.0,141.0,78.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,0,1,0,0,random25,6,15.7,17.4,00_t01_b06,0,0,1,6,30.0,6,object 6 (mushroom),OK,1,0
+6,up,1,141.0,78.0,147.0,0.0,6,object 6 (mushroom),3,object 3 (star),0,WRONG - expected object 3 (star),0,0,1,0,0,random25,3,36.0,17.4,00_t01_b06,0,0,1,6,30.0,3,object 3 (star),WRONG - expected object 3 (star),0,0
+7,left,1,147.0,0.0,124.0,12.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,0,0,random25,3,30.9,17.4,00_t01_b06,0,0,1,6,30.0,2,object 2 (bottle),FAILED - did not move,0,0
+8,down,1,124.0,12.0,106.0,58.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,random25,2,28.4,17.4,00_t01_b06,0,0,1,6,30.0,3,object 3 (star),FAILED - did not move,0,0
+9,down,1,106.0,58.0,92.0,127.0,0,background,5,object 5 (diamond),0,FAILED - did not move,0,0,1,0,0,random25,5,33.9,17.4,00_t01_b06,0,0,1,6,30.0,5,object 5 (diamond),FAILED - did not move,0,0
+10,right,1,92.0,127.0,172.0,129.0,0,background,6,object 6 (mushroom),0,FAILED - did not move,0,0,1,0,0,random25,6,45.3,17.4,00_t01_b06,0,0,1,6,30.0,6,object 6 (mushroom),FAILED - did not move,0,0

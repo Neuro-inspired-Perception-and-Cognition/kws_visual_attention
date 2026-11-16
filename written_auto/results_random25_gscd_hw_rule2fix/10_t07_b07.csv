@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,down,unknown,0.898,5170b77f_nohash_3.wav,1,15.0,108.0,15.0,108.0,4,object 4 (heart),0,background,4,no object that way,1,0,1,1,1,random25,4,17.3,17.7,10_t07_b07,1,0,7,7,80.0,0,background,no object that way,1,1
+2,up,up,0.89,50033893_nohash_1.wav,1,15.0,107.0,15.0,25.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,0,0,0,random25,1,16.1,17.7,10_t07_b07,1,0,7,7,80.0,1,object 1 (apple),OK,1,0
+3,right,right,0.847,6b889021_nohash_1.wav,1,15.0,25.0,84.0,20.0,1,object 1 (apple),2,object 2 (bottle),2,OK,1,0,1,0,0,random25,2,14.4,17.7,10_t07_b07,1,0,7,7,80.0,2,object 2 (bottle),OK,1,0
+4,left,left,0.922,4fd1443e_nohash_3.wav,1,84.0,20.0,17.0,20.0,2,object 2 (bottle),1,object 1 (apple),1,OK,1,0,1,0,0,random25,1,17.6,17.7,10_t07_b07,1,0,7,7,80.0,1,object 1 (apple),OK,1,0
+5,left,unknown,0.867,e0c782d5_nohash_2.wav,1,17.0,20.0,17.0,20.0,1,object 1 (apple),0,background,1,no object that way,1,0,1,1,1,random25,1,17.6,17.7,10_t07_b07,1,0,7,7,80.0,0,background,no object that way,1,1
+6,right,unknown,0.82,3659fc1c_nohash_0.wav,1,17.0,19.0,17.0,19.0,1,object 1 (apple),2,object 2 (bottle),1,FAILED - did not move,0,0,0,0,0,random25,1,18.4,17.7,10_t07_b07,1,0,7,7,80.0,2,object 2 (bottle),FAILED - did not move,0,0
+7,right,unknown,0.91,3efef882_nohash_1.wav,1,16.0,21.0,16.0,21.0,1,object 1 (apple),1,object 1 (apple),1,OK,1,0,0,0,0,random25,1,17.6,17.7,10_t07_b07,1,0,7,7,80.0,1,object 1 (apple),OK,1,0
+8,down,down,0.925,893705bb_nohash_1.wav,1,17.0,18.0,15.0,105.0,1,object 1 (apple),1,object 1 (apple),4,OK,1,0,0,0,0,random25,4,15.7,17.7,10_t07_b07,1,0,7,7,80.0,1,object 1 (apple),WRONG - expected object 1 (apple),0,0
+9,up,up,0.859,9dc1889e_nohash_0.wav,1,15.0,105.0,14.0,25.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,1,0,0,random25,1,17.0,17.7,10_t07_b07,1,0,7,7,80.0,1,object 1 (apple),OK,1,0
+10,down,down,0.945,189cbabe_nohash_3.wav,1,14.0,25.0,15.0,106.0,1,object 1 (apple),4,object 4 (heart),4,OK,1,0,1,0,0,random25,4,16.2,17.7,10_t07_b07,1,0,7,7,80.0,4,object 4 (heart),OK,1,0

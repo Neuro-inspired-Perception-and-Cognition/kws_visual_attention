@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.898,a7216980_nohash_1.wav,1,157.0,0.0,138.0,33.0,0,background,6,object 6 (mushroom),3,WRONG - expected object 6 (mushroom),0,0,1,0,0,random25,3,14.9,11.8,10_t04_b10,1,0,4,10,30.0
+2,down,down,0.918,8ec6dab6_nohash_2.wav,1,138.0,33.0,147.0,81.0,3,object 3 (star),6,object 6 (mushroom),0,WRONG - expected object 6 (mushroom),0,0,1,0,0,random25,6,24.2,11.8,10_t04_b10,1,0,4,10,30.0
+3,left,unknown,0.859,d5ca80c6_nohash_0.wav,1,147.0,81.0,147.0,81.0,0,background,6,object 6 (mushroom),0,FAILED - did not move,0,0,1,0,0,random25,6,24.2,11.8,10_t04_b10,1,0,4,10,30.0
+4,left,left,0.847,863880b7_nohash_0.wav,1,148.0,82.0,105.0,61.0,0,background,6,object 6 (mushroom),5,WRONG - expected object 6 (mushroom),0,0,0,0,0,random25,5,19.3,11.8,10_t04_b10,1,0,4,10,30.0
+5,left,left,0.831,63f7a489_nohash_3.wav,1,105.0,61.0,10.0,64.0,5,object 5 (diamond),4,object 4 (heart),0,WRONG - expected object 4 (heart),0,0,1,0,0,random25,4,32.5,11.8,10_t04_b10,1,0,4,10,30.0
+6,left,left,0.827,8056e897_nohash_0.wav,1,10.0,64.0,10.0,64.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,4,32.5,11.8,10_t04_b10,1,0,4,10,30.0
+7,up,unknown,0.91,ca4d5368_nohash_3.wav,1,10.0,64.0,10.0,64.0,0,background,1,object 1 (apple),0,FAILED - did not move,0,0,0,0,0,random25,4,32.5,11.8,10_t04_b10,1,0,4,10,30.0
+8,left,up,0.808,5828dfa2_nohash_0.wav,1,9.0,64.0,12.0,0.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,1,37.7,11.8,10_t04_b10,1,0,4,10,30.0
+9,down,down,0.894,aa80f517_nohash_2.wav,1,12.0,0.0,15.0,122.0,0,background,4,object 4 (heart),0,FAILED - did not move,0,0,1,0,0,random25,7,25.9,11.8,10_t04_b10,1,0,4,10,30.0
+10,right,right,0.961,d962e5ac_nohash_3.wav,1,15.0,122.0,39.0,120.0,0,background,7,object 7 (moon),7,OK,1,0,0,0,0,random25,7,10.5,11.8,10_t04_b10,1,0,4,10,30.0

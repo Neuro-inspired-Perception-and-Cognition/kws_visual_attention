@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,up,1,148.0,0.0,147.0,0.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,3,36.0,17.4,00_t06_b06,0,0,6,6,10.0,0,background,no object that way,1,1
+2,left,1,147.0,0.0,126.0,13.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,0,0,random25,3,28.9,17.4,00_t06_b06,0,0,6,6,10.0,2,object 2 (bottle),FAILED - did not move,0,0
+3,down,1,126.0,13.0,108.0,57.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,random25,2,29.1,17.4,00_t06_b06,0,0,6,6,10.0,3,object 3 (star),FAILED - did not move,0,0
+4,down,1,108.0,57.0,93.0,127.0,0,background,5,object 5 (diamond),0,FAILED - did not move,0,0,1,0,0,random25,5,34.1,17.4,00_t06_b06,0,0,6,6,10.0,5,object 5 (diamond),FAILED - did not move,0,0
+5,right,1,93.0,127.0,172.0,129.0,0,background,6,object 6 (mushroom),0,FAILED - did not move,0,0,1,0,0,random25,6,45.3,17.4,00_t06_b06,0,0,6,6,10.0,6,object 6 (mushroom),FAILED - did not move,0,0
+6,left,1,172.0,129.0,93.0,129.0,0,background,5,object 5 (diamond),0,FAILED - did not move,0,0,1,0,0,random25,5,36.0,17.4,00_t06_b06,0,0,6,6,10.0,5,object 5 (diamond),FAILED - did not move,0,0
+7,up,1,93.0,129.0,102.0,59.0,0,background,5,object 5 (diamond),2,WRONG - expected object 5 (diamond),0,0,1,0,0,random25,2,26.6,17.4,00_t06_b06,0,0,6,6,10.0,5,object 5 (diamond),WRONG - expected object 5 (diamond),0,0
+8,left,1,102.0,59.0,8.0,62.0,2,object 2 (bottle),1,object 1 (apple),0,WRONG - expected object 1 (apple),0,0,1,0,0,random25,1,33.3,17.4,00_t06_b06,0,0,6,6,10.0,1,object 1 (apple),WRONG - expected object 1 (apple),0,0
+9,down,1,8.0,62.0,0.0,119.0,0,background,4,object 4 (heart),0,FAILED - did not move,0,0,0,0,0,random25,4,38.2,17.4,00_t06_b06,0,0,6,6,10.0,4,object 4 (heart),FAILED - did not move,0,0
+10,right,1,0.0,119.0,34.0,125.0,0,background,4,object 4 (heart),0,FAILED - did not move,0,0,0,0,0,random25,4,31.5,17.4,00_t06_b06,0,0,6,6,10.0,4,object 4 (heart),FAILED - did not move,0,0

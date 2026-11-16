@@ -1,0 +1,55 @@
+trial 10_t08_b08  (linguistic=1 visual=0 trial=8 batch=8)
+events : data/6_objects_color_bg_jitter_346x260.npy
+mask   : stimuli/ground_truth_masks/6_objects_color_bg_jitter_346x260.mask.npy
+result : /home/pwz/Repo/kws_visual_attention/written_auto/results_random25_gscd_hw/10_t08_b08.csv   (limit 10 commands)
+Using device: cpu
+Loaded events        : 7189017  span 7500 ms
+Processing resolution: 173 x 130
+Windows              : 75 @ 100 ms  (loop=True)
+note: snap clamped to 17.4 px around each shape (shapes are 38.6 px apart edge to edge)
+Ground truth         : 173x130, 6 objects, radius 8.8 px, snap 17.4 px, spacing 56.2 px
+*** only 5% of event pixels fall on the mask's objects - the mask may not match this clip
+
+--- Type commands below ---
+
+  -> command set: 'up' (conf=0.91)  [0 logged, 9 left]
+  -> command set: 'down' (conf=0.89)  [1 logged, 8 left]
+  -> command set: 'left' (conf=0.886)  [2 logged, 7 left]
+  -> command set: 'down' (conf=0.855)  [4 logged, 5 left]
+  -> command set: 'right' (conf=0.902)  [5 logged, 4 left]
+  -> command set: 'up' (conf=0.875)  [6 logged, 3 left]
+  -> command set: 'up' (conf=0.82)  [7 logged, 2 left]
+  -> command set: 'down' (conf=0.898)  [8 logged, 1 left]
+  -> command set: 'left' (conf=0.863)  [9 logged, 0 left]
+
+mask 173x130, 6 objects, object radius 8.8 px, snap 17.4 px
+begin visual attention.
+most salient point in background.
+command: up
+now most salient point in background.   [no object that way]
+command: down
+now most salient point in object 3 (star).   [OK]
+command: left
+now most salient point in object 2 (bottle).   [OK]
+command: right
+now most salient point in object 2 (bottle).   [FAILED - did not move]
+command: down
+now most salient point in background.   [WRONG - expected object 5 (diamond)]
+command: right
+now most salient point in background.   [FAILED - did not move]
+command: up
+now most salient point in object 6 (mushroom).   [OK]
+command: up
+now most salient point in background.   [WRONG - expected object 3 (star)]
+command: down
+now most salient point in object 3 (star).   [OK]
+command: left
+now most salient point in background.   [WRONG - expected object 2 (bottle)]
+
+5/10 commands correct  (50.0%)
+fovea moved on 8/10 commands
+wrote /home/pwz/Repo/kws_visual_attention/written_auto/results_random25_gscd_hw/10_t08_b08.csv
+KWS: 9/10 spoken commands recognised correctly
+
+Session ended. Frames shown: 332
+[kws] configured /home/pwz/Repo/VoiceNAS/NAS-GNN-KWS/HW/vivado/kws/kws_system.runs/impl_1/ok_top_wrapper.bit

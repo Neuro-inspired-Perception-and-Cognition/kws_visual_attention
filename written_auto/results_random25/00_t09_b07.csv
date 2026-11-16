@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,1,15.0,107.0,14.0,24.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,1,0,0,random25,1,17.5,17.7,00_t09_b07,0,0,9,7,90.0
+2,down,1,14.0,24.0,15.0,106.0,1,object 1 (apple),4,object 4 (heart),4,OK,1,0,1,0,0,random25,4,16.2,17.7,00_t09_b07,0,0,9,7,90.0
+3,left,1,15.0,106.0,11.0,106.0,4,object 4 (heart),0,background,4,no object that way,1,0,1,1,1,random25,4,19.7,17.7,00_t09_b07,0,0,9,7,90.0
+4,up,1,11.0,106.0,14.0,25.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,0,0,0,random25,1,17.0,17.7,00_t09_b07,0,0,9,7,90.0
+5,right,1,14.0,25.0,83.0,22.0,1,object 1 (apple),2,object 2 (bottle),2,OK,1,0,1,0,0,random25,2,12.7,17.7,00_t09_b07,0,0,9,7,90.0
+6,right,1,83.0,22.0,154.0,20.0,2,object 2 (bottle),3,object 3 (star),3,OK,1,0,1,0,0,random25,3,15.9,17.7,00_t09_b07,0,0,9,7,90.0
+7,down,1,154.0,20.0,154.0,103.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,0,1,0,0,random25,6,11.7,17.7,00_t09_b07,0,0,9,7,90.0
+8,right,1,154.0,103.0,157.0,103.0,6,object 6 (mushroom),0,background,6,no object that way,1,0,1,1,1,random25,6,14.4,17.7,00_t09_b07,0,0,9,7,90.0
+9,down,1,157.0,103.0,157.0,109.0,6,object 6 (mushroom),0,background,6,no object that way,1,0,0,1,1,random25,6,17.8,17.7,00_t09_b07,0,0,9,7,90.0
+10,up,1,157.0,109.0,156.0,102.0,6,object 6 (mushroom),3,object 3 (star),6,FAILED - did not move,0,0,0,0,0,random25,6,13.1,17.7,00_t09_b07,0,0,9,7,90.0

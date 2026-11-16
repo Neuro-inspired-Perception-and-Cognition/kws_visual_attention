@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,right,1,158.0,26.0,160.0,27.0,3,object 3 (star),0,background,3,no object that way,1,0,1,1,1,list,3,17.2,18.0,01_t04_b03,0,1,4,3,100.0
+2,up,1,160.0,27.0,160.0,21.0,3,object 3 (star),0,background,3,no object that way,1,0,0,1,1,list,3,20.9,18.0,01_t04_b03,0,1,4,3,100.0
+3,left,1,160.0,21.0,87.0,21.0,3,object 3 (star),2,object 2 (bottle),2,OK,1,0,0,0,0,list,2,16.6,18.0,01_t04_b03,0,1,4,3,100.0
+4,down,1,87.0,21.0,86.0,102.0,2,object 2 (bottle),5,object 5 (diamond),5,OK,1,0,1,0,0,list,5,5.9,18.0,01_t04_b03,0,1,4,3,100.0
+5,left,1,86.0,102.0,16.0,104.0,5,object 5 (diamond),4,object 4 (heart),4,OK,1,1,1,0,0,list,4,14.1,18.0,01_t04_b03,0,1,4,3,100.0
+6,up,1,16.0,104.0,16.0,33.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,1,0,0,list,1,13.5,18.0,01_t04_b03,0,1,4,3,100.0
+7,right,1,16.0,33.0,86.0,24.0,1,object 1 (apple),2,object 2 (bottle),2,OK,1,0,1,0,0,list,2,13.7,18.0,01_t04_b03,0,1,4,3,100.0
+8,down,1,86.0,24.0,86.0,102.0,2,object 2 (bottle),5,object 5 (diamond),5,OK,1,1,1,0,0,list,5,5.9,18.0,01_t04_b03,0,1,4,3,100.0
+9,right,1,86.0,102.0,157.0,105.0,5,object 5 (diamond),6,object 6 (mushroom),6,OK,1,1,1,0,0,list,6,14.3,18.0,01_t04_b03,0,1,4,3,100.0
+10,up,1,157.0,105.0,157.0,27.0,6,object 6 (mushroom),3,object 3 (star),3,OK,1,0,1,0,0,list,3,14.7,18.0,01_t04_b03,0,1,4,3,100.0

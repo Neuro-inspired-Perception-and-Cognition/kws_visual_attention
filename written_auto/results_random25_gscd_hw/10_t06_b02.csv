@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,left,0.902,7192fddc_nohash_0.wav,1,152.0,0.0,140.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,random25,2,38.7,19.4,10_t06_b02,1,0,6,2,50.0
+2,down,down,0.925,189cbabe_nohash_2.wav,1,140.0,0.0,105.0,59.0,0,background,2,object 2 (top-right),2,OK,1,0,1,0,0,random25,2,30.0,19.4,10_t06_b02,1,0,6,2,50.0
+3,right,right,0.863,cd85758f_nohash_0.wav,1,105.0,59.0,136.0,62.0,2,object 2 (top-right),0,background,0,no object that way,1,0,1,1,1,random25,2,34.4,19.4,10_t06_b02,1,0,6,2,50.0
+4,up,unknown,1.0,50033893_nohash_0.wav,1,136.0,62.0,136.0,62.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,random25,2,34.4,19.4,10_t06_b02,1,0,6,2,50.0
+5,down,down,0.918,4c6167ca_nohash_0.wav,1,134.0,63.0,145.0,83.0,0,background,4,object 4 (bottom-right),4,OK,1,0,0,0,0,random25,4,29.9,19.4,10_t06_b02,1,0,6,2,50.0
+6,left,left,0.894,692a88e6_nohash_1.wav,1,145.0,83.0,70.0,82.0,4,object 4 (bottom-right),3,object 3 (bottom-left),3,OK,1,0,1,0,0,random25,3,22.4,19.4,10_t06_b02,1,0,6,2,50.0
+7,up,unknown,0.898,5e3dde6b_nohash_2.wav,1,70.0,82.0,70.0,82.0,3,object 3 (bottom-left),1,object 1 (top-left),3,FAILED - did not move,0,0,1,0,0,random25,3,22.4,19.4,10_t06_b02,1,0,6,2,50.0
+8,down,down,0.906,c9b5ff26_nohash_3.wav,1,71.0,82.0,87.0,124.0,3,object 3 (bottom-left),0,background,0,no object that way,1,0,0,1,1,random25,4,41.4,19.4,10_t06_b02,1,0,6,2,50.0
+9,up,unknown,0.91,e41a903b_nohash_3.wav,1,87.0,124.0,87.0,124.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,0,0,0,random25,4,41.4,19.4,10_t06_b02,1,0,6,2,50.0
+10,left,unknown,0.925,63f7a489_nohash_2.wav,1,87.0,124.0,87.0,124.0,0,background,3,object 3 (bottom-left),0,FAILED - did not move,0,0,0,0,0,random25,4,41.4,19.4,10_t06_b02,1,0,6,2,50.0

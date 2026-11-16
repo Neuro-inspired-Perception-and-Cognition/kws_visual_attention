@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,1,152.0,0.0,139.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,random25,2,38.2,19.4,00_t03_b02,0,0,3,2,30.0
+2,down,1,139.0,0.0,104.0,60.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,random25,2,31.4,19.4,00_t03_b02,0,0,3,2,30.0
+3,down,1,104.0,60.0,92.0,121.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,1,0,0,random25,4,35.7,19.4,00_t03_b02,0,0,3,2,30.0
+4,down,1,92.0,121.0,93.0,126.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,4,38.5,19.4,00_t03_b02,0,0,3,2,30.0
+5,down,1,93.0,126.0,93.0,126.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,4,38.5,19.4,00_t03_b02,0,0,3,2,30.0
+6,left,1,93.0,126.0,12.0,121.0,0,background,3,object 3 (bottom-left),0,FAILED - did not move,0,0,0,0,0,random25,3,48.0,19.4,00_t03_b02,0,0,3,2,30.0
+7,right,1,12.0,121.0,27.0,126.0,0,background,3,object 3 (bottom-left),0,FAILED - did not move,0,0,0,0,0,random25,3,39.2,19.4,00_t03_b02,0,0,3,2,30.0
+8,up,1,27.0,126.0,29.0,48.0,0,background,3,object 3 (bottom-left),1,WRONG - expected object 3 (bottom-left),0,0,1,0,0,random25,1,29.3,19.4,00_t03_b02,0,0,3,2,30.0
+9,up,1,29.0,48.0,21.0,1.0,1,object 1 (top-left),0,background,0,no object that way,1,0,1,1,1,random25,1,45.3,19.4,00_t03_b02,0,0,3,2,30.0
+10,right,1,21.0,1.0,59.0,0.0,0,background,1,object 1 (top-left),0,FAILED - did not move,0,0,1,0,0,random25,1,32.7,19.4,00_t03_b02,0,0,3,2,30.0

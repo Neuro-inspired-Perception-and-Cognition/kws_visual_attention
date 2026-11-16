@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,left,1,147.0,0.0,125.0,12.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,1,0,0,random25,3,30.3,17.4,00_t10_b08,0,0,10,8,30.0,2,object 2 (bottle),FAILED - did not move,0,0
+2,left,1,125.0,12.0,27.0,1.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,1,0,0,random25,1,35.4,17.4,00_t10_b08,0,0,10,8,30.0,2,object 2 (bottle),FAILED - did not move,0,0
+3,up,1,27.0,1.0,27.0,0.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,1,36.4,17.4,00_t10_b08,0,0,10,8,30.0,0,background,no object that way,1,1
+4,right,1,27.0,0.0,62.0,21.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,0,0,random25,2,29.4,17.4,00_t10_b08,0,0,10,8,30.0,2,object 2 (bottle),FAILED - did not move,0,0
+5,left,1,62.0,21.0,26.0,1.0,0,background,1,object 1 (apple),0,FAILED - did not move,0,0,1,0,0,random25,1,35.4,17.4,00_t10_b08,0,0,10,8,30.0,1,object 1 (apple),FAILED - did not move,0,0
+6,left,1,26.0,1.0,18.0,0.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,1,38.0,17.4,00_t10_b08,0,0,10,8,30.0,0,background,no object that way,1,1
+7,down,1,18.0,0.0,0.0,119.0,0,background,1,object 1 (apple),0,FAILED - did not move,0,0,0,0,0,random25,4,38.2,17.4,00_t10_b08,0,0,10,8,30.0,1,object 1 (apple),FAILED - did not move,0,0
+8,right,1,0.0,119.0,34.0,126.0,0,background,4,object 4 (heart),0,FAILED - did not move,0,0,0,0,0,random25,4,32.4,17.4,00_t10_b08,0,0,10,8,30.0,4,object 4 (heart),FAILED - did not move,0,0
+9,right,1,34.0,126.0,91.0,129.0,0,background,5,object 5 (diamond),0,FAILED - did not move,0,0,1,0,0,random25,5,35.7,17.4,00_t10_b08,0,0,10,8,30.0,5,object 5 (diamond),FAILED - did not move,0,0
+10,up,1,91.0,129.0,70.0,84.0,0,background,5,object 5 (diamond),5,OK,1,0,1,0,0,random25,5,18.8,17.4,00_t10_b08,0,0,10,8,30.0,5,object 5 (diamond),OK,1,0

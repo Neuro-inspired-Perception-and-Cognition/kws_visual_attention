@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,down,1,148.0,0.0,137.0,33.0,0,background,3,object 3 (star),3,OK,1,0,1,0,0,random25,3,7.3,17.4,00_t04_b08,0,0,4,8,40.0,3,object 3 (star),OK,1,0
+2,left,1,137.0,33.0,104.0,56.0,3,object 3 (star),2,object 2 (bottle),2,OK,1,1,1,0,0,random25,2,25.6,17.4,00_t04_b08,0,0,4,8,40.0,2,object 2 (bottle),OK,1,0
+3,down,1,104.0,56.0,93.0,129.0,2,object 2 (bottle),5,object 5 (diamond),0,WRONG - expected object 5 (diamond),0,0,1,0,0,random25,5,36.0,17.4,00_t04_b08,0,0,4,8,40.0,5,object 5 (diamond),WRONG - expected object 5 (diamond),0,0
+4,left,1,93.0,129.0,35.0,124.0,0,background,4,object 4 (heart),0,FAILED - did not move,0,0,1,0,0,random25,4,30.7,17.4,00_t04_b08,0,0,4,8,40.0,4,object 4 (heart),FAILED - did not move,0,0
+5,up,1,35.0,124.0,54.0,91.0,0,background,4,object 4 (heart),4,OK,1,0,1,0,0,random25,4,25.3,17.4,00_t04_b08,0,0,4,8,40.0,4,object 4 (heart),OK,1,0
+6,up,1,54.0,91.0,60.0,16.0,4,object 4 (heart),1,object 1 (apple),0,WRONG - expected object 1 (apple),0,0,1,0,0,random25,2,34.0,17.4,00_t04_b08,0,0,4,8,40.0,1,object 1 (apple),WRONG - expected object 1 (apple),0,0
+7,right,1,60.0,16.0,162.0,0.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,0,0,random25,3,40.2,17.4,00_t04_b08,0,0,4,8,40.0,2,object 2 (bottle),FAILED - did not move,0,0
+8,left,1,162.0,0.0,142.0,3.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,0,0,random25,3,32.9,17.4,00_t04_b08,0,0,4,8,40.0,2,object 2 (bottle),FAILED - did not move,0,0
+9,right,1,142.0,3.0,163.0,0.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,3,40.7,17.4,00_t04_b08,0,0,4,8,40.0,0,background,no object that way,1,1
+10,left,1,163.0,0.0,139.0,6.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,0,0,random25,3,30.2,17.4,00_t04_b08,0,0,4,8,40.0,2,object 2 (bottle),FAILED - did not move,0,0

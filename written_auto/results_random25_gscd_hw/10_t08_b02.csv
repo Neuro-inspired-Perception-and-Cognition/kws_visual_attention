@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,left,0.894,94de6a6a_nohash_2.wav,1,152.0,0.0,140.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,random25,2,38.7,19.4,10_t08_b02,1,0,8,2,50.0
+2,left,unknown,0.902,1b4c9b89_nohash_0.wav,1,140.0,0.0,140.0,0.0,0,background,1,object 1 (top-left),0,FAILED - did not move,0,0,1,0,0,random25,2,38.7,19.4,10_t08_b02,1,0,8,2,50.0
+3,up,up,0.878,964e8cfd_nohash_2.wav,1,140.0,0.0,140.0,0.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,2,38.7,19.4,10_t08_b02,1,0,8,2,50.0
+4,left,left,0.89,b97c9f77_nohash_3.wav,1,140.0,0.0,69.0,23.0,0,background,1,object 1 (top-left),1,OK,1,0,0,0,0,random25,1,17.9,19.4,10_t08_b02,1,0,8,2,50.0
+5,down,down,0.875,9a356ab9_nohash_0.wav,1,69.0,23.0,71.0,81.0,1,object 1 (top-left),3,object 3 (bottom-left),3,OK,1,0,1,0,0,random25,3,23.8,19.4,10_t08_b02,1,0,8,2,50.0
+6,up,up,0.894,97f4c236_nohash_2.wav,1,71.0,81.0,64.0,31.0,3,object 3 (bottom-left),1,object 1 (top-left),1,OK,1,0,1,0,0,random25,1,10.4,19.4,10_t08_b02,1,0,8,2,50.0
+7,up,up,0.886,5e3dde6b_nohash_3.wav,1,64.0,31.0,61.0,0.0,1,object 1 (top-left),0,background,0,no object that way,1,1,1,1,1,random25,1,33.1,19.4,10_t08_b02,1,0,8,2,50.0
+8,down,down,0.898,563aa4e6_nohash_4.wav,1,61.0,0.0,68.0,81.0,0,background,1,object 1 (top-left),3,WRONG - expected object 1 (top-left),0,0,0,0,0,random25,3,21.7,19.4,10_t08_b02,1,0,8,2,50.0
+9,right,right,0.898,8c7f81df_nohash_1.wav,1,68.0,81.0,102.0,62.0,3,object 3 (bottom-left),4,object 4 (bottom-right),0,WRONG - expected object 4 (bottom-right),0,0,1,0,0,random25,2,34.1,19.4,10_t08_b02,1,0,8,2,50.0
+10,left,left,0.871,c7dc7278_nohash_1.wav,1,102.0,62.0,67.0,80.0,0,background,1,object 1 (top-left),3,WRONG - expected object 1 (top-left),0,0,1,0,0,random25,3,21.8,19.4,10_t08_b02,1,0,8,2,50.0

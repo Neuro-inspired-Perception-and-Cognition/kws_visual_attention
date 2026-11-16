@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.929,ef2a3cfb_nohash_0.wav,1,76.0,0.0,93.0,72.0,0,background,2,object 2 (top-mid),5,WRONG - expected object 2 (top-mid),0,0,1,0,0,random25,5,22.7,15.9,10_t06_b04,1,0,6,4,30.0
+2,right,unknown,0.914,cd85758f_nohash_2.wav,1,93.0,72.0,93.0,72.0,5,object 5 (bottom-mid),6,object 6 (bottom-right),5,FAILED - did not move,0,0,1,0,0,random25,5,22.7,15.9,10_t06_b04,1,0,6,4,30.0
+3,right,unknown,0.89,3d86b69a_nohash_0.wav,1,93.0,72.0,93.0,72.0,5,object 5 (bottom-mid),6,object 6 (bottom-right),5,FAILED - did not move,0,0,0,0,0,random25,5,22.7,15.9,10_t06_b04,1,0,6,4,30.0
+4,right,right,0.91,7add4c5f_nohash_0.wav,1,93.0,72.0,172.0,71.0,5,object 5 (bottom-mid),6,object 6 (bottom-right),0,WRONG - expected object 6 (bottom-right),0,0,0,0,0,random25,6,36.3,15.9,10_t06_b04,1,0,6,4,30.0
+5,right,right,0.925,210f3aa9_nohash_0.wav,1,172.0,71.0,172.0,71.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,6,36.3,15.9,10_t06_b04,1,0,6,4,30.0
+6,left,left,0.871,1acc97de_nohash_2.wav,1,172.0,71.0,96.0,73.0,0,background,6,object 6 (bottom-right),5,WRONG - expected object 6 (bottom-right),0,0,0,0,0,random25,5,22.9,15.9,10_t06_b04,1,0,6,4,30.0
+7,down,down,0.843,9a356ab9_nohash_0.wav,1,96.0,73.0,106.0,129.0,5,object 5 (bottom-mid),0,background,0,no object that way,1,0,1,1,1,random25,5,40.4,15.9,10_t06_b04,1,0,6,4,30.0
+8,down,unknown,0.878,e49428d9_nohash_0.wav,1,106.0,129.0,106.0,129.0,0,background,0,background,0,no object that way,1,0,1,1,1,random25,5,40.4,15.9,10_t06_b04,1,0,6,4,30.0
+9,left,left,0.851,3b4f8f24_nohash_4.wav,1,104.0,129.0,59.0,129.0,0,background,4,object 4 (bottom-left),0,FAILED - did not move,0,0,0,0,0,random25,5,44.6,15.9,10_t06_b04,1,0,6,4,30.0
+10,right,right,0.863,a591c2ea_nohash_0.wav,1,59.0,129.0,113.0,129.0,0,background,6,object 6 (bottom-right),0,FAILED - did not move,0,0,1,0,0,random25,5,44.3,15.9,10_t06_b04,1,0,6,4,30.0

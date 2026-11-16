@@ -12,6 +12,11 @@ Commands (typed in the terminal, Enter to submit):
     quit / exit / q              end the session (also: 'q' in the video window)
 
 Requires a local display for cv2.imshow
+
+CHANGED (random25): automated, headless runs for the random25 experiments (synthetic / DAVIS events x written /
+spoken commands). They are switched on ONLY by the environment variable VA_MODE (set by the runners in
+written_auto/); without it nothing below behaves differently. All changes are marked "CHANGED" and the logic lives
+in auto_experiment.py. See written_auto/README.md.
 """
 
 import csv
@@ -19,6 +24,7 @@ import os
 import queue
 import sys
 import threading
+import time                    # CHANGED (random25): real-time pacing of headless spoken runs
 from datetime import datetime
 
 import cv2
@@ -27,6 +33,7 @@ import torch
 
 from visual_attention.helpers_visual_att import initialise_attention, run_attention
 from command_parser import parse_command
+import auto_experiment as AX   # CHANGED (random25): automated runs; inactive unless VA_MODE is set
 
 # ============================ EXPERIMENT ============================
 # Set these four, plus the two paths and names of the synthetic objectsbefore running. 
@@ -50,6 +57,12 @@ RESULTS_DIR = "results"
 
 # trial_id digits, most significant first: linguistic | visual | trial | batch
 TRIAL_ID = f"{LINGUISTIC}{VISUAL}{TRIAL}{BATCH}"
+
+# CHANGED (random25): an automated run takes the whole block from the environment (set by the runner);
+# its results are named {linguistic}{visual}_tTT_bBB.csv so trials >= 10 and batch 10 stay unambiguous.
+if AX.ENABLED:
+    LINGUISTIC, VISUAL, TRIAL, BATCH, NPY_PATH, MASK_PATH, NAMES, RESULTS_DIR = AX.experiment_settings()
+    TRIAL_ID = f"{LINGUISTIC}{VISUAL}_t{TRIAL:02d}_b{BATCH:02d}"
 # ====================================================================
 
 #  config
@@ -72,6 +85,8 @@ ATTENTION_PARAMS = {
     'fltr_resize_perc': [2, 2], 'offsetpxs': 0, 'offset': (0, 0),
     'num_pyr': 6, 'tau_mem': 0.3, 'stride': 1, 'out_ch': 1,
 }
+if VISUAL == 1:
+    ATTENTION_PARAMS['r0'] = 7  # CHANGED (camera): camera value from kws_mod_cam_words_exp.py
 
 CONF = 1.0 # confidence applied for the typed commands only
 THRESHOLD = 0.6 # threshold applied to the confidence of the typed commands
@@ -92,6 +107,12 @@ SAVE_DEBUG_FRAME = False     # True -> dump one event window + membrane, then st
 
 DEBUG = True
 DIRS = {"right": 0.0, "down": np.pi / 2, "left": np.pi, "up": 3 * np.pi / 2}
+
+# CHANGED (random25): automated runs are headless (no window, no mp4, no per-window prints) unless VA_GUI=1 /
+# VA_RECORD=1. SHOW = draw and display the live window.
+SHOW = True
+if AX.ENABLED:
+    RECORD, DEBUG, SHOW = AX.RECORD, AX.GUI, AX.GUI
 
 print(f"trial {TRIAL_ID}  (linguistic={LINGUISTIC} visual={VISUAL} "
       f"trial={TRIAL} batch={BATCH})")
@@ -118,7 +139,13 @@ def stdin_reader(q):
         q.put(line)
 
 
-threading.Thread(target=stdin_reader, args=(cmd_queue,), daemon=True).start()
+# CHANGED (random25): in an automated run the commands come from AX.Commander (generated, or spoken through the
+# KWS on the FPGA when LINGUISTIC == 1) instead of the keyboard.
+commander = None
+if AX.ENABLED:
+    commander = AX.Commander(DIRS, cmd_queue, THRESHOLD, COMMAND_LIMIT, BATCH, TRIAL, spoken=(LINGUISTIC == 1))
+else:
+    threading.Thread(target=stdin_reader, args=(cmd_queue,), daemon=True).start()
 
 #  load npy
 device = torch.device("cpu")
@@ -142,16 +169,26 @@ else:
     ev_y = data[:, COL_Y].astype(int)
     ev_t = data[:, COL_T].astype(float)
 
+# CHANGED (camera): a DAVIS recording goes through the same background-activity noise filter as the live camera
+# script; the raw timestamps are kept for the fixation gate (which counts raw events per window).
+if VISUAL == 1:
+    raw_t = ev_t.copy()
+    ev_x, ev_y, ev_t = AX.camera_noise_filter(NPY_PATH, data, ev_x, ev_y, ev_t)
+
 ev_t = ev_t * TIME_SCALE
 o = np.argsort(ev_t)
 ev_x, ev_y, ev_t = ev_x[o], ev_y[o], ev_t[o]
 
 W_orig, H_orig = int(ev_x.max()) + 1, int(ev_y.max()) + 1
+if VISUAL == 1:
+    W_orig, H_orig = 346, 260   # CHANGED (camera): grid fixed to the DAVIS346 sensor, so it matches the masks
 max_x, max_y = W_orig // DOWNSAMPLE, H_orig // DOWNSAMPLE
 resolution = (max_y, max_x)
 t0 = ev_t[0]
 frame_idx = ((ev_t - t0) // WINDOW_MS).astype(int)
 n_frames = int(frame_idx.max()) + 1
+if VISUAL == 1:
+    raw_counts = AX.raw_window_counts(raw_t * TIME_SCALE, t0, n_frames, WINDOW_MS)  # CHANGED (camera)
 
 print(f"Loaded events        : {len(ev_t)}  span {ev_t[-1] - t0:.0f} ms")
 print(f"Processing resolution: {max_x} x {max_y}")
@@ -283,7 +320,8 @@ rearm = False                  # a direction was typed -> re-arm the pan once, e
                                # if it repeats the word already active
 
 win_name = "fovea (live)"
-cv2.namedWindow(win_name, cv2.WINDOW_NORMAL)
+if SHOW:                        # CHANGED (random25): no window in headless runs
+    cv2.namedWindow(win_name, cv2.WINDOW_NORMAL)
 
 vw = None
 out_name = None
@@ -314,11 +352,14 @@ def close_command():
     """
     global word, cmd_start
     if word in DIRS and att_x is not None and cmd_start is not None:
-        run_log.append({
+        entry = {
             "direction": word, "k": 1,
             "ref_x": round(cmd_start[0], 1), "ref_y": round(cmd_start[1], 1),
             "fovea_x": round(att_x, 1), "fovea_y": round(att_y, 1),
-        })
+        }
+        if commander is not None:   # CHANGED (random25): spoken runs log the INTENDED command + the recognised one
+            commander.annotate(entry, word)
+        run_log.append(entry)
         cmd_start = None
         return True
     cmd_start = None
@@ -346,10 +387,19 @@ def drain_commands():
                 continue
             close_command()                # log the previous command's result
             word, conf = cmd["word"], cmd["conf"]
+            if commander is not None:      # CHANGED (random25): remember intended/recognised word of this command
+                commander.set_meta(cmd.get("meta"))
             cmd_start = (att_x, att_y) if att_x is not None else None
             rearm = True
             print(f"  -> command set: '{word}' (conf={conf})  "
                   f"[{len(run_log)} logged, {COMMAND_LIMIT - len(run_log) - 1} left]")
+        elif cmd["type"] == "miss":
+            # CHANGED (random25): a spoken command the KWS did not recognise as a direction -> the fovea is not
+            # moved, but the step is still logged (and scored against the intended command)
+            close_command()
+            word = None
+            if att_x is not None:
+                run_log.append(commander.miss_entry(cmd["meta"], att_x, att_y))
         elif cmd["type"] == "stop":
             close_command()                # a held command ends here too
             word = None
@@ -404,17 +454,26 @@ def write_results():
         ref = (r["ref_x"], r["ref_y"])
         fov = (r["fovea_x"], r["fovea_y"])
         start_id = object_near(mask, cents, ref, snap)
-        target = oracle(cents, ref, r["direction"], exclude=start_id)
-        landed = object_near(mask, cents, fov, snap)
-
-        if landed == start_id:
-            verdict, ok = "FAILED - did not move", False
-        elif target is None:
-            verdict, ok = "no object that way", landed is None
-        elif landed == target:
-            verdict, ok = "OK", True
+        if commander is not None:
+            # CHANGED (random25): scoring rule 1 (impossible command = compliant unless attention jumped to another
+            # object) and rule 2 "either" (after an unlocked command the start object, if it lies that way, or the
+            # nearest other object that way are both OK). See auto_experiment.score_step.
+            prev_locked = commander.prev_locked(i)
+            landed = object_near(mask, cents, fov, snap)
+            target, verdict, ok = AX.score_step(mask, cents, snap, ref, r["direction"], prev_locked,
+                                                start_id, landed, object_near, oracle, label)
         else:
-            verdict, ok = f"WRONG - expected {label(target)}", False
+            target = oracle(cents, ref, r["direction"], exclude=start_id)
+            landed = object_near(mask, cents, fov, snap)
+
+            if landed == start_id:
+                verdict, ok = "FAILED - did not move", False
+            elif target is None:
+                verdict, ok = "no object that way", landed is None
+            elif landed == target:
+                verdict, ok = "OK", True
+            else:
+                verdict, ok = f"WRONG - expected {label(target)}", False
         correct += ok
 
         # distance to the nearest centroid: the number behind every verdict
@@ -423,17 +482,32 @@ def write_results():
 
         print(f"command: {r['direction']}")
         print(f"now most salient point in {label(landed)}.   [{verdict}]")
-        rows.append({"step": i, "command": r["direction"], "k": r["k"],
-                     "ref_x": ref[0], "ref_y": ref[1],
-                     "fovea_x": fov[0], "fovea_y": fov[1],
-                     "start_id": start_id or 0, "start": label(start_id),
-                     "expected_id": target or 0, "expected": label(target),
-                     "landed_id": landed or 0, # "landed": label(landed),
-                     "verdict": verdict, # "correct": int(ok),
-                     "nearest_id": nid, "nearest_px": round(npx, 1),
-                     "snap_px": round(snap, 1),
-                     "trial_id": TRIAL_ID, "linguistic": LINGUISTIC,
-                     "visual": VISUAL, "trial": TRIAL, "batch": BATCH})
+        row = {"step": i, "command": r["direction"]}
+        if commander is not None and commander.spoken:
+            # CHANGED (random25): spoken runs - `command` is the intended word, these are the KWS output
+            row.update({"recognized": r.get("recognized", ""), "kws_conf": r.get("kws_conf", ""),
+                        "wav": os.path.basename(str(r.get("wav", "")))})
+        row.update({"k": r["k"],
+                    "ref_x": ref[0], "ref_y": ref[1],
+                    "fovea_x": fov[0], "fovea_y": fov[1],
+                    "start_id": start_id or 0, "start": label(start_id),
+                    "expected_id": target or 0, "expected": label(target),
+                    "landed_id": landed or 0, # "landed": label(landed),
+                    "verdict": verdict}) # "correct": int(ok),
+        if commander is not None:
+            # CHANGED (random25): per-step flags used by the metrics (written_auto/run_*_random25.py)
+            inside = AX.inside_id(mask, ref)
+            row.update({"correct": int(ok),
+                        "start_inside": int(inside == start_id and start_id is not None),
+                        "prev_locked": int(prev_locked),
+                        "impossible": int(target is None),
+                        "planned_impossible": commander.planned_impossible(i),
+                        "mode": commander.mode})
+        row.update({"nearest_id": nid, "nearest_px": round(npx, 1),
+                    "snap_px": round(snap, 1),
+                    "trial_id": TRIAL_ID, "linguistic": LINGUISTIC,
+                    "visual": VISUAL, "trial": TRIAL, "batch": BATCH})
+        rows.append(row)
 
     n = len(rows)
     acc = round(100 * correct / n, 1)
@@ -488,7 +562,21 @@ try:
         if np.isnan(saliency).any() or saliency.max() == saliency.min():
             continue
 
-        if fx is None:
+        if VISUAL == 1:
+            # CHANGED (camera): fixation rules of kws_mod_cam_words_exp.py - fixate only on a window with enough raw
+            # events and a clear saliency peak, and follow that peak until the first command arrives
+            clear, py_, px_ = AX.clear_peak(saliency, salmax, raw_counts[(k - 1) % n_frames])
+            if fx is None:
+                if not clear:
+                    continue                        # no fixation from a weak window
+                fy, fx = float(py_), float(px_)
+                sx, sy = fx, fy
+                if word in DIRS and cmd_start is None:   # command typed before first fixation
+                    cmd_start = (fx, fy)
+            elif AX.FOLLOW_BEFORE_COMMAND and word is None and not run_log and cmd_start is None and clear:
+                fy, fx = float(py_), float(px_)     # free viewing before the first command
+                sx, sy = fx, fy
+        elif fx is None:
             fy, fx = float(salmax[0]), float(salmax[1])
             sx, sy = fx, fy
             if word in DIRS and cmd_start is None:   # command typed before first fixation
@@ -528,6 +616,9 @@ try:
                 locked = True
 
         att_x, att_y = float(ax), float(ay)
+        if commander is not None:   # CHANGED (random25): issue the next automated / spoken command when due
+            commander.feed(count, locked, fx is not None, (att_x, att_y),
+                           lambda ref, d, pl: AX.target_for(MASK, CENTS, SNAP_PX, ref, d, pl, object_near, oracle))
 
         if DEBUG:
             line = (f"win {count:5d} | {'LOCK' if locked else 'pan ':4} | "
@@ -536,29 +627,39 @@ try:
                     f"M@att={M[ay, ax]:.1f}")
             print(line.ljust(110), end="\r")   
 
-        ds = DOWNSAMPLE
-        p = cv2.resize(to_bgr(M), (W_orig, H_orig), interpolation=cv2.INTER_LINEAR)
-        # cv2.drawMarker(p, (int(fx * ds), int(fy * ds)), (0, 0, 255), cv2.MARKER_CROSS, 22, 2)
-        cv2.circle(p, (int(ax * ds), int(ay * ds)), 11, (255, 255, 255), 3)
-        label = (f"{TRIAL_ID} '{word}' [{MODE}] {'LOCK' if locked else 'pan'} "
-                 f"{len(run_log)}/{COMMAND_LIMIT}" if word
-                 else f"{TRIAL_ID} (no command) [{MODE}] {len(run_log)}/{COMMAND_LIMIT}")
-        cv2.putText(p, label, (8, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.55,
-                    (0, 255, 0) if locked else (255, 255, 255), 2)
-        cv2.imshow(win_name, p)
-        if vw is not None:
-            vw.write(p)
+        if SHOW or vw is not None:  # CHANGED (random25): drawing skipped in headless runs (display only)
+            ds = DOWNSAMPLE
+            p = cv2.resize(to_bgr(M), (W_orig, H_orig), interpolation=cv2.INTER_LINEAR)
+            # cv2.drawMarker(p, (int(fx * ds), int(fy * ds)), (0, 0, 255), cv2.MARKER_CROSS, 22, 2)
+            cv2.circle(p, (int(ax * ds), int(ay * ds)), 11, (255, 255, 255), 3)
+            label = (f"{TRIAL_ID} '{word}' [{MODE}] {'LOCK' if locked else 'pan'} "
+                     f"{len(run_log)}/{COMMAND_LIMIT}" if word
+                     else f"{TRIAL_ID} (no command) [{MODE}] {len(run_log)}/{COMMAND_LIMIT}")
+            cv2.putText(p, label, (8, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.55,
+                        (0, 255, 0) if locked else (255, 255, 255), 2)
+            if SHOW:
+                cv2.imshow(win_name, p)
+            if vw is not None:
+                vw.write(p)
         count += 1
 
-        key = cv2.waitKey(max(1, PLAYBACK_MS)) & 0xFF
-        if key == ord('q'):
-            running = False
+        if SHOW:
+            key = cv2.waitKey(max(1, PLAYBACK_MS)) & 0xFF
+            if key == ord('q'):
+                running = False
+        elif commander is not None and commander.spoken:
+            # CHANGED (random25): headless spoken runs keep real time (100 ms per window), so the ~1.5 s KWS
+            # latency costs the same number of windows as in the live system
+            time.sleep(PLAYBACK_MS / 1000)
 
 finally:
     close_command()                 # flush the command that was still active
     if vw is not None:
         vw.release()
-    cv2.destroyAllWindows()
+    if SHOW:                        # CHANGED (random25): no window in headless runs
+        cv2.destroyAllWindows()
     write_results()
+    if commander is not None:       # CHANGED (random25): stop the KWS server, write {trial_id}_kws.csv
+        commander.close(RESULTS_DIR, TRIAL_ID)
     print(f"\nSession ended. Frames shown: {count}" +
           (f"  |  saved to '{out_name}'" if vw is not None else ""))

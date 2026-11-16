@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,1,157.0,0.0,144.0,0.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,random25,3,25.4,11.8,00_t09_b10,0,0,9,10,40.0
+2,left,1,144.0,0.0,53.0,31.0,0,background,2,object 2 (bottle),1,WRONG - expected object 2 (bottle),0,0,1,0,0,random25,1,13.7,11.8,00_t09_b10,0,0,9,10,40.0
+3,right,1,53.0,31.0,163.0,11.0,1,object 1 (apple),2,object 2 (bottle),0,WRONG - expected object 2 (bottle),0,0,1,0,0,random25,3,34.9,11.8,00_t09_b10,0,0,9,10,40.0
+4,left,1,163.0,11.0,137.0,24.0,0,background,3,object 3 (star),3,OK,1,0,0,0,0,random25,3,8.1,11.8,00_t09_b10,0,0,9,10,40.0
+5,down,1,137.0,24.0,114.0,63.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,0,1,0,0,random25,6,15.7,11.8,00_t09_b10,0,0,9,10,40.0
+6,down,1,114.0,63.0,98.0,123.0,6,object 6 (mushroom),9,object 9 (mug),8,WRONG - expected object 9 (mug),0,0,1,0,0,random25,8,18.3,11.8,00_t09_b10,0,0,9,10,40.0
+7,left,1,98.0,123.0,5.0,117.0,8,object 8 (tree),7,object 7 (moon),0,WRONG - expected object 7 (moon),0,0,1,0,0,random25,7,33.6,11.8,00_t09_b10,0,0,9,10,40.0
+8,left,1,5.0,117.0,5.0,117.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,7,33.6,11.8,00_t09_b10,0,0,9,10,40.0
+9,left,1,5.0,117.0,5.0,117.0,0,background,0,background,0,no object that way,1,0,0,1,1,random25,7,33.6,11.8,00_t09_b10,0,0,9,10,40.0
+10,up,1,5.0,117.0,13.0,63.0,0,background,4,object 4 (heart),0,FAILED - did not move,0,0,0,0,0,random25,4,29.5,11.8,00_t09_b10,0,0,9,10,40.0

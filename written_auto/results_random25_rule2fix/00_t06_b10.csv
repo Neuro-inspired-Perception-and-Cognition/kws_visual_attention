@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,down,1,157.0,0.0,138.0,33.0,0,background,6,object 6 (mushroom),3,WRONG - expected object 6 (mushroom),0,0,1,0,0,random25,3,14.9,11.8,00_t06_b10,0,0,6,10,20.0,6,object 6 (mushroom),WRONG - expected object 6 (mushroom),0,0
+2,down,1,138.0,33.0,148.0,81.0,3,object 3 (star),6,object 6 (mushroom),0,WRONG - expected object 6 (mushroom),0,0,1,0,0,random25,6,25.0,11.8,00_t06_b10,0,0,6,10,20.0,6,object 6 (mushroom),WRONG - expected object 6 (mushroom),0,0
+3,up,1,148.0,81.0,153.0,0.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,random25,3,31.4,11.8,00_t06_b10,0,0,6,10,20.0,3,object 3 (star),FAILED - did not move,0,0
+4,left,1,153.0,0.0,120.0,7.0,0,background,3,object 3 (star),3,OK,1,0,0,0,0,random25,3,16.8,11.8,00_t06_b10,0,0,6,10,20.0,3,object 3 (star),OK,1,0
+5,right,1,120.0,7.0,163.0,2.0,3,object 3 (star),0,background,0,no object that way,1,0,1,1,1,random25,3,38.4,11.8,00_t06_b10,0,0,6,10,20.0,0,background,no object that way,1,1
+6,left,1,163.0,2.0,152.0,2.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,0,0,0,random25,3,29.3,11.8,00_t06_b10,0,0,6,10,20.0,3,object 3 (star),FAILED - did not move,0,0
+7,down,1,152.0,2.0,136.0,35.0,0,background,6,object 6 (mushroom),3,WRONG - expected object 6 (mushroom),0,0,1,0,0,random25,3,15.6,11.8,00_t06_b10,0,0,6,10,20.0,6,object 6 (mushroom),WRONG - expected object 6 (mushroom),0,0
+8,down,1,136.0,35.0,147.0,82.0,3,object 3 (star),6,object 6 (mushroom),0,WRONG - expected object 6 (mushroom),0,0,1,0,0,random25,6,25.0,11.8,00_t06_b10,0,0,6,10,20.0,6,object 6 (mushroom),WRONG - expected object 6 (mushroom),0,0
+9,down,1,147.0,82.0,164.0,129.0,0,background,9,object 9 (mug),0,FAILED - did not move,0,0,1,0,0,random25,9,40.2,11.8,00_t06_b10,0,0,6,10,20.0,9,object 9 (mug),FAILED - did not move,0,0
+10,left,1,164.0,129.0,97.0,128.0,0,background,9,object 9 (mug),0,FAILED - did not move,0,0,0,0,0,random25,8,21.9,11.8,00_t06_b10,0,0,6,10,20.0,9,object 9 (mug),FAILED - did not move,0,0

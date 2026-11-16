@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,unknown,0.914,c7124b73_nohash_0.wav,1,155.0,107.0,155.0,107.0,6,object 6 (bottom-right),3,object 3 (top-right),6,FAILED - did not move,0,0,1,0,0,random25,6,14.5,16.7,10_t08_b03,1,0,8,3,90.0
+2,up,up,0.824,0f250098_nohash_0.wav,1,155.0,107.0,155.0,25.0,6,object 6 (bottom-right),3,object 3 (top-right),3,OK,1,0,0,0,0,random25,3,13.3,16.7,10_t08_b03,1,0,8,3,90.0
+3,right,right,0.925,aa80f517_nohash_3.wav,1,155.0,25.0,158.0,24.0,3,object 3 (top-right),0,background,3,no object that way,1,0,1,1,1,random25,3,16.4,16.7,10_t08_b03,1,0,8,3,90.0
+4,down,down,0.855,0cb74144_nohash_3.wav,1,158.0,24.0,156.0,105.0,3,object 3 (top-right),6,object 6 (bottom-right),6,OK,1,0,0,0,0,random25,6,14.2,16.7,10_t08_b03,1,0,8,3,90.0
+5,up,up,0.878,c9b5ff26_nohash_4.wav,1,156.0,105.0,156.0,24.0,6,object 6 (bottom-right),3,object 3 (top-right),3,OK,1,0,1,0,0,random25,3,14.7,16.7,10_t08_b03,1,0,8,3,90.0
+6,down,down,0.922,0c40e715_nohash_0.wav,1,156.0,24.0,155.0,105.0,3,object 3 (top-right),6,object 6 (bottom-right),6,OK,1,0,1,0,0,random25,6,13.3,16.7,10_t08_b03,1,0,8,3,90.0
+7,left,left,0.918,4c6167ca_nohash_3.wav,1,155.0,105.0,86.0,105.0,6,object 6 (bottom-right),5,object 5 (bottom-mid),5,OK,1,0,1,0,0,random25,5,7.5,16.7,10_t08_b03,1,0,8,3,90.0
+8,up,up,0.886,563aa4e6_nohash_3.wav,1,86.0,105.0,85.0,21.0,5,object 5 (bottom-mid),2,object 2 (top-mid),2,OK,1,1,1,0,0,random25,2,11.6,16.7,10_t08_b03,1,0,8,3,90.0
+9,up,up,0.875,f2e59fea_nohash_2.wav,1,85.0,21.0,85.0,16.0,2,object 2 (top-mid),0,background,2,no object that way,1,0,1,1,1,random25,2,16.6,16.7,10_t08_b03,1,0,8,3,90.0
+10,right,right,0.871,cfde27ba_nohash_1.wav,1,85.0,16.0,154.0,23.0,2,object 2 (top-mid),3,object 3 (top-right),3,OK,1,0,0,0,0,random25,3,13.8,16.7,10_t08_b03,1,0,8,3,90.0

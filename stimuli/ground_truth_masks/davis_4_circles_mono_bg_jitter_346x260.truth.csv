@@ -1,0 +1,5 @@
+id,name,x,y,area_px,radius_px
+1,top-left,56.2,27.9,393,11.2
+2,top-right,124.1,28.3,389,11.1
+3,bottom-left,55.2,96.2,424,11.6
+4,bottom-right,124.5,96.3,423,11.6

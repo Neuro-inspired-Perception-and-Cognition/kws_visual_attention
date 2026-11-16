@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy,expected_id_old,expected_old,verdict_old,correct_old,impossible_old
+1,left,1,84.0,105.0,15.0,106.0,5,object 5 (diamond),4,object 4 (heart),4,OK,1,1,1,0,0,random25,4,16.2,17.7,00_t10_b05,0,0,10,5,70.0,4,object 4 (heart),OK,1,0
+2,left,1,15.0,106.0,11.0,106.0,4,object 4 (heart),0,background,4,no object that way,1,0,1,1,1,random25,4,19.7,17.7,00_t10_b05,0,0,10,5,70.0,0,background,no object that way,1,1
+3,right,1,11.0,106.0,83.0,106.0,4,object 4 (heart),4,object 4 (heart),5,OK,1,0,0,0,0,random25,5,9.2,17.7,00_t10_b05,0,0,10,5,70.0,4,object 4 (heart),WRONG - expected object 4 (heart),0,0
+4,right,1,83.0,106.0,152.0,105.0,5,object 5 (diamond),6,object 6 (mushroom),6,OK,1,0,1,0,0,random25,6,11.4,17.7,00_t10_b05,0,0,10,5,70.0,6,object 6 (mushroom),OK,1,0
+5,up,1,152.0,105.0,154.0,21.0,6,object 6 (mushroom),3,object 3 (star),3,OK,1,0,1,0,0,random25,3,15.1,17.7,00_t10_b05,0,0,10,5,70.0,3,object 3 (star),OK,1,0
+6,up,1,154.0,21.0,154.0,16.0,3,object 3 (star),0,background,3,no object that way,1,0,1,1,1,random25,3,19.1,17.7,00_t10_b05,0,0,10,5,70.0,0,background,no object that way,1,1
+7,up,1,154.0,16.0,154.0,16.0,3,object 3 (star),0,background,3,no object that way,1,0,0,1,1,random25,3,19.1,17.7,00_t10_b05,0,0,10,5,70.0,0,background,no object that way,1,1
+8,right,1,154.0,16.0,157.0,16.0,3,object 3 (star),0,background,3,no object that way,1,0,0,1,1,random25,3,20.9,17.7,00_t10_b05,0,0,10,5,70.0,0,background,no object that way,1,1
+9,left,1,157.0,16.0,152.0,18.0,3,object 3 (star),2,object 2 (bottle),3,FAILED - did not move,0,0,0,0,0,random25,3,16.4,17.7,00_t10_b05,0,0,10,5,70.0,2,object 2 (bottle),FAILED - did not move,0,0
+10,down,1,152.0,18.0,152.0,24.0,3,object 3 (star),6,object 6 (mushroom),3,FAILED - did not move,0,0,1,0,0,random25,3,11.6,17.7,00_t10_b05,0,0,10,5,70.0,6,object 6 (mushroom),FAILED - did not move,0,0
