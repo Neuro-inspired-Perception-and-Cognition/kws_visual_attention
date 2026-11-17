@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,unknown,0.941,85d2ac4b_nohash_0.wav,1,23.0,122.0,23.0,122.0,7,object 7 (moon),4,object 4 (heart),7,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,7,17.2,12.5,11_t05_b10,1,1,5,10,60.0
+2,up,up,0.839,94de6a6a_nohash_3.wav,1,26.0,122.0,35.0,75.0,7,object 7 (moon),4,object 4 (heart),4,OK,1,0,0,0,0,v2,0,0,random25,4,12.1,12.5,11_t05_b10,1,1,5,10,60.0
+3,right,unknown,0.914,e1469561_nohash_4.wav,1,35.0,75.0,35.0,75.0,4,object 4 (heart),5,object 5 (diamond),4,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,4,12.1,12.5,11_t05_b10,1,1,5,10,60.0
+4,down,down,0.914,18f8afd5_nohash_3.wav,1,34.0,74.0,26.0,124.0,4,object 4 (heart),7,object 7 (moon),7,OK,1,0,0,0,0,v2,0,0,random25,7,16.6,12.5,11_t05_b10,1,1,5,10,60.0
+5,right,right,0.906,f9643d42_nohash_0.wav,1,26.0,124.0,95.0,123.0,7,object 7 (moon),8,object 8 (tree),8,OK,1,0,0,1,1,v2,0,0,random25,8,14.5,12.5,11_t05_b10,1,1,5,10,60.0
+6,down,down,0.918,8625475c_nohash_0.wav,1,95.0,123.0,94.0,125.0,8,object 8 (tree),0,background,8,no object that way,1,0,1,0,0,v2,1,1,random25,8,15.6,12.5,11_t05_b10,1,1,5,10,60.0
+7,up,none,0.612,d1bf406b_nohash_0.wav,1,94.0,125.0,94.0,125.0,8,object 8 (tree),5,object 5 (diamond),8,KWS WRONG - heard none,0,0,0,1,1,v2,0,0,random25,8,15.6,12.5,11_t05_b10,1,1,5,10,60.0
+8,left,none,0.749,aa48c94a_nohash_0.wav,1,91.0,125.0,91.0,125.0,8,object 8 (tree),7,object 7 (moon),8,KWS WRONG - heard none,0,0,0,1,1,v2,0,0,random25,8,14.3,12.5,11_t05_b10,1,1,5,10,60.0
+9,up,up,0.878,8fe67225_nohash_3.wav,1,92.0,129.0,78.0,75.0,8,object 8 (tree),5,object 5 (diamond),5,OK,1,0,0,1,1,v2,0,0,random25,5,12.7,12.5,11_t05_b10,1,1,5,10,60.0
+10,left,left,0.827,94de6a6a_nohash_3.wav,1,78.0,75.0,42.0,76.0,5,object 5 (diamond),4,object 4 (heart),4,OK,1,0,1,0,0,v2,0,0,random25,4,11.2,12.5,11_t05_b10,1,1,5,10,60.0

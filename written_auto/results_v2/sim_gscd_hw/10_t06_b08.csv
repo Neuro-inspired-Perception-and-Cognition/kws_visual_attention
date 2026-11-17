@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,right,unknown,0.882,beb458a4_nohash_3.wav,1,148.0,0.0,148.0,0.0,0,background,0,background,0,KWS WRONG - heard unknown,0,0,1,0,0,v2,1,1,random25,3,36.1,17.4,10_t06_b08,1,0,6,8,30.0
+2,right,right,0.925,f9643d42_nohash_0.wav,1,147.0,0.0,162.0,0.0,0,background,0,background,0,no object that way,1,0,0,0,0,v2,1,1,random25,3,40.2,17.4,10_t06_b08,1,0,6,8,30.0
+3,left,left,0.863,370844f7_nohash_1.wav,1,162.0,0.0,142.0,3.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,3,32.9,17.4,10_t06_b08,1,0,6,8,30.0
+4,up,up,0.906,db24628d_nohash_0.wav,1,142.0,3.0,143.0,1.0,0,background,0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,3,34.8,17.4,10_t06_b08,1,0,6,8,30.0
+5,up,up,0.831,3b4f8f24_nohash_0.wav,1,143.0,1.0,144.0,0.0,0,background,0,background,0,no object that way,1,0,0,1,1,v2,1,1,random25,3,35.8,17.4,10_t06_b08,1,0,6,8,30.0
+6,up,none,0.694,c9e251d2_nohash_1.wav,1,144.0,0.0,144.0,0.0,0,background,0,background,0,KWS WRONG - heard none,0,0,0,1,1,v2,1,1,random25,3,35.8,17.4,10_t06_b08,1,0,6,8,30.0
+7,down,down,0.929,1acc97de_nohash_1.wav,1,144.0,0.0,142.0,79.0,0,background,3,object 3 (star),6,WRONG - expected object 3 (star),0,0,0,1,1,v2,0,0,random25,6,14.5,17.4,10_t06_b08,1,0,6,8,30.0
+8,down,left,0.878,692a88e6_nohash_0.wav,1,142.0,79.0,102.0,59.0,6,object 6 (mushroom),0,background,2,KWS WRONG - heard left,0,0,1,0,0,v2,1,1,random25,2,26.6,17.4,10_t06_b08,1,0,6,8,30.0
+9,right,right,0.902,210f3aa9_nohash_0.wav,1,102.0,59.0,135.0,67.0,2,object 2 (bottle),3,object 3 (star),0,WRONG - expected object 3 (star),0,0,1,0,0,v2,0,0,random25,6,27.9,17.4,10_t06_b08,1,0,6,8,30.0
+10,right,right,0.886,2d82a556_nohash_1.wav,1,135.0,67.0,152.0,80.0,0,background,0,background,6,no object that way - jumped to another object,0,0,1,0,0,v2,1,1,random25,6,15.6,17.4,10_t06_b08,1,0,6,8,30.0

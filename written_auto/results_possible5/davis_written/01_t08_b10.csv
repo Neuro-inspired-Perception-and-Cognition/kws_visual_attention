@@ -1,0 +1,6 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,1,25.0,120.0,32.0,72.0,7,object 7 (moon),4,object 4 (heart),4,OK,1,0,1,0,0,v2,0,0,random25,4,11.9,12.5,01_t08_b10,0,1,8,10,100.0
+2,down,1,32.0,72.0,26.0,123.0,4,object 4 (heart),7,object 7 (moon),7,OK,1,0,1,0,0,v2,0,0,random25,7,15.8,12.5,01_t08_b10,0,1,8,10,100.0
+3,right,1,26.0,123.0,96.0,124.0,7,object 7 (moon),8,object 8 (tree),8,OK,1,0,0,1,1,v2,0,0,random25,8,15.9,12.5,01_t08_b10,0,1,8,10,100.0
+4,up,1,96.0,124.0,102.0,57.0,8,object 8 (tree),5,object 5 (diamond),5,OK,1,0,1,0,0,v2,0,0,random25,5,17.7,12.5,01_t08_b10,0,1,8,10,100.0
+5,left,1,102.0,57.0,38.0,75.0,5,object 5 (diamond),4,object 4 (heart),4,OK,1,0,1,0,0,v2,0,0,random25,4,10.8,12.5,01_t08_b10,0,1,8,10,100.0

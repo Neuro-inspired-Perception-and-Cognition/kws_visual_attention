@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,none,0.741,aa48c94a_nohash_0.wav,1,162.0,16.0,162.0,16.0,3,object 3 (star),2,object 2 (bottle),3,KWS WRONG - heard none,0,0,1,0,0,v2,0,0,random25,3,21.8,18.3,11_t03_b06,1,1,3,6,50.0
+2,left,left,0.89,a6f2fd71_nohash_1.wav,1,163.0,17.0,151.0,21.0,3,object 3 (star),2,object 2 (bottle),3,FAILED - did not move,0,0,0,0,0,v2,0,0,random25,3,11.8,18.3,11_t03_b06,1,1,3,6,50.0
+3,down,unknown,0.855,a7216980_nohash_3.wav,1,151.0,21.0,151.0,21.0,3,object 3 (star),6,object 6 (mushroom),3,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,3,11.8,18.3,11_t03_b06,1,1,3,6,50.0
+4,up,up,0.882,c9b5ff26_nohash_3.wav,1,153.0,24.0,150.0,14.0,3,object 3 (star),0,background,3,no object that way,1,0,0,0,0,v2,1,1,random25,3,18.4,18.3,11_t03_b06,1,1,3,6,50.0
+5,down,unknown,0.882,8ea6dec6_nohash_2.wav,1,150.0,14.0,150.0,14.0,3,object 3 (star),3,object 3 (star),3,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,3,18.4,18.3,11_t03_b06,1,1,3,6,50.0
+6,left,left,0.847,553f1a79_nohash_0.wav,1,152.0,11.0,89.0,14.0,3,object 3 (star),2,object 2 (bottle),2,OK,1,0,0,1,1,v2,0,0,random25,2,19.6,18.3,11_t03_b06,1,1,3,6,50.0
+7,down,down,0.827,2c6d3924_nohash_0.wav,1,89.0,14.0,104.0,54.0,2,object 2 (bottle),5,object 5 (diamond),2,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,2,25.8,18.3,11_t03_b06,1,1,3,6,50.0
+8,left,left,0.867,8fe67225_nohash_0.wav,1,104.0,54.0,49.0,41.0,2,object 2 (bottle),1,object 1 (apple),1,OK,1,0,1,0,0,v2,0,0,random25,1,21.9,18.3,11_t03_b06,1,1,3,6,50.0
+9,right,right,0.863,03401e93_nohash_1.wav,1,49.0,41.0,103.0,51.0,1,object 1 (apple),2,object 2 (bottle),2,OK,1,0,1,0,0,v2,0,0,random25,2,22.8,18.3,11_t03_b06,1,1,3,6,50.0
+10,left,left,0.882,94de6a6a_nohash_4.wav,1,103.0,51.0,46.0,34.0,2,object 2 (bottle),1,object 1 (apple),1,OK,1,0,1,0,0,v2,0,0,random25,1,17.3,18.3,11_t03_b06,1,1,3,6,50.0

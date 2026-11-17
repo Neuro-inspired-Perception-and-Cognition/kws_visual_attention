@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,right,unknown,0.871,6e916de8_nohash_2.wav,1,84.0,106.0,84.0,106.0,5,object 5 (diamond),6,object 6 (mushroom),5,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,5,8.9,17.7,10_t09_b05,1,0,9,5,60.0
+2,left,unknown,0.843,422d3197_nohash_0.wav,1,84.0,105.0,84.0,105.0,5,object 5 (diamond),4,object 4 (heart),5,KWS WRONG - heard unknown,0,1,0,0,0,v2,0,0,random25,5,7.9,17.7,10_t09_b05,1,0,9,5,60.0
+3,down,down,0.843,0f250098_nohash_0.wav,1,84.0,105.0,84.0,110.0,5,object 5 (diamond),0,background,5,no object that way,1,1,0,0,0,v2,1,1,random25,5,12.7,17.7,10_t09_b05,1,0,9,5,60.0
+4,left,left,0.851,d0faf7e4_nohash_3.wav,1,84.0,110.0,14.0,107.0,5,object 5 (diamond),4,object 4 (heart),4,OK,1,0,0,1,1,v2,0,0,random25,4,17.6,17.7,10_t09_b05,1,0,9,5,60.0
+5,left,none,0.62,18f8afd5_nohash_1.wav,1,14.0,107.0,14.0,107.0,4,object 4 (heart),0,background,4,KWS WRONG - heard none,0,0,1,0,0,v2,1,1,random25,4,17.6,17.7,10_t09_b05,1,0,9,5,60.0
+6,up,up,0.827,1acc97de_nohash_4.wav,1,15.0,107.0,14.0,26.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,0,0,0,v2,0,0,random25,1,16.5,17.7,10_t09_b05,1,0,9,5,60.0
+7,right,unknown,0.933,563aa4e6_nohash_1.wav,1,14.0,26.0,14.0,26.0,1,object 1 (apple),2,object 2 (bottle),1,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,1,16.5,17.7,10_t09_b05,1,0,9,5,60.0
+8,down,down,0.882,d962e5ac_nohash_3.wav,1,13.0,25.0,14.0,105.0,1,object 1 (apple),4,object 4 (heart),4,OK,1,0,0,0,0,v2,0,0,random25,4,16.6,17.7,10_t09_b05,1,0,9,5,60.0
+9,down,down,0.867,837a0f64_nohash_1.wav,1,14.0,105.0,14.0,111.0,4,object 4 (heart),0,background,4,no object that way,1,0,1,0,0,v2,1,1,random25,4,20.0,17.7,10_t09_b05,1,0,9,5,60.0
+10,right,right,0.839,3df9a3d4_nohash_0.wav,1,14.0,111.0,83.0,106.0,4,object 4 (heart),4,object 4 (heart),5,OK,1,0,0,1,1,v2,0,0,random25,5,9.2,17.7,10_t09_b05,1,0,9,5,60.0

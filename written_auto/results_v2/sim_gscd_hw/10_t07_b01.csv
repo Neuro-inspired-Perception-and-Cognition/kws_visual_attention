@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,unknown,0.839,cfde27ba_nohash_1.wav,1,125.0,104.0,125.0,104.0,4,object 4 (bottom-right),2,object 2 (top-right),4,KWS WRONG - heard unknown,0,1,1,0,0,v2,0,0,random25,4,9.2,19.4,10_t07_b01,1,0,7,1,80.0
+2,down,down,0.886,1cb788bc_nohash_2.wav,1,124.0,105.0,124.0,114.0,4,object 4 (bottom-right),0,background,4,no object that way,1,1,0,0,0,v2,1,1,random25,4,17.5,19.4,10_t07_b01,1,0,7,1,80.0
+3,down,down,0.933,87070229_nohash_3.wav,1,124.0,114.0,125.0,113.0,4,object 4 (bottom-right),0,background,4,no object that way,1,0,0,1,1,v2,1,1,random25,4,16.9,19.4,10_t07_b01,1,0,7,1,80.0
+4,left,left,0.933,964e8cfd_nohash_4.wav,1,125.0,113.0,45.0,108.0,4,object 4 (bottom-right),3,object 3 (bottom-left),3,OK,1,0,0,1,1,v2,0,0,random25,3,13.8,19.4,10_t07_b01,1,0,7,1,80.0
+5,up,up,0.914,e1469561_nohash_3.wav,1,45.0,108.0,46.0,28.0,3,object 3 (bottom-left),1,object 1 (top-left),1,OK,1,0,1,0,0,v2,0,0,random25,1,8.8,19.4,10_t07_b01,1,0,7,1,80.0
+6,right,right,0.878,8494fba8_nohash_0.wav,1,46.0,28.0,118.0,21.0,1,object 1 (top-left),2,object 2 (top-right),2,OK,1,1,1,0,0,v2,0,0,random25,2,11.3,19.4,10_t07_b01,1,0,7,1,80.0
+7,down,down,0.831,e0c782d5_nohash_3.wav,1,118.0,21.0,124.0,101.0,2,object 2 (top-right),4,object 4 (bottom-right),4,OK,1,0,1,0,0,v2,0,0,random25,4,6.5,19.4,10_t07_b01,1,0,7,1,80.0
+8,up,up,0.886,3d86b69a_nohash_0.wav,1,124.0,101.0,121.0,21.0,4,object 4 (bottom-right),2,object 2 (top-right),2,OK,1,1,1,0,0,v2,0,0,random25,2,11.5,19.4,10_t07_b01,1,0,7,1,80.0
+9,right,right,0.878,db24628d_nohash_2.wav,1,121.0,21.0,132.0,20.0,2,object 2 (top-right),0,background,2,no object that way,1,0,1,0,0,v2,1,1,random25,2,18.1,19.4,10_t07_b01,1,0,7,1,80.0
+10,left,left,0.859,e49428d9_nohash_0.wav,1,132.0,20.0,120.0,20.0,2,object 2 (top-right),1,object 1 (top-left),2,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,2,12.4,19.4,10_t07_b01,1,0,7,1,80.0

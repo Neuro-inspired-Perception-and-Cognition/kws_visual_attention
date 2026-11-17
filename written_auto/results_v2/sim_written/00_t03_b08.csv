@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,1,147.0,0.0,147.0,0.0,0,background,0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,3,36.0,17.4,00_t03_b08,0,0,3,8,50.0
+2,right,1,147.0,0.0,163.0,0.0,0,background,0,background,0,no object that way,1,0,0,1,1,v2,1,1,random25,3,40.7,17.4,00_t03_b08,0,0,3,8,50.0
+3,left,1,163.0,0.0,142.0,3.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,3,32.9,17.4,00_t03_b08,0,0,3,8,50.0
+4,down,1,142.0,3.0,135.0,68.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,6,26.9,17.4,00_t03_b08,0,0,3,8,50.0
+5,right,1,135.0,68.0,156.0,83.0,0,background,0,background,6,no object that way - jumped to another object,0,0,1,0,0,v2,1,1,random25,6,15.9,17.4,00_t03_b08,0,0,3,8,50.0
+6,up,1,156.0,83.0,162.0,0.0,6,object 6 (mushroom),3,object 3 (star),0,WRONG - expected object 3 (star),0,0,0,1,1,v2,0,0,random25,3,40.2,17.4,00_t03_b08,0,0,3,8,50.0
+7,left,1,162.0,0.0,142.0,3.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,3,32.9,17.4,00_t03_b08,0,0,3,8,50.0
+8,up,1,142.0,3.0,145.0,0.0,0,background,0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,3,35.9,17.4,00_t03_b08,0,0,3,8,50.0
+9,up,1,145.0,0.0,144.0,0.0,0,background,0,background,0,no object that way,1,0,0,1,1,v2,1,1,random25,3,35.8,17.4,00_t03_b08,0,0,3,8,50.0
+10,right,1,144.0,0.0,162.0,0.0,0,background,0,background,0,no object that way,1,0,0,1,1,v2,1,1,random25,3,40.2,17.4,00_t03_b08,0,0,3,8,50.0

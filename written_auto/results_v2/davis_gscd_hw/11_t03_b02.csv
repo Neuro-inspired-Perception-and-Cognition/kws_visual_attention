@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,unknown,0.894,412c675c_nohash_0.wav,1,136.0,117.0,136.0,117.0,4,object 4 (bottom-right),3,object 3 (bottom-left),4,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,4,23.7,20.3,11_t03_b02,1,1,3,2,30.0
+2,left,left,0.871,a7216980_nohash_4.wav,1,139.0,118.0,96.0,120.0,4,object 4 (bottom-right),3,object 3 (bottom-left),0,WRONG - expected object 3 (bottom-left),0,0,0,0,0,v2,0,0,random25,4,37.1,20.3,11_t03_b02,1,1,3,2,30.0
+3,right,unknown,0.882,422d3197_nohash_1.wav,1,96.0,120.0,96.0,120.0,0,background,4,object 4 (bottom-right),0,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,4,37.1,20.3,11_t03_b02,1,1,3,2,30.0
+4,down,down,0.933,9a356ab9_nohash_1.wav,1,95.0,121.0,95.0,125.0,0,background,0,background,0,no object that way,1,0,0,0,0,v2,1,1,random25,4,41.2,20.3,11_t03_b02,1,1,3,2,30.0
+5,down,down,0.945,bb05582b_nohash_3.wav,1,95.0,125.0,97.0,124.0,0,background,0,background,0,no object that way,1,0,0,1,1,v2,1,1,random25,4,39.0,20.3,11_t03_b02,1,1,3,2,30.0
+6,up,unknown,0.91,d103dd6e_nohash_1.wav,1,97.0,124.0,97.0,124.0,0,background,4,object 4 (bottom-right),0,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,4,39.0,20.3,11_t03_b02,1,1,3,2,30.0
+7,down,down,0.91,964e8cfd_nohash_4.wav,1,96.0,126.0,95.0,126.0,0,background,0,background,0,no object that way,1,0,0,1,1,v2,1,1,random25,4,41.9,20.3,11_t03_b02,1,1,3,2,30.0
+8,up,up,0.843,8769c34c_nohash_1.wav,1,95.0,126.0,78.0,78.0,0,background,4,object 4 (bottom-right),3,WRONG - expected object 4 (bottom-right),0,0,0,1,1,v2,0,0,random25,3,29.2,20.3,11_t03_b02,1,1,3,2,30.0
+9,up,up,0.855,63f7a489_nohash_4.wav,1,78.0,78.0,107.0,41.0,3,object 3 (bottom-left),1,object 1 (top-left),2,WRONG - expected object 1 (top-left),0,0,1,0,0,v2,0,0,random25,2,21.3,20.3,11_t03_b02,1,1,3,2,30.0
+10,down,down,0.91,b49caed3_nohash_3.wav,1,107.0,41.0,96.0,119.0,2,object 2 (top-right),4,object 4 (bottom-right),0,WRONG - expected object 4 (bottom-right),0,0,1,0,0,v2,0,0,random25,4,36.4,20.3,11_t03_b02,1,1,3,2,30.0

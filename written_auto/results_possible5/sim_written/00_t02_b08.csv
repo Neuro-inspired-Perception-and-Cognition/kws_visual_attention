@@ -1,0 +1,6 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,1,148.0,0.0,126.0,12.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,3,29.7,17.4,00_t02_b08,0,0,2,8,20.0
+2,down,1,126.0,12.0,108.0,57.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,2,29.1,17.4,00_t02_b08,0,0,2,8,20.0
+3,left,1,108.0,57.0,56.0,33.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,1,27.1,17.4,00_t02_b08,0,0,2,8,20.0
+4,down,1,56.0,33.0,42.0,122.0,0,background,4,object 4 (heart),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,4,31.0,17.4,00_t02_b08,0,0,2,8,20.0
+5,up,1,42.0,122.0,56.0,92.0,0,background,4,object 4 (heart),4,OK,1,0,0,1,1,v2,0,0,random25,4,27.2,17.4,00_t02_b08,0,0,2,8,20.0

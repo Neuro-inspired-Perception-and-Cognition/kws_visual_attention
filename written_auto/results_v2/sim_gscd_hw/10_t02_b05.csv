@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.918,189cbabe_nohash_0.wav,1,84.0,105.0,85.0,110.0,5,object 5 (diamond),0,background,5,no object that way,1,1,1,0,0,v2,1,1,random25,5,12.6,17.7,10_t02_b05,1,0,2,5,90.0
+2,right,right,0.906,37fc5d97_nohash_0.wav,1,85.0,110.0,151.0,107.0,5,object 5 (diamond),6,object 6 (mushroom),6,OK,1,0,0,1,1,v2,0,0,random25,6,12.2,17.7,10_t02_b05,1,0,2,5,90.0
+3,up,up,0.875,27c30960_nohash_0.wav,1,151.0,107.0,154.0,21.0,6,object 6 (mushroom),3,object 3 (star),3,OK,1,0,1,0,0,v2,0,0,random25,3,15.1,17.7,10_t02_b05,1,0,2,5,90.0
+4,right,right,0.855,cfde27ba_nohash_1.wav,1,154.0,21.0,157.0,21.0,3,object 3 (star),0,background,3,no object that way,1,0,1,0,0,v2,1,1,random25,3,17.3,17.7,10_t02_b05,1,0,2,5,90.0
+5,down,down,0.898,48a8a69d_nohash_1.wav,1,157.0,21.0,154.0,104.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,0,0,1,1,v2,0,0,random25,6,12.3,17.7,10_t02_b05,1,0,2,5,90.0
+6,left,left,0.886,beb458a4_nohash_4.wav,1,154.0,104.0,86.0,105.0,6,object 6 (mushroom),5,object 5 (diamond),5,OK,1,0,1,0,0,v2,0,0,random25,5,7.5,17.7,10_t02_b05,1,0,2,5,90.0
+7,right,down,0.894,3b4f8f24_nohash_1.wav,1,86.0,105.0,86.0,111.0,5,object 5 (diamond),6,object 6 (mushroom),5,KWS WRONG - heard down,0,1,1,0,0,v2,0,0,random25,5,13.5,17.7,10_t02_b05,1,0,2,5,90.0
+8,up,up,0.831,0d53e045_nohash_1.wav,1,86.0,111.0,85.0,103.0,5,object 5 (diamond),2,object 2 (bottle),5,OK,1,0,0,1,1,v2,0,0,random25,5,5.7,17.7,10_t02_b05,1,0,2,5,90.0
+9,right,right,0.839,b737ee80_nohash_0.wav,1,85.0,103.0,152.0,105.0,5,object 5 (diamond),6,object 6 (mushroom),6,OK,1,1,1,0,0,v2,0,0,random25,6,11.4,17.7,10_t02_b05,1,0,2,5,90.0
+10,left,left,0.925,f2e59fea_nohash_3.wav,1,152.0,105.0,86.0,106.0,6,object 6 (mushroom),5,object 5 (diamond),5,OK,1,0,1,0,0,v2,0,0,random25,5,8.5,17.7,10_t02_b05,1,0,2,5,90.0

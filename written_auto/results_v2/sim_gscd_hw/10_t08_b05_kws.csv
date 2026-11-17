@@ -1,0 +1,11 @@
+step,window,intended,recognized,kws_conf,wav,peak_conf,scores,latency_s
+1,35,down,down,0.827,/home/pwz/Music/NAS/gsc_v2/down/4290ca61_nohash_0.wav,211,"[63, 216, 69, 90, 189]",1.781
+2,78,down,down,0.906,/home/pwz/Music/NAS/gsc_v2/down/e0c782d5_nohash_1.wav,231,"[89, 216, 60, 71, 199]",1.518
+3,121,down,right,0.914,/home/pwz/Music/NAS/gsc_v2/down/e41a903b_nohash_2.wav,233,"[66, 148, 147, 150, 159]",1.52
+4,146,up,up,0.878,/home/pwz/Music/NAS/gsc_v2/up/18f8afd5_nohash_4.wav,224,"[226, 84, 102, 78, 183]",1.547
+5,172,down,down,0.91,/home/pwz/Music/NAS/gsc_v2/down/9dc1889e_nohash_1.wav,232,"[46, 218, 79, 91, 193]",1.518
+6,199,left,left,0.875,/home/pwz/Music/NAS/gsc_v2/left/1fe4c891_nohash_0.wav,223,"[82, 52, 211, 161, 163]",1.521
+7,227,left,left,0.863,/home/pwz/Music/NAS/gsc_v2/left/aa80f517_nohash_1.wav,220,"[57, 79, 171, 113, 205]",1.546
+8,255,up,up,0.933,/home/pwz/Music/NAS/gsc_v2/up/b97c9f77_nohash_3.wav,238,"[170, 68, 121, 145, 171]",1.521
+9,283,down,down,0.914,/home/pwz/Music/NAS/gsc_v2/down/6f2f57c1_nohash_1.wav,233,"[51, 204, 92, 98, 192]",1.521
+10,309,left,none,0.616,/home/pwz/Music/NAS/gsc_v2/left/6379c6a2_nohash_0.wav,157,"[140, 112, 115, 114, 196]",1.546

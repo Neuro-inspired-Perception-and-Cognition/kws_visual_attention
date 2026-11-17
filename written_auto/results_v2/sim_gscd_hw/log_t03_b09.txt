@@ -1,0 +1,55 @@
+trial 10_t03_b09  (linguistic=1 visual=0 trial=3 batch=9)
+events : data/9_objects_color_nobg_346x260.npy
+mask   : stimuli/ground_truth_masks/9_objects_color_nobg_346x260.mask.npy
+result : written_auto/results_v2/sim_gscd_hw/10_t03_b09.csv   (limit 10 commands)
+Using device: cpu
+Loaded events        : 176465  span 7499 ms
+Processing resolution: 173 x 130
+Windows              : 75 @ 100 ms  (loop=True)
+note: snap clamped to 11.8 px around each shape (shapes are 26.3 px apart edge to edge)
+Ground truth         : 173x130, 9 objects, radius 8.0 px, snap 11.8 px, spacing 42.3 px
+*** only 23% of event pixels fall on the mask's objects - the mask may not match this clip
+
+--- Type commands below ---
+
+  -> command set: 'left' (conf=0.89)  [1 logged, 8 left]
+  -> command set: 'right' (conf=0.871)  [2 logged, 7 left]
+  -> command set: 'right' (conf=0.871)  [3 logged, 6 left]
+  -> command set: 'down' (conf=0.945)  [4 logged, 5 left]
+  -> command set: 'left' (conf=0.894)  [5 logged, 4 left]
+  -> command set: 'up' (conf=0.945)  [6 logged, 3 left]
+  -> command set: 'right' (conf=0.941)  [7 logged, 2 left]
+  -> command set: 'up' (conf=0.875)  [8 logged, 1 left]
+  -> command set: 'right' (conf=0.937)  [9 logged, 0 left]
+
+mask 173x130, 9 objects, object radius 8.0 px, snap 11.8 px
+begin visual attention.
+most salient point in object 4 (heart).
+command: right
+now most salient point in object 4 (heart).   [KWS WRONG - heard unknown]
+command: left
+now most salient point in object 4 (heart).   [no object that way]
+command: right
+now most salient point in object 4 (heart).   [OK]
+command: right
+now most salient point in object 5 (diamond).   [OK]
+command: down
+now most salient point in object 8 (tree).   [OK]
+command: left
+now most salient point in background.   [WRONG - expected object 7 (moon)]
+command: right
+now most salient point in object 4 (heart).   [KWS WRONG - heard up]
+command: right
+now most salient point in object 5 (diamond).   [OK]
+command: up
+now most salient point in object 2 (bottle).   [OK]
+command: right
+now most salient point in object 3 (star).   [OK]
+
+7/10 commands correct  (70.0%)
+fovea moved on 10/10 commands
+wrote written_auto/results_v2/sim_gscd_hw/10_t03_b09.csv
+KWS: 8/10 spoken commands recognised correctly
+
+Session ended. Frames shown: 321
+[kws] configured /home/pwz/Repo/VoiceNAS/NAS-GNN-KWS/HW/vivado/kws/kws_system.runs/impl_1/ok_top_wrapper.bit

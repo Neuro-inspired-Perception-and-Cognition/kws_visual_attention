@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,unknown,0.875,c7124b73_nohash_0.wav,1,126.0,104.0,126.0,104.0,4,object 4 (bottom-right),2,object 2 (top-right),4,KWS WRONG - heard unknown,0,1,1,0,0,v2,0,0,random25,4,9.9,19.4,10_t06_b01,1,0,6,1,50.0
+2,left,left,0.871,8769c34c_nohash_2.wav,1,125.0,104.0,50.0,108.0,4,object 4 (bottom-right),3,object 3 (bottom-left),3,OK,1,1,0,0,0,v2,0,0,random25,3,11.3,19.4,10_t06_b01,1,0,6,1,50.0
+3,left,left,0.878,692a88e6_nohash_3.wav,1,50.0,108.0,38.0,105.0,3,object 3 (bottom-left),0,background,3,no object that way,1,0,1,0,0,v2,1,1,random25,3,17.5,19.4,10_t06_b01,1,0,6,1,50.0
+4,right,right,0.937,1acc97de_nohash_2.wav,1,38.0,105.0,48.0,108.0,3,object 3 (bottom-left),4,object 4 (bottom-right),3,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,3,12.1,19.4,10_t06_b01,1,0,6,1,50.0
+5,up,down,0.933,d103dd6e_nohash_1.wav,1,48.0,108.0,50.0,113.0,3,object 3 (bottom-left),1,object 1 (top-left),3,KWS WRONG - heard down,0,0,1,0,0,v2,0,0,random25,3,16.1,19.4,10_t06_b01,1,0,6,1,50.0
+6,up,unknown,0.847,cfde27ba_nohash_0.wav,1,50.0,113.0,50.0,113.0,3,object 3 (bottom-left),1,object 1 (top-left),3,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,3,16.1,19.4,10_t06_b01,1,0,6,1,50.0
+7,up,up,0.82,1acc97de_nohash_0.wav,1,50.0,113.0,44.0,102.0,3,object 3 (bottom-left),1,object 1 (top-left),3,OK,1,0,0,1,1,v2,0,0,random25,3,10.8,19.4,10_t06_b01,1,0,6,1,50.0
+8,up,up,0.882,cfbedff9_nohash_1.wav,1,44.0,102.0,44.0,27.0,3,object 3 (bottom-left),1,object 1 (top-left),1,OK,1,1,1,0,0,v2,0,0,random25,1,11.1,19.4,10_t06_b01,1,0,6,1,50.0
+9,right,down,0.843,3659fc1c_nohash_0.wav,1,44.0,27.0,41.0,103.0,1,object 1 (top-left),2,object 2 (top-right),3,KWS WRONG - heard down,0,0,1,0,0,v2,0,0,random25,3,13.9,19.4,10_t06_b01,1,0,6,1,50.0
+10,left,left,0.898,b83c1acf_nohash_3.wav,1,41.0,103.0,24.0,104.0,3,object 3 (bottom-left),0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,3,30.4,19.4,10_t06_b01,1,0,6,1,50.0

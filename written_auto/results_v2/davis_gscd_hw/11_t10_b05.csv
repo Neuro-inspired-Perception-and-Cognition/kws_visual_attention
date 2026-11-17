@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,left,0.867,8fe67225_nohash_2.wav,1,159.0,25.0,87.0,23.0,3,object 3 (star),2,object 2 (bottle),2,OK,1,0,1,0,0,v2,0,0,random25,2,14.6,18.0,11_t10_b05,1,1,10,5,80.0
+2,up,unknown,0.89,9a7c1f83_nohash_1.wav,1,87.0,23.0,87.0,23.0,2,object 2 (bottle),0,background,2,KWS WRONG - heard unknown,0,0,1,0,0,v2,1,1,random25,2,14.6,18.0,11_t10_b05,1,1,10,5,80.0
+3,left,left,0.867,db24628d_nohash_1.wav,1,88.0,25.0,20.0,21.0,2,object 2 (bottle),1,object 1 (apple),1,OK,1,1,0,0,0,v2,0,0,random25,1,18.1,18.0,11_t10_b05,1,1,10,5,80.0
+4,right,right,0.898,5f814c23_nohash_1.wav,1,20.0,21.0,85.0,23.0,1,object 1 (apple),2,object 2 (bottle),2,OK,1,0,1,0,0,v2,0,0,random25,2,14.8,18.0,11_t10_b05,1,1,10,5,80.0
+5,down,down,0.922,8ec6dab6_nohash_1.wav,1,85.0,23.0,83.0,103.0,2,object 2 (bottle),5,object 5 (diamond),5,OK,1,0,1,0,0,v2,0,0,random25,5,7.7,18.0,11_t10_b05,1,1,10,5,80.0
+6,down,down,0.898,5c8af87a_nohash_2.wav,1,83.0,103.0,86.0,111.0,5,object 5 (diamond),0,background,5,no object that way,1,1,1,0,0,v2,1,1,random25,5,14.9,18.0,11_t10_b05,1,1,10,5,80.0
+7,down,right,0.925,c7dc7278_nohash_0.wav,1,86.0,111.0,156.0,103.0,5,object 5 (diamond),0,background,6,KWS WRONG - heard right,0,0,0,1,1,v2,1,1,random25,6,12.2,18.0,11_t10_b05,1,1,10,5,80.0
+8,right,right,0.871,cfbedff9_nohash_0.wav,1,156.0,103.0,163.0,105.0,6,object 6 (mushroom),0,background,6,no object that way,1,0,1,0,0,v2,1,1,random25,6,19.2,18.0,11_t10_b05,1,1,10,5,80.0
+9,up,up,0.906,c518d1b1_nohash_1.wav,1,163.0,105.0,159.0,27.0,6,object 6 (mushroom),3,object 3 (star),3,OK,1,0,0,1,1,v2,0,0,random25,3,16.4,18.0,11_t10_b05,1,1,10,5,80.0
+10,down,down,0.894,5e3dde6b_nohash_0.wav,1,159.0,27.0,160.0,103.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,0,1,0,0,v2,0,0,random25,6,15.6,18.0,11_t10_b05,1,1,10,5,80.0

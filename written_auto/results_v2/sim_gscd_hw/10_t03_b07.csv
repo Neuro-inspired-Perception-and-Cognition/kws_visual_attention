@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,none,0.749,f297e878_nohash_1.wav,1,15.0,107.0,15.0,107.0,4,object 4 (heart),1,object 1 (apple),4,KWS WRONG - heard none,0,0,1,0,0,v2,0,0,random25,4,16.7,17.7,10_t03_b07,1,0,3,7,70.0
+2,right,right,0.878,b83c1acf_nohash_3.wav,1,15.0,107.0,83.0,105.0,4,object 4 (heart),5,object 5 (diamond),5,OK,1,0,0,0,0,v2,0,0,random25,5,8.3,17.7,10_t03_b07,1,0,3,7,70.0
+3,left,left,0.867,63f7a489_nohash_1.wav,1,83.0,105.0,15.0,107.0,5,object 5 (diamond),4,object 4 (heart),4,OK,1,0,1,0,0,v2,0,0,random25,4,16.7,17.7,10_t03_b07,1,0,3,7,70.0
+4,down,down,0.918,7257420c_nohash_0.wav,1,15.0,107.0,16.0,111.0,4,object 4 (heart),0,background,4,no object that way,1,0,1,0,0,v2,1,1,random25,4,18.6,17.7,10_t03_b07,1,0,3,7,70.0
+5,up,up,0.871,0fa1e7a9_nohash_0.wav,1,16.0,111.0,15.0,106.0,4,object 4 (heart),1,object 1 (apple),4,OK,1,0,0,1,1,v2,0,0,random25,4,16.2,17.7,10_t03_b07,1,0,3,7,70.0
+6,right,unknown,0.867,a4383927_nohash_0.wav,1,15.0,106.0,15.0,106.0,4,object 4 (heart),5,object 5 (diamond),4,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,4,16.2,17.7,10_t03_b07,1,0,3,7,70.0
+7,up,up,0.867,94de6a6a_nohash_3.wav,1,15.0,106.0,14.0,24.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,0,0,0,v2,0,0,random25,1,17.5,17.7,10_t03_b07,1,0,3,7,70.0
+8,left,unknown,0.898,0d53e045_nohash_1.wav,1,14.0,24.0,14.0,24.0,1,object 1 (apple),0,background,1,KWS WRONG - heard unknown,0,0,1,0,0,v2,1,1,random25,1,17.5,17.7,10_t03_b07,1,0,3,7,70.0
+9,right,right,0.89,e1469561_nohash_2.wav,1,14.0,24.0,84.0,21.0,1,object 1 (apple),2,object 2 (bottle),2,OK,1,0,0,0,0,v2,0,0,random25,2,13.4,17.7,10_t03_b07,1,0,3,7,70.0
+10,down,down,0.902,e1469561_nohash_0.wav,1,84.0,21.0,85.0,104.0,2,object 2 (bottle),5,object 5 (diamond),5,OK,1,1,1,0,0,v2,0,0,random25,5,6.7,17.7,10_t03_b07,1,0,3,7,70.0

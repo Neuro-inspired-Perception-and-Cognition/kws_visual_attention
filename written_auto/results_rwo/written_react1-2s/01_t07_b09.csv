@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,1,43.0,85.0,47.0,30.0,3,object 3 (cup),1,object 1 (ball),1,OK,1,1,1,0,0,v2,0,0,random25,1,13.4,9.4,01_t07_b09,0,1,7,9,80.0
+2,down,1,47.0,30.0,43.0,86.0,1,object 1 (ball),3,object 3 (cup),3,OK,1,0,1,0,0,v2,0,0,random25,3,9.1,9.4,01_t07_b09,0,1,7,9,80.0
+3,up,1,43.0,86.0,46.0,28.0,3,object 3 (cup),1,object 1 (ball),1,OK,1,1,1,0,0,v2,0,0,random25,1,15.5,9.4,01_t07_b09,0,1,7,9,80.0
+4,up,1,46.0,28.0,48.0,23.0,1,object 1 (ball),0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,1,18.9,9.4,01_t07_b09,0,1,7,9,80.0
+5,left,1,48.0,23.0,21.0,13.0,0,background,0,background,0,no object that way,1,0,0,1,1,v2,1,1,random25,1,44.0,9.4,01_t07_b09,0,1,7,9,80.0
+6,down,1,21.0,13.0,38.0,83.0,0,background,3,object 3 (cup),3,OK,1,0,0,1,1,v2,0,0,random25,3,14.0,9.4,01_t07_b09,0,1,7,9,80.0
+7,left,1,38.0,83.0,24.0,78.0,3,object 3 (cup),0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,3,28.7,9.4,01_t07_b09,0,1,7,9,80.0
+8,down,1,24.0,78.0,37.0,94.0,0,background,0,background,3,no object that way - jumped to another object,0,0,0,1,1,v2,1,1,random25,3,17.7,9.4,01_t07_b09,0,1,7,9,80.0
+9,right,1,37.0,94.0,45.0,87.0,3,object 3 (cup),4,object 4 (cube),3,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,3,7.4,9.4,01_t07_b09,0,1,7,9,80.0
+10,up,1,45.0,87.0,47.0,31.0,3,object 3 (cup),1,object 1 (ball),1,OK,1,1,1,0,0,v2,0,0,random25,1,12.6,9.4,01_t07_b09,0,1,7,9,80.0

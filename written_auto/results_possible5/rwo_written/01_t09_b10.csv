@@ -1,0 +1,6 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,1,42.0,77.0,16.0,0.0,3,object 3 (cup),1,object 1 (ball),0,WRONG - expected object 1 (ball),0,1,1,0,0,v2,0,0,random25,1,52.2,9.3,01_t09_b10,0,1,9,10,80.0
+2,down,1,16.0,0.0,40.0,76.0,0,background,3,object 3 (cup),3,OK,1,0,1,0,0,v2,0,0,random25,3,11.0,9.3,01_t09_b10,0,1,9,10,80.0
+3,right,1,40.0,76.0,102.0,82.0,3,object 3 (cup),4,object 4 (cube),4,OK,1,0,1,0,0,v2,0,0,random25,4,2.9,9.3,01_t09_b10,0,1,9,10,80.0
+4,up,1,102.0,82.0,107.0,21.0,4,object 4 (cube),2,object 2 (cylinder),2,OK,1,1,1,0,0,v2,0,0,random25,2,17.5,9.3,01_t09_b10,0,1,9,10,80.0
+5,down,1,107.0,21.0,102.0,83.0,2,object 2 (cylinder),4,object 4 (cube),4,OK,1,0,1,0,0,v2,0,0,random25,4,3.9,9.3,01_t09_b10,0,1,9,10,80.0

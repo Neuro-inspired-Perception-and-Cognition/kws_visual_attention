@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,left,0.914,7192fddc_nohash_0.wav,1,152.0,0.0,140.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,2,38.7,19.4,10_t06_b02,1,0,6,2,40.0
+2,down,down,0.925,189cbabe_nohash_2.wav,1,140.0,0.0,105.0,59.0,0,background,2,object 2 (top-right),2,OK,1,0,1,0,0,v2,0,0,random25,2,30.0,19.4,10_t06_b02,1,0,6,2,40.0
+3,up,unknown,0.918,893705bb_nohash_4.wav,1,105.0,59.0,105.0,59.0,2,object 2 (top-right),0,background,2,KWS WRONG - heard unknown,0,0,1,0,0,v2,1,1,random25,2,30.0,19.4,10_t06_b02,1,0,6,2,40.0
+4,left,unknown,0.898,ca4d5368_nohash_3.wav,1,105.0,60.0,105.0,60.0,0,background,1,object 1 (top-left),0,KWS WRONG - heard unknown,0,0,0,0,0,v2,0,0,random25,2,30.9,19.4,10_t06_b02,1,0,6,2,40.0
+5,right,right,0.902,26b28ea7_nohash_2.wav,1,105.0,60.0,136.0,62.0,0,background,0,background,0,no object that way,1,0,0,0,0,v2,1,1,random25,2,34.4,19.4,10_t06_b02,1,0,6,2,40.0
+6,right,unknown,0.894,cfbedff9_nohash_2.wav,1,136.0,62.0,136.0,62.0,0,background,0,background,0,KWS WRONG - heard unknown,0,0,1,0,0,v2,1,1,random25,2,34.4,19.4,10_t06_b02,1,0,6,2,40.0
+7,right,right,0.878,37dca74f_nohash_3.wav,1,136.0,62.0,154.0,76.0,0,background,0,background,0,no object that way,1,0,0,0,0,v2,1,1,random25,4,41.2,19.4,10_t06_b02,1,0,6,2,40.0
+8,up,up,0.882,840c366d_nohash_1.wav,1,154.0,76.0,162.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,2,54.0,19.4,10_t06_b02,1,0,6,2,40.0
+9,left,left,0.886,27c30960_nohash_1.wav,1,162.0,0.0,147.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,2,42.9,19.4,10_t06_b02,1,0,6,2,40.0
+10,up,up,0.886,4c7c95de_nohash_2.wav,1,147.0,0.0,147.0,0.0,0,background,0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,2,42.9,19.4,10_t06_b02,1,0,6,2,40.0

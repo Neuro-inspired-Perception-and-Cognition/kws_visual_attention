@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,unknown,0.898,9a7c1f83_nohash_1.wav,1,33.0,63.0,33.0,63.0,4,object 4 (heart),1,object 1 (apple),4,KWS WRONG - heard unknown,0,1,1,0,0,v2,0,0,random25,4,9.6,11.8,10_t08_b09,1,0,8,9,50.0
+2,up,none,0.784,135c6841_nohash_0.wav,1,32.0,63.0,32.0,63.0,4,object 4 (heart),1,object 1 (apple),4,KWS WRONG - heard none,0,0,0,0,0,v2,0,0,random25,4,10.6,11.8,10_t08_b09,1,0,8,9,50.0
+3,left,left,0.871,692a88e6_nohash_3.wav,1,32.0,63.0,25.0,63.0,4,object 4 (heart),0,background,4,no object that way,1,0,0,0,0,v2,1,1,random25,4,17.6,11.8,10_t08_b09,1,0,8,9,50.0
+4,down,down,0.91,b7e9f841_nohash_0.wav,1,25.0,63.0,26.0,121.0,4,object 4 (heart),7,object 7 (moon),7,OK,1,0,0,1,1,v2,0,0,random25,7,16.3,11.8,10_t08_b09,1,0,8,9,50.0
+5,right,right,0.882,db24628d_nohash_2.wav,1,26.0,121.0,85.0,124.0,7,object 7 (moon),8,object 8 (tree),8,OK,1,0,1,0,0,v2,0,0,random25,8,15.1,11.8,10_t08_b09,1,0,8,9,50.0
+6,up,up,0.878,e0c782d5_nohash_3.wav,1,85.0,124.0,85.0,63.0,8,object 8 (tree),5,object 5 (diamond),5,OK,1,0,1,0,0,v2,0,0,random25,5,1.8,11.8,10_t08_b09,1,0,8,9,50.0
+7,down,none,0.659,a80f9f53_nohash_0.wav,1,85.0,63.0,85.0,63.0,5,object 5 (diamond),8,object 8 (tree),5,KWS WRONG - heard none,0,1,1,0,0,v2,0,0,random25,5,1.8,11.8,10_t08_b09,1,0,8,9,50.0
+8,down,down,0.945,18f8afd5_nohash_1.wav,1,85.0,63.0,85.0,123.0,5,object 5 (diamond),8,object 8 (tree),8,OK,1,1,0,0,0,v2,0,0,random25,8,14.1,11.8,10_t08_b09,1,0,8,9,50.0
+9,left,left,0.831,b2e2773a_nohash_1.wav,1,85.0,123.0,25.0,121.0,8,object 8 (tree),7,object 7 (moon),0,WRONG - expected object 7 (moon),0,0,1,0,0,v2,0,0,random25,7,17.1,11.8,10_t08_b09,1,0,8,9,50.0
+10,right,right,0.886,a6f2fd71_nohash_3.wav,1,25.0,121.0,85.0,124.0,0,background,7,object 7 (moon),8,WRONG - expected object 7 (moon),0,0,1,0,0,v2,0,0,random25,8,15.1,11.8,10_t08_b09,1,0,8,9,50.0

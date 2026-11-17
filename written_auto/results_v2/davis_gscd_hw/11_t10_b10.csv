@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.902,db24628d_nohash_0.wav,1,23.0,122.0,27.0,126.0,7,object 7 (moon),0,background,7,no object that way,1,0,1,0,0,v2,1,1,random25,7,17.6,12.5,11_t10_b10,1,1,10,10,80.0
+2,right,right,0.863,d9e9f554_nohash_1.wav,1,27.0,126.0,95.0,124.0,7,object 7 (moon),8,object 8 (tree),8,OK,1,0,0,1,1,v2,0,0,random25,8,15.3,12.5,11_t10_b10,1,1,10,10,80.0
+3,down,down,0.89,881583a6_nohash_0.wav,1,95.0,124.0,96.0,123.0,8,object 8 (tree),0,background,8,no object that way,1,0,1,0,0,v2,1,1,random25,8,15.2,12.5,11_t10_b10,1,1,10,10,80.0
+4,down,unknown,0.918,e0c782d5_nohash_2.wav,1,96.0,123.0,96.0,123.0,8,object 8 (tree),0,background,8,KWS WRONG - heard unknown,0,0,0,1,1,v2,1,1,random25,8,15.2,12.5,11_t10_b10,1,1,10,10,80.0
+5,up,unknown,0.792,9a7c1f83_nohash_0.wav,1,96.0,127.0,96.0,127.0,8,object 8 (tree),5,object 5 (diamond),8,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,8,18.4,12.5,11_t10_b10,1,1,10,10,80.0
+6,up,up,0.843,f2e59fea_nohash_4.wav,1,95.0,126.0,104.0,55.0,8,object 8 (tree),5,object 5 (diamond),5,OK,1,0,0,1,1,v2,0,0,random25,5,20.5,12.5,11_t10_b10,1,1,10,10,80.0
+7,right,right,0.886,8494fba8_nohash_0.wav,1,104.0,55.0,140.0,67.0,5,object 5 (diamond),6,object 6 (mushroom),6,OK,1,0,1,0,0,v2,0,0,random25,6,7.4,12.5,11_t10_b10,1,1,10,10,80.0
+8,left,left,0.89,beb458a4_nohash_1.wav,1,140.0,67.0,78.0,68.0,6,object 6 (mushroom),5,object 5 (diamond),5,OK,1,0,1,0,0,v2,0,0,random25,5,8.8,12.5,11_t10_b10,1,1,10,10,80.0
+9,up,up,0.914,d7467392_nohash_0.wav,1,78.0,68.0,92.0,21.0,5,object 5 (diamond),2,object 2 (bottle),2,OK,1,0,1,0,0,v2,0,0,random25,2,5.3,12.5,11_t10_b10,1,1,10,10,80.0
+10,left,left,0.808,863880b7_nohash_0.wav,1,92.0,21.0,42.0,6.0,2,object 2 (bottle),1,object 1 (apple),1,OK,1,1,1,0,0,v2,0,0,random25,1,15.7,12.5,11_t10_b10,1,1,10,10,80.0

@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,left,0.878,d0faf7e4_nohash_3.wav,1,75.0,0.0,27.0,0.0,0,background,1,object 1 (top-left),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,1,35.7,15.9,10_t05_b04,1,0,5,4,20.0
+2,up,none,0.722,83957201_nohash_1.wav,1,27.0,0.0,27.0,0.0,0,background,0,background,0,KWS WRONG - heard none,0,0,1,0,0,v2,1,1,random25,1,35.7,15.9,10_t05_b04,1,0,5,4,20.0
+3,down,down,0.894,5c8af87a_nohash_2.wav,1,27.0,0.0,41.0,80.0,0,background,1,object 1 (top-left),4,WRONG - expected object 1 (top-left),0,0,0,0,0,v2,0,0,random25,4,18.4,15.9,10_t05_b04,1,0,5,4,20.0
+4,right,left,0.859,aa80f517_nohash_1.wav,1,41.0,80.0,0.0,79.0,4,object 4 (bottom-left),5,object 5 (bottom-mid),0,KWS WRONG - heard left,0,0,1,0,0,v2,0,0,random25,4,32.2,15.9,10_t05_b04,1,0,5,4,20.0
+5,up,up,0.859,881583a6_nohash_0.wav,1,0.0,79.0,8.0,47.0,0,background,1,object 1 (top-left),1,OK,1,0,0,1,1,v2,0,0,random25,1,23.6,15.9,10_t05_b04,1,0,5,4,20.0
+6,right,right,0.91,d7467392_nohash_0.wav,1,8.0,47.0,96.0,68.0,1,object 1 (top-left),2,object 2 (top-mid),0,WRONG - expected object 2 (top-mid),0,0,1,0,0,v2,0,0,random25,5,27.5,15.9,10_t05_b04,1,0,5,4,20.0
+7,up,up,0.808,5170b77f_nohash_1.wav,1,96.0,68.0,81.0,0.0,0,background,2,object 2 (top-mid),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,2,36.1,15.9,10_t05_b04,1,0,5,4,20.0
+8,right,right,0.878,e0c782d5_nohash_3.wav,1,81.0,0.0,117.0,2.0,0,background,3,object 3 (top-right),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,3,43.0,15.9,10_t05_b04,1,0,5,4,20.0
+9,down,down,0.941,5c8af87a_nohash_0.wav,1,117.0,2.0,116.0,129.0,0,background,3,object 3 (top-right),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,6,44.9,15.9,10_t05_b04,1,0,5,4,20.0
+10,right,right,0.906,c9b5ff26_nohash_2.wav,1,116.0,129.0,172.0,129.0,0,background,0,background,0,no object that way,1,0,0,1,1,v2,1,1,random25,6,45.2,15.9,10_t05_b04,1,0,5,4,20.0

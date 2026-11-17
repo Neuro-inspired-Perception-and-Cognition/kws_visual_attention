@@ -1,0 +1,53 @@
+trial 01_t09_b03  (linguistic=0 visual=1 trial=9 batch=3)
+events : /media/pwz/KINGSTON/NAS-KWS/Experiments/Real World Objects-20261116T144614Z-1-001/Real World Objects/raw/events/2_objects_real_circular_346x260.npy
+mask   : stimuli/ground_truth_masks/rwo_2_objects_real_circular_346x260.mask.npy
+result : /home/pwz/Repo/kws_visual_attention/written_auto/results_rwo/written/01_t09_b03.csv   (limit 10 commands)
+Using device: cpu
+Loaded events        : 322553  span 29993 ms
+Processing resolution: 173 x 130
+Windows              : 300 @ 100 ms  (loop=True)
+note: snap clamped to 16.2 px around each shape (shapes are 35.9 px apart edge to edge)
+Ground truth         : 173x130, 2 objects, radius 11.5 px, snap 16.2 px, spacing 59.0 px
+
+--- Type commands below ---
+
+  -> command set: 'right' (conf=1.0)  [0 logged, 9 left]
+  -> command set: 'left' (conf=1.0)  [1 logged, 8 left]
+  -> command set: 'right' (conf=1.0)  [2 logged, 7 left]
+  -> command set: 'left' (conf=1.0)  [3 logged, 6 left]
+  -> command set: 'right' (conf=1.0)  [4 logged, 5 left]
+  -> command set: 'left' (conf=1.0)  [5 logged, 4 left]
+  -> command set: 'right' (conf=1.0)  [6 logged, 3 left]
+  -> command set: 'left' (conf=1.0)  [7 logged, 2 left]
+  -> command set: 'right' (conf=1.0)  [8 logged, 1 left]
+  -> command set: 'left' (conf=1.0)  [9 logged, 0 left]
+
+mask 173x130, 2 objects, object radius 11.5 px, snap 16.2 px
+begin visual attention.
+most salient point in object 1 (cube).
+command: right
+now most salient point in object 2 (ball).   [OK]
+command: left
+now most salient point in object 1 (cube).   [OK]
+command: right
+now most salient point in object 2 (ball).   [OK]
+command: left
+now most salient point in object 1 (cube).   [OK]
+command: right
+now most salient point in object 2 (ball).   [OK]
+command: left
+now most salient point in object 1 (cube).   [OK]
+command: right
+now most salient point in object 2 (ball).   [OK]
+command: left
+now most salient point in object 1 (cube).   [OK]
+command: right
+now most salient point in object 2 (ball).   [OK]
+command: left
+now most salient point in object 1 (cube).   [OK]
+
+10/10 commands correct  (100.0%)
+fovea moved on 10/10 commands
+wrote /home/pwz/Repo/kws_visual_attention/written_auto/results_rwo/written/01_t09_b03.csv
+
+Session ended. Frames shown: 157

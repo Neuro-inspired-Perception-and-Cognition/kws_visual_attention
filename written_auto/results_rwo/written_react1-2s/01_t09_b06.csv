@@ -1,0 +1,11 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,1,75.0,58.0,60.0,0.0,2,object 2 (cube),0,background,0,no object that way,1,1,1,0,0,v2,1,1,random25,2,59.7,11.2,01_t09_b06,0,1,9,6,90.0
+2,up,1,60.0,0.0,58.0,0.0,0,background,0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,2,60.3,11.2,01_t09_b06,0,1,9,6,90.0
+3,right,1,58.0,0.0,77.0,0.0,0,background,3,object 3 (cylinder),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,2,56.5,11.2,01_t09_b06,0,1,9,6,90.0
+4,down,1,77.0,0.0,77.0,55.0,0,background,2,object 2 (cube),2,OK,1,0,1,0,0,v2,0,0,random25,2,2.8,11.2,01_t09_b06,0,1,9,6,90.0
+5,down,1,77.0,55.0,70.0,129.0,2,object 2 (cube),0,background,0,no object that way,1,1,1,0,0,v2,1,1,random25,2,73.2,11.2,01_t09_b06,0,1,9,6,90.0
+6,up,1,70.0,129.0,75.0,59.0,0,background,2,object 2 (cube),2,OK,1,0,1,0,0,v2,0,0,random25,2,5.1,11.2,01_t09_b06,0,1,9,6,90.0
+7,down,1,75.0,59.0,67.0,129.0,2,object 2 (cube),0,background,0,no object that way,1,1,1,0,0,v2,1,1,random25,2,73.6,11.2,01_t09_b06,0,1,9,6,90.0
+8,up,1,67.0,129.0,74.0,58.0,0,background,2,object 2 (cube),2,OK,1,0,1,0,0,v2,0,0,random25,2,5.7,11.2,01_t09_b06,0,1,9,6,90.0
+9,right,1,74.0,58.0,131.0,48.0,2,object 2 (cube),3,object 3 (cylinder),3,OK,1,1,1,0,0,v2,0,0,random25,3,11.0,11.2,01_t09_b06,0,1,9,6,90.0
+10,left,1,131.0,48.0,77.0,59.0,3,object 3 (cylinder),2,object 2 (cube),2,OK,1,0,1,0,0,v2,0,0,random25,2,3.5,11.2,01_t09_b06,0,1,9,6,90.0

@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,right,right,0.91,c7dc7278_nohash_3.wav,1,141.0,94.0,148.0,93.0,4,object 4 (bottom-right),0,background,4,no object that way,1,0,1,0,0,v2,1,0,random25,4,23.7,20.3,11_t01_b02,1,1,1,2,30.0
+2,left,unknown,0.831,b2e2773a_nohash_0.wav,1,148.0,93.0,148.0,93.0,4,object 4 (bottom-right),3,object 3 (bottom-left),4,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,4,23.7,20.3,11_t01_b02,1,1,1,2,30.0
+3,up,up,0.89,fb7eb481_nohash_2.wav,1,149.0,93.0,164.0,1.0,4,object 4 (bottom-right),2,object 2 (top-right),0,WRONG - expected object 2 (top-right),0,0,0,1,1,v2,0,0,random25,2,48.4,20.3,11_t01_b02,1,1,1,2,30.0
+4,left,right,0.91,1b4c9b89_nohash_3.wav,1,164.0,1.0,169.0,4.0,0,background,2,object 2 (top-right),0,KWS WRONG - heard right,0,0,0,1,1,v2,0,0,random25,2,51.1,20.3,11_t01_b02,1,1,1,2,30.0
+5,down,unknown,0.878,aa80f517_nohash_0.wav,1,169.0,4.0,169.0,4.0,0,background,4,object 4 (bottom-right),0,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,2,51.1,20.3,11_t01_b02,1,1,1,2,30.0
+6,down,down,0.898,5c8af87a_nohash_1.wav,1,167.0,4.0,145.0,92.0,0,background,4,object 4 (bottom-right),4,OK,1,0,0,1,1,v2,0,0,random25,4,21.0,20.3,11_t01_b02,1,1,1,2,30.0
+7,left,left,0.894,97f4c236_nohash_3.wav,1,145.0,92.0,94.0,117.0,4,object 4 (bottom-right),3,object 3 (bottom-left),0,WRONG - expected object 3 (bottom-left),0,0,1,0,0,v2,0,0,random25,4,36.9,20.3,11_t01_b02,1,1,1,2,30.0
+8,right,unknown,0.8,2aa787cf_nohash_0.wav,1,94.0,117.0,94.0,117.0,0,background,4,object 4 (bottom-right),0,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,4,36.9,20.3,11_t01_b02,1,1,1,2,30.0
+9,right,right,0.882,c7124b73_nohash_1.wav,1,95.0,118.0,140.0,118.0,0,background,4,object 4 (bottom-right),4,OK,1,0,0,0,0,v2,0,0,random25,4,26.7,20.3,11_t01_b02,1,1,1,2,30.0
+10,left,unknown,0.875,9a7c1f83_nohash_3.wav,1,140.0,118.0,140.0,118.0,4,object 4 (bottom-right),3,object 3 (bottom-left),4,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,4,26.7,20.3,11_t01_b02,1,1,1,2,30.0

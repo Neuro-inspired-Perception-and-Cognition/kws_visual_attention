@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,up,0.91,1acc97de_nohash_1.wav,1,126.0,104.0,121.0,23.0,4,object 4 (bottom-right),2,object 2 (top-right),2,OK,1,1,1,0,0,v2,0,0,random25,2,9.6,19.4,10_t04_b01,1,0,4,1,70.0
+2,right,right,0.882,2c6d3924_nohash_0.wav,1,121.0,23.0,148.0,22.0,2,object 2 (top-right),0,background,0,no object that way,1,1,1,0,0,v2,1,1,random25,2,31.1,19.4,10_t04_b01,1,0,4,1,70.0
+3,down,none,0.678,3b4f8f24_nohash_3.wav,1,148.0,22.0,148.0,22.0,0,background,4,object 4 (bottom-right),0,KWS WRONG - heard none,0,0,0,1,1,v2,0,0,random25,2,31.1,19.4,10_t04_b01,1,0,4,1,70.0
+4,left,left,0.859,f9643d42_nohash_0.wav,1,148.0,22.0,125.0,18.0,0,background,2,object 2 (top-right),2,OK,1,0,0,1,1,v2,0,0,random25,2,15.6,19.4,10_t04_b01,1,0,4,1,70.0
+5,down,down,0.906,881583a6_nohash_1.wav,1,125.0,18.0,124.0,102.0,2,object 2 (top-right),4,object 4 (bottom-right),4,OK,1,0,1,0,0,v2,0,0,random25,4,7.1,19.4,10_t04_b01,1,0,4,1,70.0
+6,up,unknown,0.851,bb05582b_nohash_0.wav,1,124.0,102.0,124.0,102.0,4,object 4 (bottom-right),2,object 2 (top-right),4,KWS WRONG - heard unknown,0,1,1,0,0,v2,0,0,random25,4,7.1,19.4,10_t04_b01,1,0,4,1,70.0
+7,up,up,0.831,a6f2fd71_nohash_1.wav,1,125.0,101.0,121.0,22.0,4,object 4 (bottom-right),2,object 2 (top-right),2,OK,1,1,0,0,0,v2,0,0,random25,2,10.6,19.4,10_t04_b01,1,0,4,1,70.0
+8,down,down,0.855,e41a903b_nohash_3.wav,1,121.0,22.0,125.0,103.0,2,object 2 (top-right),4,object 4 (bottom-right),4,OK,1,1,1,0,0,v2,0,0,random25,4,8.5,19.4,10_t04_b01,1,0,4,1,70.0
+9,right,right,0.941,f292725f_nohash_1.wav,1,125.0,103.0,148.0,105.0,4,object 4 (bottom-right),0,background,0,no object that way,1,1,1,0,0,v2,1,1,random25,4,30.3,19.4,10_t04_b01,1,0,4,1,70.0
+10,down,unknown,0.925,bb05582b_nohash_3.wav,1,148.0,105.0,148.0,105.0,0,background,0,background,0,KWS WRONG - heard unknown,0,0,0,1,1,v2,1,1,random25,4,30.3,19.4,10_t04_b01,1,0,4,1,70.0

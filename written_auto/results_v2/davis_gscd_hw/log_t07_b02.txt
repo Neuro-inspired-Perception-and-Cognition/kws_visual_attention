@@ -1,0 +1,51 @@
+trial 11_t07_b02  (linguistic=1 visual=1 trial=7 batch=2)
+events : /media/pwz/KINGSTON/NAS-KWS/Experiments/Event and Grayscale data - DAVIS-20261116T144619Z-1-001/Event and Grayscale data - DAVIS/raw/events/4_circles_mono_bg_jitter_346x260.npy
+mask   : stimuli/ground_truth_masks/davis_4_circles_mono_bg_jitter_346x260.mask.npy
+result : written_auto/results_v2/davis_gscd_hw/11_t07_b02.csv   (limit 10 commands)
+Using device: cpu
+noise filter 500 us: kept 1720171 of 4679243 events
+Loaded events        : 1720171  span 29999 ms
+Processing resolution: 173 x 130
+Windows              : 300 @ 100 ms  (loop=True)
+note: snap clamped to 20.3 px around each shape (shapes are 45.0 px apart edge to edge)
+Ground truth         : 173x130, 4 objects, radius 11.4 px, snap 20.3 px, spacing 67.8 px
+*** only 7% of event pixels fall on the mask's objects - the mask may not match this clip
+
+--- Type commands below ---
+
+  -> command set: 'up' (conf=0.843)  [5 logged, 4 left]
+  -> command set: 'down' (conf=0.937)  [7 logged, 2 left]
+  -> command set: 'up' (conf=0.902)  [8 logged, 1 left]
+  -> command set: 'up' (conf=0.894)  [9 logged, 0 left]
+
+mask 173x130, 4 objects, object radius 11.4 px, snap 20.3 px
+begin visual attention.
+most salient point in background.
+command: right
+now most salient point in background.   [KWS WRONG - heard unknown]
+command: right
+now most salient point in background.   [KWS WRONG - heard none]
+command: down
+now most salient point in background.   [KWS WRONG - heard unknown]
+command: up
+now most salient point in object 4 (bottom-right).   [KWS WRONG - heard unknown]
+command: up
+now most salient point in background.   [KWS WRONG - heard none]
+command: up
+now most salient point in object 2 (top-right).   [OK]
+command: up
+now most salient point in object 2 (top-right).   [KWS WRONG - heard none]
+command: down
+now most salient point in background.   [WRONG - expected object 4 (bottom-right)]
+command: up
+now most salient point in object 3 (bottom-left).   [WRONG - expected object 2 (top-right)]
+command: up
+now most salient point in object 2 (top-right).   [WRONG - expected object 1 (top-left)]
+
+1/10 commands correct  (10.0%)
+fovea moved on 10/10 commands
+wrote written_auto/results_v2/davis_gscd_hw/11_t07_b02.csv
+KWS: 4/10 spoken commands recognised correctly
+
+Session ended. Frames shown: 370
+[kws] configured /home/pwz/Repo/VoiceNAS/NAS-GNN-KWS/HW/vivado/kws/kws_system.runs/impl_1/ok_top_wrapper.bit

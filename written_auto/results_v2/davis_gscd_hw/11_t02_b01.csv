@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,left,0.843,d5b963aa_nohash_0.wav,1,44.0,100.0,24.0,106.0,3,object 3 (bottom-left),0,background,3,no object that way,1,1,1,0,0,v2,1,0,random25,3,29.7,20.3,11_t02_b01,1,1,2,1,50.0
+2,down,none,0.62,a4383927_nohash_0.wav,1,24.0,106.0,24.0,106.0,3,object 3 (bottom-left),0,background,3,KWS WRONG - heard none,0,0,0,1,1,v2,1,1,random25,3,29.7,20.3,11_t02_b01,1,1,2,1,50.0
+3,left,left,0.882,3efef882_nohash_0.wav,1,24.0,106.0,24.0,106.0,3,object 3 (bottom-left),0,background,3,no object that way,1,0,0,1,1,v2,1,1,random25,3,29.7,20.3,11_t02_b01,1,1,2,1,50.0
+4,up,up,0.831,8769c34c_nohash_1.wav,1,24.0,106.0,38.0,27.0,3,object 3 (bottom-left),1,object 1 (top-left),1,OK,1,0,0,1,1,v2,0,0,random25,1,16.6,20.3,11_t02_b01,1,1,2,1,50.0
+5,right,right,0.886,e0c782d5_nohash_4.wav,1,38.0,27.0,48.0,27.0,1,object 1 (top-left),2,object 2 (top-right),1,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,1,7.5,20.3,11_t02_b01,1,1,2,1,50.0
+6,down,unknown,0.843,26b28ea7_nohash_0.wav,1,48.0,27.0,48.0,27.0,1,object 1 (top-left),3,object 3 (bottom-left),1,KWS WRONG - heard unknown,0,1,1,0,0,v2,0,0,random25,1,7.5,20.3,11_t02_b01,1,1,2,1,50.0
+7,down,unknown,0.91,5170b77f_nohash_1.wav,1,54.0,22.0,54.0,22.0,1,object 1 (top-left),3,object 3 (bottom-left),1,KWS WRONG - heard unknown,0,1,0,0,0,v2,0,0,random25,1,9.4,20.3,11_t02_b01,1,1,2,1,50.0
+8,right,right,0.91,c9b5ff26_nohash_1.wav,1,54.0,24.0,125.0,25.0,1,object 1 (top-left),2,object 2 (top-right),2,OK,1,1,0,0,0,v2,0,0,random25,2,7.5,20.3,11_t02_b01,1,1,2,1,50.0
+9,left,unknown,0.839,bb05582b_nohash_1.wav,1,125.0,25.0,125.0,25.0,2,object 2 (top-right),1,object 1 (top-left),2,KWS WRONG - heard unknown,0,1,1,0,0,v2,0,0,random25,2,7.5,20.3,11_t02_b01,1,1,2,1,50.0
+10,down,down,0.941,a4e8a997_nohash_0.wav,1,129.0,26.0,133.0,102.0,2,object 2 (top-right),4,object 4 (bottom-right),4,OK,1,1,0,0,0,v2,0,0,random25,4,10.8,20.3,11_t02_b01,1,1,2,1,50.0

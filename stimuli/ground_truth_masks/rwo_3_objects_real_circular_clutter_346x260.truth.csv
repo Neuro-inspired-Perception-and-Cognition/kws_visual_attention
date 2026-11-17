@@ -1,0 +1,4 @@
+id,name,x,y,area_px,radius_px
+1,ball,34.8,56.1,181,7.6
+2,cube,79.5,56.5,287,9.6
+3,cylinder,123.5,56.1,289,9.6

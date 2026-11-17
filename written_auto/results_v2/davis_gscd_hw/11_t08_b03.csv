@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.898,e1469561_nohash_0.wav,1,16.0,113.0,17.0,114.0,4,object 4 (bottom-left),0,background,4,no object that way,1,0,1,0,0,v2,1,0,random25,4,20.8,16.4,11_t08_b03,1,1,8,3,80.0
+2,up,up,0.867,0f250098_nohash_0.wav,1,17.0,114.0,16.0,96.0,4,object 4 (bottom-left),1,object 1 (top-left),4,OK,1,0,0,1,1,v2,0,0,random25,4,11.1,16.4,11_t08_b03,1,1,8,3,80.0
+3,down,down,0.937,1f653d27_nohash_0.wav,1,16.0,96.0,15.0,116.0,4,object 4 (bottom-left),0,background,4,no object that way,1,1,1,0,0,v2,1,1,random25,4,23.6,16.4,11_t08_b03,1,1,8,3,80.0
+4,right,left,0.929,189cbabe_nohash_3.wav,1,15.0,116.0,12.0,115.0,4,object 4 (bottom-left),5,object 5 (bottom-mid),4,KWS WRONG - heard left,0,0,0,1,1,v2,0,0,random25,4,24.4,16.4,11_t08_b03,1,1,8,3,80.0
+5,up,up,0.906,c9b5ff26_nohash_4.wav,1,12.0,115.0,12.0,105.0,4,object 4 (bottom-left),1,object 1 (top-left),4,OK,1,0,0,1,1,v2,0,0,random25,4,17.7,16.4,11_t08_b03,1,1,8,3,80.0
+6,right,right,0.851,91b03183_nohash_2.wav,1,12.0,105.0,79.0,103.0,4,object 4 (bottom-left),5,object 5 (bottom-mid),5,OK,1,0,1,0,0,v2,0,0,random25,5,11.1,16.4,11_t08_b03,1,1,8,3,80.0
+7,right,right,0.882,8fe52b97_nohash_1.wav,1,79.0,103.0,96.0,104.0,5,object 5 (bottom-mid),6,object 6 (bottom-right),5,FAILED - did not move,0,1,1,0,0,v2,0,0,random25,5,10.9,16.4,11_t08_b03,1,1,8,3,80.0
+8,up,up,0.859,f2e59fea_nohash_2.wav,1,96.0,104.0,93.0,32.0,5,object 5 (bottom-mid),2,object 2 (top-mid),2,OK,1,1,1,0,0,v2,0,0,random25,2,5.7,16.4,11_t08_b03,1,1,8,3,80.0
+9,up,up,0.902,50033893_nohash_2.wav,1,93.0,32.0,92.0,16.0,2,object 2 (top-mid),0,background,2,no object that way,1,1,1,0,0,v2,1,1,random25,2,19.5,16.4,11_t08_b03,1,1,8,3,80.0
+10,right,right,0.867,b737ee80_nohash_0.wav,1,92.0,16.0,154.0,21.0,2,object 2 (top-mid),3,object 3 (top-right),3,OK,1,0,0,1,1,v2,0,0,random25,3,16.3,16.4,11_t08_b03,1,1,8,3,80.0

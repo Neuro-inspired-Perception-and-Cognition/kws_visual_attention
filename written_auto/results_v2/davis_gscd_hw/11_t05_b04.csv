@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,up,0.859,2005ca25_nohash_0.wav,1,170.0,109.0,169.0,19.0,6,object 6 (bottom-right),3,object 3 (top-right),0,WRONG - expected object 3 (top-right),0,0,1,0,0,v2,0,0,random25,3,27.5,16.4,11_t05_b04,1,1,5,4,50.0
+2,up,none,0.725,83957201_nohash_1.wav,1,169.0,19.0,169.0,19.0,0,background,0,background,0,KWS WRONG - heard none,0,0,1,0,0,v2,1,1,random25,3,27.5,16.4,11_t05_b04,1,1,5,4,50.0
+3,left,none,0.776,f2e59fea_nohash_1.wav,1,172.0,21.0,172.0,21.0,0,background,3,object 3 (top-right),0,KWS WRONG - heard none,0,0,0,0,0,v2,0,0,random25,3,28.9,16.4,11_t05_b04,1,1,5,4,50.0
+4,down,down,0.91,9e2ce5e3_nohash_0.wav,1,171.0,21.0,169.0,97.0,0,background,6,object 6 (bottom-right),6,OK,1,0,0,0,0,v2,0,0,random25,6,20.8,16.4,11_t05_b04,1,1,5,4,50.0
+5,up,up,0.851,881583a6_nohash_0.wav,1,169.0,97.0,170.0,25.0,6,object 6 (bottom-right),3,object 3 (top-right),3,OK,1,0,1,0,0,v2,0,0,random25,3,25.2,16.4,11_t05_b04,1,1,5,4,50.0
+6,down,down,0.933,1fe4c891_nohash_0.wav,1,170.0,25.0,153.0,96.0,3,object 3 (top-right),6,object 6 (bottom-right),6,OK,1,0,1,0,0,v2,0,0,random25,6,4.8,16.4,11_t05_b04,1,1,5,4,50.0
+7,left,left,0.831,fa446c16_nohash_0.wav,1,153.0,96.0,94.0,118.0,6,object 6 (bottom-right),5,object 5 (bottom-mid),5,OK,1,1,1,0,0,v2,0,0,random25,5,22.3,16.4,11_t05_b04,1,1,5,4,50.0
+8,down,unknown,0.812,d5b963aa_nohash_4.wav,1,94.0,118.0,94.0,118.0,5,object 5 (bottom-mid),0,background,5,KWS WRONG - heard unknown,0,0,1,0,0,v2,1,1,random25,5,22.3,16.4,11_t05_b04,1,1,5,4,50.0
+9,down,down,0.914,5c8af87a_nohash_0.wav,1,96.0,116.0,96.0,117.0,5,object 5 (bottom-mid),0,background,5,no object that way,1,0,0,0,0,v2,1,1,random25,5,22.0,16.4,11_t05_b04,1,1,5,4,50.0
+10,left,left,0.902,aa80f517_nohash_3.wav,1,96.0,117.0,11.0,122.0,5,object 5 (bottom-mid),4,object 4 (bottom-left),0,WRONG - expected object 4 (bottom-left),0,0,0,1,1,v2,0,0,random25,4,30.7,16.4,11_t05_b04,1,1,5,4,50.0

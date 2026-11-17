@@ -1,78 +1,118 @@
-# Automated attention-modulation experiments (random25 protocol)
+# Automated attention-modulation experiments
 
-All four experiments run the **original** experiment script `kws_mod_live_words_new_exp.py`. An automated run is
-switched on by the environment variable `VA_MODE`, which the runners in this folder set. The added logic lives in
+All experiments run the **original** experiment script `kws_mod_live_words_new_exp.py`. An automated run is switched
+on by the environment variable `VA_MODE`, which the runners in this folder set. The added logic lives in
 `auto_experiment.py` (repo root), and every hook in the original script is marked `# CHANGED (random25)` or
 `# CHANGED (camera)`. Without `VA_MODE`, the script behaves exactly as before: typed commands, live window, original
-scoring, results in `results/`.
+scoring, results in `results/` (a manual run there **overwrites** the baseline files of the same trial id).
 
-| # | Visual input | Commands | `VA_LING` / `VA_VIS` | Trial-ID prefix | Runner | Results |
-|---|---|---|---|---|---|---|
-| 1 | Synthetic (IEBCS events, `data/*.npy`) | written | 0 / 0 | `00_` | `run_written_random25.py` | `results_random25_rule2fix/` |
-| 2 | Synthetic (IEBCS events) | spoken: GSCD v2 test samples -> NAS-KWS on FPGA | 1 / 0 | `10_` | `run_gscd_hw_random25.py` | `results_random25_gscd_hw_rule2fix/` |
-| 3 | DAVIS346 recording of the stimuli on a monitor | written | 0 / 1 | `01_` | `run_davis_written_random25.py` | `results_random25_davis/` |
-| 4 | DAVIS346 recording of the stimuli on a monitor | spoken: GSCD v2 -> NAS-KWS on FPGA | 1 / 1 | `11_` | `run_davis_gscd_hw_random25.py` | `results_random25_davis_gscd_hw/` (not run yet) |
+## 1. Experiments
 
-Files are named `{prefix}_tTT_bBB.csv` (trial TT, batch BB). Spoken runs also write `..._kws.csv`, one row per spoken
-command: intended word, recognised word, KWS confidence, wav file and latency.
+Three visual inputs × two kinds of commands, **only possible commands** (every command has a target object),
+**5 trials × 10 commands per scene**, i.e. the size of the manual baseline sessions in `results/`:
 
----
+| Visual input | Scenes | Commands | Runner (`--spoken` / spoken runner) | Trial-ID prefix | Results |
+|---|---|---|---|---|---|
+| Synthetic events (IEBCS, `data/*.npy`) | 10 (5 no clutter, 5 clutter) | written / GSCD-HW | `run_written_random25.py` / `run_gscd_hw_random25.py` | `00_` / `10_` | `results_possible_t5c10/sim_{written,gscd_hw}/` |
+| DAVIS346 pointed at a monitor showing the same stimuli | 10 (5 + 5) | written / GSCD-HW | `run_davis_written_random25.py` / `run_davis_gscd_hw_random25.py` | `01_` / `11_` | `results_possible_t5c10/davis_{written,gscd_hw}/` |
+| DAVIS346 pointed at real objects | 12 (6 + 6) | written / GSCD-HW | `run_rwo_random25.py` (`--spoken`) | `01_` / `11_` | `results_possible_t5c10/rwo_{written,gscd_hw}/` |
 
-## 1. Protocol (all four experiments)
+Per visual input: 50 trials (60 for real objects), half without clutter, 10 commands each. GSCD-HW = utterances of the
+keyword from the GSCD v2 test split, played into the NAS and classified by the GNN keyword spotter on the FPGA.
+Live speech into a microphone (planned for the real objects) is **not implemented yet**.
 
-* **Stimuli: the 10 Set-1 batches** (`batches.py`):
+Files are named `{prefix}_tTT_bBB.csv` (trial TT, scene/batch BB), one row per command. Spoken runs also write
+`..._kws.csv`: intended word, recognised word, KWS confidence, wav file and latency.
 
-  | batch | scene | batch | scene |
-  |---|---|---|---|
-  | 1 | 4 circles / nobg / mono | 2 | 4 circles / bg / mono |
-  | 3 | 6 circles / nobg / mono | 4 | 6 circles / bg / mono |
-  | 5 | 6 objects / nobg / mono | 6 | 6 objects / bg / mono |
-  | 7 | 6 objects / nobg / color | 8 | 6 objects / bg / color |
-  | 9 | 9 objects / nobg / color | 10 | 9 objects / bg / color |
+### Scenes
 
-  "bg" is always the **jittering** hatch background (`*_bg_jitter`). Odd batches have no clutter, even batches have clutter.
-* **10 trials per batch, 10 commands per trial** (100 trials per experiment).
-* **Command generation (`VA_MODE=random25`)**: before every command, the possible and impossible directions are
-  computed from the *current* attention maximum with the same oracle that is used for scoring. With probability 0.25
-  an impossible direction is drawn, otherwise a possible one. The draws are seeded per batch and trial, so runs are
-  reproducible. A command is *impossible* if no object lies in that direction (the commanded axis must dominate:
-  `|dy| > |dx|` for up/down, `|dx| > |dy|` for left/right).
-* **Timing**: the first command comes 1–3 s (10–30 windows, depending on the trial) after the first fixation.
-  The next command comes after the controller LOCK plus a 0.3–0.8 s "reaction", or after 3 s (30 windows) without a lock.
-  Windows are 100 ms of events.
-* **Spoken commands (experiments 2 and 4)**: the drawn command is the **intended** one. A random GSCD v2 *test-split*
-  utterance of that word is played through the audio jack into the NAS-KWS bitstream. The **recognised** word is applied
-  to the attention exactly like a typed one, even when it is the wrong direction. `unknown` or no detection means the
-  fovea is not moved. All scoring is against the intended command. The KWS pipeline is **reset before every utterance**
-  (wire 0x00), so the GRU starts from zero shortly before the word, as in training. Without the reset, recognition
-  degrades in continuous operation; see `HANDOFF.md`. Headless spoken runs are paced in real time (100 ms per window),
-  so the ~1.5 s KWS latency costs the same number of windows as in the live system.
+Synthetic and monitor (`batches.py`; "bg" = the jittering hatch background `*_bg_jitter`):
 
-## 2. Metrics and scoring
+| batch | scene | batch | scene |
+|---|---|---|---|
+| 1 | 4 circles / nobg / mono | 2 | 4 circles / bg / mono |
+| 3 | 6 circles / nobg / mono | 4 | 6 circles / bg / mono |
+| 5 | 6 objects / nobg / mono | 6 | 6 objects / bg / mono |
+| 7 | 6 objects / nobg / color | 8 | 6 objects / bg / color |
+| 9 | 9 objects / nobg / color | 10 | 9 objects / bg / color |
 
-* **Command compliance**: % of correct steps in a trial, averaged over trials (mean ± population std).
-* **Lock rate**: % of steps that end with attention on *any* object (`landed_id != 0`).
-* **Compliance for possible / impossible commands**, reported separately, because impossible commands are almost
-  always compliant and would otherwise inflate the overall score, especially with clutter.
-* **KWS accuracy** (spoken runs): % of commands whose recognised word equals the intended one.
+Real objects (`run_rwo_random25.SCENES`; ball, cube, cylinder, cup on a table; 2 and 3 objects in one row, 4 objects in a
+2 × 2 grid; camera moved by hand: small jitter or a circular motion; clutter = dark cloth, a cable and folds, mostly at the
+image border, camera farther away so the objects are smaller):
 
-Scoring rules in automated runs (`auto_experiment.score_step`, called from `write_results()`):
+| scene | objects | camera | clutter | scene | objects | camera | clutter |
+|---|---|---|---|---|---|---|---|
+| 1 | 2 | jitter | no | 2 | 2 | jitter | yes |
+| 3 | 2 | circular | no | 4 | 2 | circular | yes |
+| 5 | 3 | jitter | no | 6 | 3 | jitter | yes |
+| 7 | 3 | circular | no | 8 | 3 | circular | yes |
+| 9 | 4 | jitter | no | 10 | 4 | jitter | yes |
+| 11 | 4 | circular | no | 12 | 4 | circular | yes |
 
-1. **Impossible command** (no object in that direction): compliant if attention did not jump to another object,
-   i.e. it stays on the start object or ends on the background (the lock rate tells which).
-   *Original:* staying on the start object was always "FAILED - did not move".
-2. **Command after a command that ended without a LOCK** (rule "either"): the logged reference point is the attention
-   maximum, not the fovea, so it cannot be decided whether the controller (which may lock only after `MIN_TRAVEL` = 50 px)
-   can re-acquire the start object. Both the start object (if it lies in the commanded direction) and the nearest
-   *other* object in that direction are accepted. After a locked command, and for the first command, the start object
-   is excluded, as in the original oracle.
+With only possible commands, the 2- and 3-object scenes allow horizontal commands only (one row), so they are easy by
+construction; the 4-object scenes are the informative ones.
 
-Unchanged: `object_near()` (footprint distance + snap = 2 × median radius, clamped to 0.45 × the edge-to-edge gap),
-`oracle()`, the attention network and the membrane/fovea controller with all its parameters. Extra CSV columns in
-automated runs: `correct`, `start_inside`, `prev_locked`, `impossible`, `planned_impossible`, `mode`, plus
-`recognized`, `kws_conf`, `wav` for spoken runs.
+## 2. Protocol
 
-## 3. Prerequisites
+* **Command generation**: before every command the possible directions are computed from the *current* attention
+  maximum with the same oracle that is used for scoring, and one of them is drawn at random. A direction is possible if
+  an object lies that way with the commanded axis dominating (`|dy| > |dx|` for up/down, `|dx| > |dy|` for left/right).
+  Draws are seeded per scene and trial (`cmd-{batch}-{trial}`), so runs are reproducible. The seeds are the same for every
+  visual input and both kinds of commands.
+* **Timing**: the first command comes 1–3 s (10–30 windows, depending on the trial) after the first fixation. The next
+  command comes 0.3–0.8 s after the controller LOCK, or after 3 s without a lock. Windows are 100 ms of events. A slower
+  reaction (`VA_REACT=10,20`, 1–2 s) gave the same results on the real objects (`results_rwo/written_react1-2s/`).
+* **Spoken commands**: the drawn command is the **intended** one. A random GSCD v2 *test-split* utterance of that word
+  (seed `gscd-{batch}-{trial}`) is played through the audio jack into the NAS-KWS bitstream. The **recognised** word is
+  applied to the attention like a typed one, even when it is the wrong direction; `unknown` / no detection does not move
+  the fovea. The KWS pipeline is **reset before every utterance** (wire 0x00), i.e. the word onset is known (must be stated
+  in the paper). `KWS_UNKNOWN_SUPPRESS = 35` (tuned on the test split: disclose, or re-tune on `validation_list`).
+  Headless spoken runs are paced in real time, so the ~1.5 s KWS latency costs the same number of windows as live.
+
+## 3. Metrics and scoring
+
+* **Command compliance**: % of correct commands in a trial, mean ± population std over the trials of a group.
+* **Lock rate**: % of commands that end with attention on *any* object (`landed_id != 0`, within the snap tolerance).
+  It is a landing rate, not the controller's LOCK flag.
+* **KWS accuracy** (spoken): % of commands whose recognised word equals the intended one.
+
+Scoring (`auto_experiment.score_step`, called from `write_results()`): a command is correct if attention ends on the
+nearest object in the commanded direction (`object_near()`: footprint distance + snap = 2 × median object radius,
+clamped to 0.45 × the edge-to-edge gap; `oracle()`: nearest centroid with the commanded axis dominating), and:
+
+* **Rule 2 (v2)**: when the fovea is "lost" (the last command that moved it ended without a lock), the start object
+  (if it lies that way) is also accepted, because the logged reference is the attention maximum, not the fovea.
+* **Rule 3 (spoken)**: a command the KWS did not recognise correctly (`unknown`, none or a wrong direction) is
+  **not compliant**.
+
+`written_auto/verify_scoring.py DIR ...` re-implements these rules independently and checks every stored row.
+
+### Allowing impossible commands
+
+Impossible commands (no object in the commanded direction) can be mixed in with any runner:
+
+```bash
+venv/bin/python written_auto/run_rwo_random25.py --trials 5 --p-impossible 0.25 --out written_auto/results_xyz
+# or, for a single trial / hand-written runs: VA_P_IMPOSSIBLE=0.25
+```
+
+With probability `p` an impossible direction is drawn (when one exists), otherwise a possible one. An impossible command
+is scored by **rule 1**: compliant unless attention jumps to *another object* (staying on the start object or ending
+on the background is fine). The tables then also report compliance for possible and impossible commands separately.
+Two caveats, measured with `p = 0.25` (folders `results_v2/`, `results_rwo/written/`):
+
+* impossible commands are almost always compliant (97–100 % written), so they add easy points where the system is weak
+  (synthetic clutter: 41 % overall vs 21–26 % with possible commands only);
+* they leave the fovea at the image border or beside an object, which makes the *next* command harder (no clutter:
+  most failures came right after an impossible command), so possible-only runs are better there.
+
+Rule 1 does not count a lock on a background distractor as an error; with clutter on the real objects 36–63 % of the
+impossible commands end that way. A strict variant (a lock on anything but the start object = error) would measure the
+false-lock rate; it is not implemented.
+
+`VA_RULE=either` / `VA_KWS_WRONG=off` restore the earlier rules (see `HANDOFF.md`).
+
+## 4. Prerequisites
 
 | What | Where |
 |---|---|
@@ -80,136 +120,114 @@ automated runs: `correct`, `start_inside`, `prev_locked`, `impossible`, `planned
 | Opal Kelly env (`ok`, sounddevice), used only by the KWS server | `/home/pwz/Repo/OK-FINAL/NAS-GNN-KWS/SW/ok/ok-venv/bin/python` (override: `VA_OK_PYTHON`) |
 | KWS bitstream (5 classes: up, down, left, right, unknown) | `/home/pwz/Repo/VoiceNAS/NAS-GNN-KWS/HW/vivado/kws/kws_system.runs/impl_1/ok_top_wrapper.bit` (override: `KWS_BITFILE`) |
 | GSCD v2 audio / test list | `/home/pwz/Music/NAS/gsc_v2`, `/media/pwz/KINGSTON/NAS-KWS/datasets-spike/gsc_v2_voice_spike/testing_list.txt` (`VA_GSCD_AUDIO`, `VA_GSCD_TEST`) |
-| DAVIS recordings | `/media/pwz/KINGSTON/NAS-KWS/Experiments/Event and Grayscale data - DAVIS-.../raw/{events,gs_videos}` |
-| Hardware (spoken runs) | XEM7310 on USB + PC audio jack -> NAS I2S input. Nothing else may use the board or the jack during a run, and the jack must stay plugged in. |
+| DAVIS recordings, monitor | `/media/pwz/KINGSTON/NAS-KWS/Experiments/Event and Grayscale data - DAVIS-.../raw/events` (`DAVIS` in the DAVIS runners) |
+| DAVIS recordings, real objects | `/media/pwz/KINGSTON/NAS-KWS/Experiments/Real World Objects-.../raw/events` (`RAW` in `run_rwo_random25.py`) |
+| Hardware (spoken runs) | XEM7310 on USB + PC audio jack -> NAS I2S input. Nothing else may use the board or the jack during a run. |
 
-`kws/protocol.py` in this repo decodes an **older** class layout (unknown at index 6, score offsets) and does **not** match
-the VoiceNAS bitstream. The spoken experiments use `kws/gscd_hw_server.py` instead.
+The recording paths are hard-coded in the runners: edit `DAVIS` / `RAW` on another machine. `kws/protocol.py` decodes
+an **older** class layout and does not match the VoiceNAS bitstream; the spoken runs use `kws/gscd_hw_server.py`.
 
-**Load**: one trial process ≈ 1 GB RAM. 8 parallel jobs × 2 threads froze the PC once, so the runners default to light
-settings: `nice 19`, 1 thread per process; synthetic written 4 jobs, DAVIS written 2 jobs, spoken 1 job (one board).
+**Load**: one trial process ≈ 1 GB RAM; 8 parallel jobs froze the PC once. Runners use `nice 19`, 1 thread per process,
+4 jobs (synthetic) or 2 (DAVIS) for written commands, and 1 job for spoken commands (one board).
 
-## 4. How to run
+## 5. How to run
 
-All commands from the repo root (`~/Repo/kws_visual_attention`). Every runner accepts `--trials N`,
-`--batches 1,2` / `--batches 1-10`, `--out DIR` and `--metrics-only` (re-prints the tables from existing CSVs).
+From the repo root (`~/Repo/kws_visual_attention`):
 
 ```bash
-# 1. synthetic + written        (~5-10 min)
-venv/bin/python written_auto/run_written_random25.py --trials 10
-# 2. synthetic + GSCD-HW        (~70 min, sequential, board + jack)
-venv/bin/python written_auto/run_gscd_hw_random25.py --trials 10
-# 3. DAVIS + written            (~10 min; once before: ground-truth masks, check the previews)
-venv/bin/python written_auto/davis_ground_truth.py
-venv/bin/python written_auto/run_davis_written_random25.py --trials 10
-# 4. DAVIS + GSCD-HW            (~70 min, sequential, board + jack)
-venv/bin/python written_auto/run_davis_gscd_hw_random25.py --trials 10
+written_auto/run_possible_written.sh 5 10 written_auto/results_possible_t5c10   # written, all three inputs (~10 min)
+written_auto/run_possible_spoken.sh  5 10 written_auto/results_possible_t5c10   # GSCD-HW, all three (~2.5 h, board + jack)
+python3 written_auto/tables_v2.py  written_auto/results_possible_t5c10          # synthetic + monitor tables
+python3 written_auto/tables_rwo.py written_auto/results_possible_t5c10/rwo_written   # real objects, per scene
 ```
 
-Quick check on a small subset, e.g. one trial of batches 1 and 2:
+The scripts take `TRIALS NCMDS OUT_DIR` and export `VA_RULE=v2 VA_KWS_WRONG=all` (and `KWS_UNKNOWN_SUPPRESS=35`).
+Before a spoken run, check the audio: feed ~10 wavs to the server and expect ~70–80 % correct; all `unknown` means the
+jack is not working (e.g. after a reboot from Windows):
+
 ```bash
-venv/bin/python written_auto/run_davis_written_random25.py --trials 1 --batches 1,2 --out written_auto/_check
+KWS_UNKNOWN_SUPPRESS=35 /home/pwz/Repo/OK-FINAL/NAS-GNN-KWS/SW/ok/ok-venv/bin/python kws/gscd_hw_server.py < requests.jsonl
+# requests.jsonl: one {"wav": "/home/pwz/Music/NAS/gsc_v2/up/<file>.wav"} per line
 ```
 
-A single trial without a runner, e.g. to watch it live (`VA_GUI=1`; `VA_RECORD=1` also saves an mp4):
+Single runners: `--trials N`, `--p-impossible P`, `--batches 1,2` / `1-10`, `--out DIR`, `--metrics-only`; the number of
+commands per trial is `VA_NCMDS` (default 10).
+
+**Watch one trial live** (same settings as the experiment, reproduces the stored CSV; output in `written_auto/_check/`):
+
 ```bash
-VA_MODE=random25 VA_LING=0 VA_VIS=0 VA_TRIAL=1 VA_BATCH=1 VA_GUI=1 \
-VA_NPY=data/4_circles_mono_nobg_346x260.npy \
-VA_MASK=stimuli/ground_truth_masks/4_circles_mono_nobg_346x260.mask.npy \
-VA_NAMES='["top-left","top-right","bottom-left","bottom-right"]' VA_RESULTS=written_auto/_check \
-venv/bin/python kws_mod_live_words_new_exp.py
+venv/bin/python written_auto/show_trial.py real 12 1 --compare written_auto/results_possible_t5c10/rwo_written
+# SET = sim | monitor | real, then scene and trial; --p-impossible / --ncmds as in the runners
 ```
-Other optional variables: `VA_INIT` (windows before the first command), `VA_TIMEOUT` (30), `VA_P_IMPOSSIBLE` (0.25),
-`VA_NCMDS` (10), `VA_CMDS` + `VA_MODE=list` (replay a fixed list), `VA_NOISE_US` (camera filter, 500).
 
-The first DAVIS run builds the noise-filtered event caches in `written_auto/davis_cache/`. Parallel jobs must not build
-the same cache, so run trial 1 of each batch alone first (e.g. `--trials 1 --jobs 1`) if the cache is missing.
+Other variables of `auto_experiment.py`: `VA_INIT` (windows before the first command), `VA_TIMEOUT` (30),
+`VA_REACT` (`3,8` windows after a lock), `VA_NOISE_US` (camera noise filter, 500; 0 = off), `VA_GUI`, `VA_RECORD`.
 
-### Re-scoring old results
-```bash
-python3 written_auto/rescore.py IN_DIR OUT_DIR --rule either      # = auto_experiment.score_step; --rule old = fork's rule
-```
-`object_near` / `oracle` are taken verbatim (via `ast`) from `kws_mod_live_words_new_exp.py`. With `--rule old` the
-script reproduces the stored `correct` column exactly. Original values are kept as `*_old` columns.
+The first monitor run builds the noise-filtered event caches in `written_auto/davis_cache/` (175 MB, not in git).
+Parallel jobs must not build the same cache: run `--trials 1 --jobs 1` first if it is missing.
 
-## 5. DAVIS specifics (experiments 3, 4)
+## 6. Camera specifics
 
-* **Recordings**: 30 s DAVIS346 recordings of the rendered `*_346x260.mp4` stimuli shown on a monitor (events `.npy`
-  with fields `t` [us], `x`, `y`, `p`, plus the APS video). All 10 files were checked visually against the stimuli and
-  match their names.
-* **Ground truth (`davis_ground_truth.py`)**: the existing `camera_*.mask.npy` come from earlier live sessions with a
-  different camera placement and do **not** line up with these recordings (offsets of half an object or more;
-  `camera_6_objects_color_nobg` is a 9-object mask; there is no 4-circles-bg mask). New masks
-  `stimuli/ground_truth_masks/davis_<stem>_346x260.{mask.npy,truth.csv,preview.png}` are built per recording:
-  average of the APS video -> threshold (Otsu; top-hat for the dim 9-object colour scenes) -> N largest components ->
-  ids in reading order (as the synthetic masks and `NAMES`) -> downsampled ×2. Objects whose APS footprint is too small
-  (the dark green tree) take the synthetic shape mapped with a homography fitted on the other objects' centroids.
-  IoU(APS segmentation, mapped synthetic) is 0.6–0.95. SAM 2, the project's usual tool, is not installed in `venv`.
-* **Camera processing** (`VISUAL == 1`), taken from `kws_mod_cam_words_exp.py`: `r0 = 7`; dv_processing
-  `BackgroundActivityNoiseFilter` 500 us over the whole stream (cached); the first fixation only on a window with
-  ≥ 300 raw events and peak ≥ 2 × saliency mean; before the first command the fovea follows the saliency peak.
-  The processing grid is fixed to the sensor (173 × 130).
-* The warning "only N% of event pixels fall on the mask's objects" is expected with the camera, because sparse stripe
-  noise covers the whole sensor. In the nobg recordings 76–81 % of the *events* fall on the objects; with the
-  jittering background it is 25 %.
+* **Monitor recordings**: 30 s DAVIS346 recordings of the rendered stimuli shown on a monitor (events `.npy` with fields
+  `t` [us], `x`, `y`, `p`, plus the APS video). Ground truth `stimuli/ground_truth_masks/davis_*` from the APS video
+  (`davis_ground_truth.py`: Otsu / top-hat threshold, ids in reading order, a homography for the dim tree). The
+  `camera_*` masks of the older live sessions do not line up with these recordings.
+* **Real-object recordings**: 30 s, recorded with `record_camera.py` (on the drive, `code/`), which already applies the
+  dv background-activity filter (500 us). The runners therefore set `VA_NOISE_US=0` (no second filter pass).
+  Ground truth: the masks shipped with the recordings, copied to `stimuli/ground_truth_masks/rwo_*`. The camera motion
+  shifts the objects by only 1–3 px on the 173 × 130 grid, so a static mask is enough.
+* **Processing** (`VISUAL == 1`, from `kws_mod_cam_words_exp.py`): `r0 = 7`; the first fixation only on a window with
+  ≥ 300 raw events and peak ≥ 2 × saliency mean; before the first command the fovea follows the saliency peak; grid
+  fixed to the sensor (173 × 130). Attention and controller parameters are the same for all inputs.
 
-## 6. Results so far (rule 2 "either", mean ± std over 50 trials per group)
+## 7. Results (only possible commands, 5 trials × 10 commands per scene, mean ± std over trials)
 
-| Experiment | group | compliance | lock rate | compl. possible | compl. impossible | KWS acc |
-|---|---|---|---|---|---|---|
-| 1 synthetic + written | no clutter | 97.6 ± 5.1 | 97.6 ± 6.8 | 96.5 ± 7.6 | 100.0 ± 0.0 | – |
-| | clutter | 41.4 ± 20.2 | 32.0 ± 18.4 | 22.7 ± 21.4 | 99.7 ± 2.4 | – |
-| 2 synthetic + GSCD-HW | no clutter | 78.4 ± 12.4 | 95.4 ± 9.2 | 71.5 ± 16.0 | 97.0 ± 14.7 | 72.2 ± 14.3 |
-| | clutter | 37.4 ± 18.2 | 35.4 ± 19.5 | 19.0 ± 18.9 | 97.7 ± 9.2 | 72.0 ± 14.0 |
-| 3 DAVIS + written | no clutter | 98.2 ± 4.3 | 97.8 ± 7.6 | 97.5 ± 6.2 | 100.0 ± 0.0 | – |
-| | clutter | 72.6 ± 15.3 | 72.4 ± 20.1 | 64.2 ± 20.0 | 96.7 ± 10.3 | – |
-| 4 DAVIS + GSCD-HW | – | not run yet | | | | |
+Written commands:
 
-Per-batch tables: run the runner with `--metrics-only`.
+| Input | group | trials | compliance | lock rate |
+|---|---|---|---|---|
+| Synthetic | no clutter | 25 | 100.0 ± 0.0 | 100.0 ± 0.0 |
+| | clutter | 25 | 21.2 ± 16.8 | 40.4 ± 17.5 |
+| Monitor | no clutter | 25 | 98.4 ± 3.7 | 98.8 ± 3.2 |
+| | clutter | 25 | 68.8 ± 20.1 | 81.6 ± 14.9 |
+| Real objects | no clutter | 30 | 99.0 ± 3.0 | 100.0 ± 0.0 |
+| | clutter | 30 | 90.7 ± 18.8 | 93.3 ± 13.5 |
+| | 4 objects, no clutter | 10 | 97.0 ± 4.6 | 100.0 ± 0.0 |
+| | 4 objects, clutter | 10 | 72.0 ± 23.2 | 80.0 ± 16.7 |
 
-**Equivalence check after moving the logic into the original script.** Trials 1–2 of every batch (20 trials) of
-experiments 1 and 3 were re-run with the original script and compared with the earlier results (which came from the
-generated copies): 20/20 trials identical in every column for synthetic + written (vs `results_random25_rule2fix/`) and
-20/20 for DAVIS + written (vs `results_random25_davis/`). The spoken variants (not deterministic: real-time hardware)
-ran end to end for batches 1–2. Manual mode (no `VA_MODE`) was checked: typed command, original scoring and columns.
+Real objects per scene: 100 % in all 2- and 3-object scenes; scene 9: 94.0 ± 4.9, 10: 68.0 ± 27.1, 11: 100.0 ± 0.0,
+12: 76.0 ± 17.4. Full tables: `results_possible_t5c10/tables_*.md`.
 
-## 7. Files
+GSCD-HW: see `results_possible_t5c10/` (tables as above; spoken tables also give KWS accuracy and compliance split by
+the KWS outcome: heard correctly / not recognised / wrong direction).
+
+Why clutter hurts much more on the monitor than on the real objects: the hatch texture lies right next to the objects
+(object event density only 2.4–4 × the background within ~12 px), while the real clutter is at the image border
+(objects ~300 × denser than their surroundings). On the real objects clutter matters when the fovea pans towards the
+border past a small object (the ball in scenes 10 and 12).
+
+## 8. Files
 
 | File | Role |
 |---|---|
 | `../kws_mod_live_words_new_exp.py` | the original experiment script, with commented `CHANGED` hooks for automated runs |
-| `../auto_experiment.py` | automated runs: command generator (`list` / `possible` / `random25`), spoken commands through the KWS server, scoring rules 1–2, DAVIS processing |
-| `../kws/gscd_hw_server.py` | KWS-on-FPGA server (Opal Kelly env): reset -> arm -> play wav -> read frames -> peak-confidence decision (`KWS_CONF_THR` = 200, `KWS_UNKNOWN_SUPPRESS` = 25, `KWS_CAPTURE_S` = 1.5) |
-| `batches.py` | batch -> synthetic `.npy`, synthetic mask, object names |
-| `run_written_random25.py`, `run_gscd_hw_random25.py`, `run_davis_written_random25.py`, `run_davis_gscd_hw_random25.py` | runners + metric tables |
-| `davis_ground_truth.py` | ground-truth masks + previews for the DAVIS recordings |
-| `rescore.py` | offline re-scoring of saved CSVs |
-| `replay_camera_baseline.py` | diagnostic: replays the typed sequences of the live-camera baseline (`results/01*.csv`) on the DAVIS recordings |
-| `README.md`, `HANDOFF.md` | this file; context for whoever continues the work |
+| `../auto_experiment.py` | automated runs: command generator, spoken commands through the KWS server, scoring rules, camera processing |
+| `../kws/gscd_hw_server.py` | KWS-on-FPGA server (Opal Kelly env): reset -> arm -> play wav -> read frames -> peak-confidence decision (`KWS_CONF_THR` 200, `KWS_UNKNOWN_SUPPRESS` 25 by default, 35 in the runs, `KWS_CAPTURE_S` 1.5) |
+| `batches.py` | synthetic / monitor batch -> `.npy`, mask, object names |
+| `run_written_random25.py`, `run_gscd_hw_random25.py`, `run_davis_written_random25.py`, `run_davis_gscd_hw_random25.py`, `run_rwo_random25.py` | runners |
+| `run_possible_written.sh`, `run_possible_spoken.sh` | all three inputs, only possible commands |
+| `tables_v2.py`, `tables_rwo.py` | result tables (synthetic + monitor; real objects per scene / factor) |
+| `show_trial.py` | one trial with the live window |
+| `verify_scoring.py` | independent re-implementation of the scoring, checks every stored row |
+| `davis_ground_truth.py` | ground-truth masks for the monitor recordings |
+| `HANDOFF.md` | history, earlier protocols (random25 with impossible commands) and their result folders, traps |
 
-Result folders: `results_random25/` and `results_random25_gscd_hw/` are the raw runs scored with the **old** rule 2
-(kept for reference); `*_rule2fix/` are the same runs re-scored with "either". `results_random25_davis/` was produced
-with "either" directly. `davis_cache/` holds regenerable filtered event streams, and `_verify/` the outputs of the
-equivalence check (neither needs to be committed).
+## 9. What changed in pre-existing code
 
-## 8. What changed in pre-existing code
-
-* `kws_mod_live_words_new_exp.py`: hooks only, each marked `CHANGED`. In order:
-  1. import of `auto_experiment` and `time`;
-  2. the EXPERIMENT block is overridden from the environment in automated runs (`{L}{V}_tTT_bBB` trial ids);
-  3. `r0 = 7` when `VISUAL == 1` (camera value);
-  4. headless flags (`SHOW`; `RECORD` / `DEBUG` off unless `VA_GUI` / `VA_RECORD`);
-  5. `AX.Commander` replaces the stdin thread in automated runs;
-  6. camera noise filter, sensor-sized grid and raw event counts when `VISUAL == 1`;
-  7. `close_command()` logs the intended and recognised words for spoken runs, and `drain_commands()` handles a `miss`;
-  8. `write_results()` applies rules 1–2 and adds the per-step flag columns in automated runs;
-  9. camera fixation gate / follow-the-peak when `VISUAL == 1`;
-  10. `commander.feed(...)` once per window;
-  11. drawing and window only when `SHOW`, real-time sleep for headless spoken runs, KWS server shutdown at the end.
-
-  Untouched: everything a manual session does.
-* New: `auto_experiment.py`, `kws/gscd_hw_server.py`, this folder, and `stimuli/ground_truth_masks/davis_*`. The
-  `camera_*` masks were not touched.
-* Not part of the random25 protocol: the older fixed-sequence scripts in the repo root (`GSCD_HW_loop_<stimulus>.py` +
-  `gscd_hw_loop_core.py`, `replay_batch.py` + `auto_exp_gui.py`). They still use generated copies of the script and the
-  original scoring.
+* `kws_mod_live_words_new_exp.py`: hooks only, each marked `CHANGED`: import of `auto_experiment`; the EXPERIMENT block
+  overridden from the environment in automated runs; `r0 = 7` for the camera; headless flags; `AX.Commander` instead of
+  the stdin thread; camera noise filter, sensor grid and raw event counts; logging of intended / recognised words;
+  scoring in `write_results()` (`AX.score_step`) with per-step flag columns; camera fixation gate; `commander.feed(...)`
+  once per window; drawing only when `SHOW`, real-time pacing of spoken runs, KWS server shutdown. Everything a manual
+  session does is untouched.
+* New: `auto_experiment.py`, `kws/gscd_hw_server.py`, this folder, `stimuli/ground_truth_masks/davis_*` and `rwo_*`.

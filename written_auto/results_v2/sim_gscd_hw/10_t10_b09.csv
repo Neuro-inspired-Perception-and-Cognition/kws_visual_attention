@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,up,0.851,d5b963aa_nohash_0.wav,1,32.0,63.0,32.0,8.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,1,0,0,v2,0,0,random25,1,17.5,11.8,10_t10_b09,1,0,10,9,60.0
+2,right,unknown,0.812,f297e878_nohash_0.wav,1,32.0,8.0,32.0,8.0,1,object 1 (apple),2,object 2 (bottle),1,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,1,17.5,11.8,10_t10_b09,1,0,10,9,60.0
+3,down,down,0.894,e0c782d5_nohash_1.wav,1,32.0,8.0,32.0,64.0,1,object 1 (apple),4,object 4 (heart),4,OK,1,0,0,0,0,v2,0,0,random25,4,10.5,11.8,10_t10_b09,1,0,10,9,60.0
+4,left,left,0.894,97f4c236_nohash_0.wav,1,32.0,64.0,25.0,62.0,4,object 4 (heart),0,background,4,no object that way,1,0,1,0,0,v2,1,1,random25,4,17.7,11.8,10_t10_b09,1,0,10,9,60.0
+5,right,unknown,0.898,5e3dde6b_nohash_1.wav,1,25.0,62.0,25.0,62.0,4,object 4 (heart),4,object 4 (heart),4,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,4,17.7,11.8,10_t10_b09,1,0,10,9,60.0
+6,down,down,0.906,6021f08b_nohash_0.wav,1,25.0,62.0,25.0,120.0,4,object 4 (heart),7,object 7 (moon),7,OK,1,0,0,1,1,v2,0,0,random25,7,16.4,11.8,10_t10_b09,1,0,10,9,60.0
+7,down,down,0.918,692a88e6_nohash_4.wav,1,25.0,120.0,25.0,122.0,7,object 7 (moon),0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,7,17.8,11.8,10_t10_b09,1,0,10,9,60.0
+8,right,right,0.871,ef2a3cfb_nohash_1.wav,1,25.0,122.0,84.0,124.0,0,background,7,object 7 (moon),8,WRONG - expected object 7 (moon),0,0,0,1,1,v2,0,0,random25,8,15.2,11.8,10_t10_b09,1,0,10,9,60.0
+9,left,left,0.886,189cbabe_nohash_2.wav,1,84.0,124.0,26.0,122.0,8,object 8 (tree),7,object 7 (moon),0,WRONG - expected object 7 (moon),0,0,1,0,0,v2,0,0,random25,7,17.1,11.8,10_t10_b09,1,0,10,9,60.0
+10,down,down,0.894,5c8af87a_nohash_2.wav,1,26.0,122.0,25.0,122.0,0,background,0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,7,17.8,11.8,10_t10_b09,1,0,10,9,60.0

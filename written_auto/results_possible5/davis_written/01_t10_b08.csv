@@ -1,0 +1,6 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,1,93.0,124.0,5.0,119.0,5,object 5 (diamond),4,object 4 (heart),0,WRONG - expected object 4 (heart),0,0,1,0,0,v2,0,0,random25,4,31.5,17.9,01_t10_b08,0,1,10,8,60.0
+2,up,1,5.0,119.0,7.0,100.0,0,background,4,object 4 (heart),4,OK,1,0,0,1,1,v2,0,0,random25,4,20.2,17.9,01_t10_b08,0,1,10,8,60.0
+3,up,1,7.0,100.0,19.0,49.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,1,0,0,v2,0,0,random25,1,15.0,17.9,01_t10_b08,0,1,10,8,60.0
+4,right,1,19.0,49.0,47.0,31.0,1,object 1 (apple),2,object 2 (bottle),1,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,1,20.1,17.9,01_t10_b08,0,1,10,8,60.0
+5,right,1,47.0,31.0,97.0,41.0,1,object 1 (apple),2,object 2 (bottle),2,OK,1,0,1,0,0,v2,0,0,random25,2,9.7,17.9,01_t10_b08,0,1,10,8,60.0

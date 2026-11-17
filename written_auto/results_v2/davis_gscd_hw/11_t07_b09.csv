@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,unknown,0.937,9d171fee_nohash_0.wav,1,24.0,124.0,24.0,124.0,7,object 7 (moon),0,background,7,KWS WRONG - heard unknown,0,0,1,0,0,v2,1,0,random25,7,17.4,12.7,11_t07_b09,1,1,7,9,60.0
+2,up,none,0.682,fdb5155e_nohash_3.wav,1,23.0,123.0,23.0,123.0,7,object 7 (moon),4,object 4 (heart),7,KWS WRONG - heard none,0,0,0,0,0,v2,0,0,random25,7,17.4,12.7,11_t07_b09,1,1,7,9,60.0
+3,up,up,0.894,fb7eb481_nohash_0.wav,1,24.0,125.0,31.0,67.0,7,object 7 (moon),4,object 4 (heart),4,OK,1,0,0,0,0,v2,0,0,random25,4,10.7,12.7,11_t07_b09,1,1,7,9,60.0
+4,left,left,0.788,85834399_nohash_0.wav,1,31.0,67.0,24.0,64.0,4,object 4 (heart),0,background,4,no object that way,1,0,1,0,0,v2,1,1,random25,4,17.6,12.7,11_t07_b09,1,1,7,9,60.0
+5,left,unknown,0.933,412c675c_nohash_0.wav,1,24.0,64.0,24.0,64.0,4,object 4 (heart),0,background,4,KWS WRONG - heard unknown,0,0,0,1,1,v2,1,1,random25,4,17.6,12.7,11_t07_b09,1,1,7,9,60.0
+6,down,down,0.91,210f3aa9_nohash_0.wav,1,24.0,65.0,23.0,123.0,4,object 4 (heart),7,object 7 (moon),7,OK,1,0,0,1,1,v2,0,0,random25,7,17.4,12.7,11_t07_b09,1,1,7,9,60.0
+7,left,unknown,0.875,37dca74f_nohash_2.wav,1,23.0,123.0,23.0,123.0,7,object 7 (moon),0,background,7,KWS WRONG - heard unknown,0,0,1,0,0,v2,1,1,random25,7,17.4,12.7,11_t07_b09,1,1,7,9,60.0
+8,down,down,0.914,b49caed3_nohash_2.wav,1,23.0,122.0,24.0,125.0,7,object 7 (moon),0,background,7,no object that way,1,0,0,0,0,v2,1,1,random25,7,18.1,12.7,11_t07_b09,1,1,7,9,60.0
+9,right,right,0.894,c9b5ff26_nohash_2.wav,1,24.0,125.0,85.0,126.0,7,object 7 (moon),8,object 8 (tree),8,OK,1,0,0,1,1,v2,0,0,random25,8,14.3,12.7,11_t07_b09,1,1,7,9,60.0
+10,up,up,0.902,b49caed3_nohash_1.wav,1,85.0,126.0,85.0,67.0,8,object 8 (tree),5,object 5 (diamond),5,OK,1,0,1,0,0,v2,0,0,random25,5,2.0,12.7,11_t07_b09,1,1,7,9,60.0

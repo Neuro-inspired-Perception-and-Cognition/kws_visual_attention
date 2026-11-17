@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,up,0.851,68dd409e_nohash_1.wav,1,148.0,0.0,147.0,0.0,0,background,0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,3,36.0,17.4,10_t06_b06,1,0,6,6,50.0
+2,left,unknown,0.91,af7a8296_nohash_1.wav,1,147.0,0.0,147.0,0.0,0,background,2,object 2 (bottle),0,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,3,36.0,17.4,10_t06_b06,1,0,6,6,50.0
+3,down,down,0.929,4c6167ca_nohash_0.wav,1,147.0,0.0,136.0,32.0,0,background,3,object 3 (star),3,OK,1,0,0,1,1,v2,0,0,random25,3,8.6,17.4,10_t06_b06,1,0,6,6,50.0
+4,left,left,0.871,80c45ed6_nohash_1.wav,1,136.0,32.0,104.0,57.0,3,object 3 (star),2,object 2 (bottle),2,OK,1,0,1,0,0,v2,0,0,random25,2,26.3,17.4,10_t06_b06,1,0,6,6,50.0
+5,right,right,0.949,83957201_nohash_0.wav,1,104.0,57.0,137.0,36.0,2,object 2 (bottle),3,object 3 (star),3,OK,1,0,1,0,0,v2,0,0,random25,3,6.7,17.4,10_t06_b06,1,0,6,6,50.0
+6,down,down,0.859,8fe67225_nohash_1.wav,1,137.0,36.0,140.0,77.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,0,1,0,0,v2,0,0,random25,6,16.9,17.4,10_t06_b06,1,0,6,6,50.0
+7,up,up,0.906,893705bb_nohash_1.wav,1,140.0,77.0,145.0,1.0,6,object 6 (mushroom),3,object 3 (star),0,WRONG - expected object 3 (star),0,0,1,0,0,v2,0,0,random25,3,34.9,17.4,10_t06_b06,1,0,6,6,50.0
+8,down,unknown,0.839,e49428d9_nohash_1.wav,1,145.0,1.0,145.0,1.0,0,background,3,object 3 (star),0,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,3,34.9,17.4,10_t06_b06,1,0,6,6,50.0
+9,down,down,0.941,3b4f8f24_nohash_1.wav,1,145.0,1.0,134.0,67.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,6,28.2,17.4,10_t06_b06,1,0,6,6,50.0
+10,right,unknown,0.902,97f4c236_nohash_1.wav,1,134.0,67.0,134.0,67.0,0,background,0,background,0,KWS WRONG - heard unknown,0,0,1,0,0,v2,1,1,random25,6,28.2,17.4,10_t06_b06,1,0,6,6,50.0

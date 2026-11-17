@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,right,0.941,1b4c9b89_nohash_3.wav,1,152.0,0.0,162.0,0.0,0,background,2,object 2 (top-right),0,KWS WRONG - heard right,0,0,1,0,0,v2,0,0,random25,2,54.0,19.4,10_t10_b02,1,0,10,2,40.0
+2,left,left,0.859,9dc1889e_nohash_0.wav,1,162.0,0.0,147.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,2,42.9,19.4,10_t10_b02,1,0,10,2,40.0
+3,left,left,0.882,2aa787cf_nohash_0.wav,1,147.0,0.0,69.0,23.0,0,background,1,object 1 (top-left),1,OK,1,0,1,0,0,v2,0,0,random25,1,17.9,19.4,10_t10_b02,1,0,10,2,40.0
+4,right,right,0.878,8769c34c_nohash_3.wav,1,69.0,23.0,150.0,2.0,1,object 1 (top-left),2,object 2 (top-right),0,WRONG - expected object 2 (top-right),0,0,1,0,0,v2,0,0,random25,2,43.6,19.4,10_t10_b02,1,0,10,2,40.0
+5,down,left,0.906,f9643d42_nohash_0.wav,1,150.0,2.0,91.0,31.0,0,background,4,object 4 (bottom-right),2,KWS WRONG - heard left,0,0,1,0,0,v2,0,0,random25,2,27.7,19.4,10_t10_b02,1,0,10,2,40.0
+6,left,left,0.906,563aa4e6_nohash_0.wav,1,91.0,31.0,62.0,33.0,2,object 2 (top-right),1,object 1 (top-left),1,OK,1,0,1,0,0,v2,0,0,random25,1,8.3,19.4,10_t10_b02,1,0,10,2,40.0
+7,down,down,0.906,cfbedff9_nohash_2.wav,1,62.0,33.0,67.0,81.0,1,object 1 (top-left),3,object 3 (bottom-left),3,OK,1,1,1,0,0,v2,0,0,random25,3,21.0,19.4,10_t10_b02,1,0,10,2,40.0
+8,up,up,0.902,f9643d42_nohash_0.wav,1,67.0,81.0,64.0,32.0,3,object 3 (bottom-left),1,object 1 (top-left),1,OK,1,0,1,0,0,v2,0,0,random25,1,10.3,19.4,10_t10_b02,1,0,10,2,40.0
+9,left,up,0.843,c0e0f834_nohash_0.wav,1,64.0,32.0,59.0,0.0,1,object 1 (top-left),0,background,0,KWS WRONG - heard up,0,1,1,0,0,v2,1,1,random25,1,32.7,19.4,10_t10_b02,1,0,10,2,40.0
+10,right,right,0.867,91b03183_nohash_3.wav,1,59.0,0.0,146.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,2,42.3,19.4,10_t10_b02,1,0,10,2,40.0

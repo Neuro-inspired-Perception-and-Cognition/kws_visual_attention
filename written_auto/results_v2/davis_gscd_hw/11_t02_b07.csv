@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.898,8fe67225_nohash_3.wav,1,160.0,25.0,161.0,104.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,0,1,0,0,v2,0,0,random25,6,14.2,17.7,11_t02_b07,1,1,2,7,100.0
+2,left,left,0.894,caf9fceb_nohash_0.wav,1,161.0,104.0,90.0,105.0,6,object 6 (mushroom),5,object 5 (diamond),5,OK,1,0,1,0,0,v2,0,0,random25,5,8.7,17.7,11_t02_b07,1,1,2,7,100.0
+3,down,down,0.906,f9643d42_nohash_2.wav,1,90.0,105.0,89.0,112.0,5,object 5 (diamond),0,background,5,no object that way,1,1,1,0,0,v2,1,1,random25,5,15.5,17.7,11_t02_b07,1,1,2,7,100.0
+4,down,down,0.91,4c6167ca_nohash_3.wav,1,89.0,112.0,89.0,112.0,5,object 5 (diamond),0,background,5,no object that way,1,0,0,1,1,v2,1,1,random25,5,15.5,17.7,11_t02_b07,1,1,2,7,100.0
+5,right,right,0.851,5525ff66_nohash_0.wav,1,89.0,112.0,160.0,105.0,5,object 5 (diamond),6,object 6 (mushroom),6,OK,1,0,0,1,1,v2,0,0,random25,6,13.9,17.7,11_t02_b07,1,1,2,7,100.0
+6,left,left,0.89,ea356919_nohash_0.wav,1,160.0,105.0,91.0,106.0,6,object 6 (mushroom),5,object 5 (diamond),5,OK,1,0,1,0,0,v2,0,0,random25,5,9.9,17.7,11_t02_b07,1,1,2,7,100.0
+7,left,left,0.82,03401e93_nohash_1.wav,1,91.0,106.0,15.0,104.0,5,object 5 (diamond),4,object 4 (heart),4,OK,1,0,1,0,0,v2,0,0,random25,4,14.1,17.7,11_t02_b07,1,1,2,7,100.0
+8,up,up,0.894,c9b5ff26_nohash_0.wav,1,15.0,104.0,13.0,32.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,1,0,0,v2,0,0,random25,1,15.4,17.7,11_t02_b07,1,1,2,7,100.0
+9,left,left,0.824,fce96bac_nohash_0.wav,1,13.0,32.0,10.0,33.0,1,object 1 (apple),0,background,1,no object that way,1,0,1,0,0,v2,1,1,random25,1,18.0,17.7,11_t02_b07,1,1,2,7,100.0
+10,up,up,0.839,422d3197_nohash_0.wav,1,10.0,33.0,15.0,17.0,1,object 1 (apple),0,background,1,no object that way,1,0,0,1,1,v2,1,1,random25,1,23.6,17.7,11_t02_b07,1,1,2,7,100.0

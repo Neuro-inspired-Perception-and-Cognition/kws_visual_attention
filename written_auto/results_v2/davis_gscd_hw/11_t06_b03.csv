@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,right,unknown,0.875,8494fba8_nohash_0.wav,1,88.0,116.0,88.0,116.0,5,object 5 (bottom-mid),6,object 6 (bottom-right),5,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,1,random25,5,19.4,16.4,11_t06_b03,1,1,6,3,80.0
+2,left,left,0.906,f0ae7203_nohash_0.wav,1,91.0,109.0,18.0,108.0,5,object 5 (bottom-mid),4,object 4 (bottom-left),4,OK,1,0,0,0,0,v2,0,0,random25,4,15.2,16.4,11_t06_b03,1,1,6,3,80.0
+3,down,down,0.914,95ba4996_nohash_2.wav,1,18.0,108.0,18.0,113.0,4,object 4 (bottom-left),0,background,4,no object that way,1,0,1,0,0,v2,1,1,random25,4,19.5,16.4,11_t06_b03,1,1,6,3,80.0
+4,right,right,0.902,1b4c9b89_nohash_0.wav,1,18.0,113.0,84.0,114.0,4,object 4 (bottom-left),5,object 5 (bottom-mid),5,OK,1,0,0,1,1,v2,0,0,random25,5,17.9,16.4,11_t06_b03,1,1,6,3,80.0
+5,down,down,0.882,283d7a53_nohash_1.wav,1,84.0,114.0,87.0,117.0,5,object 5 (bottom-mid),0,background,5,no object that way,1,0,1,0,0,v2,1,1,random25,5,20.5,16.4,11_t06_b03,1,1,6,3,80.0
+6,left,left,0.898,44260689_nohash_0.wav,1,87.0,117.0,18.0,111.0,5,object 5 (bottom-mid),4,object 4 (bottom-left),4,OK,1,0,0,1,1,v2,0,0,random25,4,17.7,16.4,11_t06_b03,1,1,6,3,80.0
+7,down,down,0.91,b2e2773a_nohash_0.wav,1,18.0,111.0,17.0,113.0,4,object 4 (bottom-left),0,background,4,no object that way,1,0,1,0,0,v2,1,1,random25,4,20.0,16.4,11_t06_b03,1,1,6,3,80.0
+8,left,left,0.824,b2e2773a_nohash_1.wav,1,17.0,113.0,7.0,112.0,4,object 4 (bottom-left),0,background,4,no object that way,1,0,0,1,1,v2,1,1,random25,4,25.8,16.4,11_t06_b03,1,1,6,3,80.0
+9,down,down,0.894,881583a6_nohash_0.wav,1,7.0,112.0,11.0,116.0,4,object 4 (bottom-left),0,background,4,no object that way,1,0,0,1,1,v2,1,1,random25,4,25.8,16.4,11_t06_b03,1,1,6,3,80.0
+10,right,unknown,0.851,a7216980_nohash_1.wav,1,11.0,116.0,11.0,116.0,4,object 4 (bottom-left),5,object 5 (bottom-mid),4,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,4,25.8,16.4,11_t06_b03,1,1,6,3,80.0

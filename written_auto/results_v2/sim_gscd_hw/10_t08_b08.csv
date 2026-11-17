@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,up,0.922,cc592808_nohash_0.wav,1,148.0,0.0,148.0,0.0,0,background,0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,3,36.1,17.4,10_t08_b08,1,0,8,8,60.0
+2,down,down,0.918,80c45ed6_nohash_0.wav,1,148.0,0.0,137.0,33.0,0,background,3,object 3 (star),3,OK,1,0,0,1,1,v2,0,0,random25,3,7.3,17.4,10_t08_b08,1,0,8,8,60.0
+3,left,left,0.886,3efef882_nohash_0.wav,1,137.0,33.0,105.0,56.0,3,object 3 (star),2,object 2 (bottle),2,OK,1,1,1,0,0,v2,0,0,random25,2,26.3,17.4,10_t08_b08,1,0,8,8,60.0
+4,right,unknown,0.894,cfbedff9_nohash_3.wav,1,105.0,56.0,105.0,56.0,2,object 2 (bottle),3,object 3 (star),2,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,2,26.3,17.4,10_t08_b08,1,0,8,8,60.0
+5,right,right,0.945,c7dc7278_nohash_0.wav,1,105.0,56.0,140.0,38.0,2,object 2 (bottle),3,object 3 (star),3,OK,1,0,0,0,0,v2,0,0,random25,3,4.3,17.4,10_t08_b08,1,0,8,8,60.0
+6,down,down,0.902,553f1a79_nohash_1.wav,1,140.0,38.0,143.0,81.0,3,object 3 (star),6,object 6 (mushroom),6,OK,1,1,1,0,0,v2,0,0,random25,6,12.4,17.4,10_t08_b08,1,0,8,8,60.0
+7,up,up,0.882,db24628d_nohash_4.wav,1,143.0,81.0,146.0,0.0,6,object 6 (mushroom),3,object 3 (star),0,WRONG - expected object 3 (star),0,0,1,0,0,v2,0,0,random25,3,35.9,17.4,10_t08_b08,1,0,8,8,60.0
+8,left,left,0.827,ffa76c4a_nohash_1.wav,1,146.0,0.0,124.0,12.0,0,background,2,object 2 (bottle),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,3,30.9,17.4,10_t08_b08,1,0,8,8,60.0
+9,down,down,0.937,63f7a489_nohash_4.wav,1,124.0,12.0,107.0,57.0,0,background,3,object 3 (star),0,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,2,28.4,17.4,10_t08_b08,1,0,8,8,60.0
+10,up,up,0.843,2aa787cf_nohash_0.wav,1,107.0,57.0,121.0,10.0,0,background,0,background,0,no object that way,1,0,1,0,0,v2,1,0,random25,3,34.4,17.4,10_t08_b08,1,0,8,8,60.0

@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.831,e9901cf0_nohash_0.wav,1,151.0,0.0,140.0,43.0,0,background,2,object 2 (top-right),2,OK,1,0,1,0,0,v2,0,0,random25,2,23.8,19.4,10_t09_b02,1,0,9,2,40.0
+2,left,right,0.902,563aa4e6_nohash_3.wav,1,140.0,43.0,163.0,19.0,2,object 2 (top-right),1,object 1 (top-left),0,KWS WRONG - heard right,0,0,1,0,0,v2,0,0,random25,2,46.3,19.4,10_t09_b02,1,0,9,2,40.0
+3,up,up,0.878,8625475c_nohash_1.wav,1,163.0,19.0,162.0,0.0,0,background,0,background,0,no object that way,1,0,0,1,1,v2,1,1,random25,2,54.0,19.4,10_t09_b02,1,0,9,2,40.0
+4,right,right,0.894,ef2a3cfb_nohash_0.wav,1,162.0,0.0,161.0,0.0,0,background,0,background,0,no object that way,1,0,0,1,1,v2,1,1,random25,2,53.2,19.4,10_t09_b02,1,0,9,2,40.0
+5,down,down,0.941,63f7a489_nohash_4.wav,1,161.0,0.0,162.0,14.0,0,background,4,object 4 (bottom-right),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,2,47.0,19.4,10_t09_b02,1,0,9,2,40.0
+6,left,none,0.604,4a0e2c16_nohash_1.wav,1,162.0,14.0,162.0,14.0,0,background,2,object 2 (top-right),0,KWS WRONG - heard none,0,0,1,0,0,v2,0,0,random25,2,47.0,19.4,10_t09_b02,1,0,9,2,40.0
+7,up,unknown,0.831,9d4bab4f_nohash_0.wav,1,162.0,14.0,162.0,14.0,0,background,0,background,0,KWS WRONG - heard unknown,0,0,0,0,0,v2,1,1,random25,2,47.0,19.4,10_t09_b02,1,0,9,2,40.0
+8,up,up,0.878,97f4c236_nohash_3.wav,1,162.0,14.0,162.0,0.0,0,background,0,background,0,no object that way,1,0,0,0,0,v2,1,1,random25,2,54.0,19.4,10_t09_b02,1,0,9,2,40.0
+9,down,none,0.686,1cb788bc_nohash_0.wav,1,162.0,0.0,162.0,0.0,0,background,4,object 4 (bottom-right),0,KWS WRONG - heard none,0,0,0,1,1,v2,0,0,random25,2,54.0,19.4,10_t09_b02,1,0,9,2,40.0
+10,left,left,0.812,587f3271_nohash_0.wav,1,162.0,0.0,147.0,0.0,0,background,2,object 2 (top-right),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,2,42.9,19.4,10_t09_b02,1,0,9,2,40.0

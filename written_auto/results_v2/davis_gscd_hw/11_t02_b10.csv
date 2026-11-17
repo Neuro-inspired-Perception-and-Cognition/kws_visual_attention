@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,up,unknown,0.82,c7dc7278_nohash_1.wav,1,28.0,123.0,28.0,123.0,7,object 7 (moon),4,object 4 (heart),7,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,7,14.6,12.5,11_t02_b10,1,1,2,10,30.0
+2,up,none,0.596,7257420c_nohash_0.wav,1,26.0,123.0,26.0,123.0,7,object 7 (moon),4,object 4 (heart),7,KWS WRONG - heard none,0,0,0,0,0,v2,0,0,random25,7,15.8,12.5,11_t02_b10,1,1,2,10,30.0
+3,right,right,0.886,8fe52b97_nohash_1.wav,1,26.0,124.0,95.0,124.0,7,object 7 (moon),8,object 8 (tree),8,OK,1,0,0,0,0,v2,0,0,random25,8,15.3,12.5,11_t02_b10,1,1,2,10,30.0
+4,right,right,0.827,81dc4a94_nohash_0.wav,1,95.0,124.0,150.0,129.0,8,object 8 (tree),9,object 9 (mug),0,WRONG - expected object 9 (mug),0,0,1,0,0,v2,0,0,random25,9,25.7,12.5,11_t02_b10,1,1,2,10,30.0
+5,left,left,0.89,97f4c236_nohash_3.wav,1,150.0,129.0,92.0,123.0,0,background,9,object 9 (mug),8,WRONG - expected object 9 (mug),0,0,1,0,0,v2,0,0,random25,8,12.9,12.5,11_t02_b10,1,1,2,10,30.0
+6,left,left,0.851,a7216980_nohash_0.wav,1,92.0,123.0,28.0,120.0,8,object 8 (tree),7,object 7 (moon),7,OK,1,0,1,0,0,v2,0,0,random25,7,12.2,12.5,11_t02_b10,1,1,2,10,30.0
+7,right,right,0.886,8fe52b97_nohash_1.wav,1,28.0,120.0,94.0,124.0,7,object 7 (moon),8,object 8 (tree),8,OK,1,0,1,0,0,v2,0,0,random25,8,14.8,12.5,11_t02_b10,1,1,2,10,30.0
+8,left,left,0.871,b49caed3_nohash_3.wav,1,94.0,124.0,18.0,125.0,8,object 8 (tree),7,object 7 (moon),0,WRONG - expected object 7 (moon),0,0,1,0,0,v2,0,0,random25,7,23.0,12.5,11_t02_b10,1,1,2,10,30.0
+9,right,unknown,0.855,a7216980_nohash_2.wav,1,18.0,125.0,18.0,125.0,0,background,7,object 7 (moon),0,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,7,23.0,12.5,11_t02_b10,1,1,2,10,30.0
+10,right,unknown,0.871,cfbedff9_nohash_2.wav,1,19.0,121.0,19.0,121.0,0,background,7,object 7 (moon),0,KWS WRONG - heard unknown,0,0,0,1,1,v2,0,0,random25,7,19.9,12.5,11_t02_b10,1,1,2,10,30.0

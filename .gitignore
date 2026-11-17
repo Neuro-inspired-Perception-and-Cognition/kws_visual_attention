@@ -3,3 +3,14 @@ __pycache__/
 *.mp4
 *.png
 .vscode/
+
+# experiment environment / regenerable data / scratch (written_auto)
+venv/
+written_auto/davis_cache/
+written_auto/_check/
+written_auto/_replicate/
+written_auto/_verify/
+written_auto/results_random25_davis_gscd_hw_INVALID_noaudio/
+dbg_*.npy
+# Opal Kelly SWIG binding (part of their SDK)
+ok.py

@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,left,0.89,43fc47a7_nohash_0.wav,1,33.0,64.0,25.0,63.0,4,object 4 (heart),0,background,4,no object that way,1,1,1,0,0,v2,1,1,random25,4,17.6,11.8,10_t09_b09,1,0,9,9,70.0
+2,left,left,0.796,85834399_nohash_0.wav,1,25.0,63.0,25.0,63.0,4,object 4 (heart),0,background,4,no object that way,1,0,0,1,1,v2,1,1,random25,4,17.6,11.8,10_t09_b09,1,0,9,9,70.0
+3,up,up,0.922,83957201_nohash_0.wav,1,25.0,63.0,30.0,8.0,4,object 4 (heart),1,object 1 (apple),1,OK,1,0,0,1,1,v2,0,0,random25,1,18.8,11.8,10_t09_b09,1,0,9,9,70.0
+4,right,right,0.871,283d7a53_nohash_0.wav,1,30.0,8.0,84.0,7.0,1,object 1 (apple),2,object 2 (bottle),2,OK,1,0,1,0,0,v2,0,0,random25,2,15.3,11.8,10_t09_b09,1,0,9,9,70.0
+5,down,none,0.737,85d2ac4b_nohash_0.wav,1,84.0,7.0,84.0,7.0,2,object 2 (bottle),5,object 5 (diamond),2,KWS WRONG - heard none,0,0,1,0,0,v2,0,0,random25,2,15.3,11.8,10_t09_b09,1,0,9,9,70.0
+6,left,left,0.875,6f689791_nohash_0.wav,1,83.0,6.0,33.0,5.0,2,object 2 (bottle),1,object 1 (apple),1,OK,1,0,0,0,0,v2,0,0,random25,1,19.4,11.8,10_t09_b09,1,0,9,9,70.0
+7,right,right,0.859,87070229_nohash_1.wav,1,33.0,5.0,83.0,6.0,1,object 1 (apple),2,object 2 (bottle),2,OK,1,0,1,0,0,v2,0,0,random25,2,16.5,11.8,10_t09_b09,1,0,9,9,70.0
+8,up,up,0.902,b49caed3_nohash_2.wav,1,83.0,6.0,84.0,4.0,2,object 2 (bottle),0,background,2,no object that way,1,0,1,0,0,v2,1,1,random25,2,18.3,11.8,10_t09_b09,1,0,9,9,70.0
+9,left,left,0.878,893705bb_nohash_6.wav,1,84.0,4.0,33.0,4.0,2,object 2 (bottle),1,object 1 (apple),0,WRONG - expected object 1 (apple),0,0,0,1,1,v2,0,0,random25,1,20.3,11.8,10_t09_b09,1,0,9,9,70.0
+10,right,unknown,0.875,5e3dde6b_nohash_2.wav,1,33.0,4.0,33.0,4.0,0,background,2,object 2 (bottle),0,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,1,20.3,11.8,10_t09_b09,1,0,9,9,70.0

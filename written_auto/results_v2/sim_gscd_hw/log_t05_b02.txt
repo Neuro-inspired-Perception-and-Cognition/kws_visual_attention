@@ -1,0 +1,52 @@
+trial 10_t05_b02  (linguistic=1 visual=0 trial=5 batch=2)
+events : data/4_circles_mono_bg_jitter_346x260.npy
+mask   : stimuli/ground_truth_masks/4_circles_mono_bg_jitter_346x260.mask.npy
+result : written_auto/results_v2/sim_gscd_hw/10_t05_b02.csv   (limit 10 commands)
+Using device: cpu
+Loaded events        : 6432460  span 7500 ms
+Processing resolution: 173 x 130
+Windows              : 75 @ 100 ms  (loop=True)
+note: snap clamped to 19.4 px around each shape (shapes are 43.0 px apart edge to edge)
+Ground truth         : 173x130, 4 objects, radius 11.0 px, snap 19.4 px, spacing 65.0 px
+*** only 4% of event pixels fall on the mask's objects - the mask may not match this clip
+
+--- Type commands below ---
+
+  -> command set: 'down' (conf=0.894)  [1 logged, 8 left]
+  -> command set: 'left' (conf=0.816)  [2 logged, 7 left]
+  -> command set: 'down' (conf=0.89)  [3 logged, 6 left]
+  -> command set: 'left' (conf=0.882)  [5 logged, 4 left]
+  -> command set: 'up' (conf=0.886)  [8 logged, 1 left]
+  -> command set: 'up' (conf=0.82)  [9 logged, 0 left]
+
+mask 173x130, 4 objects, object radius 11.0 px, snap 19.4 px
+begin visual attention.
+most salient point in background.
+command: right
+now most salient point in background.   [KWS WRONG - heard unknown]
+command: down
+now most salient point in object 2 (top-right).   [WRONG - expected object 4 (bottom-right)]
+command: left
+now most salient point in background.   [WRONG - expected object 1 (top-left)]
+command: down
+now most salient point in background.   [FAILED - did not move]
+command: down
+now most salient point in background.   [KWS WRONG - heard unknown]
+command: right
+now most salient point in background.   [KWS WRONG - heard left]
+command: down
+now most salient point in background.   [KWS WRONG - heard unknown]
+command: down
+now most salient point in background.   [KWS WRONG - heard unknown]
+command: up
+now most salient point in object 1 (top-left).   [OK]
+command: up
+now most salient point in background.   [no object that way]
+
+2/10 commands correct  (20.0%)
+fovea moved on 9/10 commands
+wrote written_auto/results_v2/sim_gscd_hw/10_t05_b02.csv
+KWS: 5/10 spoken commands recognised correctly
+
+Session ended. Frames shown: 381
+[kws] configured /home/pwz/Repo/VoiceNAS/NAS-GNN-KWS/HW/vivado/kws/kws_system.runs/impl_1/ok_top_wrapper.bit

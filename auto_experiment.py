@@ -17,10 +17,14 @@ scoring. With it, the same script runs one trial headless and reproducibly:
                        unknown / no detection = the fovea is not moved. The KWS pipeline is reset before every
                        utterance.
   * scoring         -- rule 1: an impossible command (no object that way) is compliant if attention did not jump to
-                       another object; rule 2 ("either"): after a command that ended WITHOUT a lock, landing on the
-                       start object (if it lies in the commanded direction) or on the nearest other object that way
-                       are both compliant. Extra CSV columns: correct, start_inside, prev_locked, impossible,
-                       planned_impossible, mode (+ recognized, kws_conf, wav for spoken runs).
+                       another object; rule 2 (VA_RULE=v2, default): when the last command that moved the fovea ended
+                       without a lock, landing on the start object (if it lies in the commanded direction) or on
+                       the nearest other object that way are both compliant; after the first fixation, a lock or
+                       a KWS miss, the original oracle (start object excluded). Spoken runs: a step the KWS did not
+                       recognise correctly is not compliant (VA_KWS_WRONG). VA_RULE=either = the earlier rule
+                       (start object accepted after any command that ended without a lock). Extra CSV columns:
+                       correct, start_inside, prev_locked, either, impossible, planned_impossible, mode, rule
+                       (+ recognized, kws_conf, wav for spoken runs).
   * camera input    -- VISUAL = 1: pre-recorded DAVIS346 events, processed like kws_mod_cam_words_exp.py
                        (background-activity noise filter, clear-peak fixation gate, follow the peak before the
                        first command; r0 = 7 is set in the main script).
@@ -113,29 +117,43 @@ def inside_id(mask, p):
     return None
 
 
-def target_for(mask, cents, snap, ref, direction, prev_locked, object_near, oracle):
+# Rule 2 variant (VA_RULE): "v2" (default) or "either" (the earlier rule, kept to reproduce old results).
+#   v2     : the start object counts as a target when the fovea is "lost": the last command that MOVED the fovea
+#            ended without a lock (an impossible command, or a pan that found nothing in clutter). The fovea is then
+#            not on the start object, so moving back onto it is a legal landing. The first fixation and a lock put
+#            the fovea on an object (start object excluded, as in the original oracle). A spoken command the KWS
+#            did not recognise as a direction does not move the fovea and leaves this state unchanged.
+#   either : the start object counts after ANY command that ended without a lock, including a KWS miss
+#            (the earlier rule, which credited "nothing moved" after a miss).
+RULE = os.environ.get("VA_RULE", "v2")
+# Spoken runs: a step whose word the KWS did not recognise correctly (unknown / none / wrong direction) is scored
+# as not compliant. VA_KWS_WRONG = "all" (every such step, default) | "possible" (only possible commands) | "off".
+KWS_WRONG = os.environ.get("VA_KWS_WRONG", "off" if RULE == "either" else "all")  # either = old behaviour
+
+
+def target_for(mask, cents, snap, ref, direction, either, object_near, oracle):
     """Used to decide whether a direction is POSSIBLE (non-empty targets_for <=> this is not None): the start object
-    is excluded only if the previous command ended with a LOCK."""
+    is excluded unless rule 2 lets it count (`either`)."""
     start = object_near(mask, cents, ref, snap)
-    return oracle(cents, ref, direction, exclude=start if prev_locked else None)
+    return oracle(cents, ref, direction, exclude=None if either else start)
 
 
-def targets_for(mask, cents, snap, ref, direction, prev_locked, object_near, oracle):
-    """Acceptable landing objects (rule 2, "either"). After a LOCKED command (or the first one): the nearest other
-    object in the commanded direction, as in the original oracle. After an UNLOCKED command the true fovea can be up
-    to READOUT_R away from the logged attended point, so whether the controller (lock only after MIN_TRAVEL) can
-    re-acquire the start object cannot be judged: the start object (if it lies that way) and the nearest other
-    object that way are both compliant."""
+def targets_for(mask, cents, snap, ref, direction, either, object_near, oracle):
+    """Acceptable landing objects. Normally the nearest OTHER object in the commanded direction (original oracle).
+    When rule 2 applies (`either`), the start object (if it lies that way) is also accepted."""
     start = object_near(mask, cents, ref, snap)
-    if prev_locked or start is None:
+    if not either or start is None:
         return {oracle(cents, ref, direction, exclude=start)} - {None}
     return {oracle(cents, ref, direction, exclude=None), oracle(cents, ref, direction, exclude=start)} - {None}
 
 
-def score_step(mask, cents, snap, ref, direction, prev_locked, start_id, landed, object_near, oracle, label):
-    """Rules 1 + 2. Returns (target, verdict, ok)."""
-    targets = targets_for(mask, cents, snap, ref, direction, prev_locked, object_near, oracle)
+def score_step(mask, cents, snap, ref, direction, either, start_id, landed, object_near, oracle, label,
+               kws_ok=True, recognized=None):
+    """Rules 1 + 2 (+ the KWS rule in spoken runs). Returns (target, verdict, ok)."""
+    targets = targets_for(mask, cents, snap, ref, direction, either, object_near, oracle)
     target = min(targets) if targets else None
+    if not kws_ok and (KWS_WRONG == "all" or (KWS_WRONG == "possible" and target is not None)):
+        return target, f"KWS WRONG - heard {recognized}", False
     if target is not None and landed in targets:
         return target, "OK", True
     if target is None:      # rule 1: impossible command - ok unless another object captured attention
@@ -162,7 +180,8 @@ class Commander:
         self.rng_cmd = random.Random(f"cmd-{batch}-{trial}")
         self.init = int(os.environ.get("VA_INIT", 10))
         self.timeout = int(os.environ.get("VA_TIMEOUT", 30))
-        self.rmin, self.rmax = 3, 8                         # reaction after a lock, in 100 ms windows
+        # reaction after a lock, in 100 ms windows (VA_REACT="min,max"; default 3,8 = 0.3-0.8 s)
+        self.rmin, self.rmax = (int(v) for v in os.environ.get("VA_REACT", "3,8").split(","))
         self.st = {"i": 0, "issued_at": None, "lock_at": None, "react": None, "first_fix": None, "done": False}
         self.planned = []                                   # per command: cmd, planned_impossible, n_possible, prev_locked
         self.meta_active = None
@@ -193,7 +212,7 @@ class Commander:
         self.kws["result"] = (intended, wav, json.loads(self.srv.stdout.readline()))
 
     # ---- called once per window from the main loop, after the attended point is known ----
-    def feed(self, win, is_locked, fixated, ref, target_fn):
+    def feed(self, win, is_locked, fixated, ref, target_fn, start_fn=None):
         a = self.st
         if a["done"] or not fixated:
             return
@@ -203,6 +222,9 @@ class Commander:
             intended, wav, res = self.kws["result"]; self.kws["result"] = None; self.kws["busy"] = False
             meta = {"intended": intended, "recognized": res.get("label", "none"),
                     "kws_conf": res.get("conf", 0.0), "wav": wav}
+            if self.planned:
+                self.planned[-1]["kws_ok"] = meta["recognized"] == intended
+                self.planned[-1]["moved"] = meta["recognized"] in self.dirs
             self.kws_log.append({"step": a["i"], "window": win, **meta,
                                  **{k: res.get(k) for k in ("peak_conf", "scores", "latency_s")}})
             if meta["recognized"] in self.dirs:
@@ -226,7 +248,18 @@ class Commander:
             self.q.put("quit"); a["done"] = True
             return
         prev_locked = True if a["issued_at"] is None else bool(is_locked)
-        poss = [d for d in self.dirs if target_fn(ref, d, prev_locked) is not None]
+        start = start_fn(ref) if start_fn is not None else None
+        if RULE == "either":
+            either = not prev_locked
+        else:   # v2: "lost" = the last command that moved the fovea ended without a lock
+            p = self.planned[-1] if self.planned else None
+            if p is None:
+                either = False                          # first command: fovea on the first fixation
+            elif p.get("moved", True):
+                either = not prev_locked                # the previous command moved the fovea
+            else:
+                either = p["either"]                    # KWS miss: the fovea did not move, state unchanged
+        poss = [d for d in self.dirs if target_fn(ref, d, either) is not None]
         imp = [d for d in self.dirs if d not in poss]
         if self.mode == "list":
             c = self.cmds[a["i"]]
@@ -237,7 +270,8 @@ class Commander:
             pool = (imp or poss) if want_imp else (poss or imp)
             c = self.rng_cmd.choice(pool)
         self.cmds[a["i"]] = c
-        self.planned.append({"cmd": c, "planned_impossible": int(c in imp), "n_possible": len(poss), "prev_locked": prev_locked})
+        self.planned.append({"cmd": c, "planned_impossible": int(c in imp), "n_possible": len(poss),
+                             "prev_locked": prev_locked, "either": either, "start": start})
         if self.spoken:
             wav = os.path.join(self.audio, self.rng_wav.choice(self.test_by[c]))
             self.kws["busy"] = True
@@ -269,6 +303,9 @@ class Commander:
 
     def prev_locked(self, i):
         return self.planned[i - 1]["prev_locked"] if i - 1 < len(self.planned) else True
+
+    def planned_either(self, i):
+        return int(self.planned[i - 1]["either"]) if i - 1 < len(self.planned) else ""
 
     def planned_impossible(self, i):
         return self.planned[i - 1]["planned_impossible"] if i - 1 < len(self.planned) else ""

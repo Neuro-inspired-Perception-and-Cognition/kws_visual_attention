@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,left,0.937,bb05582b_nohash_4.wav,1,89.0,120.0,32.0,113.0,5,object 5 (bottom-mid),4,object 4 (bottom-left),4,OK,1,0,1,0,0,v2,0,1,random25,4,17.9,16.4,11_t02_b04,1,1,2,4,50.0
+2,left,left,0.851,f2e59fea_nohash_0.wav,1,32.0,113.0,8.0,117.0,4,object 4 (bottom-left),0,background,0,no object that way,1,0,1,0,0,v2,1,1,random25,4,28.5,16.4,11_t02_b04,1,1,2,4,50.0
+3,up,none,0.769,135c6841_nohash_0.wav,1,8.0,117.0,8.0,117.0,0,background,4,object 4 (bottom-left),0,KWS WRONG - heard none,0,0,0,1,1,v2,0,0,random25,4,28.5,16.4,11_t02_b04,1,1,2,4,50.0
+4,up,up,0.871,f428ca69_nohash_1.wav,1,11.0,119.0,17.0,35.0,0,background,4,object 4 (bottom-left),1,WRONG - expected object 4 (bottom-left),0,0,0,1,1,v2,0,0,random25,1,11.3,16.4,11_t02_b04,1,1,2,4,50.0
+5,right,right,0.875,aa80f517_nohash_2.wav,1,17.0,35.0,28.0,27.0,1,object 1 (top-left),2,object 2 (top-mid),1,FAILED - did not move,0,0,1,0,0,v2,0,0,random25,1,8.3,16.4,11_t02_b04,1,1,2,4,50.0
+6,right,right,0.925,a6f2fd71_nohash_0.wav,1,28.0,27.0,96.0,32.0,1,object 1 (top-left),2,object 2 (top-mid),2,OK,1,1,1,0,0,v2,0,0,random25,2,8.4,16.4,11_t02_b04,1,1,2,4,50.0
+7,up,up,0.847,aa48c94a_nohash_0.wav,1,96.0,32.0,96.0,20.0,2,object 2 (top-mid),0,background,2,no object that way,1,1,1,0,0,v2,1,1,random25,2,17.0,16.4,11_t02_b04,1,1,2,4,50.0
+8,up,up,0.906,67961766_nohash_1.wav,1,96.0,20.0,96.0,13.0,2,object 2 (top-mid),0,background,2,no object that way,1,0,0,1,1,v2,1,1,random25,2,23.5,16.4,11_t02_b04,1,1,2,4,50.0
+9,right,right,0.898,ef2a3cfb_nohash_1.wav,1,96.0,13.0,164.0,9.0,2,object 2 (top-mid),3,object 3 (top-right),0,WRONG - expected object 3 (top-right),0,0,0,1,1,v2,0,0,random25,3,31.6,16.4,11_t02_b04,1,1,2,4,50.0
+10,down,down,0.91,5b1db3ee_nohash_0.wav,1,164.0,9.0,172.0,24.0,0,background,3,object 3 (top-right),0,FAILED - did not move,0,0,0,1,1,v2,0,0,random25,3,27.5,16.4,11_t02_b04,1,1,2,4,50.0

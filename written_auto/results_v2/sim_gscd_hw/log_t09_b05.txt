@@ -1,0 +1,51 @@
+trial 10_t09_b05  (linguistic=1 visual=0 trial=9 batch=5)
+events : data/6_objects_mono_nobg_346x260.npy
+mask   : stimuli/ground_truth_masks/6_objects_mono_nobg_346x260.mask.npy
+result : written_auto/results_v2/sim_gscd_hw/10_t09_b05.csv   (limit 10 commands)
+Using device: cpu
+Loaded events        : 125030  span 7500 ms
+Processing resolution: 173 x 130
+Windows              : 75 @ 100 ms  (loop=True)
+Ground truth         : 173x130, 6 objects, radius 8.9 px, snap 17.7 px, spacing 57.3 px
+*** only 18% of event pixels fall on the mask's objects - the mask may not match this clip
+
+--- Type commands below ---
+
+  -> command set: 'down' (conf=0.843)  [2 logged, 7 left]
+  -> command set: 'left' (conf=0.851)  [3 logged, 6 left]
+  -> command set: 'up' (conf=0.827)  [5 logged, 4 left]
+  -> command set: 'down' (conf=0.882)  [7 logged, 2 left]
+  -> command set: 'down' (conf=0.867)  [8 logged, 1 left]
+  -> command set: 'right' (conf=0.839)  [9 logged, 0 left]
+
+mask 173x130, 6 objects, object radius 8.9 px, snap 17.7 px
+begin visual attention.
+most salient point in object 5 (diamond).
+command: right
+now most salient point in object 5 (diamond).   [KWS WRONG - heard unknown]
+command: left
+now most salient point in object 5 (diamond).   [KWS WRONG - heard unknown]
+command: down
+now most salient point in object 5 (diamond).   [no object that way]
+command: left
+now most salient point in object 4 (heart).   [OK]
+command: left
+now most salient point in object 4 (heart).   [KWS WRONG - heard none]
+command: up
+now most salient point in object 1 (apple).   [OK]
+command: right
+now most salient point in object 1 (apple).   [KWS WRONG - heard unknown]
+command: down
+now most salient point in object 4 (heart).   [OK]
+command: down
+now most salient point in object 4 (heart).   [no object that way]
+command: right
+now most salient point in object 5 (diamond).   [OK]
+
+6/10 commands correct  (60.0%)
+fovea moved on 10/10 commands
+wrote written_auto/results_v2/sim_gscd_hw/10_t09_b05.csv
+KWS: 6/10 spoken commands recognised correctly
+
+Session ended. Frames shown: 384
+[kws] configured /home/pwz/Repo/VoiceNAS/NAS-GNN-KWS/HW/vivado/kws/kws_system.runs/impl_1/ok_top_wrapper.bit

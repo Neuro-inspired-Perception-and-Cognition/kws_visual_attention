@@ -1,0 +1,55 @@
+trial 11_t01_b07  (linguistic=1 visual=1 trial=1 batch=7)
+events : /media/pwz/KINGSTON/NAS-KWS/Experiments/Event and Grayscale data - DAVIS-20261116T144619Z-1-001/Event and Grayscale data - DAVIS/raw/events/6_objects_color_nobg_346x260.npy
+mask   : stimuli/ground_truth_masks/davis_6_objects_color_nobg_346x260.mask.npy
+result : written_auto/results_v2/davis_gscd_hw/11_t01_b07.csv   (limit 10 commands)
+Using device: cpu
+noise filter 500 us: kept 856341 of 1785554 events
+Loaded events        : 856341  span 30000 ms
+Processing resolution: 173 x 130
+Windows              : 300 @ 100 ms  (loop=True)
+Ground truth         : 173x130, 6 objects, radius 8.9 px, snap 17.7 px, spacing 58.6 px
+*** only 6% of event pixels fall on the mask's objects - the mask may not match this clip
+
+--- Type commands below ---
+
+  -> command set: 'left' (conf=0.878)  [1 logged, 8 left]
+  -> command set: 'down' (conf=0.91)  [2 logged, 7 left]
+  -> command set: 'left' (conf=0.878)  [3 logged, 6 left]
+  -> command set: 'up' (conf=0.835)  [4 logged, 5 left]
+  -> command set: 'right' (conf=0.914)  [5 logged, 4 left]
+  -> command set: 'right' (conf=0.875)  [6 logged, 3 left]
+  -> command set: 'up' (conf=0.925)  [7 logged, 2 left]
+  -> command set: 'right' (conf=0.91)  [8 logged, 1 left]
+  -> command set: 'up' (conf=0.843)  [9 logged, 0 left]
+
+mask 173x130, 6 objects, object radius 8.9 px, snap 17.7 px
+begin visual attention.
+most salient point in object 3 (star).
+command: up
+now most salient point in object 3 (star).   [KWS WRONG - heard unknown]
+command: left
+now most salient point in object 2 (bottle).   [OK]
+command: down
+now most salient point in object 5 (diamond).   [OK]
+command: left
+now most salient point in object 4 (heart).   [OK]
+command: up
+now most salient point in object 1 (apple).   [OK]
+command: right
+now most salient point in object 2 (bottle).   [OK]
+command: right
+now most salient point in object 3 (star).   [OK]
+command: up
+now most salient point in object 3 (star).   [no object that way]
+command: right
+now most salient point in object 3 (star).   [no object that way]
+command: up
+now most salient point in object 3 (star).   [no object that way]
+
+9/10 commands correct  (90.0%)
+fovea moved on 10/10 commands
+wrote written_auto/results_v2/davis_gscd_hw/11_t01_b07.csv
+KWS: 9/10 spoken commands recognised correctly
+
+Session ended. Frames shown: 337
+[kws] configured /home/pwz/Repo/VoiceNAS/NAS-GNN-KWS/HW/vivado/kws/kws_system.runs/impl_1/ok_top_wrapper.bit

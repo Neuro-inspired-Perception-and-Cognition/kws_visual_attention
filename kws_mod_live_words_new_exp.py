@@ -456,12 +456,17 @@ def write_results():
         start_id = object_near(mask, cents, ref, snap)
         if commander is not None:
             # CHANGED (random25): scoring rule 1 (impossible command = compliant unless attention jumped to another
-            # object) and rule 2 "either" (after an unlocked command the start object, if it lies that way, or the
-            # nearest other object that way are both OK). See auto_experiment.score_step.
+            # object) and rule 2 (v2: when the last command that moved the fovea ended without a lock, the start
+            # object, if it lies that way, or the nearest other object that way are both OK; spoken: a step the KWS
+            # did not hear correctly is not compliant). See auto_experiment.score_step.
             prev_locked = commander.prev_locked(i)
             landed = object_near(mask, cents, fov, snap)
-            target, verdict, ok = AX.score_step(mask, cents, snap, ref, r["direction"], prev_locked,
-                                                start_id, landed, object_near, oracle, label)
+            kws_ok = (r.get("recognized", r["direction"]) == r["direction"]) if commander.spoken else True
+            # rule 2 state as decided when the command was drawn (same rule as the command generator)
+            either = (not prev_locked) if AX.RULE == "either" else bool(commander.planned_either(i))
+            target, verdict, ok = AX.score_step(mask, cents, snap, ref, r["direction"], either,
+                                                start_id, landed, object_near, oracle, label,
+                                                kws_ok=kws_ok, recognized=r.get("recognized"))
         else:
             target = oracle(cents, ref, r["direction"], exclude=start_id)
             landed = object_near(mask, cents, fov, snap)
@@ -500,6 +505,7 @@ def write_results():
             row.update({"correct": int(ok),
                         "start_inside": int(inside == start_id and start_id is not None),
                         "prev_locked": int(prev_locked),
+                        "either": int(either), "planned_either": commander.planned_either(i), "rule": AX.RULE,
                         "impossible": int(target is None),
                         "planned_impossible": commander.planned_impossible(i),
                         "mode": commander.mode})
@@ -618,7 +624,8 @@ try:
         att_x, att_y = float(ax), float(ay)
         if commander is not None:   # CHANGED (random25): issue the next automated / spoken command when due
             commander.feed(count, locked, fx is not None, (att_x, att_y),
-                           lambda ref, d, pl: AX.target_for(MASK, CENTS, SNAP_PX, ref, d, pl, object_near, oracle))
+                           lambda ref, d, e: AX.target_for(MASK, CENTS, SNAP_PX, ref, d, e, object_near, oracle),
+                           lambda ref: object_near(MASK, CENTS, ref, SNAP_PX))
 
         if DEBUG:
             line = (f"win {count:5d} | {'LOCK' if locked else 'pan ':4} | "

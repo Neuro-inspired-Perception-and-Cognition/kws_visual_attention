@@ -1,0 +1,40 @@
+trial 01_t02_b03  (linguistic=0 visual=1 trial=2 batch=3)
+events : /media/pwz/KINGSTON/NAS-KWS/Experiments/Event and Grayscale data - DAVIS-20261116T144619Z-1-001/Event and Grayscale data - DAVIS/raw/events/6_circles_mono_nobg_346x260.npy
+mask   : stimuli/ground_truth_masks/davis_6_circles_mono_nobg_346x260.mask.npy
+result : written_auto/results_possible5/davis_written/01_t02_b03.csv   (limit 10 commands)
+Using device: cpu
+noise filter 500 us: kept 1244416 of 2241154 events
+Loaded events        : 1244416  span 30000 ms
+Processing resolution: 173 x 130
+Windows              : 300 @ 100 ms  (loop=True)
+note: snap clamped to 16.4 px around each shape (shapes are 36.5 px apart edge to edge)
+Ground truth         : 173x130, 6 objects, radius 11.3 px, snap 16.4 px, spacing 59.0 px
+*** only 11% of event pixels fall on the mask's objects - the mask may not match this clip
+
+--- Type commands below ---
+
+  -> command set: 'up' (conf=1.0)  [0 logged, 9 left]
+  -> command set: 'down' (conf=1.0)  [1 logged, 8 left]
+  -> command set: 'right' (conf=1.0)  [2 logged, 7 left]
+  -> command set: 'left' (conf=1.0)  [3 logged, 6 left]
+  -> command set: 'up' (conf=1.0)  [4 logged, 5 left]
+
+mask 173x130, 6 objects, object radius 11.3 px, snap 16.4 px
+begin visual attention.
+most salient point in object 5 (bottom-mid).
+command: up
+now most salient point in object 2 (top-mid).   [OK]
+command: down
+now most salient point in object 5 (bottom-mid).   [OK]
+command: right
+now most salient point in object 6 (bottom-right).   [OK]
+command: left
+now most salient point in object 5 (bottom-mid).   [OK]
+command: up
+now most salient point in object 2 (top-mid).   [OK]
+
+5/5 commands correct  (100.0%)
+fovea moved on 5/5 commands
+wrote written_auto/results_possible5/davis_written/01_t02_b03.csv
+
+Session ended. Frames shown: 76

@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,left,unknown,0.886,b49caed3_nohash_1.wav,1,23.0,120.0,23.0,120.0,7,object 7 (moon),0,background,7,KWS WRONG - heard unknown,0,0,1,0,0,v2,1,1,random25,7,16.0,12.5,11_t08_b10,1,1,8,10,50.0
+2,up,up,0.859,c7dc7278_nohash_2.wav,1,26.0,124.0,32.0,74.0,7,object 7 (moon),4,object 4 (heart),4,OK,1,0,0,0,0,v2,0,0,random25,4,13.2,12.5,11_t08_b10,1,1,8,10,50.0
+3,right,right,0.89,95ba4996_nohash_0.wav,1,32.0,74.0,68.0,76.0,4,object 4 (heart),5,object 5 (diamond),0,WRONG - expected object 5 (diamond),0,0,1,0,0,v2,0,0,random25,5,21.2,12.5,11_t08_b10,1,1,8,10,50.0
+4,right,right,0.902,e41a903b_nohash_1.wav,1,68.0,76.0,140.0,79.0,0,background,5,object 5 (diamond),6,WRONG - expected object 5 (diamond),0,0,1,0,0,v2,0,0,random25,6,14.5,12.5,11_t08_b10,1,1,8,10,50.0
+5,up,up,0.859,f9643d42_nohash_2.wav,1,140.0,79.0,142.0,9.0,6,object 6 (mushroom),3,object 3 (star),3,OK,1,0,1,0,0,v2,0,0,random25,3,16.6,12.5,11_t08_b10,1,1,8,10,50.0
+6,down,down,0.929,fb7eb481_nohash_0.wav,1,142.0,9.0,138.0,69.0,3,object 3 (star),3,object 3 (star),6,OK,1,0,0,1,1,v2,0,0,random25,6,5.9,12.5,11_t08_b10,1,1,8,10,50.0
+7,left,unknown,0.918,9a69672b_nohash_0.wav,1,138.0,69.0,138.0,69.0,6,object 6 (mushroom),5,object 5 (diamond),6,KWS WRONG - heard unknown,0,0,1,0,0,v2,0,0,random25,6,5.9,12.5,11_t08_b10,1,1,8,10,50.0
+8,down,down,0.871,837a0f64_nohash_2.wav,1,139.0,62.0,153.0,129.0,6,object 6 (mushroom),9,object 9 (mug),0,WRONG - expected object 9 (mug),0,1,0,0,0,v2,0,0,random25,9,28.0,12.5,11_t08_b10,1,1,8,10,50.0
+9,up,up,0.894,aef8dcf5_nohash_0.wav,1,153.0,129.0,139.0,71.0,0,background,6,object 6 (mushroom),6,OK,1,0,1,0,0,v2,0,0,random25,6,7.8,12.5,11_t08_b10,1,1,8,10,50.0
+10,left,left,0.831,a2473d62_nohash_1.wav,1,139.0,71.0,77.0,73.0,6,object 6 (mushroom),5,object 5 (diamond),5,OK,1,0,1,0,0,v2,0,0,random25,5,12.0,12.5,11_t08_b10,1,1,8,10,50.0

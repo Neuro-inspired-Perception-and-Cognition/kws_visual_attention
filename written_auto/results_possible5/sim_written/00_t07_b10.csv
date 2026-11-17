@@ -1,0 +1,6 @@
+step,command,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,1,158.0,0.0,138.0,33.0,0,background,6,object 6 (mushroom),3,WRONG - expected object 6 (mushroom),0,0,1,0,0,v2,0,0,random25,3,14.9,11.8,00_t07_b10,0,0,7,10,0.0
+2,left,1,138.0,33.0,55.0,32.0,3,object 3 (star),2,object 2 (bottle),1,WRONG - expected object 2 (bottle),0,0,1,0,0,v2,0,0,random25,1,15.9,11.8,00_t07_b10,0,0,7,10,0.0
+3,right,1,55.0,32.0,157.0,7.0,1,object 1 (apple),2,object 2 (bottle),0,WRONG - expected object 2 (bottle),0,0,1,0,0,v2,0,0,random25,3,30.8,11.8,00_t07_b10,0,0,7,10,0.0
+4,down,1,157.0,7.0,139.0,39.0,0,background,6,object 6 (mushroom),3,WRONG - expected object 6 (mushroom),0,0,1,0,0,v2,0,0,random25,3,20.5,11.8,00_t07_b10,0,0,7,10,0.0
+5,left,1,139.0,39.0,106.0,58.0,3,object 3 (star),2,object 2 (bottle),0,WRONG - expected object 2 (bottle),0,0,1,0,0,v2,0,0,random25,5,21.0,11.8,00_t07_b10,0,0,7,10,0.0

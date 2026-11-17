@@ -1,0 +1,11 @@
+step,command,recognized,kws_conf,wav,k,ref_x,ref_y,fovea_x,fovea_y,start_id,start,expected_id,expected,landed_id,verdict,correct,start_inside,prev_locked,either,planned_either,rule,impossible,planned_impossible,mode,nearest_id,nearest_px,snap_px,trial_id,linguistic,visual,trial,batch,accuracy
+1,down,down,0.922,daf230ac_nohash_0.wav,1,124.0,104.0,124.0,114.0,4,object 4 (bottom-right),0,background,4,no object that way,1,1,1,0,0,v2,1,1,random25,4,17.5,19.4,10_t10_b01,1,0,10,1,80.0
+2,up,up,0.831,2aa787cf_nohash_0.wav,1,124.0,114.0,126.0,101.0,4,object 4 (bottom-right),2,object 2 (top-right),4,OK,1,0,0,1,1,v2,0,0,random25,4,8.2,19.4,10_t10_b01,1,0,10,1,80.0
+3,right,up,0.839,9a7c1f83_nohash_4.wav,1,126.0,101.0,121.0,22.0,4,object 4 (bottom-right),0,background,2,KWS WRONG - heard up,0,1,1,0,0,v2,1,1,random25,2,10.6,19.4,10_t10_b01,1,0,10,1,80.0
+4,down,down,0.914,37fc5d97_nohash_0.wav,1,121.0,22.0,125.0,101.0,2,object 2 (top-right),4,object 4 (bottom-right),4,OK,1,1,1,0,0,v2,0,0,random25,4,7.3,19.4,10_t10_b01,1,0,10,1,80.0
+5,down,down,0.894,8fe67225_nohash_3.wav,1,125.0,101.0,125.0,114.0,4,object 4 (bottom-right),0,background,4,no object that way,1,1,1,0,0,v2,1,1,random25,4,17.8,19.4,10_t10_b01,1,0,10,1,80.0
+6,down,down,0.922,ffa76c4a_nohash_0.wav,1,125.0,114.0,124.0,114.0,4,object 4 (bottom-right),0,background,4,no object that way,1,0,0,1,1,v2,1,1,random25,4,17.5,19.4,10_t10_b01,1,0,10,1,80.0
+7,down,down,0.925,7257420c_nohash_1.wav,1,124.0,114.0,124.0,114.0,4,object 4 (bottom-right),0,background,4,no object that way,1,0,0,1,1,v2,1,1,random25,4,17.5,19.4,10_t10_b01,1,0,10,1,80.0
+8,left,up,0.804,f2e59fea_nohash_1.wav,1,124.0,114.0,124.0,101.0,4,object 4 (bottom-right),3,object 3 (bottom-left),4,KWS WRONG - heard up,0,0,0,1,1,v2,0,0,random25,4,6.5,19.4,10_t10_b01,1,0,10,1,80.0
+9,up,up,0.894,bfd26d6b_nohash_4.wav,1,124.0,101.0,120.0,22.0,4,object 4 (bottom-right),2,object 2 (top-right),2,OK,1,1,1,0,0,v2,0,0,random25,2,10.4,19.4,10_t10_b01,1,0,10,1,80.0
+10,down,down,0.906,6205088b_nohash_0.wav,1,120.0,22.0,124.0,101.0,2,object 2 (top-right),4,object 4 (bottom-right),4,OK,1,1,1,0,0,v2,0,0,random25,4,6.5,19.4,10_t10_b01,1,0,10,1,80.0
