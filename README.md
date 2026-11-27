@@ -203,7 +203,7 @@ Set the target part to `xc7a200tfbg484-1` and add the following sources (uncheck
 
 | Name | Affiliation | Role | Email |
 | --- | --- | --- | --- |
-| Rayane Rocha | NPC Lab, UFPB | Bachelor student | rrrds@academico.ufpb.br |
+| Rayane Rocha | NPC Lab, UFPB | Bachelor's student | rrrds@academico.ufpb.br |
 | Paolo Ritirato | NPC Lab, FEL, CTU | Collaborator | paolo.ritirato@fel.cvut.cz |
 | Piotr Wzorek | EPAS group, AGH University, Kraków | Collaborator | pwzorek@agh.edu.pl |
 | Tomasz Kryjak | EPAS group, AGH University, Kraków | Collaborator | tomasz.kryjak@agh.edu.pl |
@@ -212,4 +212,4 @@ Set the target part to `xc7a200tfbg484-1` and add the following sources (uncheck
 
 ## Acknowledgements
 
-This work was carried out at the Neuro-inspired Perception and Cognition (NPC) Lab at FEL and the Robotic perception group at CIIRC in the Czech Technical University in Prague, supported by the [ROBOPROX Women's Forum](https://roboprox.eu/news/new-awardees-of-the-roboprox-women-forum-grants/) project. Furthermore, it was supported by the [Excellence initiative —— research university programme](https://excellence.agh.edu.pl/) for the AGH University of Krakow. This made work use of the Polish high-performance computing infrastructure PLGrid.
+This work was carried out at the Neuro-inspired Perception and Cognition (NPC) Lab at FEL and the Robotic perception group at CIIRC in the Czech Technical University in Prague, supported by the [ROBOPROX Women's Forum](https://roboprox.eu/news/new-awardees-of-the-roboprox-women-forum-grants/) project. Furthermore, it was supported by the [Excellence initiative — research university programme](https://excellence.agh.edu.pl/) for the AGH University of Krakow. This made work use of the Polish high-performance computing infrastructure PLGrid.
