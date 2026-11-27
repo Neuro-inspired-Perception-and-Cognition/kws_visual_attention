@@ -1,14 +1,17 @@
 
-# Influencing spiking-based visual attention with written and spoken commands on FPGA
+# Talk to look: Modulating spiking-based visual attention through keyword spotting on FPGA
 
-> A bio-inspired system in which language steers vision. A spoken word reshapes where an event-driven attention model looks, redirecting the fovea toward the named direction.
+<p align="center">
+    <img width="7243" height="3431" alt="architecture overview" src="https://github.com/user-attachments/assets/952a049c-c0fc-4b46-ae84-fd640c6a938d" />
+</p>
+
+> A bio-inspired system in which spoken directional keywords, recognized by a graph neural network on an FPGA from neuromorphic auditory events, modulates a spiking proto-object attention model.
 
 ---
 
 ## Table of contents
 
 - [Overview](#overview)
-- [Architecture](#architecture)
 - [Demos (TBD)](#demos)
 - [1. Visual attention (KWS modulation)](#1-visual-attention-kws-modulation)
 - [2. DAVIS346 event camera](#2-davis346-event-camera)
@@ -29,28 +32,6 @@ The pipeline couples two neuromorphic pathways:
 - **Auditory pathway.** An artificial cochlea turns speech into spikes that drive a GNN-based keyword-spotting network (NAS-GNN-KWS) deployed on an Opal Kelly XEM7310-A200 (Artix-7) FPGA.
 
 When a directional keyword (left / right / up / down) is detected, it applies a Gaussian centered on a fovea and its displacementto onto the saliency map, biasing attention toward the spoken target.
-
-## Architecture
-
-```mermaid
-flowchart LR
-    subgraph V["Visual pathway (CPU)"]
-        direction TB
-        CAM["DAVIS346 event camera"] --> EV["Event stream"]
-        EV --> SAL["Spiking saliency pyramid<br/>Von Mises - LIF"]
-        SAL --> SMAP["Bottom-up saliency map"]
-    end
-    subgraph A["Auditory pathway (FPGA)"]
-        direction TB
-        MIC["Microphone"] --> COCH["Artificial cochlea<br/>audio → spikes"]
-        COCH --> KWS["NAS-GNN-KWS"]
-        KWS --> WORD["Directional keyword<br/>left/right/up/down"]
-    end
-    SMAP --> MOD{"Directional Gaussian<br/>modulation"}
-    WORD --> MOD
-    MOD --> TGT["Modulated saliency<br/>→ fovea target"]
-    TGT --> SYSTEM["Attention redirect"]
-```
 
 
 ---
@@ -89,7 +70,7 @@ python kws_mod_live_words.py
 # KWS modulation with camera - live camera + written commands
 python kws_mod_cam_words.py
 
-# Full experiment - live camera + spoken commands
+# Full setup - live camera + spoken commands
 python kws_mod_cam_fpga.py
 ```
 ### 1.2. Generating synthetic scenes (TBD)
@@ -231,11 +212,12 @@ Set the target part to `xc7a200tfbg484-1` and add the following sources (uncheck
 | Name | Affiliation | Role | Email |
 | --- | --- | --- | --- |
 | Rayane Rocha | NPC Lab, UFPB | Bachelor student | rrrds@academico.ufpb.br |
-| Piotr Wzorek | EVS group, AGH University, Kraków | Collaborator | pwzorek@agh.edu.pl |
 | Paolo Ritirato | NPC Lab, FEL, CTU | Collaborator | paolo.ritirato@fel.cvut.cz |
+| Piotr Wzorek | EPAS group, AGH University, Kraków | Collaborator | pwzorek@agh.edu.pl |
+| Tomasz Kryjak | EPAS group, AGH University, Kraków | Collaborator | tomasz.kryjak@agh.edu.pl |
 | Dr. Karla Štěpánová | ROP group, CIIRC, CTU | Co-supervisor | karla.stepanova@cvut.cz   |
 | Dr. Giulia D'Angelo | NPC Lab, FEL, CTU | Supervisor | giulia.dangelo@fel.cvut.cz |
 
 ## Acknowledgements
 
-This work was carried out at the Neuro-inspired Perception and Cognition (NPC) Lab at FEL and the Robotic perception group at CIIRC in the Czech Technical University in Prague, supported by the [ROBOPROX Women's Forum](https://roboprox.eu/news/new-awardees-of-the-roboprox-women-forum-grants/) project. 
+This work was carried out at the Neuro-inspired Perception and Cognition (NPC) Lab at FEL and the Robotic perception group at CIIRC in the Czech Technical University in Prague, supported by the [ROBOPROX Women's Forum](https://roboprox.eu/news/new-awardees-of-the-roboprox-women-forum-grants/) project. Furthermore, it was supported by the `Excellence initiative -- research university' programme for the AGH University of Krakow and by the Polish National Science Centre project 2024/53/N/ST6/04331. This work used the Polish high-performance computing infrastructure PLGrid (HPC Center: ACK Cyfronet AGH), grant no.~PLG/2026/019156.
