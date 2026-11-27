@@ -5,7 +5,7 @@
     <img width="7243" height="3431" alt="architecture overview" src="https://github.com/user-attachments/assets/952a049c-c0fc-4b46-ae84-fd640c6a938d" />
 </p>
 
-> A bio-inspired system in which spoken directional keywords, recognized by a graph neural network on an FPGA from neuromorphic auditory events, modulates a spiking proto-object attention model.
+> A bio-inspired system that brings top-down, language-driven control to spiking visual attention as spoken directional keywords, recognized by a graph neural network on an FPGA, modulate a spiking proto-object attention model. Following principles of human attention, each direction word shifts attention towards a new object.
 
 ---
 
