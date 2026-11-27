@@ -26,17 +26,17 @@
 
 This system lets a spoken word modulate low-level visual processing directly, so language changes what the system finds salient - and therefore where it looks - end to end with event-based sensing and spiking computation.
 
-The pipeline couples two neuromorphic pathways:
+The pipeline couples two neuromorphic modules:
 
-- **Visual pathway.** A DAVIS346 event camera feeds a spiking saliency pyramid (Von Mises orientation filters over LIF neurons), producing a bottom-up saliency map.
-- **Auditory pathway.** An artificial cochlea turns speech into spikes that drive a GNN-based keyword-spotting network (NAS-GNN-KWS) deployed on an Opal Kelly XEM7310-A200 (Artix-7) FPGA.
+- **Visual modules:** A DAVIS346 event camera feeds a spiking saliency pyramid (Von Mises orientation filters over LIF neurons), producing a bottom-up saliency map.
+- **Auditory modules:** A neuromorphiv auditory sensor turns speech into spikes that drive a GNN-based keyword-spotting network (NAS-GNN-KWS) deployed on an Opal Kelly XEM7310-A200 (Artix-7) FPGA.
 
 When a directional keyword (left / right / up / down) is detected, it applies a Gaussian centered on a fovea and its displacementto onto the saliency map, biasing attention toward the spoken target.
 
 
 ---
 
-## 1. Visual attention (KWS modulation)
+## 1. Visual attention 
 
 ### 1.1. Environment setup
 
@@ -118,17 +118,12 @@ sudo usermod -aG plugdev $USER
 
 ## 3. NAS and KWS on FPGA
 
-Deployment target: Opal Kelly XEM7310-A200 (Xilinx Artix-7). 
+Deployment on an **Opal Kelly XEM7310-A200 (Xilinx Artix-7)**. 
 
 Below you can see an overview of the setup.
 
 <img width="1596" height="591" alt="benner nas-kws overview" src="https://github.com/user-attachments/assets/c6a424e2-7dc3-4ee5-9a77-495390e7456d" />
 
-## 3. NAS and KWS on FPGA
-
-**Deployment target:** Opal Kelly XEM7310-A200 (Xilinx Artix-7).
-
----
 
 ### 3.1. Software — train and export the model
 
