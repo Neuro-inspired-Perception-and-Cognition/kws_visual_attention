@@ -13,7 +13,7 @@
 
 - [Overview](#overview)
 - [Demos (TBD)](#demos)
-- [1. Visual attention (KWS modulation)](#1-visual-attention-kws-modulation)
+- [1. Command modulation](#1-command-modulation)
 - [2. DAVIS346 event camera](#2-davis346-event-camera)
 - [3. NAS and KWS on FPGA](#3-nas-and-kws-on-fpga)
 - [Team](#team)
@@ -29,14 +29,14 @@ This system lets a spoken word modulate low-level visual processing directly, so
 The pipeline couples two neuromorphic modules:
 
 - **Visual modules:** A DAVIS346 event camera feeds a spiking saliency pyramid (Von Mises orientation filters over LIF neurons), producing a bottom-up saliency map.
-- **Auditory modules:** A neuromorphiv auditory sensor turns speech into spikes that drive a GNN-based keyword-spotting network (NAS-GNN-KWS) deployed on an Opal Kelly XEM7310-A200 (Artix-7) FPGA.
+- **Auditory modules:** A neuromorphiv auditory sensor (NAS) turns speech into spikes that drive a GNN-based keyword-spotting network (KWS-GNN) deployed on an Opal Kelly XEM7310-A200 (Artix-7) FPGA.
 
-When a directional keyword (left / right / up / down) is detected, it applies a Gaussian centered on a fovea and its displacementto onto the saliency map, biasing attention toward the spoken target.
+When a directional keyword (left, right, up, and down) is detected, it applies a Gaussian centered on a fovea and its displacement onto the saliency map, biasing attention toward the spoken target.
 
 
 ---
 
-## 1. Visual attention 
+## 1. Command modulation on the spiking visual attention model (sVA)
 
 ### 1.1. Environment setup
 
@@ -73,9 +73,6 @@ python kws_mod_cam_words.py
 # Full setup - live camera + spoken commands
 python kws_mod_cam_fpga.py
 ```
-### 1.2. Generating synthetic scenes (TBD)
-
----
 
 ## 2. DAVIS346 event camera
 
